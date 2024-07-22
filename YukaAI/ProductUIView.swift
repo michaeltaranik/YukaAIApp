@@ -13,7 +13,7 @@ class ProductViewModel: ObservableObject {
     @Published var animate = 0
     @Published var approved = true
     @Published var icon = ""
-    @Published var text = "Show Image!"
+    @Published var text = "Display Results!"
     @Published var foreColor = Color(.darkGrey)
     @Published var backColor = Color(.lightGrey)
     

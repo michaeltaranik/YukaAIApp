@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct ProgressView: View {
+struct StatsView: View {
     var body: some View {
         ZStack {
             Color(.lightGreen)
@@ -19,5 +19,5 @@ struct ProgressView: View {
 }
 
 #Preview {
-    ProgressView()
+    StatsView()
 }

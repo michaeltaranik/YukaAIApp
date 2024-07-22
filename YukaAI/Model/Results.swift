@@ -37,6 +37,6 @@ struct Nutriments: Codable {
     let fat_100g: Double
     let carbohydrates_100g: Double
     let proteins_100g: Double
-    let fiber_100g: Double
+    let fiber_100g: Double?
     let sugars_100g: Double
 }

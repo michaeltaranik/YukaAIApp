@@ -70,24 +70,36 @@ struct Concurrency: View {
     
     var body: some View {
         
-        ZStack {
-            Color(.lightGreen)
-                .ignoresSafeArea()
-            HStack {
-                Image(systemName: "checkmark.circle.fill")
-                Text(viewModel.text)
-                    .padding(-5)
-                    .font(.system(size: 24))
+//        ZStack {
+//            Color(.lightGreen)
+//                .ignoresSafeArea()
+//            HStack {
+//                Image(systemName: "checkmark.circle.fill")
+//                Text(viewModel.text)
+//                    .padding(-5)
+//                    .font(.system(size: 24))
+//            }
+//                    .frame(width: 200, height: 100)
+//                    .background(.lightGreen)
+//                    .foregroundColor(.darkGreen)
+//                    .onTapGesture {
+//                        viewModel.fetchTitle()
+//                    }
+//                    .cornerRadius(20)
+//                    .shadow(radius: 20)
+//        }
+        ScrollView {
+            VStack(spacing: 20) {
+                ForEach(0..<10) {
+                    Text("Item \($0)")
+                        .foregroundStyle(.white)
+                        .font(.largeTitle)
+                        .frame(width: 200, height: 200)
+                        .background(.red)
+                }
             }
-                    .frame(width: 200, height: 100)
-                    .background(.lightGreen)
-                    .foregroundColor(.darkGreen)
-                    .onTapGesture {
-                        viewModel.fetchTitle()
-                    }
-                    .cornerRadius(20)
-                    .shadow(radius: 20)
         }
+//        .frame(height: 350)
     }
 }
 

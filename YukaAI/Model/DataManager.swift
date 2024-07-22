@@ -9,6 +9,10 @@ import Foundation
 import SwiftUI
 
 
+protocol DataManagerDelegate {
+    func didLoadResult(_ dataManager: DataManager, results: Results)
+}
+
 
 class DataManager: ObservableObject {
     
@@ -16,9 +20,9 @@ class DataManager: ObservableObject {
     @Published var results: Results?
     
     let urlString = "https://world.openfoodfacts.org/api/v3/product/"
-    
     let searchString = "https://world.openfoodfacts.org/cgi/search.pl"
     
+    var delegate: DataManagerDelegate?
     
     func fetchData(barcode: String) {
         if let url = URL(string: urlString + barcode + ".json") {
@@ -33,6 +37,7 @@ class DataManager: ObservableObject {
                             DispatchQueue.main.async {
                                 self.results = results
                                 print(results)
+                                self.delegate?.didLoadResult(self, results: self.results!)
                             }
                         } catch {
                             print(error)

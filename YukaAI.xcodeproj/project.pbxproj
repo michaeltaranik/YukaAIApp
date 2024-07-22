@@ -18,7 +18,7 @@
 		E459565F2C4D65D0000B5058 /* SearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E459565E2C4D65D0000B5058 /* SearchView.swift */; };
 		E45956612C4E1355000B5058 /* HealthManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E45956602C4E1355000B5058 /* HealthManager.swift */; };
 		E45956662C4E1548000B5058 /* HealthView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E45956652C4E1548000B5058 /* HealthView.swift */; };
-		E45956682C4E1908000B5058 /* ProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E45956672C4E1908000B5058 /* ProgressView.swift */; };
+		E45956682C4E1908000B5058 /* StatsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E45956672C4E1908000B5058 /* StatsView.swift */; };
 		E459566A2C4E1949000B5058 /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E45956692C4E1949000B5058 /* ProfileView.swift */; };
 		E459566C2C4E1A02000B5058 /* AssistantView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E459566B2C4E1A02000B5058 /* AssistantView.swift */; };
 		E4A955892C3C5980009D7F11 /* YukaAIApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4A955882C3C5980009D7F11 /* YukaAIApp.swift */; };
@@ -60,7 +60,7 @@
 		E45956602C4E1355000B5058 /* HealthManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HealthManager.swift; sourceTree = "<group>"; };
 		E45956622C4E139F000B5058 /* YukaAI.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = YukaAI.entitlements; sourceTree = "<group>"; };
 		E45956652C4E1548000B5058 /* HealthView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HealthView.swift; sourceTree = "<group>"; };
-		E45956672C4E1908000B5058 /* ProgressView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressView.swift; sourceTree = "<group>"; };
+		E45956672C4E1908000B5058 /* StatsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatsView.swift; sourceTree = "<group>"; };
 		E45956692C4E1949000B5058 /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
 		E459566B2C4E1A02000B5058 /* AssistantView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssistantView.swift; sourceTree = "<group>"; };
 		E4A955852C3C5980009D7F11 /* YukaAI.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = YukaAI.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -124,7 +124,7 @@
 			isa = PBXGroup;
 			children = (
 				E45956652C4E1548000B5058 /* HealthView.swift */,
-				E45956672C4E1908000B5058 /* ProgressView.swift */,
+				E45956672C4E1908000B5058 /* StatsView.swift */,
 				E459565A2C4D5A8C000B5058 /* ScanView.swift */,
 				E459566B2C4E1A02000B5058 /* AssistantView.swift */,
 				E45956692C4E1949000B5058 /* ProfileView.swift */,
@@ -338,7 +338,7 @@
 				E459563C2C47CFAF000B5058 /* Concurrency.swift in Sources */,
 				E45956532C4D3284000B5058 /* ProductUIView.swift in Sources */,
 				E4A955892C3C5980009D7F11 /* YukaAIApp.swift in Sources */,
-				E45956682C4E1908000B5058 /* ProgressView.swift in Sources */,
+				E45956682C4E1908000B5058 /* StatsView.swift in Sources */,
 				E459565F2C4D65D0000B5058 /* SearchView.swift in Sources */,
 				E45956662C4E1548000B5058 /* HealthView.swift in Sources */,
 			);

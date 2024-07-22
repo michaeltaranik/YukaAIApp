@@ -18,7 +18,7 @@ class ImageLoader {
             case .empty:
                 ZStack {
                     Color.gray
-                    ProgressView()
+                    StatsView()
                 }
             case .success(let image):
                 image.resizable()

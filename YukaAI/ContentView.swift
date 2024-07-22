@@ -16,6 +16,8 @@ class ContentViewManager: ObservableObject {
 }
 
 struct ContentView: View {
+
+    
     @StateObject var contentManager = ContentViewManager()
     
     var body: some View {
@@ -31,12 +33,11 @@ struct ContentView: View {
                 ZStack {
                     TabView {
                         HealthTabView()
-                        ProgressTabView()
+                        StatsTabView()
                         ScanTabView()
                         AssistantTabView()
                         ProfileTabView()
                     }
-                    .padding(.top)
                 }
             })
         }
@@ -88,12 +89,12 @@ struct ScanTabView: View {
 }
 
 //MARK: - ProgressTab
-struct ProgressTabView: View {
+struct StatsTabView: View {
     @EnvironmentObject var contentManager: ContentViewManager
     
     
     var body: some View {
-        ProgressView()
+        StatsView()
             .onAppear {
                 contentManager.changeTitle("Progress")
             }
