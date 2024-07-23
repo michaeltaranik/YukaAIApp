@@ -28,7 +28,6 @@
 		E459566C2C4E1A02000B5058 /* AssistantView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E459566B2C4E1A02000B5058 /* AssistantView.swift */; };
 		E459566F2C4E76A8000B5058 /* CartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E459566E2C4E76A8000B5058 /* CartView.swift */; };
 		E45956712C4FB3C1000B5058 /* ConnectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E45956702C4FB3C1000B5058 /* ConnectionView.swift */; };
-		E45956742C4FCD5B000B5058 /* CodeScanner in Frameworks */ = {isa = PBXBuildFile; productRef = E45956732C4FCD5B000B5058 /* CodeScanner */; };
 		E45956762C4FCFAF000B5058 /* ScanningView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E45956752C4FCFAF000B5058 /* ScanningView.swift */; };
 		E4A955892C3C5980009D7F11 /* YukaAIApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4A955882C3C5980009D7F11 /* YukaAIApp.swift */; };
 		E4A9558B2C3C5980009D7F11 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4A9558A2C3C5980009D7F11 /* ContentView.swift */; };
@@ -97,7 +96,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E45956742C4FCD5B000B5058 /* CodeScanner in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -246,7 +244,6 @@
 			);
 			name = YukaAI;
 			packageProductDependencies = (
-				E45956732C4FCD5B000B5058 /* CodeScanner */,
 			);
 			productName = YukaAI;
 			productReference = E4A955852C3C5980009D7F11 /* YukaAI.app */;
@@ -321,7 +318,6 @@
 			);
 			mainGroup = E4A9557C2C3C5980009D7F11;
 			packageReferences = (
-				E45956722C4FCD5B000B5058 /* XCRemoteSwiftPackageReference "CodeScanner" */,
 			);
 			productRefGroup = E4A955862C3C5980009D7F11 /* Products */;
 			projectDirPath = "";
@@ -728,25 +724,6 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
-
-/* Begin XCRemoteSwiftPackageReference section */
-		E45956722C4FCD5B000B5058 /* XCRemoteSwiftPackageReference "CodeScanner" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/twostraws/CodeScanner";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 2.5.0;
-			};
-		};
-/* End XCRemoteSwiftPackageReference section */
-
-/* Begin XCSwiftPackageProductDependency section */
-		E45956732C4FCD5B000B5058 /* CodeScanner */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = E45956722C4FCD5B000B5058 /* XCRemoteSwiftPackageReference "CodeScanner" */;
-			productName = CodeScanner;
-		};
-/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = E4A9557D2C3C5980009D7F11 /* Project object */;
 }
