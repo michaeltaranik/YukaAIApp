@@ -17,6 +17,7 @@ class ContentViewManager: ObservableObject {
 
 struct ContentView: View {
 
+    @EnvironmentObject var vm: ScanViewModel
     
     @StateObject var contentManager = ContentViewManager()
     
@@ -35,6 +36,7 @@ struct ContentView: View {
                         CartTabView()
                         StatsTabView()
                         ScanTabView()
+                            .environmentObject(vm)
                         AssistantTabView()
                         ProfileTabView()
                     }
@@ -45,11 +47,7 @@ struct ContentView: View {
     }
 }
 
-struct ContentView_Previews: PreviewProvider {
-    static var previews: some View {
-        ContentView()
-    }
-}
+
 
 
 //MARK: - CartTab
@@ -73,10 +71,12 @@ struct CartTabView: View {
 //MARK: - ScanTab
 struct ScanTabView: View {
     @EnvironmentObject var contentManager: ContentViewManager
-    
+    @EnvironmentObject var vm: ScanViewModel
     
     var body: some View {
-        ScanView()
+//        ScanView()
+        BarcodeScannerView()
+            .environmentObject(vm)
             .onAppear {
                 contentManager.changeTitle("Scan")
             }
@@ -86,6 +86,7 @@ struct ScanTabView: View {
                     .font(.system(size: 20))
             }
     }
+    
 }
 
 //MARK: - ProgressTab
@@ -140,5 +141,13 @@ struct ProfileTabView: View {
                 Text("Profile")
                     .font(.system(size: 20))
             }
+    }
+}
+
+//MARK: - ContentPreview
+
+struct ContentView_Previews: PreviewProvider {
+    static var previews: some View {
+        ContentView()
     }
 }
