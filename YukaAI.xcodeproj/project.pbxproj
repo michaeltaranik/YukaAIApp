@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		E40A4EE42C4FD69100167FBD /* CameraManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E40A4EE32C4FD69100167FBD /* CameraManager.swift */; };
 		E40A4EE62C4FDB6600167FBD /* CameraView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E40A4EE52C4FDB6600167FBD /* CameraView.swift */; };
+		E40A4EE92C4FFBA100167FBD /* ScanViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E40A4EE82C4FFBA100167FBD /* ScanViewModel.swift */; };
 		E459563C2C47CFAF000B5058 /* Concurrency.swift in Sources */ = {isa = PBXBuildFile; fileRef = E459563B2C47CFAF000B5058 /* Concurrency.swift */; };
 		E45956442C4A65D9000B5058 /* ImageLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = E45956432C4A65D9000B5058 /* ImageLoader.swift */; };
 		E45956462C4BD289000B5058 /* FirstView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E45956452C4BD289000B5058 /* FirstView.swift */; };
@@ -56,6 +57,7 @@
 /* Begin PBXFileReference section */
 		E40A4EE32C4FD69100167FBD /* CameraManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraManager.swift; sourceTree = "<group>"; };
 		E40A4EE52C4FDB6600167FBD /* CameraView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraView.swift; sourceTree = "<group>"; };
+		E40A4EE82C4FFBA100167FBD /* ScanViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScanViewModel.swift; sourceTree = "<group>"; };
 		E459563B2C47CFAF000B5058 /* Concurrency.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Concurrency.swift; sourceTree = "<group>"; };
 		E45956432C4A65D9000B5058 /* ImageLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageLoader.swift; sourceTree = "<group>"; };
 		E45956452C4BD289000B5058 /* FirstView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstView.swift; sourceTree = "<group>"; };
@@ -112,6 +114,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		E40A4EE72C4FFB4F00167FBD /* BarcodeScanner */ = {
+			isa = PBXGroup;
+			children = (
+				E40A4EE82C4FFBA100167FBD /* ScanViewModel.swift */,
+			);
+			path = BarcodeScanner;
+			sourceTree = "<group>";
+		};
 		E45956492C4D2975000B5058 /* Model */ = {
 			isa = PBXGroup;
 			children = (
@@ -126,6 +136,9 @@
 		E45956642C4E14C8000B5058 /* TestView */ = {
 			isa = PBXGroup;
 			children = (
+				E459563B2C47CFAF000B5058 /* Concurrency.swift */,
+				E45956432C4A65D9000B5058 /* ImageLoader.swift */,
+				E45956522C4D3284000B5058 /* ProductUIView.swift */,
 				E459565E2C4D65D0000B5058 /* SearchView.swift */,
 				E45956452C4BD289000B5058 /* FirstView.swift */,
 				E459565C2C4D6191000B5058 /* SecondView.swift */,
@@ -176,10 +189,8 @@
 				E4A955882C3C5980009D7F11 /* YukaAIApp.swift */,
 				E4A9558A2C3C5980009D7F11 /* ContentView.swift */,
 				E459566D2C4E1E70000B5058 /* MainTabViews */,
-				E459563B2C47CFAF000B5058 /* Concurrency.swift */,
-				E45956522C4D3284000B5058 /* ProductUIView.swift */,
+				E40A4EE72C4FFB4F00167FBD /* BarcodeScanner */,
 				E45956492C4D2975000B5058 /* Model */,
-				E45956432C4A65D9000B5058 /* ImageLoader.swift */,
 				E45956642C4E14C8000B5058 /* TestView */,
 				E4A9558C2C3C5982009D7F11 /* Assets.xcassets */,
 				E4A9558E2C3C5982009D7F11 /* Preview Content */,
@@ -351,6 +362,7 @@
 				E45956482C4C313C000B5058 /* DataManager.swift in Sources */,
 				E45956462C4BD289000B5058 /* FirstView.swift in Sources */,
 				E459564B2C4D29A0000B5058 /* Results.swift in Sources */,
+				E40A4EE92C4FFBA100167FBD /* ScanViewModel.swift in Sources */,
 				E459566F2C4E76A8000B5058 /* CartView.swift in Sources */,
 				E459566C2C4E1A02000B5058 /* AssistantView.swift in Sources */,
 				E45956442C4A65D9000B5058 /* ImageLoader.swift in Sources */,

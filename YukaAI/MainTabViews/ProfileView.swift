@@ -7,6 +7,7 @@
 
 import SwiftUI
 
+
 struct ProfileView: View {
     @State var darkMode = false
     @State var showHealth = false
