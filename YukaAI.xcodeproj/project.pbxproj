@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		E40A4EE42C4FD69100167FBD /* CameraManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E40A4EE32C4FD69100167FBD /* CameraManager.swift */; };
+		E40A4EE62C4FDB6600167FBD /* CameraView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E40A4EE52C4FDB6600167FBD /* CameraView.swift */; };
 		E459563C2C47CFAF000B5058 /* Concurrency.swift in Sources */ = {isa = PBXBuildFile; fileRef = E459563B2C47CFAF000B5058 /* Concurrency.swift */; };
 		E45956442C4A65D9000B5058 /* ImageLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = E45956432C4A65D9000B5058 /* ImageLoader.swift */; };
 		E45956462C4BD289000B5058 /* FirstView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E45956452C4BD289000B5058 /* FirstView.swift */; };
@@ -52,6 +54,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		E40A4EE32C4FD69100167FBD /* CameraManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraManager.swift; sourceTree = "<group>"; };
+		E40A4EE52C4FDB6600167FBD /* CameraView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraView.swift; sourceTree = "<group>"; };
 		E459563B2C47CFAF000B5058 /* Concurrency.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Concurrency.swift; sourceTree = "<group>"; };
 		E45956432C4A65D9000B5058 /* ImageLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageLoader.swift; sourceTree = "<group>"; };
 		E45956452C4BD289000B5058 /* FirstView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstView.swift; sourceTree = "<group>"; };
@@ -114,6 +118,7 @@
 				E45956472C4C313C000B5058 /* DataManager.swift */,
 				E459564A2C4D29A0000B5058 /* Results.swift */,
 				E45956602C4E1355000B5058 /* HealthManager.swift */,
+				E40A4EE32C4FD69100167FBD /* CameraManager.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -139,6 +144,7 @@
 				E45956702C4FB3C1000B5058 /* ConnectionView.swift */,
 				E45956652C4E1548000B5058 /* HealthView.swift */,
 				E45956752C4FCFAF000B5058 /* ScanningView.swift */,
+				E40A4EE52C4FDB6600167FBD /* CameraView.swift */,
 			);
 			path = MainTabViews;
 			sourceTree = "<group>";
@@ -356,6 +362,8 @@
 				E45956762C4FCFAF000B5058 /* ScanningView.swift in Sources */,
 				E45956612C4E1355000B5058 /* HealthManager.swift in Sources */,
 				E459563C2C47CFAF000B5058 /* Concurrency.swift in Sources */,
+				E40A4EE42C4FD69100167FBD /* CameraManager.swift in Sources */,
+				E40A4EE62C4FDB6600167FBD /* CameraView.swift in Sources */,
 				E45956532C4D3284000B5058 /* ProductUIView.swift in Sources */,
 				E4A955892C3C5980009D7F11 /* YukaAIApp.swift in Sources */,
 				E45956682C4E1908000B5058 /* StatsView.swift in Sources */,
@@ -528,7 +536,7 @@
 				DEVELOPMENT_TEAM = R9985Q9W5Q;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_KEY_LSApplicationCategoryType = "";
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.food-and-drink";
 				INFOPLIST_KEY_NSCameraUsageDescription = "We need to scan QR codes";
 				INFOPLIST_KEY_NSHealthShareUsageDescription = "To read the health data and show it in the application.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
@@ -536,6 +544,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 17.5;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -561,7 +570,7 @@
 				DEVELOPMENT_TEAM = R9985Q9W5Q;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_KEY_LSApplicationCategoryType = "";
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.food-and-drink";
 				INFOPLIST_KEY_NSCameraUsageDescription = "We need to scan QR codes";
 				INFOPLIST_KEY_NSHealthShareUsageDescription = "To read the health data and show it in the application.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
@@ -569,6 +578,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 17.5;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

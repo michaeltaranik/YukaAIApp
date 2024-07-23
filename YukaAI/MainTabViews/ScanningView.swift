@@ -12,15 +12,35 @@ struct ScanningView: View {
     @State private var isShowingScanner = true
     
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
-    }
+        NavigationStack {
+            NavigationLink("Open Scanner") {
+                CodeScannerView(
+                    codeTypes: [.qr],
+                    simulatedData: "Paul Hudson\npaul@hackingwithswift.com",
+                    completion: handleScan)
+            }
+            .foregroundStyle(.darkGreen)
+            .frame(width: 200, height: 100)
+            .background(.lightGreen)
+            .cornerRadius(10)
+            .shadow(radius: 10)
+            .sheet(isPresented: $isShowingScanner) {
+                        CameraView { code in
+                            self.isShowingScanner = true
+                        }
+                    }
+        }
+        }
     
     
     func handleScan(result: Result<ScanResult, ScanError>) {
-       isShowingScanner = false
+       isShowingScanner = true
        // more code to come
     }
 }
+
+
+
 
 #Preview {
     ScanningView()
