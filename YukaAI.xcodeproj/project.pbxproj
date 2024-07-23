@@ -21,6 +21,10 @@
 		E45956682C4E1908000B5058 /* StatsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E45956672C4E1908000B5058 /* StatsView.swift */; };
 		E459566A2C4E1949000B5058 /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E45956692C4E1949000B5058 /* ProfileView.swift */; };
 		E459566C2C4E1A02000B5058 /* AssistantView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E459566B2C4E1A02000B5058 /* AssistantView.swift */; };
+		E459566F2C4E76A8000B5058 /* CartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E459566E2C4E76A8000B5058 /* CartView.swift */; };
+		E45956712C4FB3C1000B5058 /* ConnectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E45956702C4FB3C1000B5058 /* ConnectionView.swift */; };
+		E45956742C4FCD5B000B5058 /* CodeScanner in Frameworks */ = {isa = PBXBuildFile; productRef = E45956732C4FCD5B000B5058 /* CodeScanner */; };
+		E45956762C4FCFAF000B5058 /* ScanningView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E45956752C4FCFAF000B5058 /* ScanningView.swift */; };
 		E4A955892C3C5980009D7F11 /* YukaAIApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4A955882C3C5980009D7F11 /* YukaAIApp.swift */; };
 		E4A9558B2C3C5980009D7F11 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4A9558A2C3C5980009D7F11 /* ContentView.swift */; };
 		E4A9558D2C3C5982009D7F11 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E4A9558C2C3C5982009D7F11 /* Assets.xcassets */; };
@@ -63,6 +67,9 @@
 		E45956672C4E1908000B5058 /* StatsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatsView.swift; sourceTree = "<group>"; };
 		E45956692C4E1949000B5058 /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
 		E459566B2C4E1A02000B5058 /* AssistantView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssistantView.swift; sourceTree = "<group>"; };
+		E459566E2C4E76A8000B5058 /* CartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartView.swift; sourceTree = "<group>"; };
+		E45956702C4FB3C1000B5058 /* ConnectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConnectionView.swift; sourceTree = "<group>"; };
+		E45956752C4FCFAF000B5058 /* ScanningView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScanningView.swift; sourceTree = "<group>"; };
 		E4A955852C3C5980009D7F11 /* YukaAI.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = YukaAI.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E4A955882C3C5980009D7F11 /* YukaAIApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YukaAIApp.swift; sourceTree = "<group>"; };
 		E4A9558A2C3C5980009D7F11 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -80,6 +87,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E45956742C4FCD5B000B5058 /* CodeScanner in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -123,11 +131,14 @@
 		E459566D2C4E1E70000B5058 /* MainTabViews */ = {
 			isa = PBXGroup;
 			children = (
-				E45956652C4E1548000B5058 /* HealthView.swift */,
+				E459566E2C4E76A8000B5058 /* CartView.swift */,
 				E45956672C4E1908000B5058 /* StatsView.swift */,
 				E459565A2C4D5A8C000B5058 /* ScanView.swift */,
 				E459566B2C4E1A02000B5058 /* AssistantView.swift */,
 				E45956692C4E1949000B5058 /* ProfileView.swift */,
+				E45956702C4FB3C1000B5058 /* ConnectionView.swift */,
+				E45956652C4E1548000B5058 /* HealthView.swift */,
+				E45956752C4FCFAF000B5058 /* ScanningView.swift */,
 			);
 			path = MainTabViews;
 			sourceTree = "<group>";
@@ -211,6 +222,9 @@
 			dependencies = (
 			);
 			name = YukaAI;
+			packageProductDependencies = (
+				E45956732C4FCD5B000B5058 /* CodeScanner */,
+			);
 			productName = YukaAI;
 			productReference = E4A955852C3C5980009D7F11 /* YukaAI.app */;
 			productType = "com.apple.product-type.application";
@@ -283,6 +297,9 @@
 				Base,
 			);
 			mainGroup = E4A9557C2C3C5980009D7F11;
+			packageReferences = (
+				E45956722C4FCD5B000B5058 /* XCRemoteSwiftPackageReference "CodeScanner" */,
+			);
 			productRefGroup = E4A955862C3C5980009D7F11 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -328,12 +345,15 @@
 				E45956482C4C313C000B5058 /* DataManager.swift in Sources */,
 				E45956462C4BD289000B5058 /* FirstView.swift in Sources */,
 				E459564B2C4D29A0000B5058 /* Results.swift in Sources */,
+				E459566F2C4E76A8000B5058 /* CartView.swift in Sources */,
 				E459566C2C4E1A02000B5058 /* AssistantView.swift in Sources */,
 				E45956442C4A65D9000B5058 /* ImageLoader.swift in Sources */,
 				E4A9558B2C3C5980009D7F11 /* ContentView.swift in Sources */,
 				E459565B2C4D5A8C000B5058 /* ScanView.swift in Sources */,
 				E459565D2C4D6191000B5058 /* SecondView.swift in Sources */,
 				E459566A2C4E1949000B5058 /* ProfileView.swift in Sources */,
+				E45956712C4FB3C1000B5058 /* ConnectionView.swift in Sources */,
+				E45956762C4FCFAF000B5058 /* ScanningView.swift in Sources */,
 				E45956612C4E1355000B5058 /* HealthManager.swift in Sources */,
 				E459563C2C47CFAF000B5058 /* Concurrency.swift in Sources */,
 				E45956532C4D3284000B5058 /* ProductUIView.swift in Sources */,
@@ -508,6 +528,8 @@
 				DEVELOPMENT_TEAM = R9985Q9W5Q;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_LSApplicationCategoryType = "";
+				INFOPLIST_KEY_NSCameraUsageDescription = "We need to scan QR codes";
 				INFOPLIST_KEY_NSHealthShareUsageDescription = "To read the health data and show it in the application.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -539,6 +561,8 @@
 				DEVELOPMENT_TEAM = R9985Q9W5Q;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_LSApplicationCategoryType = "";
+				INFOPLIST_KEY_NSCameraUsageDescription = "We need to scan QR codes";
 				INFOPLIST_KEY_NSHealthShareUsageDescription = "To read the health data and show it in the application.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -674,6 +698,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		E45956722C4FCD5B000B5058 /* XCRemoteSwiftPackageReference "CodeScanner" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/twostraws/CodeScanner";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.5.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		E45956732C4FCD5B000B5058 /* CodeScanner */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = E45956722C4FCD5B000B5058 /* XCRemoteSwiftPackageReference "CodeScanner" */;
+			productName = CodeScanner;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = E4A9557D2C3C5980009D7F11 /* Project object */;
 }

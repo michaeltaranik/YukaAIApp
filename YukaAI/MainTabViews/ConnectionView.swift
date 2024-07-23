@@ -8,8 +8,26 @@
 import SwiftUI
 
 struct ConnectionView: View {
+    @State private var healthManager = HealthManager()
+
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        ZStack {
+            Color(.lightRed)
+                .ignoresSafeArea()
+            VStack {
+                Image(systemName: "heart.fill")
+                    .resizable()
+                    .scaledToFit()
+                    .foregroundStyle(.linearGradient(colors: [Color(.red), Color(.lightRed)], startPoint: .topLeading, endPoint: .bottomTrailing))
+                    .padding()
+                Text("Connect your apple health to track your progress")
+                Spacer()
+
+            }
+        }
+        .task {
+            await healthManager.requestAuthorization()
+        }
     }
 }
 

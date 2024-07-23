@@ -25,14 +25,14 @@ struct ContentView: View {
             Color(.lightGreen)
                 .ignoresSafeArea()
             VStack(alignment: .leading, content: {
-                Text(contentManager.mainTitle)
-                    .font(.system(size: 40, weight: .bold))
-                    .foregroundColor(.darkGreen)
-                    .padding()
-                    .shadow(color: .gray, radius: 10, x: 0.0, y: 10.0)
+//                Text(contentManager.mainTitle)
+//                    .font(.system(size: 40, weight: .bold))
+//                    .foregroundColor(.darkGreen)
+//                    .padding()
+//                    .shadow(color: .gray, radius: 10, x: 0.0, y: 10.0)
                 ZStack {
                     TabView {
-                        HealthTabView()
+                        CartTabView()
                         StatsTabView()
                         ScanTabView()
                         AssistantTabView()
@@ -52,19 +52,19 @@ struct ContentView_Previews: PreviewProvider {
 }
 
 
-//MARK: - HealthTab
-struct HealthTabView: View {
+//MARK: - CartTab
+struct CartTabView: View {
     @EnvironmentObject var contentManager: ContentViewManager
     
     
     var body: some View {
-        HealthView()
+        CartView()
             .onAppear {
-                contentManager.changeTitle("Health")
+                contentManager.changeTitle("Cart")
             }
             .tabItem {
-                Image(systemName: "heart.fill")
-                Text("Health")
+                Image(systemName: "cart")
+                Text("Cart")
                     .font(.system(size: 20))
             }
     }
