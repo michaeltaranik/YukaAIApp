@@ -28,7 +28,6 @@
 		E459566C2C4E1A02000B5058 /* AssistantView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E459566B2C4E1A02000B5058 /* AssistantView.swift */; };
 		E459566F2C4E76A8000B5058 /* CartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E459566E2C4E76A8000B5058 /* CartView.swift */; };
 		E45956712C4FB3C1000B5058 /* ConnectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E45956702C4FB3C1000B5058 /* ConnectionView.swift */; };
-		E45956762C4FCFAF000B5058 /* ScanningView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E45956752C4FCFAF000B5058 /* ScanningView.swift */; };
 		E4A955892C3C5980009D7F11 /* YukaAIApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4A955882C3C5980009D7F11 /* YukaAIApp.swift */; };
 		E4A9558B2C3C5980009D7F11 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4A9558A2C3C5980009D7F11 /* ContentView.swift */; };
 		E4A9558D2C3C5982009D7F11 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E4A9558C2C3C5982009D7F11 /* Assets.xcassets */; };
@@ -78,7 +77,6 @@
 		E459566B2C4E1A02000B5058 /* AssistantView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssistantView.swift; sourceTree = "<group>"; };
 		E459566E2C4E76A8000B5058 /* CartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartView.swift; sourceTree = "<group>"; };
 		E45956702C4FB3C1000B5058 /* ConnectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConnectionView.swift; sourceTree = "<group>"; };
-		E45956752C4FCFAF000B5058 /* ScanningView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScanningView.swift; sourceTree = "<group>"; };
 		E4A955852C3C5980009D7F11 /* YukaAI.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = YukaAI.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E4A955882C3C5980009D7F11 /* YukaAIApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YukaAIApp.swift; sourceTree = "<group>"; };
 		E4A9558A2C3C5980009D7F11 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -160,7 +158,6 @@
 				E45956692C4E1949000B5058 /* ProfileView.swift */,
 				E45956702C4FB3C1000B5058 /* ConnectionView.swift */,
 				E45956652C4E1548000B5058 /* HealthView.swift */,
-				E45956752C4FCFAF000B5058 /* ScanningView.swift */,
 				E40A4EE52C4FDB6600167FBD /* CameraView.swift */,
 			);
 			path = MainTabViews;
@@ -375,7 +372,6 @@
 				E459565D2C4D6191000B5058 /* SecondView.swift in Sources */,
 				E459566A2C4E1949000B5058 /* ProfileView.swift in Sources */,
 				E45956712C4FB3C1000B5058 /* ConnectionView.swift in Sources */,
-				E45956762C4FCFAF000B5058 /* ScanningView.swift in Sources */,
 				E45956612C4E1355000B5058 /* HealthManager.swift in Sources */,
 				E459563C2C47CFAF000B5058 /* Concurrency.swift in Sources */,
 				E40A4EE42C4FD69100167FBD /* CameraManager.swift in Sources */,
