@@ -9,14 +9,16 @@ import SwiftUI
 
 struct ScanView: View {
     
-    private var products = [
-        "20724696",
-        "3045140105502",
-        "4056489216162",
-        "5000157024855",
-        "8410076801197",
-        "5013665108801"
-    ]
+//    private var products = [
+//        "20724696",
+//        "3045140105502",
+//        "4056489216162",
+//        "5000157024855",
+//        "8410076801197",
+//        "5013665108801"
+//    ]
+    
+    var barcode: String
     
     
     @StateObject private var vm = ProductViewModel()
@@ -66,25 +68,45 @@ struct ScanView: View {
                     .font(.system(size: 25, weight: .semibold))
                     .cornerRadius(20)
                     .shadow(radius: 10)
-                    .onTapGesture {
-                        
+                    .onAppear {
                         isLoading = true
                         DispatchQueue.main.async {
-                            dataManager.fetchData(barcode: products.randomElement()!)
-                        }
-                        if let safeResults = dataManager.results {
-                            self.changeMacros(safeResults)
-                            if let urlString = safeResults.product?.image_url {
-                                if let url = URL(string: urlString) {
-                                    if let safeData = try? Data(contentsOf: url) {
-                                        let newImage = UIImage(data: safeData)
-                                        self.image = newImage
+                            dataManager.fetchData(barcode: barcode)
+                            if let safeResults = dataManager.results {
+                                self.changeMacros(safeResults)
+                                if let urlString = safeResults.product?.image_url {
+                                    if let url = URL(string: urlString) {
+                                        if let safeData = try? Data(contentsOf: url) {
+                                            let newImage = UIImage(data: safeData)
+                                            self.image = newImage
+                                        }
                                     }
                                 }
+                                vm.approveButton(approve: true)
+                            } else {
+                                vm.approveButton(approve: false)
                             }
-                            vm.approveButton(approve: true)
-                        } else {
-                            vm.approveButton(approve: false)
+                        }
+                        isLoading = false
+                    }
+                    .onTapGesture {
+                        isLoading = true
+                        DispatchQueue.main.async {
+                            dataManager.fetchData(barcode: barcode)
+                            if let safeResults = dataManager.results {
+                                self.changeMacros(safeResults)
+                                if let urlString = safeResults.product?.image_url {
+                                    if let url = URL(string: urlString) {
+                                        if let safeData = try? Data(contentsOf: url) {
+                                            let newImage = UIImage(data: safeData)
+                                            self.image = newImage
+                                        }
+                                    }
+                                }
+                                vm.approveButton(approve: true)
+                            } else {
+                                vm.approveButton(approve: false)
+                            }
                         }
                         isLoading = false
                     }
@@ -113,7 +135,7 @@ extension ScanView {
 
 
 #Preview {
-    ScanView()
+    ScanView(barcode: "3045140105502")
 }
 
 struct LoadingView: View {

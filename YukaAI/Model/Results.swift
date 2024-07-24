@@ -22,7 +22,7 @@ struct Product: Codable {
     let product_name: String?
     let nutrient_levels: NutrientLevels?
     let nutriments: Nutriments
-    let image_url: String
+    let image_url: String?
 }
 
 struct NutrientLevels: Codable {
@@ -38,5 +38,5 @@ struct Nutriments: Codable {
     let carbohydrates_100g: Double
     let proteins_100g: Double
     let fiber_100g: Double?
-    let sugars_100g: Double
+    let sugars_100g: Double?
 }

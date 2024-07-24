@@ -12,6 +12,8 @@ struct BarcodeScannerView: View {
     
     @EnvironmentObject var vm: ScanViewModel
     
+    @State var showBottomContainer = true
+    
     private let textContentTypes: [(title: String, textContentType: DataScannerViewController.TextContentType?)] = [
         ("All", .none),
         ("URL", .URL),
@@ -24,6 +26,9 @@ struct BarcodeScannerView: View {
         switch vm.dataScannerAccessStatus {
         case .scannerAvailable:
             mainView
+//                .onAppear(perform: {
+//                    showBottomContainer.toggle()
+//                })
         case .cameraNotAvailable:
             Text("Your device doesn't have a camera")
         case .scannerNotAvailable:
@@ -41,14 +46,14 @@ struct BarcodeScannerView: View {
             recognizedDataType: vm.recognizedDataType,
             recognizesMultipleItems: vm.recognizesMultipleItems)
         .background { Color.gray.opacity(0.3) }
-        .ignoresSafeArea()
+//        .ignoresSafeArea()
         .id(vm.dataScannerViewId)
-        .sheet(isPresented: .constant(true)) {
+        .sheet(isPresented: $showBottomContainer) {
             bottomContainerView
                 .background(.ultraThinMaterial)
                 .presentationDetents([.medium, .fraction(0.25)])
                 .presentationDragIndicator(.visible)
-                .interactiveDismissDisabled()
+//                .interactiveDismissDisabled()
                 .onAppear {
                     guard let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene,
                           let controller = windowScene.windows.first?.rootViewController?.presentedViewController else {
@@ -65,38 +70,20 @@ struct BarcodeScannerView: View {
 //        .onChange(of: vm.recognizesMultipleItems) { _ in vm.recognizedItems = []}
     }
     
-    private var headerView: some View {
-        VStack {
-            HStack {
-                Picker("Scan Type", selection: $vm.scanType) {
-                    Text("Barcode").tag(ScanType.barcode)
-                    Text("Text").tag(ScanType.text)
-                }.pickerStyle(.segmented)
-                
-                Toggle("Scan multiple", isOn: $vm.recognizesMultipleItems)
-            }.padding(.top)
-            
-            if vm.scanType == .text {
-                Picker("Text content type", selection: $vm.textContentType) {
-                    ForEach(textContentTypes, id: \.self.textContentType) { option in
-                        Text(option.title).tag(option.textContentType)
-                    }
-                }.pickerStyle(.segmented)
-            }
-            
-            Text(vm.headerText).padding(.top)
-        }.padding(.horizontal)
-    }
+
     
     private var bottomContainerView: some View {
-        VStack {
-            headerView
+        @Binding var showBottomContainer: Bool
+        
+        return VStack {
+//            headerView
             ScrollView {
                 LazyVStack(alignment: .leading, spacing: 16) {
                     ForEach(vm.recognizedItems) { item in
                         switch item {
                         case .barcode(let barcode):
-                            Text(barcode.payloadStringValue ?? "Unknown barcode")
+//                            Text(barcode.payloadStringValue ?? "Unknown barcode")
+                            ScanView(barcode: barcode.payloadStringValue ?? "")
                             
                         case .text(let text):
                             Text(text.transcript)
@@ -110,5 +97,29 @@ struct BarcodeScannerView: View {
             }
         }
     }
+    
+    //    private var headerView: some View {
+    //        VStack {
+    //            HStack {
+    //                Picker("Scan Type", selection: $vm.scanType) {
+    //                    Text("Barcode").tag(ScanType.barcode)
+    //                    Text("Text").tag(ScanType.text)
+    //                }.pickerStyle(.segmented)
+    //
+    //                Toggle("Scan multiple", isOn: $vm.recognizesMultipleItems)
+    //            }.padding(.top)
+                
+    //            if vm.scanType == .text {
+    //                Picker("Text content type", selection: $vm.textContentType) {
+    //                    ForEach(textContentTypes, id: \.self.textContentType) { option in
+    //                        Text(option.title).tag(option.textContentType)
+    //                    }
+    //                }.pickerStyle(.segmented)
+    //            }
+    //
+    //            Text(vm.headerText).padding(.top)
+    //        }.padding(.horizontal)
+    //    }
+    
 }
 

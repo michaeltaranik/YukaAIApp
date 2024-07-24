@@ -36,12 +36,16 @@ struct ContentView: View {
                         CartTabView()
                         StatsTabView()
                         ScanTabView()
-                            .environmentObject(vm)
+                        
                         AssistantTabView()
                         ProfileTabView()
                     }
                 }
             })
+        }
+        .environmentObject(vm)
+        .task {
+            await vm.requestDataScannerAccessStatus()
         }
         .environmentObject(contentManager)
     }
@@ -73,10 +77,15 @@ struct ScanTabView: View {
     @EnvironmentObject var contentManager: ContentViewManager
     @EnvironmentObject var vm: ScanViewModel
     
+    @State var myImg = UIImage(systemName: "camera")
+    
     var body: some View {
-//        ScanView()
-        BarcodeScannerView()
+//        BarcodeScannerView()
+        CustomCameraView(image: $myImg, didTapCapture: false)
             .environmentObject(vm)
+            .task {
+                await vm.requestDataScannerAccessStatus()
+            }
             .onAppear {
                 contentManager.changeTitle("Scan")
             }
@@ -146,8 +155,8 @@ struct ProfileTabView: View {
 
 //MARK: - ContentPreview
 
-struct ContentView_Previews: PreviewProvider {
-    static var previews: some View {
-        ContentView()
-    }
-}
+//struct ContentView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        ContentView()
+//    }
+//}

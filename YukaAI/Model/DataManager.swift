@@ -13,7 +13,6 @@ protocol DataManagerDelegate {
     func didLoadResult(_ dataManager: DataManager, results: Results)
 }
 
-@MainActor
 class DataManager: ObservableObject {
     
     
