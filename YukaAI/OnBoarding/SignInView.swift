@@ -13,26 +13,27 @@ struct SignInView: View {
     @State var name: String = ""
     @State var surname: String = ""
     @State var sendEmail: Bool = true
+    @State private var showPassword = false
+    
     
     var body: some View {
-        ZStack {
-            LinearGradient(colors: [.green, .lightGreen], startPoint: .bottom, endPoint: .top)
-                .ignoresSafeArea()
-            VStack {
-                Text("Sign In")
-                    .frame(maxWidth: .infinity, alignment: .leading)
-                    .font(.system(size: 40, weight: .bold))
-                    .foregroundStyle(.darkGreen)
-                    .padding()
-                nameSection
-                    .shadow(radius: 5)
-                emailSection
-                    .shadow(radius: 5)
-                passwordSection
-                    .shadow(radius: 5)
-                sendingEmailSection
-                Spacer()
-                signInButton
+        NavigationStack {
+            ZStack {
+                LinearGradient(colors: [.green, .lightGreen], startPoint: .bottom, endPoint: .top)
+                    .ignoresSafeArea()
+                VStack {
+                    Text("Sign In")
+                        .frame(maxWidth: .infinity, alignment: .leading)
+                        .font(.system(size: 40, weight: .bold))
+                        .foregroundStyle(.darkGreen)
+                        .padding()
+                    nameSection
+                    emailSection
+                    passwordSection
+                    sendingEmailSection
+                    Spacer()
+                    signInButton
+                }
             }
         }
     }
@@ -50,7 +51,8 @@ struct SignInView: View {
                     .background(.white)
                     .foregroundColor(.black)
                     .cornerRadius(20)
-                    
+                    .autocorrectionDisabled()
+                
             })
             .padding(.horizontal)
             VStack(alignment: .leading, content: {
@@ -63,18 +65,23 @@ struct SignInView: View {
                     .background(.white)
                     .foregroundColor(.black)
                     .cornerRadius(20)
-                    
+                    .autocorrectionDisabled()
+                
             })
             .padding(.horizontal)
             
         }
+        .shadow(radius: 5)
     }
     
     var sendingEmailSection: some View {
         Toggle(isOn: $sendEmail, label: {
-            Text("I want to receive e-mails")
-                .frame(minWidth: 150)
-                .foregroundStyle(.darkGreen)
+            HStack {
+                Image(systemName: "envelope.fill")
+                Text("I want to receive e-mails")
+                    .frame(minWidth: 150)
+                    .foregroundStyle(.darkGreen)
+            }
         })
         .padding(50)
     }
@@ -84,15 +91,21 @@ struct SignInView: View {
             Text("E-mail")
                 .foregroundStyle(.darkGreen)
                 .font(.system(size: 20, weight: .semibold))
-            TextField("E-mail", text: $email)
-                .padding(.leading)
-                .frame(width: 320, height: 50)
-                .background(.white)
-                .foregroundColor(.black)
-                .cornerRadius(20)
-                
+            HStack {
+                Image(systemName: "envelope")
+                    .foregroundStyle(.secondary)
+                TextField("E-mail", text: $email)
+                    .autocorrectionDisabled()
+                    .textInputAutocapitalization(.never)
+            }
+            .padding(.leading)
+            .frame(width: 320, height: 50)
+            .background(.white)
+            .foregroundColor(.black)
+            .cornerRadius(20)
+            
         })
-        .padding(.horizontal)
+        .shadow(radius: 5)
     }
     
     var passwordSection: some View {
@@ -100,29 +113,50 @@ struct SignInView: View {
             Text("Password")
                 .foregroundStyle(.darkGreen)
                 .font(.system(size: 20, weight: .semibold))
-            TextField("Password", text: $password)
-                .padding(.leading)
-                .frame(width: 320, height: 50)
-                .background(.white)
-                .foregroundColor(.black)
-                .cornerRadius(20)
-                
+            HStack {
+                Image(systemName: "lock")
+                    .foregroundColor(.secondary)
+                    .padding(.leading)
+                if showPassword {
+                    TextField("Password",
+                              text: $password)
+                    .autocorrectionDisabled()
+                    .textInputAutocapitalization(.never)
+                } else {
+                    SecureField("Password",
+                                text: $password)
+                    .autocorrectionDisabled()
+                    .textInputAutocapitalization(.never)
+                }
+                Button(action: { self.showPassword.toggle()}) {
+                    
+                    Image(systemName: !showPassword ? "eye" : "eye.slash")
+                        .foregroundColor(.secondary)
+                        .padding()
+                }
+            }
+            .frame(width: 320, height: 50)
+            .background(.white)
+            .foregroundColor(.black)
+            .cornerRadius(20)
         })
-        .padding(.horizontal)
+        .shadow(radius: 5)
     }
     
     
     var signInButton: some View {
-        Button("Sign In") {
-            
+        NavigationLink {
+            CreateUserView(name: name, surname: surname)
+        } label: {
+            Text("Sign In")
+                .frame(width: 300, height: 70)
+                .font(.system(size: 24, weight: .semibold))
+                .foregroundStyle(.darkGreen)
+                .background(.lightGreen)
+                .cornerRadius(20)
+                .shadow(radius: 10)
+                .padding()
         }
-        .frame(width: 300, height: 70)
-        .font(.system(size: 24, weight: .semibold))
-        .foregroundStyle(.darkGreen)
-        .background(.lightGreen)
-        .cornerRadius(20)
-        .shadow(radius: 10)
-        .padding()
     }
 }
 

@@ -11,6 +11,7 @@ struct LogInView: View {
     @State var email: String = ""
     @State var password: String = ""
     @State var sendEmail: Bool = true
+    @State var showPassword: Bool = false
     
     var body: some View {
         ZStack {
@@ -50,14 +51,21 @@ struct LogInView: View {
             Text("E-mail")
                 .foregroundStyle(.darkGreen)
                 .font(.system(size: 20, weight: .semibold))
-            TextField("E-mail", text: $email)
+            HStack {
+                Image(systemName: "envelope")
+                    .foregroundStyle(.secondary)
+                TextField("E-mail", text: $email)
+                    .autocorrectionDisabled()
+                    .textInputAutocapitalization(.never)
+            }
+                .padding(.leading)
                 .frame(width: 320, height: 50)
                 .background(.white)
                 .foregroundColor(.black)
                 .cornerRadius(20)
-                
+            
         })
-        .padding(.horizontal)
+        .shadow(radius: 5)
     }
     
     var passwordSection: some View {
@@ -65,14 +73,34 @@ struct LogInView: View {
             Text("Password")
                 .foregroundStyle(.darkGreen)
                 .font(.system(size: 20, weight: .semibold))
-            TextField("E-mail", text: $password)
-                .frame(width: 320, height: 50)
-                .background(.white)
-                .foregroundColor(.black)
-                .cornerRadius(20)
-                
+            HStack {
+                Image(systemName: "lock")
+                    .foregroundColor(.secondary)
+                    .padding(.leading)
+                if showPassword {
+                    TextField("Password",
+                              text: $password)
+                    .autocorrectionDisabled()
+                    .textInputAutocapitalization(.never)
+                } else {
+                    SecureField("Password",
+                                text: $password)
+                    .autocorrectionDisabled()
+                    .textInputAutocapitalization(.never)
+                }
+                Button(action: { self.showPassword.toggle()}) {
+                    
+                    Image(systemName: !showPassword ? "eye" : "eye.slash")
+                        .foregroundColor(.secondary)
+                        .padding()
+                }
+            }
+            .frame(width: 320, height: 50)
+            .background(.white)
+            .foregroundColor(.black)
+            .cornerRadius(20)
         })
-        .padding(.horizontal)
+        .shadow(radius: 5)
     }
     
     

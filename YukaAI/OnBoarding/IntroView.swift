@@ -49,7 +49,7 @@ struct IntroView: View {
     
     var signinButton: some View {
         NavigationLink {
-            CreateUserView(name: "Michael", surname: "Taranik")
+            SignInView()
         } label: {
             Text("Sign In")
                 .frame(width: 300, height: 70)
