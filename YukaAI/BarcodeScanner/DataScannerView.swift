@@ -60,10 +60,10 @@ struct DataScannerView: UIViewControllerRepresentable {
         }
         
         func dataScanner(_ dataScanner: DataScannerViewController, didRemove removedItems: [RecognizedItem], allItems: [RecognizedItem]) {
-            self.recognizedItems = recognizedItems.filter { item in
-                !removedItems.contains(where: {$0.id == item.id })
-            }
-            print("didRemovedItems \(removedItems)")
+//            self.recognizedItems = recognizedItems.filter { item in
+//                !removedItems.contains(where: {$0.id == item.id })
+//            }
+            print("didRemoveItems \(removedItems)")
         }
         
         func dataScanner(_ dataScanner: DataScannerViewController, becameUnavailableWithError error: DataScannerViewController.ScanningUnavailable) {

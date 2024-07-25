@@ -11,8 +11,9 @@ import VisionKit
 struct BarcodeScannerView: View {
     
     @EnvironmentObject var vm: ScanViewModel
+    @EnvironmentObject var contentManager: ContentViewManager
     
-    @State var showBottomContainer = true
+    @State var showBottomContainer = false
     
     private let textContentTypes: [(title: String, textContentType: DataScannerViewController.TextContentType?)] = [
         ("All", .none),
@@ -48,7 +49,7 @@ struct BarcodeScannerView: View {
         .background { Color.gray.opacity(0.3) }
 //        .ignoresSafeArea()
         .id(vm.dataScannerViewId)
-        .sheet(isPresented: $showBottomContainer) {
+        .sheet(isPresented: .constant(vm.recognizedItems.count != 0)) {
             bottomContainerView
                 .background(.ultraThinMaterial)
                 .presentationDetents([.medium, .fraction(0.25)])
@@ -62,9 +63,10 @@ struct BarcodeScannerView: View {
                     controller.view.backgroundColor = .clear
                 }
         }
-//        .onChange(of: vm.scanType, { vm.recognizedItems = [] })
-//        .onChange(of: vm.textContentType) { vm.recognizedItems = [] }
-//        .onChange(of: vm.recognizesMultipleItems) { vm.recognizedItems = []}
+        .onChange(of: vm.scanType, { vm.recognizedItems = [] })
+        .onChange(of: vm.textContentType) { vm.recognizedItems = [] }
+        .onChange(of: vm.recognizesMultipleItems) { vm.recognizedItems = []}
+        .onChange(of: contentManager.mainTitle) { vm.recognizedItems = [] }
 //        .onChange(of: vm.scanType) { _ in vm.recognizedItems = [] }
 //        .onChange(of: vm.textContentType) { _ in vm.recognizedItems = [] }
 //        .onChange(of: vm.recognizesMultipleItems) { _ in vm.recognizedItems = []}
@@ -75,22 +77,38 @@ struct BarcodeScannerView: View {
     private var bottomContainerView: some View {
         @Binding var showBottomContainer: Bool
         
+        var lastItem = vm.recognizedItems.count - 1
+        var item = vm.recognizedItems[lastItem]
+        
         return VStack {
 //            headerView
             ScrollView {
-                LazyVStack(alignment: .leading, spacing: 16) {
-                    ForEach(vm.recognizedItems) { item in
-                        switch item {
-                        case .barcode(let barcode):
+//                LazyVStack(alignment: .leading, spacing: 16) {
+//                    ForEach(vm.recognizedItems) { item in
+//                        switch item {
+//                        case .barcode(let barcode):
 //                            Text(barcode.payloadStringValue ?? "Unknown barcode")
-                            ScanView(barcode: barcode.payloadStringValue ?? "")
-                            
-                        case .text(let text):
-                            Text(text.transcript)
-                            
-                        @unknown default:
-                            Text("Unknown")
-                        }
+//                            ScanView(barcode: barcode.payloadStringValue ?? "")
+//                            
+//                        case .text(let text):
+//                            Text(text.transcript)
+//                            
+//                        @unknown default:
+//                            Text("Unknown")
+//                        }
+//                    }
+//              }
+                VStack {
+                    switch item {
+                    case .barcode(let barcode):
+                        Text(barcode.payloadStringValue ?? "Unknown barcode")
+                        ScanView(barcode: barcode.payloadStringValue ?? "")
+                        
+                    case .text(let text):
+                        Text(text.transcript)
+                        
+                    @unknown default:
+                        Text("Unknown")
                     }
                 }
                 .padding()

@@ -34,9 +34,9 @@ struct NutrientLevels: Codable {
 
 struct Nutriments: Codable {
     let energy_value: Double?
-    let fat_100g: Double
-    let carbohydrates_100g: Double
-    let proteins_100g: Double
+    let fat_100g: Double?
+    let carbohydrates_100g: Double?
+    let proteins_100g: Double?
     let fiber_100g: Double?
     let sugars_100g: Double?
 }

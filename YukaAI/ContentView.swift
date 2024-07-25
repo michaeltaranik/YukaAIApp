@@ -43,7 +43,7 @@ struct ContentView: View {
                 }
             })
         }
-        .environmentObject(vm)
+//        .environmentObject(vm)
         .task {
             await vm.requestDataScannerAccessStatus()
         }
@@ -80,9 +80,8 @@ struct ScanTabView: View {
     @State var myImg = UIImage(systemName: "camera")
     
     var body: some View {
-//        BarcodeScannerView()
-        CustomCameraView(image: $myImg, didTapCapture: false)
-            .environmentObject(vm)
+        BarcodeScannerView()
+//        CustomCameraView(image: $myImg, didTapCapture: false)
             .task {
                 await vm.requestDataScannerAccessStatus()
             }
