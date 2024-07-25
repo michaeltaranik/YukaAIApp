@@ -35,9 +35,6 @@ struct ScanView: View {
                 .ignoresSafeArea()
             ScrollView {
                 VStack {
-//                    Image(uiImage: image ?? UIImage(named: "default")!)
-//                        .resizable()
-//                        .scaledToFit()
                     AsyncImage(url: URL(string: scanResultsModel.results?.product?.image_url ?? "")) { image in
                         image
                             .resizable()
@@ -48,8 +45,6 @@ struct ScanView: View {
                             .resizable()
                             .aspectRatio(contentMode: .fit)
                             .clipShape(Circle())
-//                        Circle()
-//                            .foregroundColor(.teal)
                     }
                     HStack {
                         Spacer()
@@ -79,37 +74,12 @@ struct ScanView: View {
                         await scanResultsModel.getInfo(barcode: barcode)
                         self.changeMacros(scanResultsModel.results)
                     }
-//                    .onTapGesture {
-//                        
-//                    }
-//                    .onTapGesture {
-//                        isLoading = true
-//                        DispatchQueue.main.async {
-//                            dataManager.fetchData(barcode: barcode)
-//                            if let safeResults = dataManager.results {
-//                                self.changeMacros(safeResults)
-//                                if let urlString = safeResults.product?.image_url {
-//                                    if let url = URL(string: urlString) {
-//                                        if let safeData = try? Data(contentsOf: url) {
-//                                            let newImage = UIImage(data: safeData)
-//                                            self.image = newImage
-//                                        }
-//                                    }
-//                                }
-//                                vm.approveButton(approve: true)
-//                            } else {
-//                                vm.approveButton(approve: false)
-//                            }
-//                        }
-//                        isLoading = false
-//                    }
-//                    .symbolEffect(.pulse, value: vm.animate)
-                }
-                if scanResultsModel.isLoading {
-                    LoadingView()
                 }
             }
+            if scanResultsModel.isLoading {
+                LoadingView()
             }
+        }
     }
 }
 

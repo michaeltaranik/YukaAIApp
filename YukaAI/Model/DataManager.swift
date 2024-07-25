@@ -23,6 +23,30 @@ class DataManager: ObservableObject {
     
     var delegate: DataManagerDelegate?
     
+    
+    static func getDataResults(barcode: String) async throws -> Results {
+        
+        let urlString = urlString + barcode + ".json"
+        guard let url = URL(string: urlString) else { throw UserError.invalidURL }
+        
+        let (data, response) = try await URLSession.shared.data(from: url)
+        
+        guard let response = response as? HTTPURLResponse,
+              response.statusCode == 200 else {
+            throw UserError.invalidResponse
+        }
+        
+        do {
+            let decoder = JSONDecoder()
+            return try decoder.decode(Results.self, from: data)
+        } catch {
+            throw UserError.invalidData
+        } 
+    }
+    
+    
+    
+    
     func fetchData(barcode: String) {
         if let url = URL(string: DataManager.urlString + barcode + ".json") {
             print(url)
@@ -46,29 +70,7 @@ class DataManager: ObservableObject {
             }
             task.resume()
         }
-        
     }
     
-    static func getDataResults(barcode: String) async throws -> Results {
-           let urlString = urlString + barcode + ".json"
-        
-           guard let url = URL(string: urlString) else {
-               throw UserError.invalidURL
-           }
-           
-           let (data, response) = try await URLSession.shared.data(from: url)
-           
-           guard let response = response as? HTTPURLResponse,
-                   response.statusCode == 200 else {
-               throw UserError.invalidResponse
-           }
-           
-           do {
-               let decoder = JSONDecoder()
-               return try decoder.decode(Results.self, from: data)
-           } catch {
-               throw UserError.invalidData
-           }
-       }
     
 }

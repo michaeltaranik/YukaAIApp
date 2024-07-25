@@ -21,14 +21,7 @@ final class ScanResultsModel: ObservableObject {
     func getInfo(barcode: String) async {
         isLoading = true
         do {
-            self.results = try await DataManager.getDataResults(barcode: barcode)
-//            guard let urlString = results?.product?.image_url else { return }
-//            if let url = URL(string: urlString) {
-//                if let safeData = try? Data(contentsOf: url) {
-//                    let newImage = UIImage(data: safeData)
-//                    self.image = newImage
-//                }
-//            }
+            self.results = try await DataManager.getDataResults(barcode: barcode) 
             self.isLoading = false
         } catch(let error) {
             userError = UserError.custom(error: error)
@@ -36,15 +29,4 @@ final class ScanResultsModel: ObservableObject {
             isLoading = false
         }
     }
-    
-//    func getImage(url: String) async {
-//        isLoading = true
-//        do {
-//            self.isLoading = false
-//        } catch(let error) {
-//            userError = UserError.custom(error: error)
-//            shouldShowAlert = true
-//            isLoading = false
-//        }
-//    }
 }
