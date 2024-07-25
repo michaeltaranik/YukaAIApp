@@ -9,24 +9,17 @@ import SwiftUI
 
 struct ScanView: View {
     
-//    private var products = [
-//        "20724696",
-//        "3045140105502",
-//        "4056489216162",
-//        "5000157024855",
-//        "8410076801197",
-//        "5013665108801"
-//    ]
-    
     var barcode: String
     
     
     @StateObject private var vm = ProductViewModel()
     @StateObject private var dataManager = DataManager()
+    @StateObject private var scanResultsModel = ScanResultsModel()
     
     @State var isLoading = false
     
     @State private var image: UIImage?
+    @State private var productName = "Product"
     @State private var calories = "0.0"
     @State private var carbs = "0.0"
     @State private var fats = "0.0"
@@ -42,12 +35,26 @@ struct ScanView: View {
                 .ignoresSafeArea()
             ScrollView {
                 VStack {
-                    Image(uiImage: image ?? UIImage(named: "default")!)
-                        .resizable()
-                        .scaledToFit()
+//                    Image(uiImage: image ?? UIImage(named: "default")!)
+//                        .resizable()
+//                        .scaledToFit()
+                    AsyncImage(url: URL(string: scanResultsModel.results?.product?.image_url ?? "")) { image in
+                        image
+                            .resizable()
+                            .aspectRatio(contentMode: .fit)
+                            .clipShape(Circle())
+                    } placeholder: {
+                        Image(.default)
+                            .resizable()
+                            .aspectRatio(contentMode: .fit)
+                            .clipShape(Circle())
+//                        Circle()
+//                            .foregroundColor(.teal)
+                    }
                     HStack {
                         Spacer()
                         VStack(alignment: .leading, content: {
+                            Text("Product name: " + productName)
                             Text("Calories: " + calories)
                             Text("Carbs: " + carbs)
                             Text("Fats: " + fats)
@@ -68,51 +75,37 @@ struct ScanView: View {
                     .font(.system(size: 25, weight: .semibold))
                     .cornerRadius(20)
                     .shadow(radius: 10)
-                    .onAppear {
-                        isLoading = true
-                        DispatchQueue.main.async {
-                            dataManager.fetchData(barcode: barcode)
-                            if let safeResults = dataManager.results {
-                                self.changeMacros(safeResults)
-                                if let urlString = safeResults.product?.image_url {
-                                    if let url = URL(string: urlString) {
-                                        if let safeData = try? Data(contentsOf: url) {
-                                            let newImage = UIImage(data: safeData)
-                                            self.image = newImage
-                                        }
-                                    }
-                                }
-                                vm.approveButton(approve: true)
-                            } else {
-                                vm.approveButton(approve: false)
-                            }
-                        }
-                        isLoading = false
+                    .task {
+                        await scanResultsModel.getInfo(barcode: barcode)
+                        self.changeMacros(scanResultsModel.results)
                     }
-                    .onTapGesture {
-                        isLoading = true
-                        DispatchQueue.main.async {
-                            dataManager.fetchData(barcode: barcode)
-                            if let safeResults = dataManager.results {
-                                self.changeMacros(safeResults)
-                                if let urlString = safeResults.product?.image_url {
-                                    if let url = URL(string: urlString) {
-                                        if let safeData = try? Data(contentsOf: url) {
-                                            let newImage = UIImage(data: safeData)
-                                            self.image = newImage
-                                        }
-                                    }
-                                }
-                                vm.approveButton(approve: true)
-                            } else {
-                                vm.approveButton(approve: false)
-                            }
-                        }
-                        isLoading = false
-                    }
-                    .symbolEffect(.pulse, value: vm.animate)
+//                    .onTapGesture {
+//                        
+//                    }
+//                    .onTapGesture {
+//                        isLoading = true
+//                        DispatchQueue.main.async {
+//                            dataManager.fetchData(barcode: barcode)
+//                            if let safeResults = dataManager.results {
+//                                self.changeMacros(safeResults)
+//                                if let urlString = safeResults.product?.image_url {
+//                                    if let url = URL(string: urlString) {
+//                                        if let safeData = try? Data(contentsOf: url) {
+//                                            let newImage = UIImage(data: safeData)
+//                                            self.image = newImage
+//                                        }
+//                                    }
+//                                }
+//                                vm.approveButton(approve: true)
+//                            } else {
+//                                vm.approveButton(approve: false)
+//                            }
+//                        }
+//                        isLoading = false
+//                    }
+//                    .symbolEffect(.pulse, value: vm.animate)
                 }
-                if isLoading {
+                if scanResultsModel.isLoading {
                     LoadingView()
                 }
             }
@@ -122,13 +115,15 @@ struct ScanView: View {
 
 
 extension ScanView {
-    func changeMacros(_ results: Results) {
-        let roundedCal = ((results.product?.nutriments.energy_value ?? 0.0) / 4.184).rounded()
+    func changeMacros(_ results: Results?) {
+        self.productName = results?.product?.product_name ?? "unknown"
+        let roundedCal = ((results?.product?.nutriments.energy_value ?? 0.0) / 4.184).rounded()
         self.calories = String(roundedCal)
-        self.carbs = String(results.product?.nutriments.carbohydrates_100g ?? 0.0)
-        self.proteins = String(results.product?.nutriments.proteins_100g ?? 0.0)
-        self.fats = String(results.product?.nutriments.fat_100g ?? 0.0)
-        self.sugars = String(results.product?.nutriments.sugars_100g ?? 0.0)
+        self.carbs = String(results?.product?.nutriments.carbohydrates_100g ?? 0.0)
+        self.proteins = String(results?.product?.nutriments.proteins_100g ?? 0.0)
+        self.fats = String(results?.product?.nutriments.fat_100g ?? 0.0)
+        self.sugars = String(results?.product?.nutriments.sugars_100g ?? 0.0)
+        self.image = scanResultsModel.image
     }
 }
 

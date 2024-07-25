@@ -18,13 +18,13 @@ class DataManager: ObservableObject {
     
     @Published var results: Results?
     
-    let urlString = "https://world.openfoodfacts.org/api/v3/product/"
-    let searchString = "https://world.openfoodfacts.org/cgi/search.pl"
+    static let urlString = "https://world.openfoodfacts.org/api/v3/product/"
+    static let searchString = "https://world.openfoodfacts.org/cgi/search.pl"
     
     var delegate: DataManagerDelegate?
     
     func fetchData(barcode: String) {
-        if let url = URL(string: urlString + barcode + ".json") {
+        if let url = URL(string: DataManager.urlString + barcode + ".json") {
             print(url)
             let session = URLSession(configuration: .default)
             let task = session.dataTask(with: url) { data, response, error in
@@ -49,5 +49,26 @@ class DataManager: ObservableObject {
         
     }
     
+    static func getDataResults(barcode: String) async throws -> Results {
+           let urlString = urlString + barcode + ".json"
+        
+           guard let url = URL(string: urlString) else {
+               throw UserError.invalidURL
+           }
+           
+           let (data, response) = try await URLSession.shared.data(from: url)
+           
+           guard let response = response as? HTTPURLResponse,
+                   response.statusCode == 200 else {
+               throw UserError.invalidResponse
+           }
+           
+           do {
+               let decoder = JSONDecoder()
+               return try decoder.decode(Results.self, from: data)
+           } catch {
+               throw UserError.invalidData
+           }
+       }
     
 }

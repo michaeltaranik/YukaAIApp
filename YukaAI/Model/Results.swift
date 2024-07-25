@@ -25,6 +25,7 @@ struct Product: Codable {
     let image_url: String?
 }
 
+
 struct NutrientLevels: Codable {
     let fat: String?
     let salt: String?
