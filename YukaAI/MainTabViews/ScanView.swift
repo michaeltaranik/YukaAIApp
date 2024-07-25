@@ -39,7 +39,8 @@ struct ScanView: View {
                         image
                             .resizable()
                             .aspectRatio(contentMode: .fit)
-                            .clipShape(Circle())
+//                            .clipShape(Circle())
+                            .frame(width: 350, height: 350)
                     } placeholder: {
                         Image(.default)
                             .resizable()
@@ -57,6 +58,7 @@ struct ScanView: View {
                             Text("Sugars: " + sugars)
                         })
                         .font(.system(size: 30, weight: .semibold))
+                        .foregroundStyle(.darkGreen)
                         Spacer()
                     }
                     Spacer()
@@ -64,15 +66,20 @@ struct ScanView: View {
                         Image(systemName: vm.icon)
                         Text(vm.text)
                     }
-                    .frame(width: 200, height: 100)
+                    .frame(width: 150, height: 70)
                     .background(vm.backColor)
                     .foregroundColor(vm.foreColor)
                     .font(.system(size: 25, weight: .semibold))
                     .cornerRadius(20)
                     .shadow(radius: 10)
+                    .padding(30)
                     .task {
                         await scanResultsModel.getInfo(barcode: barcode)
                         self.changeMacros(scanResultsModel.results)
+                        vm.approveButton(approve: true)
+                    }
+                    .onTapGesture {
+                        
                     }
                 }
             }

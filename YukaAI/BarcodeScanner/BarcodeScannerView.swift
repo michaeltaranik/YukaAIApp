@@ -51,7 +51,8 @@ struct BarcodeScannerView: View {
         .id(vm.dataScannerViewId)
         .sheet(isPresented: .constant(vm.recognizedItems.count != 0)) {
             bottomContainerView
-                .background(.ultraThinMaterial)
+//                .background(.ultraThinMaterial)
+                .background(.lightGreen)
                 .presentationDetents([.medium, .fraction(0.25)])
                 .presentationDragIndicator(.visible)
 //                .interactiveDismissDisabled()
@@ -63,6 +64,7 @@ struct BarcodeScannerView: View {
                     controller.view.backgroundColor = .clear
                 }
         }
+        .onChange(of: vm.recognizedItems.count, { showBottomContainer = true })
         .onChange(of: vm.scanType, { vm.recognizedItems = [] })
         .onChange(of: vm.textContentType) { vm.recognizedItems = [] }
         .onChange(of: vm.recognizesMultipleItems) { vm.recognizedItems = []}
@@ -101,7 +103,7 @@ struct BarcodeScannerView: View {
                 VStack {
                     switch item {
                     case .barcode(let barcode):
-                        Text(barcode.payloadStringValue ?? "Unknown barcode")
+//                        Text(barcode.payloadStringValue ?? "Unknown barcode")
                         ScanView(barcode: barcode.payloadStringValue ?? "")
                         
                     case .text(let text):
@@ -111,7 +113,7 @@ struct BarcodeScannerView: View {
                         Text("Unknown")
                     }
                 }
-                .padding()
+//                .padding()
             }
         }
     }

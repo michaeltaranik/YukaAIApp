@@ -20,7 +20,7 @@ class ProductViewModel: ObservableObject {
     
     func approveButton(approve: Bool) {
         self.icon = approve ? "checkmark.circle.fill" : "xmark.circle.fill"
-        self.text = approve ? "Approved" : "Declined"
+        self.text = approve ? "Done" : "Declined"
         self.foreColor = Color(approve ? .darkGreen : .darkRed)
         self.backColor = Color(approve ? .lightGreen : .lightRed)
         self.approved = !approve
