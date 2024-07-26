@@ -17,6 +17,9 @@ struct CreateUserView: View {
     @State var weight: Double = 65.0
     @State var gender: String = "Male"
     
+    @AppStorage("sign_in") var currentUserLoggedIn: Bool = false
+
+    
     var body: some View {
         ZStack {
             LinearGradient(colors: [.green, .lightGreen], startPoint: .bottom, endPoint: .top)
@@ -110,7 +113,7 @@ struct CreateUserView: View {
     
     var proceedButton: some View {
         Button("Proceed") {
-            
+            self.currentUserLoggedIn = true
         }
         .frame(width: 300, height: 70)
         .font(.system(size: 24, weight: .semibold))
