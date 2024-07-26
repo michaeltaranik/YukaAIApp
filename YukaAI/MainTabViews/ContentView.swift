@@ -36,17 +36,15 @@ struct ContentView: View {
                         CartTabView()
                         StatsTabView()
                         ScanTabView()
-                        
                         AssistantTabView()
                         ProfileTabView()
                     }
                 }
             })
         }
-//        .environmentObject(vm)
-        .task {
-            await vm.requestDataScannerAccessStatus()
-        }
+//        .task {
+//            await vm.requestDataScannerAccessStatus()
+//        }
         .environmentObject(contentManager)
     }
 }

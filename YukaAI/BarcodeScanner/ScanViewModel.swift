@@ -31,27 +31,18 @@ final class ScanViewModel: ObservableObject {
     @Published var textContentType: DataScannerViewController.TextContentType?
     @Published var recognizesMultipleItems = false
     
-    var recognizedDataType: DataScannerViewController.RecognizedDataType {
-        scanType == .barcode ? .barcode() : .text(textContentType: textContentType)
-    }
+    let recognizedDataType: DataScannerViewController.RecognizedDataType = .barcode()
+
     
-    var headerText: String {
-        if recognizedItems.isEmpty {
-            return "Scanning \(scanType.rawValue)"
-        } else {
-            return "Recognized \(recognizedItems.count) item(s)"
-        }
-    }
-    
-      var dataScannerViewId: Int {
-        var hasher = Hasher()
-        hasher.combine(scanType)
-        hasher.combine(recognizesMultipleItems)
-        if let textContentType {
-            hasher.combine(textContentType)
-        }
-        return hasher.finalize()
-    }
+//      var dataScannerViewId: Int {
+//        var hasher = Hasher()
+//        hasher.combine(scanType)
+//        hasher.combine(false)
+//        if let textContentType {
+//            hasher.combine(textContentType)
+//        }
+//        return hasher.finalize()
+//    }
     
     private var isScannerAvailable: Bool {
         DataScannerViewController.isAvailable && DataScannerViewController.isSupported
@@ -79,7 +70,7 @@ final class ScanViewModel: ObservableObject {
                 dataScannerAccessStatus = .cameraAccessNotGranted
             }
         
-        default: break
+        default: await requestDataScannerAccessStatus()
             
         }
     }

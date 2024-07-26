@@ -12,7 +12,7 @@ struct ScanView: View {
     var barcode: String
     
     
-//    @EnvironmentObject var productList: ProductList
+    @EnvironmentObject var productList: ProductList
     @StateObject private var vm = ProductViewModel()
     @StateObject private var dataManager = DataManager()
     @StateObject private var scanResultsModel = ScanResultsModel()
@@ -90,11 +90,11 @@ struct ScanView: View {
     var headerInfo: some View {
         VStack(alignment: .leading, content: {
             Text(productName)
-            Text(calories + "kcal")
-            Text("Carbs: \(carbs)g")
-            Text("Fats: \(fats)g")
-            Text("Proteins: \(proteins)g")
-            Text("Sugars: \(sugars)g")
+            Text("\(calories) kcal")
+            Text("Carbs: \(carbs) g")
+            Text("Fats: \(fats) g")
+            Text("Proteins: \(proteins) g")
+            Text("Sugars: \(sugars) g")
         })
         .font(.system(size: 18, weight: .semibold))
         .foregroundStyle(.darkGreen)
@@ -112,13 +112,27 @@ extension ScanView {
         self.fats = String(results?.product?.nutriments.fat_100g ?? 0.0)
         self.sugars = String(results?.product?.nutriments.sugars_100g ?? 0.0)
         self.image = scanResultsModel.image
-//        productList.list.append(
-//            ProductItem(barcode: self.barcode,
-//                        name: productName,
-//                        calories: calories,
-//                        image: image ?? .default,
-//                        macros: Macros(fat: fats, carbs: carbs, protein: proteins, fiber: "nil", sugar: sugars, salt: "nil")))
+        guard !inCart(barcode) else {
+            return
+        }
+        productList.list.append(
+            ProductItem(barcode: self.barcode,
+                        name: productName,
+                        calories: calories,
+                        imageUrl: scanResultsModel.results?.product?.image_url ?? "",
+                        macros: Macros(fat: fats, carbs: carbs, protein: proteins, fiber: "nil", sugar: sugars, salt: "nil")))
     }
+    
+    
+    func inCart(_ barcode: String) -> Bool {
+        for product in productList.list {
+            if product.barcode == barcode {
+                return true
+            }
+        }
+        return false
+    }
+    
 }
 
 
