@@ -8,12 +8,16 @@
 import SwiftUI
 
 struct SignInView: View {
-    @State var email: String = ""
-    @State var password: String = ""
-    @State var name: String = ""
-    @State var surname: String = ""
+    @State var userEmail: String = ""
+    @State var userPassword: String = ""
+    @State var userName: String = ""
+    @State var userSurname: String = ""
     @State var sendEmail: Bool = true
     @State private var showPassword = false
+    
+    
+    @State var showAlert: Bool = false
+    @State var alertTitle = "Error"
     
     
     var body: some View {
@@ -33,7 +37,11 @@ struct SignInView: View {
                     sendingEmailSection
                     Spacer()
                     signInButton
+//                        .disabled(true)
                 }
+                .alert(isPresented: $showAlert, content: {
+                    Alert(title: Text(alertTitle))
+                })
             }
         }
     }
@@ -45,7 +53,7 @@ struct SignInView: View {
                 Text("Name")
                     .foregroundStyle(.darkGreen)
                     .font(.system(size: 20, weight: .semibold))
-                TextField("Name", text: $name)
+                TextField("Name", text: $userName)
                     .padding(.leading)
                     .frame(width: 145, height: 50)
                     .background(.white)
@@ -59,7 +67,7 @@ struct SignInView: View {
                 Text("Surname")
                     .foregroundStyle(.darkGreen)
                     .font(.system(size: 20, weight: .semibold))
-                TextField("Surname", text: $surname)
+                TextField("Surname", text: $userSurname)
                     .padding(.leading)
                     .frame(width: 145, height: 50)
                     .background(.white)
@@ -94,7 +102,7 @@ struct SignInView: View {
             HStack {
                 Image(systemName: "envelope")
                     .foregroundStyle(.secondary)
-                TextField("E-mail", text: $email)
+                TextField("E-mail", text: $userEmail)
                     .autocorrectionDisabled()
                     .textInputAutocapitalization(.never)
             }
@@ -119,12 +127,12 @@ struct SignInView: View {
                     .padding(.leading)
                 if showPassword {
                     TextField("Password",
-                              text: $password)
+                              text: $userPassword)
                     .autocorrectionDisabled()
                     .textInputAutocapitalization(.never)
                 } else {
                     SecureField("Password",
-                                text: $password)
+                                text: $userPassword)
                     .autocorrectionDisabled()
                     .textInputAutocapitalization(.never)
                 }
@@ -146,7 +154,11 @@ struct SignInView: View {
     
     var signInButton: some View {
         NavigationLink {
-            CreateUserView(name: name, surname: surname)
+            if handleButton() {
+                CreateUserView(name: userName, surname: userSurname)
+            } else {
+                
+            }
         } label: {
             Text("Sign In")
                 .frame(width: 300, height: 70)
@@ -159,6 +171,23 @@ struct SignInView: View {
         }
     }
 }
+
+
+
+extension SignInView {
+    
+    func handleButton() -> Bool {
+        print(userName.count-1)
+        if userName.count < 2 {
+            alertTitle = "'Name' has to contain at least 2 characters"
+            showAlert.toggle()
+            return false
+        }
+        
+        return true
+    }
+}
+
 
 #Preview {
     SignInView()

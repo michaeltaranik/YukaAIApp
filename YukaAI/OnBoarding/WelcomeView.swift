@@ -7,30 +7,20 @@
 
 import SwiftUI
 
-enum PhaseView {
-    case intro
-    case login
-    case sign
-    case createUser
-}
+
 
 struct WelcomeView: View {
-    @State var phaseView: PhaseView = .intro
+    @AppStorage("sign_in") var currentUserLoggedIn: Bool = false
     
     var body: some View {
-        switch phaseView {
-        case .intro:
+        if currentUserLoggedIn {
+            ContentView()
+        } else {
             IntroView()
-        case .login:
-            LogInView()
-        case .sign:
-            CreateUserView(name: "Michael", surname: "Taranik")
-        case .createUser:
-            CreateUserView(name: "Michael", surname: "Taranik")
         }
     }
 }
-
-#Preview {
-    WelcomeView()
-}
+//
+//#Preview {
+//    WelcomeView()
+//}
