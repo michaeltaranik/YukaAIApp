@@ -10,37 +10,15 @@ import SwiftUI
 struct TestView: View {
     @State private var username = ""
     @State private var password = ""
-    @State private var showPassword = false
+    @State private var counter = 0
     
     var body: some View {
-        ZStack {
-            Color.blue
-            VStack {
-                HStack {
-                    Image(systemName: "person")
-                        .foregroundColor(.secondary)
-                    TextField("Username",
-                              text: $username)
-                }   .padding()
-                    .background(Capsule().fill(Color.white))
-                HStack {
-                    Image(systemName: "lock")
-                        .foregroundColor(.secondary)
-                    if showPassword {
-                        TextField("Password",
-                                  text: $password)
-                    } else {
-                        SecureField("Password",
-                                    text: $password)
-                    }
-                    Button(action: { self.showPassword.toggle()}) {
-                        
-                        Image(systemName: "eye")
-                            .foregroundColor(.secondary)
-                    }
-                }   .padding()
-                    .background(Capsule().fill(Color.white))
-            }   .padding()
+        Text("Count: \(counter)")
+        Button("Inc") {
+            counter += 1
+        }
+        Button("Reset") {
+            counter = 0
         }
     }
 }
