@@ -23,7 +23,8 @@ struct SignInView: View {
     var body: some View {
         NavigationStack {
             ZStack {
-                LinearGradient(colors: [.green, .lightGreen], startPoint: .bottom, endPoint: .top)
+                LinearGradient(
+                    colors: [.green, .lightGreen], startPoint: .bottom, endPoint: .top)
                     .ignoresSafeArea()
                 VStack {
                     Text("Sign In")
@@ -32,8 +33,10 @@ struct SignInView: View {
                         .foregroundStyle(.darkGreen)
                         .padding()
                     nameSection
+                        .padding()
                     emailSection
                     passwordSection
+                        .padding()
                     sendingEmailSection
                     Spacer()
                     signInButton
@@ -53,7 +56,8 @@ struct SignInView: View {
                 Text("Name")
                     .foregroundStyle(.darkGreen)
                     .font(.system(size: 20, weight: .semibold))
-                TextField("Name", text: $userName)
+                TextField("Name", text: $userName, prompt: Text("Name")
+                    .foregroundStyle(.myGray))
                     .padding(.leading)
                     .frame(width: 145, height: 50)
                     .background(.white)
@@ -67,7 +71,8 @@ struct SignInView: View {
                 Text("Surname")
                     .foregroundStyle(.darkGreen)
                     .font(.system(size: 20, weight: .semibold))
-                TextField("Surname", text: $userSurname)
+                TextField("Surname", text: $userSurname, prompt: Text("Surname")
+                    .foregroundStyle(.myGray))
                     .padding(.leading)
                     .frame(width: 145, height: 50)
                     .background(.white)
@@ -101,8 +106,10 @@ struct SignInView: View {
                 .font(.system(size: 20, weight: .semibold))
             HStack {
                 Image(systemName: "envelope")
-                    .foregroundStyle(.secondary)
-                TextField("E-mail", text: $userEmail)
+                    .foregroundStyle(.myGray)
+                TextField("", text: $userEmail,
+                          prompt: Text("E-mail")
+                    .foregroundStyle(.myGray))
                     .autocorrectionDisabled()
                     .textInputAutocapitalization(.never)
             }
@@ -123,23 +130,27 @@ struct SignInView: View {
                 .font(.system(size: 20, weight: .semibold))
             HStack {
                 Image(systemName: "lock")
-                    .foregroundColor(.secondary)
+                    .foregroundColor(.myGray)
                     .padding(.leading)
                 if showPassword {
-                    TextField("Password",
-                              text: $userPassword)
+                    TextField("",
+                              text: $userPassword, 
+                              prompt: Text("Password")
+                        .foregroundStyle(.myGray))
                     .autocorrectionDisabled()
                     .textInputAutocapitalization(.never)
                 } else {
-                    SecureField("Password",
-                                text: $userPassword)
+                    SecureField("",
+                                text: $userPassword,
+                                prompt: Text("Password")
+                        .foregroundStyle(.myGray))
                     .autocorrectionDisabled()
                     .textInputAutocapitalization(.never)
                 }
                 Button(action: { self.showPassword.toggle()}) {
                     
                     Image(systemName: !showPassword ? "eye" : "eye.slash")
-                        .foregroundColor(.secondary)
+                        .foregroundColor(.myGray)
                         .padding()
                 }
             }

@@ -47,13 +47,20 @@ struct CustomCameraView: View {
     
     @Binding var image: UIImage?
     @State var didTapCapture: Bool = false
+    
+    @StateObject private var vm = ScanViewModel()
+    
     var body: some View {
         ZStack(alignment: .bottom) {
             
+            DataScannerView(
+                recognizedItems: $vm.recognizedItems,
+                recognizedDataType: vm.recognizedDataType)
             CustomCameraRepresentable(image: self.$image, didTapCapture: $didTapCapture)
-            CaptureButtonView().onTapGesture {
-                self.didTapCapture = true
-            }
+            
+//            CaptureButtonView().onTapGesture {
+//                self.didTapCapture = true
+//            }
         }
     }
     
@@ -74,9 +81,6 @@ struct CustomCameraRepresentable: UIViewControllerRepresentable {
     
     func updateUIViewController(_ cameraViewController: CustomCameraController, context: Context) {
         
-        if(self.didTapCapture) {
-            cameraViewController.didTapRecord()
-        }
     }
     func makeCoordinator() -> Coordinator {
         Coordinator(self)
@@ -91,12 +95,6 @@ struct CustomCameraRepresentable: UIViewControllerRepresentable {
         
         func photoOutput(_ output: AVCapturePhotoOutput, didFinishProcessingPhoto photo: AVCapturePhoto, error: Error?) {
             
-            parent.didTapCapture = false
-            
-            if let imageData = photo.fileDataRepresentation() {
-                parent.image = UIImage(data: imageData)
-            }
-            parent.presentationMode.wrappedValue.dismiss()
         }
     }
 }

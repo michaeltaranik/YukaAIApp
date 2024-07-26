@@ -8,8 +8,8 @@
 import SwiftUI
 
 struct LogInView: View {
-    @State var email: String = ""
-    @State var password: String = ""
+    @State var userEmail: String = ""
+    @State var userPassword: String = ""
     @State var sendEmail: Bool = true
     @State var showPassword: Bool = false
     
@@ -31,9 +31,7 @@ struct LogInView: View {
                 //                    .resizable()
                 //                    .scaledToFit()
                 emailSection
-                    .shadow(radius: 5)
                 passwordSection
-                    .shadow(radius: 5)
                 sendingEmailSection
                 Spacer()
                 loginButton
@@ -43,9 +41,12 @@ struct LogInView: View {
     
     var sendingEmailSection: some View {
         Toggle(isOn: $sendEmail, label: {
-            Text("I want to receive e-mails")
-                .frame(minWidth: 150)
-                .foregroundStyle(.darkGreen)
+            HStack {
+                Image(systemName: "envelope.fill")
+                Text("I want to receive e-mails")
+                    .frame(minWidth: 150)
+                    .foregroundStyle(.darkGreen)
+            }
         })
         .padding(50)
     }
@@ -57,16 +58,18 @@ struct LogInView: View {
                 .font(.system(size: 20, weight: .semibold))
             HStack {
                 Image(systemName: "envelope")
-                    .foregroundStyle(.secondary)
-                TextField("E-mail", text: $email)
+                    .foregroundStyle(.myGray)
+                TextField("", text: $userEmail,
+                          prompt: Text("E-mail")
+                    .foregroundStyle(.myGray))
                     .autocorrectionDisabled()
                     .textInputAutocapitalization(.never)
             }
-                .padding(.leading)
-                .frame(width: 320, height: 50)
-                .background(.white)
-                .foregroundColor(.black)
-                .cornerRadius(20)
+            .padding(.leading)
+            .frame(width: 320, height: 50)
+            .background(.white)
+            .foregroundColor(.black)
+            .cornerRadius(20)
             
         })
         .shadow(radius: 5)
@@ -79,23 +82,27 @@ struct LogInView: View {
                 .font(.system(size: 20, weight: .semibold))
             HStack {
                 Image(systemName: "lock")
-                    .foregroundColor(.secondary)
+                    .foregroundColor(.myGray)
                     .padding(.leading)
                 if showPassword {
-                    TextField("Password",
-                              text: $password)
+                    TextField("",
+                              text: $userPassword,
+                              prompt: Text("Password")
+                        .foregroundStyle(.myGray))
                     .autocorrectionDisabled()
                     .textInputAutocapitalization(.never)
                 } else {
-                    SecureField("Password",
-                                text: $password)
+                    SecureField("",
+                                text: $userPassword,
+                                prompt: Text("Password")
+                        .foregroundStyle(.myGray))
                     .autocorrectionDisabled()
                     .textInputAutocapitalization(.never)
                 }
                 Button(action: { self.showPassword.toggle()}) {
                     
                     Image(systemName: !showPassword ? "eye" : "eye.slash")
-                        .foregroundColor(.secondary)
+                        .foregroundColor(.myGray)
                         .padding()
                 }
             }

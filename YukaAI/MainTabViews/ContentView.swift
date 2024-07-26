@@ -17,7 +17,8 @@ class ContentViewManager: ObservableObject {
 
 struct ContentView: View {
 
-    @EnvironmentObject var vm: ScanViewModel
+//    @EnvironmentObject var vm: ScanViewModel
+    @StateObject private var vm = ScanViewModel()
     
     @StateObject var contentManager = ContentViewManager()
     
@@ -73,16 +74,17 @@ struct CartTabView: View {
 //MARK: - ScanTab
 struct ScanTabView: View {
     @EnvironmentObject var contentManager: ContentViewManager
-    @EnvironmentObject var vm: ScanViewModel
+//    @EnvironmentObject var vm: ScanViewModel
     
     @State var myImg = UIImage(systemName: "camera")
     
     var body: some View {
         BarcodeScannerView()
 //        CustomCameraView(image: $myImg, didTapCapture: false)
-            .task {
-                await vm.requestDataScannerAccessStatus()
-            }
+//        CustomCameraPhotoView()
+//            .task {
+//                await vm.requestDataScannerAccessStatus()
+//            }
             .onAppear {
                 contentManager.changeTitle("Scan")
             }

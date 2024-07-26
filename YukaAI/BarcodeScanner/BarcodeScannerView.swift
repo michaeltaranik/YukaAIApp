@@ -10,25 +10,27 @@ import VisionKit
 
 struct BarcodeScannerView: View {
     
-    @EnvironmentObject var vm: ScanViewModel
+//    @EnvironmentObject var vm: ScanViewModel
+    @StateObject private var vm = ScanViewModel()
     @EnvironmentObject var contentManager: ContentViewManager
     
     @State var showBottomContainer = false
     
     
     var body: some View {
-        switch vm.dataScannerAccessStatus {
-        case .scannerAvailable:
-            mainView
-        case .cameraNotAvailable:
-            Text("Your device doesn't have a camera")
-        case .scannerNotAvailable:
-            Text("Your device doesn't have support for scanning barcode with this app")
-        case .cameraAccessNotGranted:
-            Text("Please provide access to the camera in settings")
-        case .notDetermined:
-            Text("Requesting camera access")
-        }
+        mainView
+//        switch vm.dataScannerAccessStatus {
+//        case .scannerAvailable:
+//            mainView
+//        case .cameraNotAvailable:
+//            Text("Your device doesn't have a camera")
+//        case .scannerNotAvailable:
+//            Text("Your device doesn't have support for scanning barcode with this app")
+//        case .cameraAccessNotGranted:
+//            Text("Please provide access to the camera in settings")
+//        case .notDetermined:
+//            Text("Requesting camera access")
+//        }
     }
     
     private var mainView: some View {
