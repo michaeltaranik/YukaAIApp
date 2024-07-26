@@ -163,9 +163,9 @@
 				E45956472C4C313C000B5058 /* DataManager.swift */,
 				E40A4EFC2C5236FC00167FBD /* ScanResultsModel.swift */,
 				E459564A2C4D29A0000B5058 /* Results.swift */,
-				E40A4F042C53C22E00167FBD /* ProductItem.swift */,
 				E45956602C4E1355000B5058 /* HealthManager.swift */,
 				E40A4EE32C4FD69100167FBD /* CameraManager.swift */,
+				E40A4F042C53C22E00167FBD /* ProductItem.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";

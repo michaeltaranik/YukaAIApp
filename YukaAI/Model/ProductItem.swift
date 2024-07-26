@@ -16,10 +16,10 @@ class ProductList: ObservableObject {
 
 struct ProductItem: Hashable {
     
-//    let id = UUID().uuidString
+    let barcode: String
     let name: String
     let calories: String
-    let image: UIImage
+    let imageUrl: String
     let macros: Macros
     
     func hash(into hasher: inout Hasher) {
