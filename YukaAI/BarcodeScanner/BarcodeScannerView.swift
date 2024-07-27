@@ -38,7 +38,7 @@ struct BarcodeScannerView: View {
             recognizedItems: $vm.recognizedItems,
             recognizedDataType: vm.recognizedDataType)
         .background { Color.gray.opacity(0.3) }
-//        .id(vm.dataScannerViewId)
+        .id(vm.dataScannerViewId)
         .sheet(isPresented: .constant(vm.recognizedItems.count != 0)) {
             bottomContainerView
                 .background(.lightGreen)

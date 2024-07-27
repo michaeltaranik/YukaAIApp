@@ -49,7 +49,7 @@ struct ProductUIView: View {
         .shadow(radius: 10)
         .onTapGesture {
             vm.approveButton(approve: vm.approved)
-            dataManager.fetchData(barcode: "7613269250685")
+//            dataManager.fetchData(barcode: "7613269250685")
         }
         .symbolEffect(.pulse, value: vm.animate)
     }

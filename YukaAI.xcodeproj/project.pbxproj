@@ -22,6 +22,8 @@
 		E40A4F012C52A3F700167FBD /* TestView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E40A4F002C52A3F700167FBD /* TestView.swift */; };
 		E40A4F052C53C22E00167FBD /* ProductItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = E40A4F042C53C22E00167FBD /* ProductItem.swift */; };
 		E40A4F0A2C541AC300167FBD /* MeshGradientOverview.swift in Sources */ = {isa = PBXBuildFile; fileRef = E40A4F092C541AC300167FBD /* MeshGradientOverview.swift */; };
+		E40A4F0C2C541BFC00167FBD /* AccountView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E40A4F0B2C541BFC00167FBD /* AccountView.swift */; };
+		E40A4F102C5424BC00167FBD /* ProductInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = E40A4F0F2C5424BC00167FBD /* ProductInfo.swift */; };
 		E459563C2C47CFAF000B5058 /* Concurrency.swift in Sources */ = {isa = PBXBuildFile; fileRef = E459563B2C47CFAF000B5058 /* Concurrency.swift */; };
 		E45956442C4A65D9000B5058 /* ImageLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = E45956432C4A65D9000B5058 /* ImageLoader.swift */; };
 		E45956462C4BD289000B5058 /* FirstView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E45956452C4BD289000B5058 /* FirstView.swift */; };
@@ -81,6 +83,8 @@
 		E40A4F002C52A3F700167FBD /* TestView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestView.swift; sourceTree = "<group>"; };
 		E40A4F042C53C22E00167FBD /* ProductItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductItem.swift; sourceTree = "<group>"; };
 		E40A4F092C541AC300167FBD /* MeshGradientOverview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeshGradientOverview.swift; sourceTree = "<group>"; };
+		E40A4F0B2C541BFC00167FBD /* AccountView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountView.swift; sourceTree = "<group>"; };
+		E40A4F0F2C5424BC00167FBD /* ProductInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductInfo.swift; sourceTree = "<group>"; };
 		E459563B2C47CFAF000B5058 /* Concurrency.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Concurrency.swift; sourceTree = "<group>"; };
 		E45956432C4A65D9000B5058 /* ImageLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageLoader.swift; sourceTree = "<group>"; };
 		E45956452C4BD289000B5058 /* FirstView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstView.swift; sourceTree = "<group>"; };
@@ -164,6 +168,7 @@
 			children = (
 				E40A4EF82C52359C00167FBD /* ErrorCases.swift */,
 				E45956472C4C313C000B5058 /* DataManager.swift */,
+				E40A4F0F2C5424BC00167FBD /* ProductInfo.swift */,
 				E40A4EFC2C5236FC00167FBD /* ScanResultsModel.swift */,
 				E459564A2C4D29A0000B5058 /* Results.swift */,
 				E45956602C4E1355000B5058 /* HealthManager.swift */,
@@ -195,6 +200,7 @@
 				E459565A2C4D5A8C000B5058 /* ScanView.swift */,
 				E459566B2C4E1A02000B5058 /* AssistantView.swift */,
 				E45956692C4E1949000B5058 /* ProfileView.swift */,
+				E40A4F0B2C541BFC00167FBD /* AccountView.swift */,
 				E45956702C4FB3C1000B5058 /* ConnectionView.swift */,
 				E45956652C4E1548000B5058 /* HealthView.swift */,
 				E40A4EE52C4FDB6600167FBD /* CameraView.swift */,
@@ -411,6 +417,7 @@
 				E459566C2C4E1A02000B5058 /* AssistantView.swift in Sources */,
 				E45956442C4A65D9000B5058 /* ImageLoader.swift in Sources */,
 				E4A9558B2C3C5980009D7F11 /* ContentView.swift in Sources */,
+				E40A4F102C5424BC00167FBD /* ProductInfo.swift in Sources */,
 				E459565B2C4D5A8C000B5058 /* ScanView.swift in Sources */,
 				E40A4F0A2C541AC300167FBD /* MeshGradientOverview.swift in Sources */,
 				E40A4EFD2C5236FC00167FBD /* ScanResultsModel.swift in Sources */,
@@ -418,6 +425,7 @@
 				E459566A2C4E1949000B5058 /* ProfileView.swift in Sources */,
 				E45956712C4FB3C1000B5058 /* ConnectionView.swift in Sources */,
 				E45956612C4E1355000B5058 /* HealthManager.swift in Sources */,
+				E40A4F0C2C541BFC00167FBD /* AccountView.swift in Sources */,
 				E459563C2C47CFAF000B5058 /* Concurrency.swift in Sources */,
 				E40A4EE42C4FD69100167FBD /* CameraManager.swift in Sources */,
 				E40A4EF52C51500400167FBD /* CreateUserView.swift in Sources */,
