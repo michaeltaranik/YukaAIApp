@@ -32,8 +32,7 @@ struct ScanView: View {
     
     var body: some View {
         ZStack {
-            Color(.lightGreen)
-                .ignoresSafeArea()
+            MeshGradientOverview()
             ScrollView {
                 VStack {
                     HStack {
@@ -54,13 +53,11 @@ struct ScanView: View {
                     .shadow(radius: 10)
                     .padding(30)
                     .task {
-                        await scanResultsModel.getProductInfo(barcode)
-//                        await scanResultsModel.getInfo(barcode: barcode)
-                        self.setMacros(scanResultsModel.productInfo)
+//                        await scanResultsModel.getProductInfo(barcode)
+//                        self.setMacros(scanResultsModel.productInfo)
+                        await scanResultsModel.getInfo(barcode: barcode)
+                        self.changeMacros(scanResultsModel.results)
                         vm.approveButton(approve: true)
-                    }
-                    .onTapGesture {
-                        
                     }
                 }
             }
@@ -72,7 +69,7 @@ struct ScanView: View {
     
     var productImage: some View {
         VStack(alignment: .leading) {
-            AsyncImage(url: URL(string: scanResultsModel.productInfo?.image_urls[0] ?? "")) { image in
+            AsyncImage(url: URL(string: scanResultsModel.results?.product?.image_url ?? "")) { image in
                 image
                     .resizable()
                     .aspectRatio(contentMode: .fit)
@@ -104,34 +101,17 @@ struct ScanView: View {
 
 
 extension ScanView {
-//    func changeMacros(_ results: Results?) {
-//        self.productName = results?.product?.product_name ?? "unknown"
-//        let roundedCal = ((results?.product?.nutriments.energy_value ?? 0.0) / 4.184).rounded()
-//        self.calories = String(roundedCal)
-//        self.carbs = String(results?.product?.nutriments.carbohydrates_100g ?? 0.0)
-//        self.proteins = String(results?.product?.nutriments.proteins_100g ?? 0.0)
-//        self.fats = String(results?.product?.nutriments.fat_100g ?? 0.0)
-//        self.sugars = String(results?.product?.nutriments.sugars_100g ?? 0.0)
-//        self.image = scanResultsModel.image
-//        guard !inCart(barcode) else {
-//            return
-//        }
-//        productList.list.append(
-//            ProductItem(barcode: self.barcode,
-//                        name: productName,
-//                        calories: calories,
-//                        imageUrl: scanResultsModel.results?.product?.image_url ?? "",
-//                        macros: Macros(fat: fats, carbs: carbs, protein: proteins, fiber: "nil", sugar: sugars, salt: "nil")))
-//    }
     
     
-    func setMacros(_ productInfo: ProductInfo?) {
-        self.productName = productInfo?.product_name ?? "Unknown"
-        self.calories = String(productInfo?.nutriments.energy_kcal_100g ?? 0.0)
-        self.carbs = String(productInfo?.nutriments.carbohydrates_100g ?? 0.0)
-        self.proteins = String(productInfo?.nutriments.proteins_100g ?? 0.0)
-        self.fats = String(productInfo?.nutriments.fat_100g ?? 0.0)
-        self.sugars = String(productInfo?.nutriments.sugars_100g ?? 0.0)
+    
+    func changeMacros(_ results: Results?) {
+        self.productName = results?.product?.product_name ?? "Unknown"
+        let roundedCal = ((results?.product?.nutriments.energy_value ?? 0.0) / 4.184).rounded()
+        self.calories = String(roundedCal)
+        self.carbs = String(results?.product?.nutriments.carbohydrates_100g ?? 0.0)
+        self.proteins = String(results?.product?.nutriments.proteins_100g ?? 0.0)
+        self.fats = String(results?.product?.nutriments.fat_100g ?? 0.0)
+        self.sugars = String(results?.product?.nutriments.sugars_100g ?? 0.0)
         self.image = scanResultsModel.image
         guard !inCart(barcode) else {
             return
@@ -140,9 +120,29 @@ extension ScanView {
             ProductItem(barcode: self.barcode,
                         name: productName,
                         calories: calories,
-                        imageUrl: scanResultsModel.productInfo?.image_urls[0] ?? "",
+                        imageUrl: scanResultsModel.results?.product?.image_url ?? "",
                         macros: Macros(fat: fats, carbs: carbs, protein: proteins, fiber: "nil", sugar: sugars, salt: "nil")))
     }
+    
+    
+//    func setMacros(_ productInfo: ProductInfo?) {
+//        self.productName = productInfo?.product_name ?? "Unknown"
+//        self.calories = String(productInfo?.nutriments.energy_kcal_100g ?? 0.0)
+//        self.carbs = String(productInfo?.nutriments.carbohydrates_100g ?? 0.0)
+//        self.proteins = String(productInfo?.nutriments.proteins_100g ?? 0.0)
+//        self.fats = String(productInfo?.nutriments.fat_100g ?? 0.0)
+//        self.sugars = String(productInfo?.nutriments.sugars_100g ?? 0.0)
+//        self.image = scanResultsModel.image
+//        guard !inCart(barcode) else {
+//            return
+//        }
+//        productList.list.append(
+//            ProductItem(barcode: self.barcode,
+//                        name: productName,
+//                        calories: calories,
+//                        imageUrl: scanResultsModel.productInfo?.image_urls[0] ?? "",
+//                        macros: Macros(fat: fats, carbs: carbs, protein: proteins, fiber: "nil", sugar: sugars, salt: "nil")))
+//    }
     
     
     func inCart(_ barcode: String) -> Bool {
@@ -157,7 +157,7 @@ extension ScanView {
 }
 
 
-//
+
 //#Preview {
 //    ScanView(barcode: "3045140105502")
 //}

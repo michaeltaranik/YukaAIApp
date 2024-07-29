@@ -9,58 +9,58 @@ import Foundation
 
 
 
-struct ProductInfo: Codable {
-    let id: String
-    let product_name: String
-    let labels: String
-    let nutriscore_tags: [String]
+//struct ProductInfo: Codable {
+//    let id: String
+//    let product_name: String
+//    let labels: String
+//    let nutriscore_tags: [String]
 //    let nutrient_levels: NutrientLevels
-    let additive_tags: [String]
-    let nutriments: Nutriments
-    let image_urls: [String]
-}
-
-struct NutrientLevels: Codable {
-    let fat: String
-    let salt: String
-    let saturated_fat: String
-    let sugars: String
-}
-
-struct Nutriments: Codable {
-    let energy_kcal: Double
-    let energy_kcal_100g: Double
-    let energy_kcal_value: Double
-    let energy_kcal_unit: String
-    let energy_kj: Double
-    let energy_kj_100g: Double
-    let energy_kj_value: Double
-    let energy_kj_unit: String
-    let fat: Double
-    let fat_100g: Double
-    let fat_unit: String
-    let carbohydrates: Double
-    let carbohydrates_100g: Double
-    let carbohydrates_unit: String
-    let fiber: Double
-    let fiber_100g: Double
-    let fiber_unit: String
-    let sugars: Double
-    let sugars_100g: Double
-    let sugars_unit: String
-    let saturated_fat: Double
-    let saturated_fat_100g: Double
-    let saturated_fat_unit: String
-    let proteins: Double
-    let proteins_100g: Double
-    let proteins_unit: String
-    let salt: Double
-    let salt_100g: Double
-    let salt_unit: String
-    let nova_group: Int
-    let nutrition_score_fr: Int
-    let nutrition_score_fr_100g: Int
-}
+//    let additive_tags: [String]
+//    let nutriments: Nutriments
+//    let image_urls: [String]
+//}
+//
+//struct NutrientLevels: Codable {
+//    let fat: String
+//    let salt: String
+//    let saturated_fat: String
+//    let sugars: String
+//}
+//
+//struct Nutriments: Codable {
+//    let energy_kcal: Double
+//    let energy_kcal_100g: Double
+//    let energy_kcal_value: Double
+//    let energy_kcal_unit: String
+//    let energy_kj: Double
+//    let energy_kj_100g: Double
+//    let energy_kj_value: Double
+//    let energy_kj_unit: String
+//    let fat: Double
+//    let fat_100g: Double
+//    let fat_unit: String
+//    let carbohydrates: Double
+//    let carbohydrates_100g: Double
+//    let carbohydrates_unit: String
+//    let fiber: Double
+//    let fiber_100g: Double
+//    let fiber_unit: String
+//    let sugars: Double
+//    let sugars_100g: Double
+//    let sugars_unit: String
+//    let saturated_fat: Double
+//    let saturated_fat_100g: Double
+//    let saturated_fat_unit: String
+//    let proteins: Double
+//    let proteins_100g: Double
+//    let proteins_unit: String
+//    let salt: Double
+//    let salt_100g: Double
+//    let salt_unit: String
+//    let nova_group: Int
+//    let nutrition_score_fr: Int
+//    let nutrition_score_fr_100g: Int
+//}
 
 
 

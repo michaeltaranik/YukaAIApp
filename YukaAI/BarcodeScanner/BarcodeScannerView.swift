@@ -41,7 +41,7 @@ struct BarcodeScannerView: View {
         .id(vm.dataScannerViewId)
         .sheet(isPresented: .constant(vm.recognizedItems.count != 0)) {
             bottomContainerView
-                .background(.lightGreen)
+                .background(MeshGradientOverview())
                 .presentationDetents([.medium, .fraction(0.25)])
                 .presentationDragIndicator(.visible)
                 .onAppear {
@@ -61,24 +61,21 @@ struct BarcodeScannerView: View {
     private var bottomContainerView: some View {
         @Binding var showBottomContainer: Bool
         
-        var lastItem = vm.recognizedItems.count - 1
-        var item = vm.recognizedItems[lastItem]
+        let lastItem = vm.recognizedItems.count - 1
+        let item = vm.recognizedItems[lastItem]
         
         return VStack {
-            ScrollView {
-                VStack {
-                    switch item {
-                    case .barcode(let barcode):
-                        ScanView(barcode: barcode.payloadStringValue ?? "")
-                        
-                    case .text(let text):
-                        Text(text.transcript)
-                        
-                    @unknown default:
-                        Text("Unknown")
-                    }
-                }
+            switch item {
+            case .barcode(let barcode):
+                ScanView(barcode: barcode.payloadStringValue ?? "")
+                
+            case .text(let text):
+                Text(text.transcript)
+                
+            @unknown default:
+                Text("Unknown")
             }
+            
         }
     }
 }
