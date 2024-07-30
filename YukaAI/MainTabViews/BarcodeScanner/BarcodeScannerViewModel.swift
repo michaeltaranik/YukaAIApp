@@ -23,13 +23,14 @@ enum DataScannerAccessStatusType {
 }
 
 @MainActor
-final class ScanViewModel: ObservableObject {
+final class BarcodeScannerViewModel: ObservableObject {
     
     @Published var dataScannerAccessStatus: DataScannerAccessStatusType = .notDetermined
     @Published var recognizedItems: [RecognizedItem] = []
     @Published var scanType: ScanType = .barcode
     @Published var textContentType: DataScannerViewController.TextContentType?
     @Published var recognizesMultipleItems = false
+    @Published var showBottomContainer = false
     
     let recognizedDataType: DataScannerViewController.RecognizedDataType = .barcode()
 
@@ -43,6 +44,31 @@ final class ScanViewModel: ObservableObject {
         }
         return hasher.finalize()
     }
+    
+    
+//    func showNewProduct() -> Bool {
+//        let lastItem = recognizedItems.count - 1
+//        let last = recognizedItems[lastItem]
+//        let lastlast = recognizedItems[lastItem - 1]
+//        switch last {
+//        case .text(_):
+//            return false
+//        case .barcode(let barcode):
+//            switch lastlast {
+//            case .text(_):
+//                return false
+//            case .barcode(let otherBarcode):
+//                return barcode.payloadStringValue != otherBarcode.payloadStringValue
+//            @unknown default:
+//                return false
+//            }
+//        @unknown default:
+//            return false
+//        }
+//        
+//        
+//    }
+    
     
     private var isScannerAvailable: Bool {
         DataScannerViewController.isAvailable && DataScannerViewController.isSupported

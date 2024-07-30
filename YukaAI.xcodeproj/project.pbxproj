@@ -8,8 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		E40A4EE42C4FD69100167FBD /* CameraManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E40A4EE32C4FD69100167FBD /* CameraManager.swift */; };
-		E40A4EE62C4FDB6600167FBD /* CameraView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E40A4EE52C4FDB6600167FBD /* CameraView.swift */; };
-		E40A4EE92C4FFBA100167FBD /* ScanViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E40A4EE82C4FFBA100167FBD /* ScanViewModel.swift */; };
+		E40A4EE92C4FFBA100167FBD /* BarcodeScannerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E40A4EE82C4FFBA100167FBD /* BarcodeScannerViewModel.swift */; };
 		E40A4EEB2C4FFCAF00167FBD /* DataScannerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E40A4EEA2C4FFCAF00167FBD /* DataScannerView.swift */; };
 		E40A4EED2C4FFDA700167FBD /* BarcodeScannerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E40A4EEC2C4FFDA700167FBD /* BarcodeScannerView.swift */; };
 		E40A4EF12C513D6D00167FBD /* IntroView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E40A4EF02C513D6D00167FBD /* IntroView.swift */; };
@@ -70,8 +69,7 @@
 
 /* Begin PBXFileReference section */
 		E40A4EE32C4FD69100167FBD /* CameraManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraManager.swift; sourceTree = "<group>"; };
-		E40A4EE52C4FDB6600167FBD /* CameraView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraView.swift; sourceTree = "<group>"; };
-		E40A4EE82C4FFBA100167FBD /* ScanViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScanViewModel.swift; sourceTree = "<group>"; };
+		E40A4EE82C4FFBA100167FBD /* BarcodeScannerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BarcodeScannerViewModel.swift; sourceTree = "<group>"; };
 		E40A4EEA2C4FFCAF00167FBD /* DataScannerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataScannerView.swift; sourceTree = "<group>"; };
 		E40A4EEC2C4FFDA700167FBD /* BarcodeScannerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BarcodeScannerView.swift; sourceTree = "<group>"; };
 		E40A4EEE2C5023DC00167FBD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
@@ -146,7 +144,7 @@
 		E40A4EE72C4FFB4F00167FBD /* BarcodeScanner */ = {
 			isa = PBXGroup;
 			children = (
-				E40A4EE82C4FFBA100167FBD /* ScanViewModel.swift */,
+				E40A4EE82C4FFBA100167FBD /* BarcodeScannerViewModel.swift */,
 				E40A4EEA2C4FFCAF00167FBD /* DataScannerView.swift */,
 				E40A4EEC2C4FFDA700167FBD /* BarcodeScannerView.swift */,
 			);
@@ -207,6 +205,7 @@
 			isa = PBXGroup;
 			children = (
 				E4A9558A2C3C5980009D7F11 /* ContentView.swift */,
+				E40A4EE72C4FFB4F00167FBD /* BarcodeScanner */,
 				E459566E2C4E76A8000B5058 /* CartView.swift */,
 				E45956672C4E1908000B5058 /* StatsView.swift */,
 				E459565A2C4D5A8C000B5058 /* ScanView.swift */,
@@ -216,7 +215,6 @@
 				E40A4F0B2C541BFC00167FBD /* AccountView.swift */,
 				E45956702C4FB3C1000B5058 /* ConnectionView.swift */,
 				E45956652C4E1548000B5058 /* HealthView.swift */,
-				E40A4EE52C4FDB6600167FBD /* CameraView.swift */,
 			);
 			path = MainTabViews;
 			sourceTree = "<group>";
@@ -250,7 +248,6 @@
 				E40A4EEF2C513D5500167FBD /* OnBoarding */,
 				E45956492C4D2975000B5058 /* Model */,
 				E459566D2C4E1E70000B5058 /* MainTabViews */,
-				E40A4EE72C4FFB4F00167FBD /* BarcodeScanner */,
 				E4AA7C2A2C58CCD7000C83D0 /* ToBeDeleted */,
 				E4A9558C2C3C5982009D7F11 /* Assets.xcassets */,
 				E4A9558E2C3C5982009D7F11 /* Preview Content */,
@@ -433,7 +430,7 @@
 				E459564B2C4D29A0000B5058 /* Results.swift in Sources */,
 				E40A4EF72C515CCC00167FBD /* WelcomeView.swift in Sources */,
 				E40A4F132C550A9D00167FBD /* TestCodable.swift in Sources */,
-				E40A4EE92C4FFBA100167FBD /* ScanViewModel.swift in Sources */,
+				E40A4EE92C4FFBA100167FBD /* BarcodeScannerViewModel.swift in Sources */,
 				E459566F2C4E76A8000B5058 /* CartView.swift in Sources */,
 				E40A4EEB2C4FFCAF00167FBD /* DataScannerView.swift in Sources */,
 				E40A4EF92C52359C00167FBD /* ErrorCases.swift in Sources */,
@@ -454,7 +451,6 @@
 				E40A4EE42C4FD69100167FBD /* CameraManager.swift in Sources */,
 				E40A4EF52C51500400167FBD /* CreateUserView.swift in Sources */,
 				E40A4EF12C513D6D00167FBD /* IntroView.swift in Sources */,
-				E40A4EE62C4FDB6600167FBD /* CameraView.swift in Sources */,
 				E45956532C4D3284000B5058 /* ProductUIView.swift in Sources */,
 				E40A4EFF2C5293EC00167FBD /* SignInView.swift in Sources */,
 				E40A4EF32C51462900167FBD /* LogInView.swift in Sources */,

@@ -17,7 +17,7 @@ class ContentViewManager: ObservableObject {
 
 struct ContentView: View {
 
-    @StateObject private var vm = ScanViewModel()
+    @StateObject private var vm = BarcodeScannerViewModel()
     @StateObject var contentManager = ContentViewManager()
     
     var body: some View {

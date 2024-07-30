@@ -11,7 +11,6 @@ struct ScanView: View {
     
     
     @EnvironmentObject var productList: ProductList
-    
     @StateObject private var viewModel = ViewModel()
     
     var barcode: String
@@ -25,7 +24,7 @@ struct ScanView: View {
                 VStack {
                     HStack {
                         productImage
-                        headerInfo
+                        viewModel.productName == "Unknown" ? nil : headerInfo
                     }
                     .task {
                         await viewModel.getInfo(barcode: barcode)

@@ -10,27 +10,14 @@ import VisionKit
 
 struct BarcodeScannerView: View {
     
-//    @EnvironmentObject var vm: ScanViewModel
-    @StateObject private var vm = ScanViewModel()
+    @StateObject private var vm = BarcodeScannerViewModel()
     @EnvironmentObject var contentManager: ContentViewManager
     
-    @State var showBottomContainer = false
+    
     
     
     var body: some View {
         mainView
-//        switch vm.dataScannerAccessStatus {
-//        case .scannerAvailable:
-//            mainView
-//        case .cameraNotAvailable:
-//            Text("Your device doesn't have a camera")
-//        case .scannerNotAvailable:
-//            Text("Your device doesn't have support for scanning barcode with this app")
-//        case .cameraAccessNotGranted:
-//            Text("Please provide access to the camera in settings")
-//        case .notDetermined:
-//            Text("Requesting camera access")
-//        }
     }
     
     private var mainView: some View {
@@ -39,7 +26,7 @@ struct BarcodeScannerView: View {
             recognizedDataType: vm.recognizedDataType)
         .background { Color.gray.opacity(0.3) }
         .id(vm.dataScannerViewId)
-        .sheet(isPresented: .constant(vm.recognizedItems.count != 0)) {
+        .sheet(isPresented: $vm.showBottomContainer) {
             bottomContainerView
                 .background(GradientView())
                 .presentationDetents([.medium, .fraction(0.25)])
@@ -52,23 +39,35 @@ struct BarcodeScannerView: View {
                     controller.view.backgroundColor = .clear
                 }
         }
-        .onChange(of: vm.recognizedItems.count, { showBottomContainer = true })
+        .onChange(of: vm.recognizedItems.count, {
+            guard !vm.recognizedItems.isEmpty else { return }
+            if !vm.showBottomContainer {
+                vm.showBottomContainer.toggle()
+            }
+//            if vm.showNewProduct() {
+//                if vm.showBottomContainer {
+//                    vm.showBottomContainer = false
+//                    vm.showBottomContainer.toggle()
+//                }
+//            }
+        })
         .onChange(of: contentManager.mainTitle) { vm.recognizedItems = [] }
     }
+    
     
 
     
     private var bottomContainerView: some View {
         @Binding var showBottomContainer: Bool
-        
         let lastItem = vm.recognizedItems.count - 1
         let item = vm.recognizedItems[lastItem]
+        print(lastItem)
+        print(item)
         
         return VStack {
             switch item {
             case .barcode(let barcode):
                 ScanView(barcode: barcode.payloadStringValue ?? "")
-                
             case .text(let text):
                 Text(text.transcript)
                 
