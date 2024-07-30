@@ -17,13 +17,31 @@ struct Results: Codable {
 
 struct Product: Codable {
     let id: String
-    let generic_name: String?
-    let product_name: String?
-    let nutrient_levels: NutrientLevels?
+    let genericName: String?
+    let productName: String?
+    let nutrientLevels: NutrientLevels?
     let nutriments: Nutriments
-    let image_url: String?
+    let imageUrl: String?
+    let ecoscoreData: EcoscoreData?
+    
+    enum CodingKeys: String, CodingKey {
+        case id = "id"
+        case genericName = "generic_name"
+        case productName = "product_name"
+        case nutrientLevels = "nutrient_levels"
+        case nutriments = "nutriments"
+        case imageUrl = "image_url"
+        case ecoscoreData = "ecoscore_data"
+    }
+    
 }
 
+
+
+struct EcoscoreData: Codable {
+    let grade: String?
+    let score: Int?
+}
 
 struct NutrientLevels: Codable {
     let fat: String?

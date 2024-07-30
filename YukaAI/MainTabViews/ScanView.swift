@@ -7,6 +7,14 @@
 
 import SwiftUI
 
+
+enum ProductQuality {
+    case good (color: Color)
+    case average (color: Color)
+    case bad (color: Color)
+}
+
+
 struct ScanView: View {
     
     
@@ -15,11 +23,11 @@ struct ScanView: View {
     
     var barcode: String
     
-    
+
     
     var body: some View {
         ZStack {
-            GradientView()
+            LightYellowGradient()
             ScrollView {
                 VStack {
                     HStack {
@@ -31,6 +39,7 @@ struct ScanView: View {
                         viewModel.changeMacros()
                     }
                     .padding()
+                    viewModel.productName == "Unknown" ? nil : descriptionLabel
                     Spacer()
                 }
             }
@@ -49,20 +58,54 @@ struct ScanView: View {
     
     
     var headerInfo: some View {
-        VStack(alignment: .leading, content: {
+        VStack(alignment: .center, content: {
             Text(viewModel.productName)
+                .font(.system(size: 28, weight: .bold))
+            nutriLabel
+                .padding(.horizontal)
+                .padding(.bottom)
+        })
+        .font(.system(size: 19, weight: .semibold))
+        .foregroundStyle(.darkGreen)
+    }
+    
+    var descriptionLabel: some View {
+        VStack {
             Text("\(viewModel.calories) kcal")
             Text("Carbs: \(viewModel.carbs) g")
             Text("Fats: \(viewModel.fats) g")
             Text("Proteins: \(viewModel.proteins) g")
             Text("Sugars: \(viewModel.sugars) g")
-        })
+        }
         .font(.system(size: 18, weight: .semibold))
         .foregroundStyle(.darkGreen)
     }
     
+    
+    var nutriLabel: some View {
+        let score = viewModel.nutriScore
+        var color: Color {
+            switch viewModel.quality {
+            case .good(let color):
+                color
+            case .average(let color):
+                color
+            case .bad(let color):
+                color
+            }
+        }
+        return ZStack {
+            RoundedRectangle(cornerSize: CGSize(width: 12, height: 12))
+                .foregroundStyle(color)
+                .frame(width: 90, height: 25)
+            Text("\(score) / 100")
+                .foregroundStyle(.black)
+        }
+    }
+    
+    
+    
     var productImage: some View {
-        
         let imageURL = viewModel.imageUrlString
         
         return VStack(alignment: .leading) {
@@ -73,7 +116,7 @@ struct ScanView: View {
                     .clipShape(RoundedRectangle(cornerSize: CGSize(width: 10, height: 10)))
                     .frame(width: 150, height: 150)
                     .task {
-                        viewModel.addToCart(barcode, productList: productList, imageUrl: imageURL)
+//                        viewModel.addToCart(barcode, productList: productList, imageUrl: imageURL)
                     }
             } placeholder: {
                 Image(.default)

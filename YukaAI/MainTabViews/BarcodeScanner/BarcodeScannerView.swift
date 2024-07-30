@@ -28,7 +28,7 @@ struct BarcodeScannerView: View {
         .id(vm.dataScannerViewId)
         .sheet(isPresented: $vm.showBottomContainer) {
             bottomContainerView
-                .background(GradientView())
+                .background(GreenGradient())
                 .presentationDetents([.medium, .fraction(0.25)])
                 .presentationDragIndicator(.visible)
                 .onAppear {

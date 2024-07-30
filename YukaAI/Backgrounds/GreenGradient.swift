@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct GradientView: View {
+struct GreenGradient: View {
     @State private var isAnimating = false
     
     var body: some View {

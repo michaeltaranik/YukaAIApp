@@ -10,7 +10,7 @@ import SwiftUI
 struct StatsView: View {
     var body: some View {
         ZStack {
-            GradientView()
+            GreenGradient()
             Text("Your Progress!")
                 .bold()
         }

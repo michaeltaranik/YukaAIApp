@@ -21,10 +21,12 @@ extension ScanView {
         @Published var fats = "0.0"
         @Published var proteins = "0.0"
         @Published var sugars = "0.0"
+        @Published var nutriScore = 69
         @Published var results: Results?
         @Published var userError: UserError?
         @Published var shouldShowAlert = false
         @Published var imageUrlString: String = ""
+        @Published var quality: ProductQuality = .average(color: .yellow)
             
         
         
@@ -44,14 +46,24 @@ extension ScanView {
         
         
         func changeMacros() {
-            self.productName = results?.product?.product_name ?? "Unknown"
+            self.productName = results?.product?.productName ?? "Unknown"
             let roundedCal = ((results?.product?.nutriments.energy_value ?? 0.0) / 4.184).rounded()
             self.calories = String(roundedCal)
             self.carbs = String(results?.product?.nutriments.carbohydrates_100g ?? 0.0)
             self.proteins = String(results?.product?.nutriments.proteins_100g ?? 0.0)
             self.fats = String(results?.product?.nutriments.fat_100g ?? 0.0)
             self.sugars = String(results?.product?.nutriments.sugars_100g ?? 0.0)
-            self.imageUrlString = results?.product?.image_url ?? ""
+            self.imageUrlString = results?.product?.imageUrl ?? ""
+            self.nutriScore = results?.product?.ecoscoreData?.score ?? -1
+            guard nutriScore != -1 else { return }
+            switch nutriScore {
+            case 70...100:
+                self.quality = .good(color: .lightGreen)
+            case 0...30:
+                self.quality = .bad(color: .lightRed)
+            default:
+                self.quality = .average(color: .lightRed)
+            }
         }
         
         func inCart(_ barcode: String, productList: ProductList) -> Bool {

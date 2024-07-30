@@ -20,7 +20,7 @@
 		E40A4EFF2C5293EC00167FBD /* SignInView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E40A4EFE2C5293EC00167FBD /* SignInView.swift */; };
 		E40A4F012C52A3F700167FBD /* TestView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E40A4F002C52A3F700167FBD /* TestView.swift */; };
 		E40A4F052C53C22E00167FBD /* ProductItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = E40A4F042C53C22E00167FBD /* ProductItem.swift */; };
-		E40A4F0A2C541AC300167FBD /* GradientView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E40A4F092C541AC300167FBD /* GradientView.swift */; };
+		E40A4F0A2C541AC300167FBD /* GreenGradient.swift in Sources */ = {isa = PBXBuildFile; fileRef = E40A4F092C541AC300167FBD /* GreenGradient.swift */; };
 		E40A4F0C2C541BFC00167FBD /* AccountView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E40A4F0B2C541BFC00167FBD /* AccountView.swift */; };
 		E40A4F102C5424BC00167FBD /* ProductInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = E40A4F0F2C5424BC00167FBD /* ProductInfo.swift */; };
 		E40A4F132C550A9D00167FBD /* TestCodable.swift in Sources */ = {isa = PBXBuildFile; fileRef = E40A4F122C550A9D00167FBD /* TestCodable.swift */; };
@@ -48,6 +48,9 @@
 		E4A955A42C3C5982009D7F11 /* YukaAIUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4A955A32C3C5982009D7F11 /* YukaAIUITests.swift */; };
 		E4A955A62C3C5982009D7F11 /* YukaAIUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4A955A52C3C5982009D7F11 /* YukaAIUITestsLaunchTests.swift */; };
 		E4AA7C2C2C58CE9A000C83D0 /* ScanView-ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4AA7C2B2C58CE9A000C83D0 /* ScanView-ViewModel.swift */; };
+		E4AA7C2E2C5929F5000C83D0 /* LightGreenGradient.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4AA7C2D2C5929F5000C83D0 /* LightGreenGradient.swift */; };
+		E4AA7C312C592B78000C83D0 /* LightRedGradient.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4AA7C302C592B78000C83D0 /* LightRedGradient.swift */; };
+		E4AA7C332C592B89000C83D0 /* LightYellowGradient.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4AA7C322C592B89000C83D0 /* LightYellowGradient.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -82,7 +85,7 @@
 		E40A4EFE2C5293EC00167FBD /* SignInView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInView.swift; sourceTree = "<group>"; };
 		E40A4F002C52A3F700167FBD /* TestView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestView.swift; sourceTree = "<group>"; };
 		E40A4F042C53C22E00167FBD /* ProductItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductItem.swift; sourceTree = "<group>"; };
-		E40A4F092C541AC300167FBD /* GradientView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradientView.swift; sourceTree = "<group>"; };
+		E40A4F092C541AC300167FBD /* GreenGradient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GreenGradient.swift; sourceTree = "<group>"; };
 		E40A4F0B2C541BFC00167FBD /* AccountView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountView.swift; sourceTree = "<group>"; };
 		E40A4F0F2C5424BC00167FBD /* ProductInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductInfo.swift; sourceTree = "<group>"; };
 		E40A4F122C550A9D00167FBD /* TestCodable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestCodable.swift; sourceTree = "<group>"; };
@@ -114,6 +117,9 @@
 		E4A955A32C3C5982009D7F11 /* YukaAIUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YukaAIUITests.swift; sourceTree = "<group>"; };
 		E4A955A52C3C5982009D7F11 /* YukaAIUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YukaAIUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		E4AA7C2B2C58CE9A000C83D0 /* ScanView-ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ScanView-ViewModel.swift"; sourceTree = "<group>"; };
+		E4AA7C2D2C5929F5000C83D0 /* LightGreenGradient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LightGreenGradient.swift; sourceTree = "<group>"; };
+		E4AA7C302C592B78000C83D0 /* LightRedGradient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LightRedGradient.swift; sourceTree = "<group>"; };
+		E4AA7C322C592B89000C83D0 /* LightYellowGradient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LightYellowGradient.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -156,7 +162,6 @@
 			children = (
 				E40A4EF62C515CCC00167FBD /* WelcomeView.swift */,
 				E40A4EF02C513D6D00167FBD /* IntroView.swift */,
-				E40A4F092C541AC300167FBD /* GradientView.swift */,
 				E40A4EF22C51462900167FBD /* LogInView.swift */,
 				E40A4EFE2C5293EC00167FBD /* SignInView.swift */,
 				E40A4EF42C51500400167FBD /* CreateUserView.swift */,
@@ -245,6 +250,7 @@
 				E40A4EEE2C5023DC00167FBD /* Info.plist */,
 				E45956622C4E139F000B5058 /* YukaAI.entitlements */,
 				E4A955882C3C5980009D7F11 /* YukaAIApp.swift */,
+				E4AA7C2F2C592B19000C83D0 /* Backgrounds */,
 				E40A4EEF2C513D5500167FBD /* OnBoarding */,
 				E45956492C4D2975000B5058 /* Model */,
 				E459566D2C4E1E70000B5058 /* MainTabViews */,
@@ -287,6 +293,17 @@
 				E45956642C4E14C8000B5058 /* TestView */,
 			);
 			path = ToBeDeleted;
+			sourceTree = "<group>";
+		};
+		E4AA7C2F2C592B19000C83D0 /* Backgrounds */ = {
+			isa = PBXGroup;
+			children = (
+				E40A4F092C541AC300167FBD /* GreenGradient.swift */,
+				E4AA7C2D2C5929F5000C83D0 /* LightGreenGradient.swift */,
+				E4AA7C302C592B78000C83D0 /* LightRedGradient.swift */,
+				E4AA7C322C592B89000C83D0 /* LightYellowGradient.swift */,
+			);
+			path = Backgrounds;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -431,6 +448,7 @@
 				E40A4EF72C515CCC00167FBD /* WelcomeView.swift in Sources */,
 				E40A4F132C550A9D00167FBD /* TestCodable.swift in Sources */,
 				E40A4EE92C4FFBA100167FBD /* BarcodeScannerViewModel.swift in Sources */,
+				E4AA7C312C592B78000C83D0 /* LightRedGradient.swift in Sources */,
 				E459566F2C4E76A8000B5058 /* CartView.swift in Sources */,
 				E40A4EEB2C4FFCAF00167FBD /* DataScannerView.swift in Sources */,
 				E40A4EF92C52359C00167FBD /* ErrorCases.swift in Sources */,
@@ -440,7 +458,7 @@
 				E40A4F102C5424BC00167FBD /* ProductInfo.swift in Sources */,
 				E459565B2C4D5A8C000B5058 /* ScanView.swift in Sources */,
 				E4AA7C2C2C58CE9A000C83D0 /* ScanView-ViewModel.swift in Sources */,
-				E40A4F0A2C541AC300167FBD /* GradientView.swift in Sources */,
+				E40A4F0A2C541AC300167FBD /* GreenGradient.swift in Sources */,
 				E40A4EFD2C5236FC00167FBD /* ScanResultsModel.swift in Sources */,
 				E459565D2C4D6191000B5058 /* SecondView.swift in Sources */,
 				E459566A2C4E1949000B5058 /* ProfileView.swift in Sources */,
@@ -448,6 +466,7 @@
 				E45956612C4E1355000B5058 /* HealthManager.swift in Sources */,
 				E40A4F0C2C541BFC00167FBD /* AccountView.swift in Sources */,
 				E459563C2C47CFAF000B5058 /* Concurrency.swift in Sources */,
+				E4AA7C2E2C5929F5000C83D0 /* LightGreenGradient.swift in Sources */,
 				E40A4EE42C4FD69100167FBD /* CameraManager.swift in Sources */,
 				E40A4EF52C51500400167FBD /* CreateUserView.swift in Sources */,
 				E40A4EF12C513D6D00167FBD /* IntroView.swift in Sources */,
@@ -456,6 +475,7 @@
 				E40A4EF32C51462900167FBD /* LogInView.swift in Sources */,
 				E4A955892C3C5980009D7F11 /* YukaAIApp.swift in Sources */,
 				E40A4F052C53C22E00167FBD /* ProductItem.swift in Sources */,
+				E4AA7C332C592B89000C83D0 /* LightYellowGradient.swift in Sources */,
 				E45956682C4E1908000B5058 /* StatsView.swift in Sources */,
 				E459565F2C4D65D0000B5058 /* SearchView.swift in Sources */,
 				E45956662C4E1548000B5058 /* HealthView.swift in Sources */,
