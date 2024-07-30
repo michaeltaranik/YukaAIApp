@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct MeshGradientOverview: View {
+struct GradientView: View {
     @State private var isAnimating = false
     
     var body: some View {

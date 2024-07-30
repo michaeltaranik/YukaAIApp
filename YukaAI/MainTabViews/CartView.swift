@@ -31,7 +31,7 @@ struct CartView: View {
         } else {
             NavigationStack {
                 List {
-                    ForEach(productList.list, id: \.self) { product in
+                    ForEach(productList.list.reversed(), id: \.self) { product in
                         NavigationLink(value: product) {
                             HStack {
                                 AsyncImage(url: URL(string: product.imageUrl)) { image in
@@ -42,7 +42,6 @@ struct CartView: View {
                                             RoundedRectangle(
                                                 cornerSize: CGSize(width: 10, height: 10)))
                                         .frame(width: 100, height: 80)
-                                    
                                 } placeholder: {
                                     Image(.default)
                                         .resizable()

@@ -21,7 +21,7 @@
 		E40A4EFF2C5293EC00167FBD /* SignInView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E40A4EFE2C5293EC00167FBD /* SignInView.swift */; };
 		E40A4F012C52A3F700167FBD /* TestView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E40A4F002C52A3F700167FBD /* TestView.swift */; };
 		E40A4F052C53C22E00167FBD /* ProductItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = E40A4F042C53C22E00167FBD /* ProductItem.swift */; };
-		E40A4F0A2C541AC300167FBD /* MeshGradientOverview.swift in Sources */ = {isa = PBXBuildFile; fileRef = E40A4F092C541AC300167FBD /* MeshGradientOverview.swift */; };
+		E40A4F0A2C541AC300167FBD /* GradientView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E40A4F092C541AC300167FBD /* GradientView.swift */; };
 		E40A4F0C2C541BFC00167FBD /* AccountView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E40A4F0B2C541BFC00167FBD /* AccountView.swift */; };
 		E40A4F102C5424BC00167FBD /* ProductInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = E40A4F0F2C5424BC00167FBD /* ProductInfo.swift */; };
 		E40A4F132C550A9D00167FBD /* TestCodable.swift in Sources */ = {isa = PBXBuildFile; fileRef = E40A4F122C550A9D00167FBD /* TestCodable.swift */; };
@@ -48,6 +48,7 @@
 		E4A9559A2C3C5982009D7F11 /* YukaAITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4A955992C3C5982009D7F11 /* YukaAITests.swift */; };
 		E4A955A42C3C5982009D7F11 /* YukaAIUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4A955A32C3C5982009D7F11 /* YukaAIUITests.swift */; };
 		E4A955A62C3C5982009D7F11 /* YukaAIUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4A955A52C3C5982009D7F11 /* YukaAIUITestsLaunchTests.swift */; };
+		E4AA7C2C2C58CE9A000C83D0 /* ScanView-ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4AA7C2B2C58CE9A000C83D0 /* ScanView-ViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -83,7 +84,7 @@
 		E40A4EFE2C5293EC00167FBD /* SignInView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInView.swift; sourceTree = "<group>"; };
 		E40A4F002C52A3F700167FBD /* TestView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestView.swift; sourceTree = "<group>"; };
 		E40A4F042C53C22E00167FBD /* ProductItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductItem.swift; sourceTree = "<group>"; };
-		E40A4F092C541AC300167FBD /* MeshGradientOverview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeshGradientOverview.swift; sourceTree = "<group>"; };
+		E40A4F092C541AC300167FBD /* GradientView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradientView.swift; sourceTree = "<group>"; };
 		E40A4F0B2C541BFC00167FBD /* AccountView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountView.swift; sourceTree = "<group>"; };
 		E40A4F0F2C5424BC00167FBD /* ProductInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductInfo.swift; sourceTree = "<group>"; };
 		E40A4F122C550A9D00167FBD /* TestCodable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestCodable.swift; sourceTree = "<group>"; };
@@ -114,6 +115,7 @@
 		E4A9559F2C3C5982009D7F11 /* YukaAIUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = YukaAIUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		E4A955A32C3C5982009D7F11 /* YukaAIUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YukaAIUITests.swift; sourceTree = "<group>"; };
 		E4A955A52C3C5982009D7F11 /* YukaAIUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YukaAIUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		E4AA7C2B2C58CE9A000C83D0 /* ScanView-ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ScanView-ViewModel.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -156,7 +158,7 @@
 			children = (
 				E40A4EF62C515CCC00167FBD /* WelcomeView.swift */,
 				E40A4EF02C513D6D00167FBD /* IntroView.swift */,
-				E40A4F092C541AC300167FBD /* MeshGradientOverview.swift */,
+				E40A4F092C541AC300167FBD /* GradientView.swift */,
 				E40A4EF22C51462900167FBD /* LogInView.swift */,
 				E40A4EFE2C5293EC00167FBD /* SignInView.swift */,
 				E40A4EF42C51500400167FBD /* CreateUserView.swift */,
@@ -208,6 +210,7 @@
 				E459566E2C4E76A8000B5058 /* CartView.swift */,
 				E45956672C4E1908000B5058 /* StatsView.swift */,
 				E459565A2C4D5A8C000B5058 /* ScanView.swift */,
+				E4AA7C2B2C58CE9A000C83D0 /* ScanView-ViewModel.swift */,
 				E459566B2C4E1A02000B5058 /* AssistantView.swift */,
 				E45956692C4E1949000B5058 /* ProfileView.swift */,
 				E40A4F0B2C541BFC00167FBD /* AccountView.swift */,
@@ -248,8 +251,7 @@
 				E45956492C4D2975000B5058 /* Model */,
 				E459566D2C4E1E70000B5058 /* MainTabViews */,
 				E40A4EE72C4FFB4F00167FBD /* BarcodeScanner */,
-				E40A4F112C55068800167FBD /* Codable */,
-				E45956642C4E14C8000B5058 /* TestView */,
+				E4AA7C2A2C58CCD7000C83D0 /* ToBeDeleted */,
 				E4A9558C2C3C5982009D7F11 /* Assets.xcassets */,
 				E4A9558E2C3C5982009D7F11 /* Preview Content */,
 			);
@@ -279,6 +281,15 @@
 				E4A955A52C3C5982009D7F11 /* YukaAIUITestsLaunchTests.swift */,
 			);
 			path = YukaAIUITests;
+			sourceTree = "<group>";
+		};
+		E4AA7C2A2C58CCD7000C83D0 /* ToBeDeleted */ = {
+			isa = PBXGroup;
+			children = (
+				E40A4F112C55068800167FBD /* Codable */,
+				E45956642C4E14C8000B5058 /* TestView */,
+			);
+			path = ToBeDeleted;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -431,7 +442,8 @@
 				E4A9558B2C3C5980009D7F11 /* ContentView.swift in Sources */,
 				E40A4F102C5424BC00167FBD /* ProductInfo.swift in Sources */,
 				E459565B2C4D5A8C000B5058 /* ScanView.swift in Sources */,
-				E40A4F0A2C541AC300167FBD /* MeshGradientOverview.swift in Sources */,
+				E4AA7C2C2C58CE9A000C83D0 /* ScanView-ViewModel.swift in Sources */,
+				E40A4F0A2C541AC300167FBD /* GradientView.swift in Sources */,
 				E40A4EFD2C5236FC00167FBD /* ScanResultsModel.swift in Sources */,
 				E459565D2C4D6191000B5058 /* SecondView.swift in Sources */,
 				E459566A2C4E1949000B5058 /* ProfileView.swift in Sources */,

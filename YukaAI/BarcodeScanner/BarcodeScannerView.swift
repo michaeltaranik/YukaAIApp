@@ -41,7 +41,7 @@ struct BarcodeScannerView: View {
         .id(vm.dataScannerViewId)
         .sheet(isPresented: .constant(vm.recognizedItems.count != 0)) {
             bottomContainerView
-                .background(MeshGradientOverview())
+                .background(GradientView())
                 .presentationDetents([.medium, .fraction(0.25)])
                 .presentationDragIndicator(.visible)
                 .onAppear {

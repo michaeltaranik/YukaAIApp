@@ -10,8 +10,7 @@ import SwiftUI
 struct StatsView: View {
     var body: some View {
         ZStack {
-            Color(.lightGreen)
-                .ignoresSafeArea()
+            GradientView()
             Text("Your Progress!")
                 .bold()
         }
