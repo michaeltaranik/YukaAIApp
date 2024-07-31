@@ -27,7 +27,7 @@ struct ScanView: View {
     
     var body: some View {
         ZStack {
-            LightYellowGradient()
+            LightGreenGradient()
             ScrollView {
                 VStack {
                     HStack {
@@ -116,7 +116,7 @@ struct ScanView: View {
                     .clipShape(RoundedRectangle(cornerSize: CGSize(width: 10, height: 10)))
                     .frame(width: 150, height: 150)
                     .task {
-//                        viewModel.addToCart(barcode, productList: productList, imageUrl: imageURL)
+                        viewModel.addToCart(barcode, productList: productList, imageUrl: imageURL)
                     }
             } placeholder: {
                 Image(.default)

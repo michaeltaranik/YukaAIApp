@@ -22,6 +22,7 @@ struct YukaAIApp: App {
 //                    await vm.requestDataScannerAccessStatus()
 //                }
                 .environmentObject(productList)
+                
         }
     }
 }

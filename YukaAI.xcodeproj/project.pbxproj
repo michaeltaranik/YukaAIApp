@@ -51,6 +51,9 @@
 		E4AA7C2E2C5929F5000C83D0 /* LightGreenGradient.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4AA7C2D2C5929F5000C83D0 /* LightGreenGradient.swift */; };
 		E4AA7C312C592B78000C83D0 /* LightRedGradient.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4AA7C302C592B78000C83D0 /* LightRedGradient.swift */; };
 		E4AA7C332C592B89000C83D0 /* LightYellowGradient.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4AA7C322C592B89000C83D0 /* LightYellowGradient.swift */; };
+		E4AA7C3D2C5A0F5B000C83D0 /* OpenAI in Frameworks */ = {isa = PBXBuildFile; productRef = E4AA7C3C2C5A0F5B000C83D0 /* OpenAI */; };
+		E4AA7C3F2C5A19A6000C83D0 /* AIAssistantView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4AA7C3E2C5A19A6000C83D0 /* AIAssistantView.swift */; };
+		E4AA7C412C5A22E6000C83D0 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4AA7C402C5A22E6000C83D0 /* Constants.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -120,6 +123,8 @@
 		E4AA7C2D2C5929F5000C83D0 /* LightGreenGradient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LightGreenGradient.swift; sourceTree = "<group>"; };
 		E4AA7C302C592B78000C83D0 /* LightRedGradient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LightRedGradient.swift; sourceTree = "<group>"; };
 		E4AA7C322C592B89000C83D0 /* LightYellowGradient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LightYellowGradient.swift; sourceTree = "<group>"; };
+		E4AA7C3E2C5A19A6000C83D0 /* AIAssistantView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AIAssistantView.swift; sourceTree = "<group>"; };
+		E4AA7C402C5A22E6000C83D0 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -127,6 +132,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E4AA7C3D2C5A0F5B000C83D0 /* OpenAI in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -216,6 +222,7 @@
 				E459565A2C4D5A8C000B5058 /* ScanView.swift */,
 				E4AA7C2B2C58CE9A000C83D0 /* ScanView-ViewModel.swift */,
 				E459566B2C4E1A02000B5058 /* AssistantView.swift */,
+				E4AA7C3E2C5A19A6000C83D0 /* AIAssistantView.swift */,
 				E45956692C4E1949000B5058 /* ProfileView.swift */,
 				E40A4F0B2C541BFC00167FBD /* AccountView.swift */,
 				E45956702C4FB3C1000B5058 /* ConnectionView.swift */,
@@ -250,6 +257,7 @@
 				E40A4EEE2C5023DC00167FBD /* Info.plist */,
 				E45956622C4E139F000B5058 /* YukaAI.entitlements */,
 				E4A955882C3C5980009D7F11 /* YukaAIApp.swift */,
+				E4AA7C402C5A22E6000C83D0 /* Constants.swift */,
 				E4AA7C2F2C592B19000C83D0 /* Backgrounds */,
 				E40A4EEF2C513D5500167FBD /* OnBoarding */,
 				E45956492C4D2975000B5058 /* Model */,
@@ -323,6 +331,7 @@
 			);
 			name = YukaAI;
 			packageProductDependencies = (
+				E4AA7C3C2C5A0F5B000C83D0 /* OpenAI */,
 			);
 			productName = YukaAI;
 			productReference = E4A955852C3C5980009D7F11 /* YukaAI.app */;
@@ -397,6 +406,7 @@
 			);
 			mainGroup = E4A9557C2C3C5980009D7F11;
 			packageReferences = (
+				E4AA7C3B2C5A0F5B000C83D0 /* XCRemoteSwiftPackageReference "OpenAI" */,
 			);
 			productRefGroup = E4A955862C3C5980009D7F11 /* Products */;
 			projectDirPath = "";
@@ -444,12 +454,14 @@
 				E40A4EED2C4FFDA700167FBD /* BarcodeScannerView.swift in Sources */,
 				E45956482C4C313C000B5058 /* DataManager.swift in Sources */,
 				E45956462C4BD289000B5058 /* FirstView.swift in Sources */,
+				E4AA7C3F2C5A19A6000C83D0 /* AIAssistantView.swift in Sources */,
 				E459564B2C4D29A0000B5058 /* Results.swift in Sources */,
 				E40A4EF72C515CCC00167FBD /* WelcomeView.swift in Sources */,
 				E40A4F132C550A9D00167FBD /* TestCodable.swift in Sources */,
 				E40A4EE92C4FFBA100167FBD /* BarcodeScannerViewModel.swift in Sources */,
 				E4AA7C312C592B78000C83D0 /* LightRedGradient.swift in Sources */,
 				E459566F2C4E76A8000B5058 /* CartView.swift in Sources */,
+				E4AA7C412C5A22E6000C83D0 /* Constants.swift in Sources */,
 				E40A4EEB2C4FFCAF00167FBD /* DataScannerView.swift in Sources */,
 				E40A4EF92C52359C00167FBD /* ErrorCases.swift in Sources */,
 				E459566C2C4E1A02000B5058 /* AssistantView.swift in Sources */,
@@ -820,6 +832,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		E4AA7C3B2C5A0F5B000C83D0 /* XCRemoteSwiftPackageReference "OpenAI" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/MacPaw/OpenAI";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 0.3.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		E4AA7C3C2C5A0F5B000C83D0 /* OpenAI */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = E4AA7C3B2C5A0F5B000C83D0 /* XCRemoteSwiftPackageReference "OpenAI" */;
+			productName = OpenAI;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = E4A9557D2C3C5980009D7F11 /* Project object */;
 }
