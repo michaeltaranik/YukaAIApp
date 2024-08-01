@@ -54,6 +54,7 @@
 		E4AA7C3D2C5A0F5B000C83D0 /* OpenAI in Frameworks */ = {isa = PBXBuildFile; productRef = E4AA7C3C2C5A0F5B000C83D0 /* OpenAI */; };
 		E4AA7C3F2C5A19A6000C83D0 /* AIAssistantView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4AA7C3E2C5A19A6000C83D0 /* AIAssistantView.swift */; };
 		E4AA7C412C5A22E6000C83D0 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4AA7C402C5A22E6000C83D0 /* Constants.swift */; };
+		E4AA7C432C5A9924000C83D0 /* AssistantViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4AA7C422C5A9924000C83D0 /* AssistantViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -125,6 +126,7 @@
 		E4AA7C322C592B89000C83D0 /* LightYellowGradient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LightYellowGradient.swift; sourceTree = "<group>"; };
 		E4AA7C3E2C5A19A6000C83D0 /* AIAssistantView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AIAssistantView.swift; sourceTree = "<group>"; };
 		E4AA7C402C5A22E6000C83D0 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		E4AA7C422C5A9924000C83D0 /* AssistantViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssistantViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -223,6 +225,7 @@
 				E4AA7C2B2C58CE9A000C83D0 /* ScanView-ViewModel.swift */,
 				E459566B2C4E1A02000B5058 /* AssistantView.swift */,
 				E4AA7C3E2C5A19A6000C83D0 /* AIAssistantView.swift */,
+				E4AA7C422C5A9924000C83D0 /* AssistantViewModel.swift */,
 				E45956692C4E1949000B5058 /* ProfileView.swift */,
 				E40A4F0B2C541BFC00167FBD /* AccountView.swift */,
 				E45956702C4FB3C1000B5058 /* ConnectionView.swift */,
@@ -451,6 +454,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E40A4F012C52A3F700167FBD /* TestView.swift in Sources */,
+				E4AA7C432C5A9924000C83D0 /* AssistantViewModel.swift in Sources */,
 				E40A4EED2C4FFDA700167FBD /* BarcodeScannerView.swift in Sources */,
 				E45956482C4C313C000B5058 /* DataManager.swift in Sources */,
 				E45956462C4BD289000B5058 /* FirstView.swift in Sources */,

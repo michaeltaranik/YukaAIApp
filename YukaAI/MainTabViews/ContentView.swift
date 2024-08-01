@@ -33,10 +33,19 @@ struct ContentView: View {
                 ZStack {
                     TabView {
                         CartTabView()
+                            .tag(0)
+                        
                         StatsTabView()
+                            .tag(1)
+                        
                         ScanTabView()
+                            .tag(2)
+                        
                         AssistantTabView()
+                            .tag(3)
+                        
                         ProfileTabView()
+                            .tag(4)
                     }
                 }
             })
@@ -69,7 +78,6 @@ struct CartTabView: View {
 struct ScanTabView: View {
     @EnvironmentObject var contentManager: ContentViewManager
     
-    @State var myImg = UIImage(systemName: "camera")
     
     var body: some View {
         BarcodeScannerView()

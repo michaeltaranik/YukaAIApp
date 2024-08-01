@@ -8,77 +8,47 @@
 import SwiftUI
 import OpenAI
 
-class ChatController: ObservableObject {
-    @Published var messages: [Message] = []
-    
-    let openAI = OpenAI(apiToken: K.apiKey)
-
-    
-    
-    func sendNewMessage(content: String) {
-        let userMessage = Message(content: content, isUser: true)
-        self.messages.append(userMessage)
-        getBotReply()
-    }
-    
-    func getBotReply() {
-        let query = ChatQuery(
-            messages: self.messages.map({
-                .init(role: .user, content: $0.content)!
-            }),
-            model: .gpt3_5Turbo
-        )
-        
-        openAI.chats(query: query) { result in
-            switch result {
-            case .success(let success):
-                guard let choice = success.choices.first else {
-                    return
-                }
-                guard let message = choice.message.content?.string else { return }
-                DispatchQueue.main.async {
-                    self.messages.append(Message(content: message, isUser: false))
-                }
-            case .failure(let failure):
-                print(failure)
-            }
-        }
-    }
-}
-
-struct Message: Identifiable {
-    var id: UUID = .init()
-    var content: String
-    var isUser: Bool
-}
-
 struct AIAssistantView: View {
-    @StateObject var chatController: ChatController = .init()
-    @State var string: String = ""
+    
+    @ObservedObject var chatController: ChatController
+    @State var textFieldText: String = ""
+    @State var showKeyboard: Bool = false
+    
+    
     var body: some View {
         VStack {
             ScrollView {
+                Image(.assistant)
+                    .resizable()
+                    .scaledToFit()
+                    .clipShape(Circle())
+                    .padding(60)
+                    .opacity(0.8)
+                
                 ForEach(chatController.messages) {
                     message in
                     MessageView(message: message)
-                        .padding(5)
+                        .padding(.horizontal, 15)
                 }
             }
             Divider()
             HStack {
-                TextField("Message...", text: self.$string, axis: .vertical)
+                TextField("Message...", text: self.$textFieldText, axis: .vertical)
                     .padding(5)
                     .background(Color.gray.opacity(0.1))
                     .cornerRadius(15)
                 Button {
-                    self.chatController.sendNewMessage(content: string)
-                    string = ""
+                    self.chatController.sendNewMessage(content: textFieldText)
+                    textFieldText = ""
+                    UIApplication.shared.sendAction(#selector(UIResponder.resignFirstResponder), to: nil, from: nil, for: nil)
                 } label: {
                     Image(systemName: "paperplane")
                 }
             }
             .padding()
         }
+    
+        
     }
 }
 
@@ -87,28 +57,34 @@ struct MessageView: View {
     var body: some View {
         Group {
             if message.isUser {
-                HStack {
+                HStack (alignment: .top) {
                     Spacer()
                     Text(message.content)
                         .padding()
                         .background(Color.blue)
                         .foregroundColor(Color.white)
-                        .clipShape(Capsule())
+                        .clipShape(RoundedRectangle(
+                            cornerSize: CGSize(width: 20, height: 20)))
                 }
             } else {
-                HStack {
+                HStack (alignment: .top) {
+                    Image(.assistant)
+                        .resizable()
+                        .frame(width: 40, height: 40)
+                        .clipShape(Circle())
                     Text(message.content)
                         .padding()
                         .background(Color.black)
                         .foregroundColor(Color.white)
-                        .clipShape(Capsule())
+                        .clipShape(RoundedRectangle(
+                            cornerSize: CGSize(width: 20, height: 20)))
                     Spacer()
                 }
             }
         }
     }
 }
-
-#Preview {
-    AIAssistantView()
-}
+//
+//#Preview {
+//    AIAssistantView(chatController: .init())
+//}
