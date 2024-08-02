@@ -84,7 +84,7 @@ struct MessageView: View {
         }
     }
 }
-//
-//#Preview {
-//    AIAssistantView(chatController: .init())
-//}
+
+#Preview {
+    AIAssistantView(chatController: .init())
+}

@@ -55,6 +55,8 @@
 		E4AA7C3F2C5A19A6000C83D0 /* AIAssistantView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4AA7C3E2C5A19A6000C83D0 /* AIAssistantView.swift */; };
 		E4AA7C412C5A22E6000C83D0 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4AA7C402C5A22E6000C83D0 /* Constants.swift */; };
 		E4AA7C432C5A9924000C83D0 /* AssistantViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4AA7C422C5A9924000C83D0 /* AssistantViewModel.swift */; };
+		E4AA7C452C5CCDDF000C83D0 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = E4AA7C442C5CCDDF000C83D0 /* GoogleService-Info.plist */; };
+		E4AA7C482C5CCF29000C83D0 /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = E4AA7C472C5CCF29000C83D0 /* FirebaseAnalytics */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -127,6 +129,7 @@
 		E4AA7C3E2C5A19A6000C83D0 /* AIAssistantView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AIAssistantView.swift; sourceTree = "<group>"; };
 		E4AA7C402C5A22E6000C83D0 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		E4AA7C422C5A9924000C83D0 /* AssistantViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssistantViewModel.swift; sourceTree = "<group>"; };
+		E4AA7C442C5CCDDF000C83D0 /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -134,6 +137,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E4AA7C482C5CCF29000C83D0 /* FirebaseAnalytics in Frameworks */,
 				E4AA7C3D2C5A0F5B000C83D0 /* OpenAI in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -258,6 +262,7 @@
 			isa = PBXGroup;
 			children = (
 				E40A4EEE2C5023DC00167FBD /* Info.plist */,
+				E4AA7C442C5CCDDF000C83D0 /* GoogleService-Info.plist */,
 				E45956622C4E139F000B5058 /* YukaAI.entitlements */,
 				E4A955882C3C5980009D7F11 /* YukaAIApp.swift */,
 				E4AA7C402C5A22E6000C83D0 /* Constants.swift */,
@@ -335,6 +340,7 @@
 			name = YukaAI;
 			packageProductDependencies = (
 				E4AA7C3C2C5A0F5B000C83D0 /* OpenAI */,
+				E4AA7C472C5CCF29000C83D0 /* FirebaseAnalytics */,
 			);
 			productName = YukaAI;
 			productReference = E4A955852C3C5980009D7F11 /* YukaAI.app */;
@@ -410,6 +416,7 @@
 			mainGroup = E4A9557C2C3C5980009D7F11;
 			packageReferences = (
 				E4AA7C3B2C5A0F5B000C83D0 /* XCRemoteSwiftPackageReference "OpenAI" */,
+				E4AA7C462C5CCF29000C83D0 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
 			);
 			productRefGroup = E4A955862C3C5980009D7F11 /* Products */;
 			projectDirPath = "";
@@ -429,6 +436,7 @@
 			files = (
 				E4A955902C3C5982009D7F11 /* Preview Assets.xcassets in Resources */,
 				E4A9558D2C3C5982009D7F11 /* Assets.xcassets in Resources */,
+				E4AA7C452C5CCDDF000C83D0 /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -846,6 +854,14 @@
 				minimumVersion = 0.3.0;
 			};
 		};
+		E4AA7C462C5CCF29000C83D0 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/firebase/firebase-ios-sdk";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 11.0.0;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -853,6 +869,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = E4AA7C3B2C5A0F5B000C83D0 /* XCRemoteSwiftPackageReference "OpenAI" */;
 			productName = OpenAI;
+		};
+		E4AA7C472C5CCF29000C83D0 /* FirebaseAnalytics */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = E4AA7C462C5CCF29000C83D0 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseAnalytics;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

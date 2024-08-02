@@ -6,21 +6,29 @@
 //
 
 import SwiftUI
+import FirebaseCore
+
+
+class AppDelegate: NSObject, UIApplicationDelegate {
+    func application(_ application: UIApplication,
+                     didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey : Any]? = nil) -> Bool {
+        FirebaseApp.configure()
+        print("Configured Firebase!")
+        
+        return true
+    }
+}
 
 @main
 struct YukaAIApp: App {
     
-//    @StateObject private var vm = ScanViewModel()
     @StateObject private var productList: ProductList = ProductList()
 
+    @UIApplicationDelegateAdaptor(AppDelegate.self) var delegate
     
     var body: some Scene {
         WindowGroup {
             WelcomeView()
-//                .environmentObject(vm)
-//                .task {
-//                    await vm.requestDataScannerAccessStatus()
-//                }
                 .environmentObject(productList)
                 
         }
