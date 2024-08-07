@@ -7,6 +7,7 @@
 
 import SwiftUI
 
+@available(iOS 15.0, *)
 struct LogInView: View {
     @State var userEmail: String = ""
     @State var userPassword: String = ""
@@ -25,7 +26,7 @@ struct LogInView: View {
                 Text("Log In")
                     .frame(maxWidth: .infinity, alignment: .leading)
                     .font(.system(size: 40, weight: .bold))
-                    .foregroundStyle(.darkGreen)
+                    .foregroundColor(.darkGreen)
                     .padding()
                 //                Image(.default)
                 //                    .resizable()
@@ -45,29 +46,30 @@ struct LogInView: View {
                 Image(systemName: "envelope.fill")
                 Text("I want to receive e-mails")
                     .frame(minWidth: 150)
-                    .foregroundStyle(.darkGreen)
+                    .foregroundColor(.darkGreen)
             }
         })
         .padding(50)
     }
     
+    @available(iOS 15.0, *)
     var emailSection: some View {
         VStack(alignment: .leading, content: {
             Text("E-mail")
-                .foregroundStyle(.darkGreen)
+                .foregroundColor(.darkGreen)
                 .font(.system(size: 20, weight: .semibold))
             HStack {
                 Image(systemName: "envelope")
-                    .foregroundStyle(.myGray)
+                    .foregroundColor(.myGray)
                 TextField("", text: $userEmail,
                           prompt: Text("E-mail")
-                    .foregroundStyle(.myGray))
+                    .foregroundColor(.myGray))
                     .autocorrectionDisabled()
                     .textInputAutocapitalization(.never)
             }
             .padding(.leading)
             .frame(width: 320, height: 50)
-            .background(.white)
+            .background(Color.white)
             .foregroundColor(.black)
             .cornerRadius(20)
             
@@ -78,7 +80,7 @@ struct LogInView: View {
     var passwordSection: some View {
         VStack(alignment: .leading, content: {
             Text("Password")
-                .foregroundStyle(.darkGreen)
+                .foregroundColor(.darkGreen)
                 .font(.system(size: 20, weight: .semibold))
             HStack {
                 Image(systemName: "lock")
@@ -88,14 +90,14 @@ struct LogInView: View {
                     TextField("",
                               text: $userPassword,
                               prompt: Text("Password")
-                        .foregroundStyle(.myGray))
+                        .foregroundColor(.myGray))
                     .autocorrectionDisabled()
                     .textInputAutocapitalization(.never)
                 } else {
                     SecureField("",
                                 text: $userPassword,
                                 prompt: Text("Password")
-                        .foregroundStyle(.myGray))
+                        .foregroundColor(.myGray))
                     .autocorrectionDisabled()
                     .textInputAutocapitalization(.never)
                 }
@@ -121,7 +123,7 @@ struct LogInView: View {
         }
         .frame(width: 300, height: 70)
         .font(.system(size: 24, weight: .semibold))
-        .foregroundStyle(.darkGreen)
+        .foregroundColor(.darkGreen)
         .background(.lightGreen)
         .cornerRadius(20)
         .shadow(radius: 10)
@@ -130,5 +132,9 @@ struct LogInView: View {
 }
 
 #Preview {
-    LogInView()
+    if #available(iOS 15.0, *) {
+        LogInView()
+    } else {
+        // Fallback on earlier versions
+    }
 }

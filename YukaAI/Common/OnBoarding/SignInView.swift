@@ -7,6 +7,7 @@
 
 import SwiftUI
 
+@available(iOS 15.0, *)
 struct SignInView: View {
     @State var userEmail: String = ""
     @State var userPassword: String = ""
@@ -30,7 +31,7 @@ struct SignInView: View {
                     Text("Sign In")
                         .frame(maxWidth: .infinity, alignment: .leading)
                         .font(.system(size: 40, weight: .bold))
-                        .foregroundStyle(.darkGreen)
+                        .foregroundColor(.darkGreen)
                         .padding()
                     nameSection
                         .padding()
@@ -54,10 +55,10 @@ struct SignInView: View {
         HStack {
             VStack(alignment: .leading, content: {
                 Text("Name")
-                    .foregroundStyle(.darkGreen)
+                    .foregroundColor(.darkGreen)
                     .font(.system(size: 20, weight: .semibold))
                 TextField("Name", text: $userName, prompt: Text("Name")
-                    .foregroundStyle(.myGray))
+                    .foregroundColor(.myGray))
                     .padding(.leading)
                     .frame(width: 145, height: 50)
                     .background(.white)
@@ -69,10 +70,10 @@ struct SignInView: View {
             .padding(.horizontal)
             VStack(alignment: .leading, content: {
                 Text("Surname")
-                    .foregroundStyle(.darkGreen)
+                    .foregroundColor(.darkGreen)
                     .font(.system(size: 20, weight: .semibold))
                 TextField("Surname", text: $userSurname, prompt: Text("Surname")
-                    .foregroundStyle(.myGray))
+                    .foregroundColor(.myGray))
                     .padding(.leading)
                     .frame(width: 145, height: 50)
                     .background(.white)
@@ -93,7 +94,7 @@ struct SignInView: View {
                 Image(systemName: "envelope.fill")
                 Text("I want to receive e-mails")
                     .frame(minWidth: 150)
-                    .foregroundStyle(.darkGreen)
+                    .foregroundColor(.darkGreen)
             }
         })
         .padding(50)
@@ -102,14 +103,14 @@ struct SignInView: View {
     var emailSection: some View {
         VStack(alignment: .leading, content: {
             Text("E-mail")
-                .foregroundStyle(.darkGreen)
+                .foregroundColor(.darkGreen)
                 .font(.system(size: 20, weight: .semibold))
             HStack {
                 Image(systemName: "envelope")
-                    .foregroundStyle(.myGray)
+                    .foregroundColor(.myGray)
                 TextField("", text: $userEmail,
                           prompt: Text("E-mail")
-                    .foregroundStyle(.myGray))
+                    .foregroundColor(.myGray))
                     .autocorrectionDisabled()
                     .textInputAutocapitalization(.never)
             }
@@ -126,7 +127,7 @@ struct SignInView: View {
     var passwordSection: some View {
         VStack(alignment: .leading, content: {
             Text("Password")
-                .foregroundStyle(.darkGreen)
+                .foregroundColor(.darkGreen)
                 .font(.system(size: 20, weight: .semibold))
             HStack {
                 Image(systemName: "lock")
@@ -136,14 +137,14 @@ struct SignInView: View {
                     TextField("",
                               text: $userPassword, 
                               prompt: Text("Password")
-                        .foregroundStyle(.myGray))
+                        .foregroundColor(.myGray))
                     .autocorrectionDisabled()
                     .textInputAutocapitalization(.never)
                 } else {
                     SecureField("",
                                 text: $userPassword,
                                 prompt: Text("Password")
-                        .foregroundStyle(.myGray))
+                        .foregroundColor(.myGray))
                     .autocorrectionDisabled()
                     .textInputAutocapitalization(.never)
                 }
@@ -174,7 +175,7 @@ struct SignInView: View {
             Text("Sign In")
                 .frame(width: 300, height: 70)
                 .font(.system(size: 24, weight: .semibold))
-                .foregroundStyle(.darkGreen)
+                .foregroundColor(.darkGreen)
                 .background(.lightGreen)
                 .cornerRadius(20)
                 .shadow(radius: 10)
@@ -185,6 +186,7 @@ struct SignInView: View {
 
 
 
+@available(iOS 15.0, *)
 extension SignInView {
     
     func handleButton() -> Bool {
@@ -201,5 +203,9 @@ extension SignInView {
 
 
 #Preview {
-    SignInView()
+    if #available(iOS 15.0, *) {
+        SignInView()
+    } else {
+        // Fallback on earlier versions
+    }
 }

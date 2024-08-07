@@ -14,7 +14,7 @@ struct FirstView: View {
     @State var count = 0
     
     var body: some View {
-        NavigationView {
+        NavigationStack {
             NavigationLink(destination: SecondView()) {
                 Text("Display Results!")
                     .frame(width: 200, height: 100)

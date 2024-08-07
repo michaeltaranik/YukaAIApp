@@ -37,21 +37,25 @@ struct ProductUIView: View {
     
     
     var body: some View {
-        HStack {
-            Image(systemName: vm.icon)
-            Text(vm.text)
+        if #available(iOS 17.0, *) {
+            HStack {
+                Image(systemName: vm.icon)
+                Text(vm.text)
+            }
+            .frame(width: 200, height: 100)
+            .background(vm.backColor)
+            .foregroundColor(vm.foreColor)
+            .font(.system(size: 25, weight: .semibold))
+            .cornerRadius(20)
+            .shadow(radius: 10)
+            .onTapGesture {
+                vm.approveButton(approve: vm.approved)
+                //            dataManager.fetchData(barcode: "7613269250685")
+            }
+            .symbolEffect(.pulse, value: vm.animate)
+        } else {
+            // Fallback on earlier versions
         }
-        .frame(width: 200, height: 100)
-        .background(vm.backColor)
-        .foregroundColor(vm.foreColor)
-        .font(.system(size: 25, weight: .semibold))
-        .cornerRadius(20)
-        .shadow(radius: 10)
-        .onTapGesture {
-            vm.approveButton(approve: vm.approved)
-//            dataManager.fetchData(barcode: "7613269250685")
-        }
-        .symbolEffect(.pulse, value: vm.animate)
     }
     
     
