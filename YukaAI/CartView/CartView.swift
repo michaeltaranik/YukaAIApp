@@ -23,6 +23,9 @@ struct CartView: View {
     //                                   salt: "nil"))
     //    var testarr: [ProductItem] { [item, item, item] }
     
+    @StateObject var vm = CartViewModel()
+    
+    
     var body: some View {
         if productList.list.count == 0 {
             Text("Your Cart is empty")
@@ -62,6 +65,7 @@ struct CartView: View {
                     ScanView(barcode: product.barcode)
                 }
                 .refreshable {
+                    vm.loadCart()
                 }
             }
         }

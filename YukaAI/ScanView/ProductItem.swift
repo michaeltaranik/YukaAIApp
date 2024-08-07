@@ -14,13 +14,15 @@ class ProductList: ObservableObject {
 }
 
 
-struct ProductItem: Hashable {
+struct ProductItem: Hashable, Identifiable, Codable {
     
-    let barcode: String
-    let name: String
-    let calories: String
-    let imageUrl: String
-    let macros: Macros
+    var id = UUID()
+    
+    var barcode: String
+    var name: String
+    var calories: String
+    var imageUrl: String
+    var macros: Macros
     
     func hash(into hasher: inout Hasher) {
         hasher.combine(name + calories)
@@ -32,7 +34,9 @@ struct ProductItem: Hashable {
 }
 
 
-struct Macros {
+
+
+struct Macros: Codable {
     let fat: String
     let carbs: String
     let protein: String

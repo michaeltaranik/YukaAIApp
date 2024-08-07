@@ -11,7 +11,7 @@ import VisionKit
 struct BarcodeScannerView: View {
     
     @StateObject private var vm = BarcodeScannerViewModel()
-    @EnvironmentObject var contentManager: ContentViewManager
+    @EnvironmentObject var contentManager: HomeViewManager
     
     
     

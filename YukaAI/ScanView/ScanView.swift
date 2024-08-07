@@ -117,6 +117,7 @@ struct ScanView: View {
                     .frame(width: 150, height: 150)
                     .task {
                         viewModel.addToCart(barcode, productList: productList, imageUrl: imageURL)
+                        viewModel.saveToCart()
                     }
             } placeholder: {
                 Image(.default)

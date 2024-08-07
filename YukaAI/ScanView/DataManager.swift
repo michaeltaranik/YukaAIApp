@@ -12,9 +12,7 @@ import SwiftUI
 
 class DataManager: ObservableObject {
     
-    
-    @Published var results: Results?
-    
+        
     static let urlString = "https://world.openfoodfacts.org/api/v3/product/"
     static let searchString = "https://world.openfoodfacts.org/cgi/search.pl"
     

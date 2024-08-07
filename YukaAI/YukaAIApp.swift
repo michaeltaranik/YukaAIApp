@@ -30,6 +30,7 @@ struct YukaAIApp: App {
         WindowGroup {
             WelcomeView()
                 .environmentObject(productList)
+//            GeometryEffect()
                 
         }
     }

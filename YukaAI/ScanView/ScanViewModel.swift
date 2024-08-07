@@ -10,7 +10,6 @@ import SwiftUI
 
 
 extension ScanView {
-    
     @MainActor
     class ViewModel: ObservableObject {
         
@@ -28,7 +27,7 @@ extension ScanView {
         @Published var imageUrlString: String = ""
         @Published var quality: ProductQuality = .average(color: .yellow)
             
-        
+        @Published private(set) var products: [ProductItem] = []
         
         
         func getInfo(barcode: String) async {
@@ -90,6 +89,21 @@ extension ScanView {
                                            protein: self.proteins,
                                            fiber: "nil", sugar: self.sugars, salt: "nil")))
         }
+        
+        
+        
+        func saveToCart() {
+            do {
+                let data = try JSONEncoder().encode(products)
+                try data.write(to: K.saveToCartPath, options: [.atomic, .completeFileProtection])
+                print(products)
+            } catch {
+                print("Error: \(error.localizedDescription)")
+            }
+        }
+        
+        
+
         
         
     }

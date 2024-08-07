@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-class ContentViewManager: ObservableObject {
+class HomeViewManager: ObservableObject {
     @Published var mainTitle = "YukaAI"
     
     func changeTitle(_ newTitle: String) {
@@ -15,10 +15,10 @@ class ContentViewManager: ObservableObject {
     }
 }
 
-struct ContentView: View {
+struct HomeView: View {
 
     @StateObject private var vm = BarcodeScannerViewModel()
-    @StateObject var contentManager = ContentViewManager()
+    @StateObject var contentManager = HomeViewManager()
     
     var body: some View {
         ZStack {
@@ -59,7 +59,7 @@ struct ContentView: View {
 
 //MARK: - CartTab
 struct CartTabView: View {
-    @EnvironmentObject var contentManager: ContentViewManager
+    @EnvironmentObject var contentManager: HomeViewManager
 
     var body: some View {
         CartView()
@@ -76,7 +76,7 @@ struct CartTabView: View {
 
 //MARK: - ScanTab
 struct ScanTabView: View {
-    @EnvironmentObject var contentManager: ContentViewManager
+    @EnvironmentObject var contentManager: HomeViewManager
     
     
     var body: some View {
@@ -95,7 +95,7 @@ struct ScanTabView: View {
 
 //MARK: - ProgressTab
 struct StatsTabView: View {
-    @EnvironmentObject var contentManager: ContentViewManager
+    @EnvironmentObject var contentManager: HomeViewManager
     
     
     var body: some View {
@@ -114,7 +114,7 @@ struct StatsTabView: View {
 
 //MARK: - AssistantTab
 struct AssistantTabView: View {
-    @EnvironmentObject var contentManager: ContentViewManager
+    @EnvironmentObject var contentManager: HomeViewManager
     
     
     var body: some View {
@@ -132,7 +132,7 @@ struct AssistantTabView: View {
 
 //MARK: - ProfileTab
 struct ProfileTabView: View {
-    @EnvironmentObject var contentManager: ContentViewManager
+    @EnvironmentObject var contentManager: HomeViewManager
     
     
     var body: some View {

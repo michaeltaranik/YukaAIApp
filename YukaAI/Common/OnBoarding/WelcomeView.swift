@@ -14,7 +14,7 @@ struct WelcomeView: View {
     
     var body: some View {
         if currentUserLoggedIn {
-            ContentView()
+            HomeView()
         } else {
             IntroView()
         }
