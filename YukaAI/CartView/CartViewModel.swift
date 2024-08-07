@@ -18,11 +18,9 @@ class CartViewModel: ObservableObject {
     
     
     func loadCart() {
-        print("DEBUG: loadCart")
         do {
             let data = try Data(contentsOf: K.saveToCartPath)
             products = try JSONDecoder().decode([ProductItem].self, from: data)
-            print(products)
         } catch {
             products = []
         }
@@ -31,14 +29,10 @@ class CartViewModel: ObservableObject {
     
     
     func saveToCart(_ barcode: String, imageUrlString: String, productName: String) {
-        print("DEBUG: saveToCart")
         addNewProductItem(barcode, imageUrlString, productName)
-        print(products)
         do {
             let data = try JSONEncoder().encode(products)
             try data.write(to: K.saveToCartPath, options: [.atomic, .completeFileProtection])
-            print("DEBUG: DO block")
-            print(products)
         } catch {
             print("Error: \(error.localizedDescription)")
         }
@@ -59,6 +53,18 @@ class CartViewModel: ObservableObject {
             }
         }
         return false
+    }
+    
+    
+    
+    func deleteFromCart(at indexSet: IndexSet) {
+        products.remove(atOffsets: indexSet)
+        do {
+            let data = try JSONEncoder().encode(products)
+            try data.write(to: K.saveToCartPath, options: [.atomic, .completeFileProtection])
+        } catch {
+            print("Error: \(error.localizedDescription)")
+        }
     }
     
 }
