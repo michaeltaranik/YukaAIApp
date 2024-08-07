@@ -22,14 +22,11 @@ class AppDelegate: NSObject, UIApplicationDelegate {
 @main
 struct YukaAIApp: App {
     
-    @StateObject private var productList: ProductList = ProductList()
-
     @UIApplicationDelegateAdaptor(AppDelegate.self) var delegate
     
     var body: some Scene {
         WindowGroup {
             WelcomeView()
-                .environmentObject(productList)
 //            GeometryEffect()
                 
         }

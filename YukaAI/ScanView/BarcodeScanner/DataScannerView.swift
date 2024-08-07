@@ -46,7 +46,8 @@ struct DataScannerView: UIViewControllerRepresentable {
 
         init(recognizedItems: Binding<[RecognizedItem]>) {
             self._recognizedItems = recognizedItems
-            print("initialized")
+//            print("initialized")
+            
         }
         
         func dataScanner(_ dataScanner: DataScannerViewController, didTapOn item: RecognizedItem) {

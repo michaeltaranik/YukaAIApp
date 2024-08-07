@@ -61,8 +61,8 @@ struct BarcodeScannerView: View {
         @Binding var showBottomContainer: Bool
         let lastItem = vm.recognizedItems.count - 1
         let item = vm.recognizedItems[lastItem]
-        print(lastItem)
-        print(item)
+//        print(lastItem)
+//        print(item)
         
         return VStack {
             switch item {

@@ -9,7 +9,6 @@ import SwiftUI
 
 struct CartView: View {
     
-    @EnvironmentObject var productList: ProductList
     //    var item = ProductItem(barcode: "5060947546363",
     //                           name: "Monster",
     //                           calories: "46",
@@ -27,14 +26,14 @@ struct CartView: View {
     
     
     var body: some View {
-        if productList.list.count == 0 {
+        if vm.products.count == 0 {
             Text("Your Cart is empty")
                 .font(.system(.title, weight: .semibold))
                 .foregroundStyle(.primary)
         } else {
             NavigationStack {
                 List {
-                    ForEach(productList.list.reversed(), id: \.self) { product in
+                    ForEach(vm.products.reversed(), id: \.self) { product in
                         NavigationLink(value: product) {
                             HStack {
                                 AsyncImage(url: URL(string: product.imageUrl)) { image in
@@ -63,6 +62,9 @@ struct CartView: View {
                 .navigationTitle("Cart")
                 .navigationDestination(for: ProductItem.self) { product in
                     ScanView(barcode: product.barcode)
+                }
+                .onAppear {
+                    vm.loadCart()
                 }
                 .refreshable {
                     vm.loadCart()

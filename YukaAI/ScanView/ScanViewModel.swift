@@ -26,7 +26,7 @@ extension ScanView {
         @Published var shouldShowAlert = false
         @Published var imageUrlString: String = ""
         @Published var quality: ProductQuality = .average(color: .yellow)
-            
+        
         @Published private(set) var products: [ProductItem] = []
         
         
@@ -65,47 +65,8 @@ extension ScanView {
             }
         }
         
-        func inCart(_ barcode: String, productList: ProductList) -> Bool {
-            for product in productList.list {
-                if product.barcode == barcode {
-                    return true
-                }
-            }
-            return false
-        }
         
-        func addToCart(_ barcode: String, productList: ProductList, imageUrl: String?) {
-            guard !self.inCart(barcode, productList: productList) else { return }
-            guard self.productName != "Unknown" else {
-                shouldShowAlert = true
-                return }
-            productList.list.append(
-                ProductItem(barcode: barcode,
-                            name: self.productName,
-                            calories: self.calories,
-                            imageUrl: imageUrl ?? "",
-                            macros: Macros(fat: self.fats,
-                                           carbs: self.carbs,
-                                           protein: self.proteins,
-                                           fiber: "nil", sugar: self.sugars, salt: "nil")))
-        }
-        
-        
-        
-        func saveToCart() {
-            do {
-                let data = try JSONEncoder().encode(products)
-                try data.write(to: K.saveToCartPath, options: [.atomic, .completeFileProtection])
-                print(products)
-            } catch {
-                print("Error: \(error.localizedDescription)")
-            }
-        }
-        
-        
-
         
         
     }
-    
 }

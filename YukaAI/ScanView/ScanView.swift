@@ -18,8 +18,8 @@ enum ProductQuality {
 struct ScanView: View {
     
     
-    @EnvironmentObject var productList: ProductList
     @StateObject private var viewModel = ViewModel()
+    @StateObject private var cartModel = CartViewModel()
     
     var barcode: String
     
@@ -116,8 +116,8 @@ struct ScanView: View {
                     .clipShape(RoundedRectangle(cornerSize: CGSize(width: 10, height: 10)))
                     .frame(width: 150, height: 150)
                     .task {
-                        viewModel.addToCart(barcode, productList: productList, imageUrl: imageURL)
-                        viewModel.saveToCart()
+//                        viewModel.addToCart(barcode, productList: productList, imageUrl: imageURL)
+                        cartModel.saveToCart(barcode, imageUrlString: imageURL, productName: viewModel.productName)
                     }
             } placeholder: {
                 Image(.default)
