@@ -31,6 +31,7 @@ final class BarcodeScannerViewModel: ObservableObject {
     @Published var textContentType: DataScannerViewController.TextContentType?
     @Published var recognizesMultipleItems = false
     @Published var showBottomContainer = false
+    @Published var previousCount: Int = 0
     
     let recognizedDataType: DataScannerViewController.RecognizedDataType = .barcode()
 

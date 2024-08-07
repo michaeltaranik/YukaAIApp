@@ -7,6 +7,7 @@
 
 import SwiftUI
 import VisionKit
+import Combine
 
 struct BarcodeScannerView: View {
     
@@ -15,12 +16,7 @@ struct BarcodeScannerView: View {
     
     
     
-    
     var body: some View {
-        mainView
-    }
-    
-    private var mainView: some View {
         DataScannerView(
             recognizedItems: $vm.recognizedItems,
             recognizedDataType: vm.recognizedDataType)
@@ -39,30 +35,28 @@ struct BarcodeScannerView: View {
                     controller.view.backgroundColor = .clear
                 }
         }
-        .onChange(of: vm.recognizedItems.count, {
-            guard !vm.recognizedItems.isEmpty else { return }
-            if !vm.showBottomContainer {
-                vm.showBottomContainer.toggle()
+        .onReceive(Just(vm.recognizedItems.count)) { newCount in
+            if newCount != vm.previousCount {
+                handleOnChange(newCount)
+                vm.previousCount = newCount
             }
-//            if vm.showNewProduct() {
-//                if vm.showBottomContainer {
-//                    vm.showBottomContainer = false
-//                    vm.showBottomContainer.toggle()
-//                }
-//            }
-        })
-        .onChange(of: contentManager.mainTitle) { vm.recognizedItems = [] }
+        }
     }
     
     
-
+    
+    private func handleOnChange(_ newCount: Int) {
+        guard !vm.recognizedItems.isEmpty else { return }
+        if !vm.showBottomContainer {
+            vm.showBottomContainer.toggle()
+        }
+    }
+    
     
     private var bottomContainerView: some View {
         @Binding var showBottomContainer: Bool
         let lastItem = vm.recognizedItems.count - 1
         let item = vm.recognizedItems[lastItem]
-//        print(lastItem)
-//        print(item)
         
         return VStack {
             switch item {
