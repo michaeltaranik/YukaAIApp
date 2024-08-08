@@ -60,6 +60,9 @@
 		E4AA7C432C5A9924000C83D0 /* AssistantViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4AA7C422C5A9924000C83D0 /* AssistantViewModel.swift */; };
 		E4AA7C452C5CCDDF000C83D0 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = E4AA7C442C5CCDDF000C83D0 /* GoogleService-Info.plist */; };
 		E4AA7C482C5CCF29000C83D0 /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = E4AA7C472C5CCF29000C83D0 /* FirebaseAnalytics */; };
+		E4AFD8FE2C63DB1300DB57D4 /* UserDefaultsExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4AFD8FD2C63DB1300DB57D4 /* UserDefaultsExt.swift */; };
+		E4AFD9022C63EC1B00DB57D4 /* TimerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4AFD9012C63EC1B00DB57D4 /* TimerView.swift */; };
+		E4AFD9042C64B3A600DB57D4 /* HapticManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4AFD9032C64B3A600DB57D4 /* HapticManager.swift */; };
 		E4B560692C60CED300873D6A /* GeometryEffect.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4B560682C60CED300873D6A /* GeometryEffect.swift */; };
 /* End PBXBuildFile section */
 
@@ -137,6 +140,9 @@
 		E4AA7C402C5A22E6000C83D0 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		E4AA7C422C5A9924000C83D0 /* AssistantViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssistantViewModel.swift; sourceTree = "<group>"; };
 		E4AA7C442C5CCDDF000C83D0 /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		E4AFD8FD2C63DB1300DB57D4 /* UserDefaultsExt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsExt.swift; sourceTree = "<group>"; };
+		E4AFD9012C63EC1B00DB57D4 /* TimerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerView.swift; sourceTree = "<group>"; };
+		E4AFD9032C64B3A600DB57D4 /* HapticManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HapticManager.swift; sourceTree = "<group>"; };
 		E4B560682C60CED300873D6A /* GeometryEffect.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeometryEffect.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -205,8 +211,10 @@
 				E4AA7C2F2C592B19000C83D0 /* Backgrounds */,
 				E4AA7C402C5A22E6000C83D0 /* Constants.swift */,
 				E441FBF52C6366CE0081317B /* FileManagerExt.swift */,
+				E4AFD8FD2C63DB1300DB57D4 /* UserDefaultsExt.swift */,
 				E441FBF92C639FAD0081317B /* BindingExt.swift */,
 				E40A4EF82C52359C00167FBD /* ErrorCases.swift */,
+				E4AFD9032C64B3A600DB57D4 /* HapticManager.swift */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -265,6 +273,18 @@
 			path = ProfileView;
 			sourceTree = "<group>";
 		};
+		E441FBFB2C63A4AE0081317B /* Main */ = {
+			isa = PBXGroup;
+			children = (
+				E441FBF32C6363C30081317B /* CartView */,
+				E441FBF02C6362860081317B /* ProgressView */,
+				E441FBEF2C6361D90081317B /* ScanView */,
+				E441FBF12C6363720081317B /* AssistantView */,
+				E441FBF42C6363E90081317B /* ProfileView */,
+			);
+			path = Main;
+			sourceTree = "<group>";
+		};
 		E45956642C4E14C8000B5058 /* TestView */ = {
 			isa = PBXGroup;
 			children = (
@@ -275,6 +295,7 @@
 				E45956452C4BD289000B5058 /* FirstView.swift */,
 				E459565C2C4D6191000B5058 /* SecondView.swift */,
 				E4B560682C60CED300873D6A /* GeometryEffect.swift */,
+				E4AFD9012C63EC1B00DB57D4 /* TimerView.swift */,
 			);
 			path = TestView;
 			sourceTree = "<group>";
@@ -306,11 +327,7 @@
 				E4A955882C3C5980009D7F11 /* YukaAIApp.swift */,
 				E4A9558A2C3C5980009D7F11 /* HomeView.swift */,
 				E441FBEE2C6361A10081317B /* Common */,
-				E441FBF32C6363C30081317B /* CartView */,
-				E441FBF02C6362860081317B /* ProgressView */,
-				E441FBEF2C6361D90081317B /* ScanView */,
-				E441FBF12C6363720081317B /* AssistantView */,
-				E441FBF42C6363E90081317B /* ProfileView */,
+				E441FBFB2C63A4AE0081317B /* Main */,
 				E4AA7C2A2C58CCD7000C83D0 /* ToBeRemoved */,
 				E4A9558C2C3C5982009D7F11 /* Assets.xcassets */,
 				E40A4EEE2C5023DC00167FBD /* Info.plist */,
@@ -434,7 +451,7 @@
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
 				LastSwiftUpdateCheck = 1540;
-				LastUpgradeCheck = 1540;
+				LastUpgradeCheck = 1600;
 				TargetAttributes = {
 					E4A955842C3C5980009D7F11 = {
 						CreatedOnToolsVersion = 15.4;
@@ -514,6 +531,7 @@
 				E441FBF82C636B930081317B /* CartViewModel.swift in Sources */,
 				E459564B2C4D29A0000B5058 /* Results.swift in Sources */,
 				E40A4EF72C515CCC00167FBD /* WelcomeView.swift in Sources */,
+				E4AFD9042C64B3A600DB57D4 /* HapticManager.swift in Sources */,
 				E40A4F132C550A9D00167FBD /* TestCodable.swift in Sources */,
 				E40A4EE92C4FFBA100167FBD /* BarcodeScannerViewModel.swift in Sources */,
 				E4AA7C312C592B78000C83D0 /* LightRedGradient.swift in Sources */,
@@ -531,6 +549,7 @@
 				E4AA7C2C2C58CE9A000C83D0 /* ScanViewModel.swift in Sources */,
 				E40A4F0A2C541AC300167FBD /* GreenGradient.swift in Sources */,
 				E40A4EFD2C5236FC00167FBD /* ScanResultsModel.swift in Sources */,
+				E4AFD8FE2C63DB1300DB57D4 /* UserDefaultsExt.swift in Sources */,
 				E459565D2C4D6191000B5058 /* SecondView.swift in Sources */,
 				E459566A2C4E1949000B5058 /* ProfileView.swift in Sources */,
 				E45956712C4FB3C1000B5058 /* ConnectionView.swift in Sources */,
@@ -543,6 +562,7 @@
 				E40A4EF12C513D6D00167FBD /* IntroView.swift in Sources */,
 				E45956532C4D3284000B5058 /* ProductUIView.swift in Sources */,
 				E40A4EFF2C5293EC00167FBD /* SignInView.swift in Sources */,
+				E4AFD9022C63EC1B00DB57D4 /* TimerView.swift in Sources */,
 				E40A4EF32C51462900167FBD /* LogInView.swift in Sources */,
 				E4A955892C3C5980009D7F11 /* YukaAIApp.swift in Sources */,
 				E40A4F052C53C22E00167FBD /* ProductItem.swift in Sources */,
@@ -779,7 +799,6 @@
 		E4A955AD2C3C5982009D7F11 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
@@ -799,7 +818,6 @@
 		E4A955AE2C3C5982009D7F11 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
@@ -819,7 +837,6 @@
 		E4A955B02C3C5982009D7F11 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = R9985Q9W5Q;
@@ -837,7 +854,6 @@
 		E4A955B12C3C5982009D7F11 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = R9985Q9W5Q;

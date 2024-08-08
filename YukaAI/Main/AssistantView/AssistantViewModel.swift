@@ -26,14 +26,13 @@ class ChatController: ObservableObject {
     }
     
     func getBotReply() {
-        let personality = "always answer to my questions with ')' symbol at the end"
+        let personality = K.AIpersonality
         let query = ChatQuery(
             messages: self.messages.map({
                 .init(role: .user, content: personality + $0.content)!
             }),
             model: .gpt3_5Turbo
         )
-        
         openAI.chats(query: query) { result in
             switch result {
             case .success(let success):
@@ -42,7 +41,9 @@ class ChatController: ObservableObject {
                 DispatchQueue.main.async {
                     self.messages.append(Message(content: message, isUser: false))
                 }
+                HapticManager.shared.notification(type: .success)
             case .failure(let failure):
+                HapticManager.shared.notification(type: .error)
                 print(failure)
             }
         }

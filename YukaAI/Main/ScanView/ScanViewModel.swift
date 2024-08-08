@@ -25,7 +25,7 @@ extension ScanView {
         @Published var userError: UserError?
         @Published var shouldShowAlert = false
         @Published var imageUrlString: String = ""
-        @Published var quality: ProductQuality = .average(color: .yellow)
+        @Published var quality: ProductQuality = .average(color: .lightYellow)
         
         @Published private(set) var products: [ProductItem] = []
         
@@ -35,10 +35,12 @@ extension ScanView {
             do {
                 self.results = try await DataManager.getDataResults(barcode: barcode)
                 self.isLoading = false
+                HapticManager.shared.notification(type: .success)
             } catch(let error) {
                 userError = UserError.custom(error: error)
                 shouldShowAlert = true
                 isLoading = false
+                HapticManager.shared.notification(type: .error)
             }
         }
         
@@ -56,12 +58,12 @@ extension ScanView {
             self.nutriScore = results?.product?.ecoscoreData?.score ?? -1
             guard nutriScore != -1 else { return }
             switch nutriScore {
-            case 70...100:
+            case 65...100:
                 self.quality = .good(color: .lightGreen)
-            case 0...30:
+            case 0...35:
                 self.quality = .bad(color: .lightRed)
             default:
-                self.quality = .average(color: .lightRed)
+                self.quality = .average(color: .lightYellow)
             }
         }
         

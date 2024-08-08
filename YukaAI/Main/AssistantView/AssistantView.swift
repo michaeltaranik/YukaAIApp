@@ -18,6 +18,7 @@ struct AssistantView: View {
             HStack {
                 Text("Assistant")
                     .font(.system(size: 45, weight: .bold))
+                    .foregroundStyle(.accent)
                     .padding()
                 Spacer()
             }

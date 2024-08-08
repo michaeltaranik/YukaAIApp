@@ -22,7 +22,7 @@ struct HomeView: View {
     
     var body: some View {
         ZStack {
-            Color(.lightGreen)
+            Color(.accentInverted)
                 .ignoresSafeArea()
             VStack(alignment: .leading, content: {
 //                Text(contentManager.mainTitle)
@@ -65,6 +65,7 @@ struct CartTabView: View {
         CartView()
             .onAppear {
                 contentManager.changeTitle("Cart")
+                HapticManager.shared.impact(style: .soft)
             }
             .tabItem {
                 Image(systemName: "cart")
@@ -83,6 +84,7 @@ struct ScanTabView: View {
         BarcodeScannerView()
             .onAppear {
                 contentManager.changeTitle("Scan")
+                HapticManager.shared.impact(style: .soft)
             }
             .tabItem {
                 Image(systemName: "camera.viewfinder")
@@ -102,6 +104,7 @@ struct StatsTabView: View {
         StatsView()
             .onAppear {
                 contentManager.changeTitle("Progress")
+                HapticManager.shared.impact(style: .soft)
             }
             .tabItem {
                 Image(systemName: "star.fill")
@@ -121,6 +124,7 @@ struct AssistantTabView: View {
         AssistantView()
             .onAppear {
                 contentManager.changeTitle("Assistant")
+                HapticManager.shared.impact(style: .soft)
             }
             .tabItem {
                 Image(systemName: "questionmark.bubble.fill")
@@ -139,6 +143,7 @@ struct ProfileTabView: View {
         ProfileView()
             .onAppear {
                 contentManager.changeTitle("Profile")
+                HapticManager.shared.impact(style: .soft)
             }
             .tabItem {
                 Image(systemName: "person.crop.circle")

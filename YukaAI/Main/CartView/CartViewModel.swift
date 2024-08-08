@@ -59,6 +59,7 @@ class CartViewModel: ObservableObject {
     
     func deleteFromCart(at indexSet: IndexSet) {
         products.remove(atOffsets: indexSet)
+        HapticManager.shared.notification(type: .warning)
         do {
             let data = try JSONEncoder().encode(products)
             try data.write(to: K.saveToCartPath, options: [.atomic, .completeFileProtection])

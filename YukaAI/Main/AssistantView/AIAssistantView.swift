@@ -18,13 +18,12 @@ struct AIAssistantView: View {
     var body: some View {
         VStack {
             ScrollView {
-                Image(.assistant)
-                    .resizable()
-                    .scaledToFit()
-                    .clipShape(Circle())
-                    .padding(60)
-                    .opacity(0.8)
-                
+//                Image(.assistant)
+//                    .resizable()
+//                    .frame(width: 200, height: 200)
+//                    .clipShape(Circle())
+//                    .padding(60)
+//                    .opacity(0.8)
                 ForEach(chatController.messages) {
                     message in
                     MessageView(message: message)
@@ -74,8 +73,8 @@ struct MessageView: View {
                         .clipShape(Circle())
                     Text(message.content)
                         .padding()
-                        .background(Color.black)
-                        .foregroundColor(Color.white)
+                        .background(.accent)
+                        .foregroundColor(.accentInverted)
                         .clipShape(RoundedRectangle(
                             cornerSize: CGSize(width: 20, height: 20)))
                     Spacer()

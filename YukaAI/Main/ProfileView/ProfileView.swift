@@ -35,7 +35,7 @@ struct ProfileView: View {
                         }
                 }
                 .navigationTitle(Text("Profile"))
-                .background(darkMode ? .darkGreen : .lightGreen)
+                .background(.accentInverted)
             }
         }
     }
@@ -48,17 +48,24 @@ struct ProfileView: View {
 }
 
 struct ProfileHeaderView: View {
+    
     @Binding var darkMode: Bool
     
     var body: some View {
-        Image(systemName: "person.circle")
-            .resizable()
-            .frame(width: 200, height: 200)
-            .foregroundColor(!darkMode ? .darkGreen : .lightGreen)
-            .padding()
-        Text("Your Profile!")
-            .foregroundColor(!darkMode ? .darkGreen : .lightGreen)
-            .bold()
+        HStack {
+            Image(.avatarIcon)
+                .resizable()
+                .clipShape(Circle())
+                .shadow(radius: 10)
+                .frame(width: 150, height: 150)
+                .foregroundColor(!darkMode ? .darkGreen : .lightGreen)
+                .padding(.vertical)
+                
+            Text("Your Profile!")
+                .foregroundColor(!darkMode ? .darkGreen : .lightGreen)
+                .bold()
+                .padding()
+        }
     }
 }
 

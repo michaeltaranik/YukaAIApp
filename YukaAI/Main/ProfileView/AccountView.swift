@@ -35,7 +35,7 @@ struct AccountView: View {
                         }
                 }
                 .navigationTitle(Text("Profile"))
-                .background(darkMode ? .darkGreen : .lightGreen)
+                .background(.accentInverted)
             }
         }
     }

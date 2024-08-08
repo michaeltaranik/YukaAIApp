@@ -24,10 +24,27 @@ struct ScanView: View {
     var barcode: String
     
 
+    @ViewBuilder
+    var backgroundGradient: some View {
+        switch viewModel.quality {
+            
+        case .good(color: _):
+            LightGreenGradient()
+            
+        case .average(color: _):
+            LightYellowGradient()
+            
+        case .bad(color: _):
+            LightRedGradient()
+            
+        }
+    }
+    
+    
     
     var body: some View {
         ZStack {
-            LightGreenGradient()
+            backgroundGradient
             ScrollView {
                 VStack {
                     HStack {
@@ -116,7 +133,6 @@ struct ScanView: View {
                     .clipShape(RoundedRectangle(cornerSize: CGSize(width: 10, height: 10)))
                     .frame(width: 150, height: 150)
                     .task {
-//                        viewModel.addToCart(barcode, productList: productList, imageUrl: imageURL)
                         cartModel.saveToCart(barcode, imageUrlString: imageURL, productName: viewModel.productName)
                     }
             } placeholder: {
