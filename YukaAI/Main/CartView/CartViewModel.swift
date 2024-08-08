@@ -5,16 +5,16 @@
 //  Created by Michael Taranik on 07.08.2024.
 //
 
-import Foundation
+import SwiftUI
 
 class CartViewModel: ObservableObject {
     
     @Published private(set) var products: [ProductItem] = []
-
     
     init() {
         loadCart()
     }
+    
     
     
     func loadCart() {

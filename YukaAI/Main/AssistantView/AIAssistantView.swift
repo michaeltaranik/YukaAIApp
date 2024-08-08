@@ -10,26 +10,42 @@ import OpenAI
 
 struct AIAssistantView: View {
     
-    @ObservedObject var chatController: ChatController
     @State var textFieldText: String = ""
     @State var showKeyboard: Bool = false
+    
+    @StateObject private var chatController = ChatController()
+    @StateObject private var cartVM = CartViewModel()
     
     
     var body: some View {
         VStack {
             ScrollView {
-//                Image(.assistant)
-//                    .resizable()
-//                    .frame(width: 200, height: 200)
-//                    .clipShape(Circle())
-//                    .padding(60)
-//                    .opacity(0.8)
                 ForEach(chatController.messages) {
                     message in
                     MessageView(message: message)
                         .padding(.horizontal, 15)
                 }
             }
+            ScrollView(.horizontal) {
+                HStack {
+                    Button {
+                        let productsToSend = "\(cartVM.products.map(\.name).joined(separator: ", "))"
+                        chatController.sendNewMessage(content: "reccomend what can i cook based on these products: \(productsToSend)")
+                    } label: {
+                        AssistantAdviceView(headline: "What can I cook?")
+                    }
+                    
+                    Button {
+                        let productsToSend = "\(cartVM.products.map(\.name).joined(separator: ", "))"
+                        chatController.sendNewMessage(content: "reccomend What should I buy instead of these products: \(productsToSend)")
+                    } label: {
+                        AssistantAdviceView(headline: "What should I buy instead?")
+                    }
+                    
+                }
+            }
+            .scrollIndicators(.hidden)
+            
             Divider()
             HStack {
                 TextField("Message...", text: self.$textFieldText, axis: .vertical)
@@ -37,11 +53,11 @@ struct AIAssistantView: View {
                     .background(Color.gray.opacity(0.1))
                     .cornerRadius(15)
                 Button {
-                    self.chatController.sendNewMessage(content: textFieldText)
+                    chatController.sendNewMessage(content: textFieldText)
                     textFieldText = ""
                     UIApplication.shared.sendAction(#selector(UIResponder.resignFirstResponder), to: nil, from: nil, for: nil)
                 } label: {
-                    Image(systemName: "paperplane")
+                    Image(systemName: "paperplane.fill")
                 }
             }
             .padding()
@@ -85,5 +101,5 @@ struct MessageView: View {
 }
 
 #Preview {
-    AIAssistantView(chatController: .init())
+    AIAssistantView()
 }

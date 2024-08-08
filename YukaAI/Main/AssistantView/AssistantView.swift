@@ -9,8 +9,6 @@ import SwiftUI
 
 struct AssistantView: View {
     
-//    @StateObject private var vm = ViewModel()
-    @StateObject var chatController = ChatController()
     @State private var text = ""
     
     var body: some View {
@@ -22,7 +20,7 @@ struct AssistantView: View {
                     .padding()
                 Spacer()
             }
-            AIAssistantView(chatController: chatController)
+            AIAssistantView()
         }
         .onAppear(perform: UIApplication.shared.addTapGestureRecognizer)
     }

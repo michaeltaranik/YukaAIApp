@@ -8,7 +8,19 @@
 import Foundation
 import OpenAI
 
+//
+//  AssistantViewModel.swift
+//  YukaAI
+//
+//  Created by Michael Taranik on 31.07.2024.
+//
+
+import Foundation
+import OpenAI
+
 class ChatController: ObservableObject {
+    
+    
     @Published var messages: [Message] = [
         .init(content: "Hello, I'm YukaAI. How can I help you today?", isUser: false),
         .init(content: "I'm here to assist you with any questions or concerns you may have. Feel free to ask anything, and I'll do my best to provide helpful information.", isUser: false),
@@ -25,7 +37,7 @@ class ChatController: ObservableObject {
         getBotReply()
     }
     
-    func getBotReply() {
+    private func getBotReply() {
         let personality = K.AIpersonality
         let query = ChatQuery(
             messages: self.messages.map({

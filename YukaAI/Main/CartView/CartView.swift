@@ -9,37 +9,33 @@ import SwiftUI
 
 struct CartView: View {
     
-    @StateObject var vm = CartViewModel()
+    @StateObject private var vm = CartViewModel()
     
-    
+//    @State var isAssistantPresented: Bool = false
     
     
     var body: some View {
         NavigationStack {
-            List {
-                ForEach(vm.products, id: \.self) { product in
-                    NavigationLink(value: product) {
-                        HStack {
-                            productImage(product)
-                            Text("\(product.name)")
-                        }
-                    }
-                }
-                .onDelete { indexSet in
-                    vm.deleteFromCart(at: indexSet)
-                }
-            }
-            .listStyle(.insetGrouped)
-            .navigationTitle("Cart")
-            .navigationDestination(for: ProductItem.self) { product in
-                ScanView(barcode: product.barcode)
-            }
-            .refreshable {
-                vm.loadCart()
-            }
-            .toolbar {
-                EditButton()
-            }
+            CartListView(vm: vm)
+//            VStack{
+//                HelperBottomSectionView(headline: "What can I cook?", image: Image(.fancyMeal))
+//                    .shadow(radius: 10)
+//                    .onTapGesture {
+//                        isAssistantPresented.toggle()
+//                    }
+//                    .sheet(isPresented: $isAssistantPresented) {
+//                        AIAssistantView()
+//                            .onAppear {
+//                            vm.getReccomendations(question: "What can I cook?")
+//                            }
+//                    }
+//                HelperBottomSectionView(headline: "What can I take?", image: Image(.fancyCart))
+//                    .shadow(radius: 10)
+//                    .onTapGesture {
+//                        vm.getReccomendations(question: "What can I take?")
+//                    }
+//            }
+
         }
         .foregroundColor(.accent)
         .background(.accentInverted)
@@ -48,6 +44,49 @@ struct CartView: View {
         }
     }
     
+    
+    
+    
+    
+}
+
+
+
+#Preview {
+    CartView()
+}
+
+struct CartListView: View {
+    
+    @StateObject var vm: CartViewModel
+    
+    
+    var body: some View {
+        List {
+            ForEach(vm.products, id: \.self) { product in
+                NavigationLink(value: product) {
+                    HStack {
+                        productImage(product)
+                        Text("\(product.name)")
+                    }
+                }
+            }
+            .onDelete { indexSet in
+                vm.deleteFromCart(at: indexSet)
+            }
+        }
+        .listStyle(.insetGrouped)
+        .navigationTitle("Cart")
+        .navigationDestination(for: ProductItem.self) { product in
+            ScanView(barcode: product.barcode)
+        }
+        .refreshable {
+            vm.loadCart()
+        }
+        .toolbar {
+            EditButton()
+        }
+    }
     
     
     fileprivate func productImage(_ product: ProductItem) -> AsyncImage<_ConditionalContent<some View, some View>> {
@@ -69,10 +108,7 @@ struct CartView: View {
                 .frame(width: 100, height: 80)
         }
     }
+    
 }
 
 
-
-#Preview {
-    CartView()
-}
