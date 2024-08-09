@@ -13,15 +13,16 @@ struct AssistantView: View {
     
     var body: some View {
         VStack {
-            HStack {
-                Text("Assistant")
-                    .font(.system(size: 45, weight: .bold))
-                    .foregroundStyle(.accent)
-                    .padding(.horizontal, 20)
-                Spacer()
-                    .background(Color.black.opacity(0.5))
-            }
+//            HStack {
+//                Text("Assistant")
+//                    .font(.system(size: 45, weight: .bold))
+//                    .foregroundStyle(.accent)
+//                    .padding(.horizontal, 20)
+//                Spacer()
+//                    .background(Color.black.opacity(0.5))
+//            }
             AIAssistantView()
+                
         }
         .onAppear(perform: UIApplication.shared.addTapGestureRecognizer)
     }

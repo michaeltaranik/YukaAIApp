@@ -17,24 +17,6 @@ struct CartView: View {
     var body: some View {
         NavigationStack {
             CartListView(vm: vm)
-//            VStack{
-//                HelperBottomSectionView(headline: "What can I cook?", image: Image(.fancyMeal))
-//                    .shadow(radius: 10)
-//                    .onTapGesture {
-//                        isAssistantPresented.toggle()
-//                    }
-//                    .sheet(isPresented: $isAssistantPresented) {
-//                        AIAssistantView()
-//                            .onAppear {
-//                            vm.getReccomendations(question: "What can I cook?")
-//                            }
-//                    }
-//                HelperBottomSectionView(headline: "What can I take?", image: Image(.fancyCart))
-//                    .shadow(radius: 10)
-//                    .onTapGesture {
-//                        vm.getReccomendations(question: "What can I take?")
-//                    }
-//            }
 
         }
         .foregroundColor(.accent)

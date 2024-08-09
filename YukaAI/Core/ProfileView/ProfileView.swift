@@ -15,8 +15,9 @@ struct ProfileView: View {
     
     var body: some View {
         ZStack {
+            //            GreenGradient()
             NavigationStack {
-                ScrollView {
+                List {
                     ProfileHeaderView(darkMode: $darkMode)
                     NavigationLink(
                         destination: ConnectionView()) {
@@ -33,9 +34,9 @@ struct ProfileView: View {
                         .onTapGesture {
                             showHealth.toggle()
                         }
+                        .listRowBackground(Color(.lightRed))
                 }
                 .navigationTitle(Text("Profile"))
-                .background(.accentInverted)
             }
         }
     }
@@ -60,7 +61,7 @@ struct ProfileHeaderView: View {
                 .frame(width: 150, height: 150)
                 .foregroundColor(!darkMode ? .darkGreen : .lightGreen)
                 .padding(.vertical)
-                
+            
             Text("Your Profile!")
                 .foregroundColor(!darkMode ? .darkGreen : .lightGreen)
                 .bold()
@@ -109,17 +110,17 @@ struct AppleHealthSectionView: View {
                 .cornerRadius(10)
                 .frame(height: 40)
             HStack {
-                    ZStack {
-                        Rectangle()
-                            .frame(width: 30, height: 30)
-                            .cornerRadius(6.0)
-                            .foregroundStyle(!darkMode ? .red : .lightRed)
-                        Image(systemName: "heart.fill")
-                            .foregroundStyle(!darkMode ? .white : .black)
-                    }
-                    Text("Connect Apple Health")
-                        .foregroundColor(!darkMode ? .black : .white)
+                ZStack {
+                    Rectangle()
+                        .frame(width: 30, height: 30)
+                        .cornerRadius(6.0)
+                        .foregroundStyle(!darkMode ? .red : .lightRed)
+                    Image(systemName: "heart.fill")
+                        .foregroundStyle(!darkMode ? .white : .black)
                 }
+                Text("Connect Apple Health")
+                    .foregroundColor(!darkMode ? .black : .white)
+            }
             .padding(.horizontal)
         })
         .padding(.horizontal)

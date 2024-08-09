@@ -27,7 +27,6 @@
 		E441FBF62C6366CE0081317B /* FileManagerExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = E441FBF52C6366CE0081317B /* FileManagerExt.swift */; };
 		E441FBF82C636B930081317B /* CartViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E441FBF72C636B930081317B /* CartViewModel.swift */; };
 		E441FBFA2C639FAD0081317B /* BindingExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = E441FBF92C639FAD0081317B /* BindingExt.swift */; };
-		E459563C2C47CFAF000B5058 /* Concurrency.swift in Sources */ = {isa = PBXBuildFile; fileRef = E459563B2C47CFAF000B5058 /* Concurrency.swift */; };
 		E45956442C4A65D9000B5058 /* ImageLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = E45956432C4A65D9000B5058 /* ImageLoader.swift */; };
 		E45956462C4BD289000B5058 /* FirstView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E45956452C4BD289000B5058 /* FirstView.swift */; };
 		E45956482C4C313C000B5058 /* DataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E45956472C4C313C000B5058 /* DataManager.swift */; };
@@ -69,6 +68,8 @@
 		E4AFD90E2C660F8100DB57D4 /* AssistantFileManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4AFD90D2C660F8100DB57D4 /* AssistantFileManager.swift */; };
 		E4AFD9112C66169A00DB57D4 /* SemiCircle.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4AFD9102C66169A00DB57D4 /* SemiCircle.swift */; };
 		E4AFD9132C661E8400DB57D4 /* ShowIndicatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4AFD9122C661E8400DB57D4 /* ShowIndicatorView.swift */; };
+		E4AFD9152C663EB200DB57D4 /* TestProfile.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4AFD9142C663EB200DB57D4 /* TestProfile.swift */; };
+		E4AFD9172C66495600DB57D4 /* NavButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4AFD9162C66495600DB57D4 /* NavButtonView.swift */; };
 		E4B560692C60CED300873D6A /* GeometryEffect.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4B560682C60CED300873D6A /* GeometryEffect.swift */; };
 /* End PBXBuildFile section */
 
@@ -111,7 +112,6 @@
 		E441FBF52C6366CE0081317B /* FileManagerExt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileManagerExt.swift; sourceTree = "<group>"; };
 		E441FBF72C636B930081317B /* CartViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartViewModel.swift; sourceTree = "<group>"; };
 		E441FBF92C639FAD0081317B /* BindingExt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BindingExt.swift; sourceTree = "<group>"; };
-		E459563B2C47CFAF000B5058 /* Concurrency.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Concurrency.swift; sourceTree = "<group>"; };
 		E45956432C4A65D9000B5058 /* ImageLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageLoader.swift; sourceTree = "<group>"; };
 		E45956452C4BD289000B5058 /* FirstView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstView.swift; sourceTree = "<group>"; };
 		E45956472C4C313C000B5058 /* DataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataManager.swift; sourceTree = "<group>"; };
@@ -155,6 +155,8 @@
 		E4AFD90D2C660F8100DB57D4 /* AssistantFileManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssistantFileManager.swift; sourceTree = "<group>"; };
 		E4AFD9102C66169A00DB57D4 /* SemiCircle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SemiCircle.swift; sourceTree = "<group>"; };
 		E4AFD9122C661E8400DB57D4 /* ShowIndicatorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowIndicatorView.swift; sourceTree = "<group>"; };
+		E4AFD9142C663EB200DB57D4 /* TestProfile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestProfile.swift; sourceTree = "<group>"; };
+		E4AFD9162C66495600DB57D4 /* NavButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavButtonView.swift; sourceTree = "<group>"; };
 		E4B560682C60CED300873D6A /* GeometryEffect.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeometryEffect.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -286,6 +288,7 @@
 				E45956692C4E1949000B5058 /* ProfileView.swift */,
 				E40A4F0B2C541BFC00167FBD /* AccountView.swift */,
 				E45956652C4E1548000B5058 /* HealthView.swift */,
+				E4AFD9162C66495600DB57D4 /* NavButtonView.swift */,
 			);
 			path = ProfileView;
 			sourceTree = "<group>";
@@ -305,9 +308,9 @@
 		E45956642C4E14C8000B5058 /* TestView */ = {
 			isa = PBXGroup;
 			children = (
-				E459563B2C47CFAF000B5058 /* Concurrency.swift */,
 				E45956432C4A65D9000B5058 /* ImageLoader.swift */,
 				E45956522C4D3284000B5058 /* ProductUIView.swift */,
+				E4AFD9142C663EB200DB57D4 /* TestProfile.swift */,
 				E459565E2C4D65D0000B5058 /* SearchView.swift */,
 				E45956452C4BD289000B5058 /* FirstView.swift */,
 				E459565C2C4D6191000B5058 /* SecondView.swift */,
@@ -558,10 +561,12 @@
 				E459564B2C4D29A0000B5058 /* Results.swift in Sources */,
 				E40A4EF72C515CCC00167FBD /* WelcomeView.swift in Sources */,
 				E4AFD9042C64B3A600DB57D4 /* HapticManager.swift in Sources */,
+				E4AFD9172C66495600DB57D4 /* NavButtonView.swift in Sources */,
 				E40A4F132C550A9D00167FBD /* TestCodable.swift in Sources */,
 				E40A4EE92C4FFBA100167FBD /* BarcodeScannerViewModel.swift in Sources */,
 				E4AA7C312C592B78000C83D0 /* LightRedGradient.swift in Sources */,
 				E4AFD90C2C65F9AB00DB57D4 /* MyDefaultPressableButton.swift in Sources */,
+				E4AFD9152C663EB200DB57D4 /* TestProfile.swift in Sources */,
 				E459566F2C4E76A8000B5058 /* CartView.swift in Sources */,
 				E4AA7C412C5A22E6000C83D0 /* Constants.swift in Sources */,
 				E40A4EEB2C4FFCAF00167FBD /* DataScannerView.swift in Sources */,
@@ -583,7 +588,6 @@
 				E45956712C4FB3C1000B5058 /* ConnectionView.swift in Sources */,
 				E45956612C4E1355000B5058 /* HealthManager.swift in Sources */,
 				E40A4F0C2C541BFC00167FBD /* AccountView.swift in Sources */,
-				E459563C2C47CFAF000B5058 /* Concurrency.swift in Sources */,
 				E4AA7C2E2C5929F5000C83D0 /* LightGreenGradient.swift in Sources */,
 				E40A4EE42C4FD69100167FBD /* CameraManager.swift in Sources */,
 				E40A4EF52C51500400167FBD /* CreateUserView.swift in Sources */,

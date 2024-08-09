@@ -50,11 +50,13 @@ struct MessageView: View {
                     Spacer()
                     Text(message.content)
                         .padding()
-                        .background(Color.blue)
-                        .foregroundColor(Color.white)
+                        .background(.lightGrey)
+                        .foregroundColor(.accent)
                         .clipShape(RoundedRectangle(
                             cornerSize: CGSize(width: 20, height: 20)))
                 }
+                .padding(.leading, 95)
+                .padding(.bottom, 20)
             } else {
                 HStack (alignment: .top) {
                     Image(.assistant)
@@ -63,10 +65,7 @@ struct MessageView: View {
                         .clipShape(Circle())
                     Text(message.content)
                         .padding()
-                        .background(.accent)
-                        .foregroundColor(.accentInverted)
-                        .clipShape(RoundedRectangle(
-                            cornerSize: CGSize(width: 20, height: 20)))
+                        .foregroundColor(.accent)
                     Spacer()
                 }
             }
@@ -78,20 +77,31 @@ struct MessageView: View {
 extension AIAssistantView {
     
     var messagesView: some View {
-        ScrollView {
-            ScrollViewReader { proxy in
-                ForEach(chatController.messages) {
-                    message in
-                    MessageView(message: message)
-                        .padding(.horizontal, 15)
-                        .id(message.id)
-                }
-                .onReceive(Just(chatController.messages)) { newCount in
-                    withAnimation (.spring()) {
-                        proxy.scrollTo(chatController.messages.last?.id, anchor: .bottom)
+        NavigationStack {
+            ScrollView {
+                ScrollViewReader { proxy in
+                    ForEach(chatController.messages) {
+                        message in
+                        MessageView(message: message)
+                            .padding(.horizontal, 15)
+                            .id(message.id)
+                    }
+                    .onChange(of: chatController.messages.count) { newValue in
+                        withAnimation {
+                            proxy.scrollTo(chatController.messages.last?.id, anchor: .bottom)
+                        }
+                    }
+                    .onAppear {
+                        withAnimation {
+                            proxy.scrollTo(chatController.messages.last?.id, anchor: .bottom)
+                        }
                     }
                 }
+                .padding(.bottom, 60)
+
             }
+            .navigationBarTitle("Assistant")
+            .navigationBarTitleDisplayMode(.inline)
         }
     }
     
@@ -115,15 +125,15 @@ extension AIAssistantView {
         VStack (alignment: .leading, spacing: 0) {
             customIndicator
                 .matchedGeometryEffect(id: "indicator", in: animation)
+                .background(Color.gray.opacity(0.0))
+                .padding()
+                .shadow(radius: 3)
                 .onTapGesture {
-                    withAnimation (.spring()){
+                    withAnimation (.spring()) {
                         shouldShowRecs.toggle()
                     }
                     HapticManager.shared.impact(style: .soft)
                 }
-                .background(Color.gray.opacity(0.0))
-                .padding()
-                .shadow(radius: 3)
             ScrollView(.horizontal) {
                 if shouldShowRecs {
                     recommendations

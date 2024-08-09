@@ -25,7 +25,7 @@ struct BarcodeScannerView: View {
         .sheet(isPresented: $vm.showBottomContainer) {
             bottomContainerView
                 .background(GreenGradient())
-                .presentationDetents([.medium, .fraction(0.25)])
+                .presentationDetents([.fraction(0.95), .fraction(0.25)])
                 .presentationDragIndicator(.visible)
                 .onAppear {
                     guard let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene,
