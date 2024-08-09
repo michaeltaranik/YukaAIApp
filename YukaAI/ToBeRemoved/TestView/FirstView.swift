@@ -9,21 +9,21 @@ import SwiftUI
 
 struct FirstView: View {
     
-    private var image: some View = ImageLoader.fetchImage()
-//    private var dataManager = DataManager()
     @State var count = 0
     
     var body: some View {
-        NavigationStack {
-            NavigationLink(destination: SecondView()) {
-                Text("Display Results!")
-                    .frame(width: 200, height: 100)
-                    .background(.lightGreen)
-                    .foregroundColor(.darkGreen)
-                    .cornerRadius(25)
-                    .shadow(radius: 10)
-                    .font(.system(size: 25, weight: .semibold))
-            }
+        VStack {
+            Text("\(count)")
+                .font(.largeTitle)
+                .padding(30)
+            HalfCircle(_inset: 0)
+                .fill(.black)
+                .clipped()
+                .aspectRatio(2, contentMode: .fit)
+                .frame(width: 200)
+                .onTapGesture {
+                    count += 1
+                }
         }
     }
 }

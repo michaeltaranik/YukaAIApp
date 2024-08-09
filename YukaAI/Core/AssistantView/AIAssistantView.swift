@@ -13,49 +13,28 @@ struct AIAssistantView: View {
     
     @State var textFieldText: String = ""
     @State var showKeyboard: Bool = false
-    
+    @State var shouldShowRecs: Bool = true
     
     @StateObject private var chatController = ChatController()
     @StateObject private var cartVM = CartViewModel()
     
+    @Namespace private var animation
+    
     
     var body: some View {
         VStack {
-            ScrollView {
-                ScrollViewReader { proxy in
-                    ForEach(chatController.messages) {
-                        message in
-                        MessageView(message: message)
-                            .padding(.horizontal, 15)
-                            .id(message.id)
-                    }
-                    .onReceive(Just(chatController.messages.count)) { newCount in
-                        withAnimation (.spring()) {
-                            proxy.scrollTo(chatController.messages.last?.id, anchor: .top)
-                        }
-                    }
+            ZStack {
+                messagesView
+                VStack {
+                    Spacer()
+                    reccomendationsView
                 }
             }
-            ScrollView(.horizontal) {
-                recommendations
+            if !shouldShowRecs {
+                Divider()
             }
-            .scrollIndicators(.hidden)
-            
-            Divider()
-            HStack {
-                TextField("Message...", text: self.$textFieldText, axis: .vertical)
-                    .padding(5)
-                    .background(Color.gray.opacity(0.1))
-                    .cornerRadius(15)
-                Button {
-                    chatController.sendNewMessage(content: textFieldText)
-                    textFieldText = ""
-                    UIApplication.shared.sendAction(#selector(UIResponder.resignFirstResponder), to: nil, from: nil, for: nil)
-                } label: {
-                    Image(systemName: "paperplane.fill")
-                }
-            }
-            .padding()
+            textFieldView
+                .padding()
         }
         
         
@@ -98,7 +77,76 @@ struct MessageView: View {
 
 extension AIAssistantView {
     
+    var messagesView: some View {
+        ScrollView {
+            ScrollViewReader { proxy in
+                ForEach(chatController.messages) {
+                    message in
+                    MessageView(message: message)
+                        .padding(.horizontal, 15)
+                        .id(message.id)
+                }
+                .onReceive(Just(chatController.messages)) { newCount in
+                    withAnimation (.spring()) {
+                        proxy.scrollTo(chatController.messages.last?.id, anchor: .bottom)
+                    }
+                }
+            }
+        }
+    }
     
+    var textFieldView: some View {
+        HStack {
+            TextField("Message...", text: self.$textFieldText, axis: .vertical)
+                .padding(5)
+                .background(Color.gray.opacity(0.1))
+                .cornerRadius(15)
+            Button {
+                chatController.sendNewMessage(content: textFieldText)
+                textFieldText = ""
+                UIApplication.shared.sendAction(#selector(UIResponder.resignFirstResponder), to: nil, from: nil, for: nil)
+            } label: {
+                Image(systemName: "paperplane.fill")
+            }
+        }
+    }
+    
+    var reccomendationsView: some View {
+        VStack (alignment: .leading, spacing: 0) {
+            customIndicator
+                .matchedGeometryEffect(id: "indicator", in: animation)
+                .onTapGesture {
+                    withAnimation (.spring()){
+                        shouldShowRecs.toggle()
+                    }
+                    HapticManager.shared.impact(style: .soft)
+                }
+                .background(Color.gray.opacity(0.0))
+                .padding()
+                .shadow(radius: 3)
+            ScrollView(.horizontal) {
+                if shouldShowRecs {
+                    recommendations
+                }
+            }
+            .background(.ultraThinMaterial)
+            .scrollIndicators(.hidden)
+        }
+        
+        
+    }
+    
+    @ViewBuilder
+    var customIndicator: some View {
+        if shouldShowRecs {
+            ShowIndicatorView(image: Image(systemName: "chevron.down"))
+                
+            
+        } else {
+            ShowIndicatorView(image: Image(systemName: "chevron.up"))
+                
+        }
+    }
     
     var recommendations: some View {
         HStack {
@@ -106,32 +154,26 @@ extension AIAssistantView {
                 HapticManager.shared.impact(style: .light)
                 let productsToSend = "\(cartVM.products.map(\.name).joined(separator: ", "))"
                 chatController.sendNewMessage(content: "reccomend what can i cook based on these products: \(productsToSend)")
-                //                withAnimation(.bouncy(duration: 0.1)) {
-                //                    scaleFirst -= 0.1
-                //                }
-                //                Timer.scheduledTimer(withTimeInterval: 0.1, repeats: false) { _ in
-                //                        withAnimation {
-                //                            scaleFirst = 1.0
-                //                        }
-                //                }
+                withAnimation (.spring()){
+                    shouldShowRecs = false
+                }
+                
             } label: {
                 AssistantAdviceView(headline: "What can I cook?")
             }
             .buttonStyle(ButtonPressableStyle())
-            //            .scaleEffect(CGSize(
-            //                width: scaleFirst,
-            //                height: scaleFirst))
-            //            .animation(.bouncy, value: animation)
             
             Button {
                 HapticManager.shared.impact(style: .light)
                 let productsToSend = "\(cartVM.products.map(\.name).joined(separator: ", "))"
                 chatController.sendNewMessage(content: "reccomend What should I buy instead of these products: \(productsToSend)")
+                withAnimation (.spring()){
+                    shouldShowRecs = false
+                }
             } label: {
                 AssistantAdviceView(headline: "What should I buy instead?")
             }
             .buttonStyle(ButtonPressableStyle())
-            
         }
     }
     

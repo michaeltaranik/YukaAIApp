@@ -17,8 +17,9 @@ struct AssistantView: View {
                 Text("Assistant")
                     .font(.system(size: 45, weight: .bold))
                     .foregroundStyle(.accent)
-                    .padding()
+                    .padding(.horizontal, 20)
                 Spacer()
+                    .background(Color.black.opacity(0.5))
             }
             AIAssistantView()
         }

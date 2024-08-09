@@ -20,16 +20,16 @@ import OpenAI
 
 class ChatController: ObservableObject {
     
+    private let fileManager = AssistantMessageFileManager()
     
-    @Published var messages: [Message] = [
-        .init(content: "Hello, I'm YukaAI. How can I help you today?", isUser: false),
-        .init(content: "I'm here to assist you with any questions or concerns you may have. Feel free to ask anything, and I'll do my best to provide helpful information.", isUser: false),
-        .init(content: "Hello, give the recipe for a delicious chocolate chip cookie.", isUser: true)
-    ]
+    @Published var messages: [Message] = [Message(content: K.defaultMessage, isUser: false)]
     
     let openAI = OpenAI(apiToken: K.apiKey)
 
     
+    init() {
+        self.messages = fileManager.loadMessages()
+    }
     
     func sendNewMessage(content: String) {
         let userMessage = Message(content: content, isUser: true)
@@ -54,6 +54,7 @@ class ChatController: ObservableObject {
                     self.messages.append(Message(content: message, isUser: false))
                 }
                 HapticManager.shared.notification(type: .success)
+                self.fileManager.saveMessages(self.messages)
             case .failure(let failure):
                 HapticManager.shared.notification(type: .error)
                 print(failure)
@@ -65,7 +66,7 @@ class ChatController: ObservableObject {
 
 
 
-struct Message: Identifiable {
+struct Message: Identifiable, Codable {
     var id: UUID = .init()
     var content: String
     var isUser: Bool
