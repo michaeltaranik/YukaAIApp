@@ -7,15 +7,13 @@
 
 import SwiftUI
 import OpenAI
+import Combine
 
 struct AIAssistantView: View {
     
     @State var textFieldText: String = ""
     @State var showKeyboard: Bool = false
-//    @State private var animation = false
-    @State private var scaleFirst: CGFloat = 1
-    @State private var scaleSecond: CGFloat = 1
-
+    
     
     @StateObject private var chatController = ChatController()
     @StateObject private var cartVM = CartViewModel()
@@ -24,10 +22,18 @@ struct AIAssistantView: View {
     var body: some View {
         VStack {
             ScrollView {
-                ForEach(chatController.messages) {
-                    message in
-                    MessageView(message: message)
-                        .padding(.horizontal, 15)
+                ScrollViewReader { proxy in
+                    ForEach(chatController.messages) {
+                        message in
+                        MessageView(message: message)
+                            .padding(.horizontal, 15)
+                            .id(message.id)
+                    }
+                    .onReceive(Just(chatController.messages.count)) { newCount in
+                        withAnimation (.spring()) {
+                            proxy.scrollTo(chatController.messages.last?.id, anchor: .top)
+                        }
+                    }
                 }
             }
             ScrollView(.horizontal) {
@@ -51,7 +57,7 @@ struct AIAssistantView: View {
             }
             .padding()
         }
-    
+        
         
     }
 }
@@ -100,40 +106,31 @@ extension AIAssistantView {
                 HapticManager.shared.impact(style: .light)
                 let productsToSend = "\(cartVM.products.map(\.name).joined(separator: ", "))"
                 chatController.sendNewMessage(content: "reccomend what can i cook based on these products: \(productsToSend)")
-                withAnimation(.bouncy(duration: 0.1)) {
-                    scaleFirst -= 0.1
-                }
-                Timer.scheduledTimer(withTimeInterval: 0.1, repeats: false) { _ in
-                        withAnimation {
-                            scaleFirst = 1.0
-                        }
-                }
+                //                withAnimation(.bouncy(duration: 0.1)) {
+                //                    scaleFirst -= 0.1
+                //                }
+                //                Timer.scheduledTimer(withTimeInterval: 0.1, repeats: false) { _ in
+                //                        withAnimation {
+                //                            scaleFirst = 1.0
+                //                        }
+                //                }
             } label: {
                 AssistantAdviceView(headline: "What can I cook?")
             }
-            .scaleEffect(CGSize(
-                width: scaleFirst,
-                height: scaleFirst))
-//            .animation(.bouncy, value: animation)
+            .buttonStyle(ButtonPressableStyle())
+            //            .scaleEffect(CGSize(
+            //                width: scaleFirst,
+            //                height: scaleFirst))
+            //            .animation(.bouncy, value: animation)
             
             Button {
                 HapticManager.shared.impact(style: .light)
                 let productsToSend = "\(cartVM.products.map(\.name).joined(separator: ", "))"
                 chatController.sendNewMessage(content: "reccomend What should I buy instead of these products: \(productsToSend)")
-                withAnimation(.bouncy(duration: 0.1)) {
-                    scaleSecond -= 0.1
-                }
-                Timer.scheduledTimer(withTimeInterval: 0.1, repeats: false) { _ in
-                        withAnimation {
-                            scaleSecond = 1.0
-                        }
-                }
             } label: {
                 AssistantAdviceView(headline: "What should I buy instead?")
             }
-            .scaleEffect(CGSize(
-                width: scaleSecond,
-                height: scaleSecond))
+            .buttonStyle(ButtonPressableStyle())
             
         }
     }

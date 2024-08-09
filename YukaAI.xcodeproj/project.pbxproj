@@ -65,6 +65,7 @@
 		E4AFD9042C64B3A600DB57D4 /* HapticManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4AFD9032C64B3A600DB57D4 /* HapticManager.swift */; };
 		E4AFD9062C64DCF900DB57D4 /* HelperBottomSectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4AFD9052C64DCF900DB57D4 /* HelperBottomSectionView.swift */; };
 		E4AFD90A2C64FB4F00DB57D4 /* AssistantAdviceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4AFD9092C64FB4F00DB57D4 /* AssistantAdviceView.swift */; };
+		E4AFD90C2C65F9AB00DB57D4 /* MyDefaultPressableButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4AFD90B2C65F9AB00DB57D4 /* MyDefaultPressableButton.swift */; };
 		E4B560692C60CED300873D6A /* GeometryEffect.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4B560682C60CED300873D6A /* GeometryEffect.swift */; };
 /* End PBXBuildFile section */
 
@@ -147,6 +148,7 @@
 		E4AFD9032C64B3A600DB57D4 /* HapticManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HapticManager.swift; sourceTree = "<group>"; };
 		E4AFD9052C64DCF900DB57D4 /* HelperBottomSectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelperBottomSectionView.swift; sourceTree = "<group>"; };
 		E4AFD9092C64FB4F00DB57D4 /* AssistantAdviceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssistantAdviceView.swift; sourceTree = "<group>"; };
+		E4AFD90B2C65F9AB00DB57D4 /* MyDefaultPressableButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyDefaultPressableButton.swift; sourceTree = "<group>"; };
 		E4B560682C60CED300873D6A /* GeometryEffect.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeometryEffect.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -219,6 +221,7 @@
 				E441FBF92C639FAD0081317B /* BindingExt.swift */,
 				E40A4EF82C52359C00167FBD /* ErrorCases.swift */,
 				E4AFD9032C64B3A600DB57D4 /* HapticManager.swift */,
+				E4AFD90B2C65F9AB00DB57D4 /* MyDefaultPressableButton.swift */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -541,6 +544,7 @@
 				E40A4F132C550A9D00167FBD /* TestCodable.swift in Sources */,
 				E40A4EE92C4FFBA100167FBD /* BarcodeScannerViewModel.swift in Sources */,
 				E4AA7C312C592B78000C83D0 /* LightRedGradient.swift in Sources */,
+				E4AFD90C2C65F9AB00DB57D4 /* MyDefaultPressableButton.swift in Sources */,
 				E459566F2C4E76A8000B5058 /* CartView.swift in Sources */,
 				E4AA7C412C5A22E6000C83D0 /* Constants.swift in Sources */,
 				E40A4EEB2C4FFCAF00167FBD /* DataScannerView.swift in Sources */,
