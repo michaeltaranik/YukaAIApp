@@ -20,6 +20,7 @@ struct BarcodeScannerView: View {
         DataScannerView(
             recognizedItems: $vm.recognizedItems,
             recognizedDataType: vm.recognizedDataType)
+        .ignoresSafeArea(edges: .top)
         .background { Color.gray.opacity(0.3) }
         .id(vm.dataScannerViewId)
         .sheet(isPresented: $vm.showBottomContainer) {

@@ -42,7 +42,9 @@ class CartViewModel: ObservableObject {
     
     private func addNewProductItem(_ barcode: String, _ imageUrlString: String, _ productName: String) {
         guard !self.inCart(barcode) else { return }
+        products = products.reversed()
         products.append(ProductItem(barcode: barcode, imageUrl: imageUrlString, name: productName))
+        products = products.reversed()
     }
     
     

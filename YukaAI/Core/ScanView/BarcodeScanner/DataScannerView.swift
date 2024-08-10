@@ -67,7 +67,7 @@ struct DataScannerView: UIViewControllerRepresentable {
         }
         
         func dataScanner(_ dataScanner: DataScannerViewController, becameUnavailableWithError error: DataScannerViewController.ScanningUnavailable) {
-//            print("became unavailable with error \(error.localizedDescription)")
+            print("became unavailable with error \(error.localizedDescription)")
         }
         
     }
