@@ -61,6 +61,7 @@ struct CartListView: View {
         .navigationTitle("Cart")
         .navigationDestination(for: ProductItem.self) { product in
             ScanView(barcode: product.barcode)
+                .toolbar(.hidden, for: .tabBar)
         }
         .refreshable {
             vm.loadCart()
