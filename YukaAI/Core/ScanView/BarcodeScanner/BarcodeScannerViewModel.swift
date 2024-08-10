@@ -32,6 +32,8 @@ final class BarcodeScannerViewModel: ObservableObject {
     @Published var recognizesMultipleItems = false
     @Published var showBottomContainer = false
     @Published var previousCount: Int = 0
+    @Published var isFlashOn: Bool = false
+    @Published var recognized: Bool = false
     
     let recognizedDataType: DataScannerViewController.RecognizedDataType = .barcode()
 
@@ -47,28 +49,29 @@ final class BarcodeScannerViewModel: ObservableObject {
     }
     
     
-//    func showNewProduct() -> Bool {
-//        let lastItem = recognizedItems.count - 1
-//        let last = recognizedItems[lastItem]
-//        let lastlast = recognizedItems[lastItem - 1]
-//        switch last {
-//        case .text(_):
-//            return false
-//        case .barcode(let barcode):
-//            switch lastlast {
-//            case .text(_):
-//                return false
-//            case .barcode(let otherBarcode):
-//                return barcode.payloadStringValue != otherBarcode.payloadStringValue
-//            @unknown default:
-//                return false
-//            }
-//        @unknown default:
-//            return false
-//        }
-//        
-//        
-//    }
+    func handleOnChange(_ newCount: Int) {
+        guard !recognizedItems.isEmpty else { return }
+        if !showBottomContainer {
+            showBottomContainer.toggle()
+        }
+    }
+    
+    func toggleTorch(on: Bool) {
+        let deviceDiscoverySession = AVCaptureDevice.DiscoverySession(deviceTypes: [.builtInTripleCamera, .builtInDualWideCamera, .builtInUltraWideCamera, .builtInWideAngleCamera, .builtInTrueDepthCamera], mediaType: AVMediaType.video, position: .back)
+        
+        guard
+            let device = deviceDiscoverySession.devices.first,
+            device.hasTorch
+        else { return }
+
+        do {
+            try device.lockForConfiguration()
+            device.torchMode = on ? .on : .off
+            device.unlockForConfiguration()
+        } catch {
+            print("Torch could not be used")
+        }
+    }
     
     
     private var isScannerAvailable: Bool {

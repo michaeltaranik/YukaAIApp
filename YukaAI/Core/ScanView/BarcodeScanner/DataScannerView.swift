@@ -8,6 +8,7 @@
 import Foundation
 import SwiftUI
 import VisionKit
+import AVFoundation
 
 struct DataScannerView: UIViewControllerRepresentable {
     
@@ -24,6 +25,7 @@ struct DataScannerView: UIViewControllerRepresentable {
         )
         return vc
     }
+    
     
     func updateUIViewController(_ uiViewController: DataScannerViewController, context: Context) {
         uiViewController.delegate = context.coordinator

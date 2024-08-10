@@ -15,12 +15,44 @@ struct BarcodeScannerView: View {
     @EnvironmentObject var contentManager: HomeViewManager
     
     
-    
     var body: some View {
+        ZStack {
+            scanner
+            barcodeFrame
+                .ignoresSafeArea(.all)
+            flashlight
+                .padding(20)
+            
+        }
+    }
+    
+    
+    var barcodeFrame: some View {
+        ZStack {
+            Color.black.opacity(0.55)
+                .mask {
+                    Rectangle()
+                        .cornerRadius(20)
+                        .overlay(
+                            Rectangle()
+                                .frame(width: 300, height: 300)
+                                .cornerRadius(20)
+                                .blendMode(.destinationOut)
+                        )
+                }
+            RoundedRectangle(cornerSize: CGSize(width: 20, height: 20))
+                .stroke(vm.recognized ? .greenish : .white,
+                        lineWidth: vm.recognized ? 10 : 2)
+                .frame(width: 300, height: 300)
+        }
+    }
+    
+    
+    var scanner: some View {
         DataScannerView(
             recognizedItems: $vm.recognizedItems,
             recognizedDataType: vm.recognizedDataType)
-        .ignoresSafeArea(edges: .top)
+        .ignoresSafeArea(edges: .all)
         .background { Color.gray.opacity(0.3) }
         .id(vm.dataScannerViewId)
         .sheet(isPresented: $vm.showBottomContainer) {
@@ -38,20 +70,20 @@ struct BarcodeScannerView: View {
         }
         .onReceive(Just(vm.recognizedItems.count)) { newCount in
             if newCount != vm.previousCount {
-                handleOnChange(newCount)
+                vm.handleOnChange(newCount)
                 vm.previousCount = newCount
+            }
+        }
+        .onChange(of: vm.showBottomContainer) { newValue in
+            withAnimation {
+                vm.recognized.toggle()
             }
         }
     }
     
     
     
-    private func handleOnChange(_ newCount: Int) {
-        guard !vm.recognizedItems.isEmpty else { return }
-        if !vm.showBottomContainer {
-            vm.showBottomContainer.toggle()
-        }
-    }
+    
     
     
     private var bottomContainerView: some View {
@@ -72,5 +104,39 @@ struct BarcodeScannerView: View {
             
         }
     }
+}
+
+
+
+extension BarcodeScannerView {
+    
+    
+    var flashlight: some View {
+        HStack {
+            VStack {
+                flashButton()
+                Spacer()
+            }
+            Spacer()
+        }
+    }
+    
+    
+    
+    @ViewBuilder
+    private func flashButton() -> some View {
+        Button {
+            vm.isFlashOn.toggle()
+            vm.toggleTorch(on: vm.isFlashOn)
+            HapticManager.shared.impact(style: .light)
+        } label: {
+            Image(systemName: !vm.isFlashOn ? "flashlight.slash.circle.fill" : "flashlight.on.circle.fill")
+                .font(.system(size: 45, weight: .bold))
+                .foregroundColor((!vm.isFlashOn ? Color.black : .white).opacity(0.7))
+        }
+
+    }
+    
+    
 }
 

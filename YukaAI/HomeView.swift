@@ -47,6 +47,7 @@ struct HomeView: View {
                         ProfileTabView()
                             .tag(4)
                     }
+                    
                 }
             })
         }
@@ -91,6 +92,7 @@ struct ScanTabView: View {
                 Text("Scan")
                     .font(.system(size: 20))
             }
+           
     }
     
 }

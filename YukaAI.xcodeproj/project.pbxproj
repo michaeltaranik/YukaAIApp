@@ -257,6 +257,7 @@
 			children = (
 				E40A4EEF2C513D5500167FBD /* OnBoarding */,
 				E4AA7C2F2C592B19000C83D0 /* Backgrounds */,
+				E4AFD9572C6767C100DB57D4 /* Charts */,
 				E4AA7C402C5A22E6000C83D0 /* Constants.swift */,
 				E441FBF52C6366CE0081317B /* FileManagerExt.swift */,
 				E4AFD8FD2C63DB1300DB57D4 /* UserDefaultsExt.swift */,
@@ -330,7 +331,6 @@
 		E441FBFB2C63A4AE0081317B /* Core */ = {
 			isa = PBXGroup;
 			children = (
-				E4AFD9572C6767C100DB57D4 /* SwiftUICharts */,
 				E441FBF32C6363C30081317B /* CartView */,
 				E441FBF02C6362860081317B /* ProgressView */,
 				E441FBEF2C6361D90081317B /* ScanView */,
@@ -484,7 +484,7 @@
 			path = PieChart;
 			sourceTree = "<group>";
 		};
-		E4AFD9572C6767C100DB57D4 /* SwiftUICharts */ = {
+		E4AFD9572C6767C100DB57D4 /* Charts */ = {
 			isa = PBXGroup;
 			children = (
 				E4AFD9472C6767C100DB57D4 /* BarChart */,
@@ -492,7 +492,7 @@
 				E4AFD9552C6767C100DB57D4 /* PieChart */,
 				E4AFD9562C6767C100DB57D4 /* Helpers.swift */,
 			);
-			path = SwiftUICharts;
+			path = Charts;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

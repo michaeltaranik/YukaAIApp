@@ -9,11 +9,9 @@ import SwiftUI
 
 struct SearchView: View {
     var body: some View {
-        NavigationStack {
-            NavigationLink("Tap Me") { 
-                FirstView()
-            }
-        }
+        Rectangle()
+            .foregroundColor(.blue)
+            .blendMode(.multiply)
     }
 }
 
