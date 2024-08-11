@@ -16,9 +16,12 @@ class HomeViewManager: ObservableObject {
 }
 
 struct HomeView: View {
-
+    
     @StateObject private var vm = BarcodeScannerViewModel()
     @StateObject var contentManager = HomeViewManager()
+    
+    
+
     
     var body: some View {
         ZStack {
@@ -48,6 +51,9 @@ struct HomeView: View {
                             .tag(4)
                     }
                     
+//                    .onAppear() {
+//                        UITabBar.appearance().backgroundColor = .red.gradient
+//                    }
                 }
             })
         }
@@ -92,6 +98,7 @@ struct ScanTabView: View {
                 Text("Scan")
                     .font(.system(size: 20))
             }
+            .toolbarBackground(.ultraThickMaterial, for: .tabBar)
            
     }
     
@@ -142,7 +149,7 @@ struct ProfileTabView: View {
     
     
     var body: some View {
-        ProfileView()
+        AccountView()
             .onAppear {
                 contentManager.changeTitle("Profile")
                 HapticManager.shared.impact(style: .soft)

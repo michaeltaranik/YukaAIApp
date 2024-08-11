@@ -16,75 +16,102 @@ struct AccountView: View {
     var body: some View {
         NavigationStack {
             ZStack {
-                Color.cyan
-                    .ignoresSafeArea()
+                background
                 List {
-                    NavButtonView(
-                        image: Image(systemName: "heart.fill"),
-                        color: Color(.red),
-                        label: "Connect Apple Health")
-                    NavButtonView(
-                        image: Image(systemName: "translate"),
-                        color: Color(.orange),
-                        label: "Language")
-                    NavButtonView(
-                        image: Image(systemName: "sun.max.fill"),
-                        color: Color(.purple),
-                        label: "Dark theme")
-                    NavButtonView(
-                        image: Image(systemName: "questionmark.circle.fill"),
-                        color: Color(.darkGreen),
-                        label: "Help")
-                    NavButtonView(
-                        image: Image(systemName: "person.crop.circle.badge.questionmark"),
-                        color: Color(.cyan),
-                        label: "Support")
-                    NavButtonView(
-                        image: Image(systemName: "eraser.line.dashed.fill"),
-                        color: Color(.darkRed),
-                        label: "Delete all data")
+                    Section {
+                        HStack {
+                            Image(.avatarIcon)
+                                .resizable()
+                                .scaledToFit()
+                                .frame(width: 100, height: 100)
+                                .mask {
+                                    Circle()
+                                }
+                            VStack(alignment: .leading) {
+                                Text("First Last")
+                                    .font(.title)
+                                    .foregroundStyle(.primary)
+                                Text("Personal details")
+                                    .font(.subheadline)
+                                    .foregroundStyle(.secondary)
+                            }
+                            
+                        }
+                    }
+                    Section {
+                        NavButtonView(
+                            image: Image(systemName: "heart.fill"),
+                            color: Color(.red),
+                            label: "Connect Apple Health")
+                        NavButtonView(
+                            image: Image(systemName: "translate"),
+                            color: Color(.orange),
+                            label: "Language")
+                        NavButtonView(
+                            image: Image(systemName: "sun.max.fill"),
+                            color: Color(.purple),
+                            label: "Dark theme")
+                        NavButtonView(
+                            image: Image(systemName: "questionmark.circle.fill"),
+                            color: Color(.darkGreen),
+                            label: "Help")
+                        NavButtonView(
+                            image: Image(systemName: "person.crop.circle.badge.questionmark"),
+                            color: Color(.cyan),
+                            label: "Support")
+                        NavButtonView(
+                            image: Image(systemName: "eraser.line.dashed.fill"),
+                            color: Color(.darkRed),
+                            label: "Delete all data")
+                    }
+                    signOutButton
                 }
-                .scrollContentBackground(.hidden)
-                .navigationTitle(Text("Profile"))
+//                .scrollContentBackground(.hidden)
+                .navigationTitle(
+                    Text("Profile")
+                        .foregroundColor(.black))
                 //            .navigationBarTitleDisplayMode(.inline)
+//                signOutButton
+                
+                
             }
         }
     }
-    //
-    //    List {
-    //        ForEach(productList.list, id: \.self) { product in
-    //            NavigationLink(value: product) {
-    //                HStack {
-    //                    AsyncImage(url: URL(string: product.imageUrl)) { image in
-    //                        image
-    //                            .resizable()
-    //                            .aspectRatio(contentMode: .fit)
-    //                            .clipShape(
-    //                                RoundedRectangle(
-    //                                    cornerSize: CGSize(width: 10, height: 10)))
-    //                            .frame(width: 100, height: 80)
-    //
-    //                    } placeholder: {
-    //                        Image(.default)
-    //                            .resizable()
-    //                            .aspectRatio(contentMode: .fit)
-    //                            .clipShape(
-    //                                RoundedRectangle(
-    //                                    cornerSize: CGSize(width: 10, height: 10)))
-    //                            .frame(width: 100, height: 80)
-    //                    }
-    //                    Text("\(product.name)")
-    //                }
-    //            }
-    //        }
-    //    }
-    //    .listStyle(.insetGrouped)
-    //    .navigationTitle("Cart")
-    //    .navigationDestination(for: ProductItem.self) { product in
-    //        ScanView(barcode: product.barcode)
-    //    }
-    //    .refreshable {
-    //    }
+}
+
+
+
+extension AccountView {
+    
+    var signOutButton: some View {
+        Button {
+            print("sign out...")
+        } label: {
+            HStack {
+                Spacer()
+                Text("Sign out")
+                    .foregroundStyle(.red)
+                    .bold()
+                Spacer()
+            }
+        }
+        .buttonStyle(ButtonPressableStyle())
+    }
+    
+    
+    var background: some View {
+        LinearGradient(
+            gradient:
+                Gradient(
+                    colors: [
+                        Color(red: 0.7, green: 1.0, blue: 0.9),
+                        Color(red: 1.0, green: 1.0, blue: 0.8),
+                        Color(red: 0.7, green: 1.0, blue: 0.9)]),
+            startPoint: .topLeading,
+            endPoint: .bottomTrailing)
+        .ignoresSafeArea()
+    }
+    
 }
 
 #Preview {
