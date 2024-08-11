@@ -10,23 +10,24 @@ import Foundation
 
 
 
-struct Results: Codable {
+struct Results: Decodable {
     let product: ProductInfo
 }
 
 //MARK: - Pulic API
 
 
-struct ProductInfo: Codable {
+struct ProductInfo: Decodable {
     let id: String?
     let keywords: [String]?
     let additivesTags: [String]?
     let allergens, brandOwner, brandOwnerImported, brands: String?
     let genericName, genericNameEn, productID: String?
     let imageURL: String?
+    let productName: String?
     let ingredientsHierarchy: [String]?
     let nutriments: Nutriments
-    let nutriscoreData: NutriscoreData
+    let nutriscoreData: NutriscoreData?
     let nutriscoreGrade: String?
     let nutriscoreScore: Double?
     
@@ -42,6 +43,7 @@ struct ProductInfo: Codable {
         case genericNameEn = "generic_name_en"
         case productID = "id"
         case imageURL = "image_url"
+        case productName = "product_name"
         case ingredientsHierarchy = "ingredients_hierarchy"
         case nutriments
         case nutriscoreData = "nutriscore_data"
@@ -51,7 +53,7 @@ struct ProductInfo: Codable {
 }
 
 // MARK: - Nutriments
-struct Nutriments: Codable {
+struct Nutriments: Decodable {
     let calcium, calcium100G, calciumServing: Double?
     let calciumUnit: String?
     let calciumValue: Double?
@@ -199,13 +201,12 @@ struct Nutriments: Codable {
 }
 
 // MARK: - NutriscoreData
-struct NutriscoreData: Codable {
+struct NutriscoreData: Decodable {
     let energy, energyPoints, energyValue: Double?
     let fiber: Double?
     let fiberPoints: Double?
     let fiberValue: Double?
     let grade: String?
-    let isBeverage, isCheese, isFat, isWater: Double?
     let negativePoints, positivePoints: Double?
     let proteins: Double?
     let proteinsPoints: Double?
@@ -225,10 +226,6 @@ struct NutriscoreData: Codable {
         case fiberPoints = "fiber_points"
         case fiberValue = "fiber_value"
         case grade
-        case isBeverage = "is_beverage"
-        case isCheese = "is_cheese"
-        case isFat = "is_fat"
-        case isWater = "is_water"
         case negativePoints = "negative_points"
         case positivePoints = "positive_points"
         case proteins

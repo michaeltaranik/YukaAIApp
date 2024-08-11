@@ -29,8 +29,8 @@ class CartViewModel: ObservableObject {
     
     
     
-    func saveToCart(_ barcode: String, imageUrlString: String, productName: String, nutriscore: Int) {
-        addNewProductItem(barcode, imageUrlString, productName, nutriscore)
+    func saveToCart(product: ProductItem) {
+        addNewProductItem(product)
         do {
             let data = try JSONEncoder().encode(products)
             try data.write(to: K.saveToCartPath, options: [.atomic, .completeFileProtection])
@@ -41,10 +41,10 @@ class CartViewModel: ObservableObject {
     
     
     
-    private func addNewProductItem(_ barcode: String, _ imageUrlString: String, _ productName: String, _ score: Int) {
-        guard !self.inCart(barcode) else { return }
+    private func addNewProductItem(_ product: ProductItem) {
+        guard !self.inCart(product.barcode) else { return }
         products = products.reversed()
-        products.append(ProductItem(barcode: barcode, imageUrl: imageUrlString, name: productName, nutriscore: score))
+        products.append(product)
         products = products.reversed()
     }
     

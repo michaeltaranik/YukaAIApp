@@ -165,7 +165,7 @@ extension AssistantView {
             Button {
                 HapticManager.shared.impact(style: .light)
                 
-                let productsToSend = "\(cartVM.products.map(\.name).joined(separator: ", "))"
+                let productsToSend = "\(cartVM.products.map(\.genericName).joined(separator: ", "))"
                 chatController.sendNewMessage(content: "reccomend what can i cook based on these products: \(productsToSend)")
                 
                 withAnimation (.spring()){
@@ -179,7 +179,7 @@ extension AssistantView {
             Button {
                 HapticManager.shared.impact(style: .light)
                 
-                let productsToSend = "\(cartVM.products.map(\.name).joined(separator: ", "))"
+                let productsToSend = "\(cartVM.products.map(\.genericName).joined(separator: ", "))"
                 chatController.sendNewMessage(content: "reccomend What should I buy instead of these products: \(productsToSend)")
                 
                 withAnimation (.spring()){

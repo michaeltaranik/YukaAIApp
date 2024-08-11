@@ -47,7 +47,7 @@ struct CartListView: View {
                         HStack {
                             productImage(product)
                             VStack(alignment: .leading) {
-                                Text("\(product.name)")
+                                Text("\(product.genericName)")
                                     .bold()
                                 NutriLabelView(score: product.nutriscore)
                             }

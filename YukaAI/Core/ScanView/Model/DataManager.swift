@@ -22,7 +22,7 @@ class DataManager: ObservableObject {
     
     static func getDataResults(barcode: String) async throws -> Results {
                 
-        let URLstring = baseUrlString + "3045140105502" + ".json"
+        let URLstring = baseUrlString + barcode + ".json"
         print(URLstring)
         guard let url = URL(string: URLstring) else { throw UserError.invalidURL }
         
@@ -36,7 +36,9 @@ class DataManager: ObservableObject {
         do {
             let decoder = JSONDecoder()
             return try decoder.decode(Results.self, from: data)
-        } catch {
+        } catch(let error) {
+            print(error)
+            print(error.localizedDescription)
             throw UserError.invalidData
         } 
     }

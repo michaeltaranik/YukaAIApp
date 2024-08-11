@@ -27,6 +27,7 @@ struct AccountView: View {
                     lowerBody
                     
                     signOutButton
+                        
                 }
                 .scrollContentBackground(.hidden)
                 .navigationTitle(Text("Profile"))
@@ -114,20 +115,21 @@ extension AccountView {
     }
     
     var signOutButton: some View {
-        Button {
-            print("sign out")
-        } label: {
-            Section {
-                HStack {
-                    Spacer()
-                    Text("Sign out")
-                        .foregroundStyle(.red)
-                        .bold()
-                    Spacer()
-                }
+//        Section {
+            Button {
+                print("signout")
+                HapticManager.shared.impact(style: .light)
+                //                signOut()
+            } label: {
+                Spacer()
+                Text("Sign out")
+                    .foregroundStyle(.red)
+                    .bold()
+                Spacer()
             }
-        }
-        .buttonStyle(ButtonPressableStyle())
+            .buttonStyle(BorderlessButtonStyle())
+        
+//        }
     }
     
     

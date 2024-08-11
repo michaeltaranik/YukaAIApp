@@ -27,7 +27,6 @@ struct YukaAIApp: App {
         WindowGroup {
             WelcomeView()
                 .font(.system(.body, design: .rounded))
-//            GeometryEffect()
                 
         }
     }

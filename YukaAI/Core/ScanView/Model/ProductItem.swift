@@ -48,14 +48,15 @@ struct ProductItem: Hashable, Identifiable, Codable {
     let iron: String
     let cholesterol: String
     
+    
     init(results: Results, score: Int) {
         self.barcode = results.product.id ?? ""
         self.keywords = results.product.keywords ?? []
         self.additivesTags = results.product.additivesTags ?? []
-        self.genericName = results.product.genericName ?? ""
+        self.genericName = results.product.productName ?? ""
         self.imageUrl = results.product.imageURL ?? ""
         self.ingredientsHierarchy = results.product.ingredientsHierarchy ?? []
-        self.energy = "\(results.product.nutriments.energy100G ?? 0.0) \(results.product.nutriments.energyUnit ?? "g")"
+        self.energy = "\(results.product.nutriments.energyKcal100G ?? 0.0) \(results.product.nutriments.energyUnit ?? "g")"
         self.fat = "\(results.product.nutriments.fat100G ?? 0.0) \(results.product.nutriments.fatUnit ?? "g")"
         self.carbohydrates = "\(results.product.nutriments.carbohydrates100G ?? 0.0) \(results.product.nutriments.carbohydratesUnit ?? "g")"
         self.protein = "\(results.product.nutriments.proteins100G ?? 0.0) \(results.product.nutriments.proteinsUnit ?? "g")"
