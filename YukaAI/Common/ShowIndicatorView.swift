@@ -16,7 +16,7 @@ struct ShowIndicatorView: View {
             Circle()
                 .frame(height: 40)
             image
-                .foregroundColor(.accentInverted)
+                .foregroundColor(.accentBack)
                 .font(.title2)
                 .bold()
             

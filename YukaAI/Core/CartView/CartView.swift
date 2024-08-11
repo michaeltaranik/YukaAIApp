@@ -10,9 +10,7 @@ import SwiftUI
 struct CartView: View {
     
     @StateObject private var vm = CartViewModel()
-    
-//    @State var isAssistantPresented: Bool = false
-    
+        
     
     var body: some View {
         NavigationStack {
@@ -23,9 +21,6 @@ struct CartView: View {
             vm.loadCart()
         }
     }
-    
-    
-    
     
     
 }
@@ -51,7 +46,11 @@ struct CartListView: View {
                     NavigationLink(value: product) {
                         HStack {
                             productImage(product)
-                            Text("\(product.name)")
+                            VStack(alignment: .leading) {
+                                Text("\(product.name)")
+                                    .bold()
+                                NutriLabelView(score: product.nutriscore)
+                            }
                         }
                     }
                 }
@@ -69,8 +68,14 @@ struct CartListView: View {
             .refreshable {
                 vm.loadCart()
             }
+//            .toolbar(vm.isEditing ? .hidden : .visible, for: .tabBar)
             .toolbar {
                 EditButton()
+//                    .onTapGesture {
+//                        withAnimation {
+//                            vm.isEditing.toggle()
+//                        }
+//                    }
             }
         }
     }
@@ -81,9 +86,6 @@ struct CartListView: View {
 }
 
 extension CartListView {
-    
-    
-    
     
     var background: some View {
         Color(.accentBack)

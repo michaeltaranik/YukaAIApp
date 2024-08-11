@@ -53,10 +53,10 @@ extension AccountView {
                     }
                 VStack(alignment: .leading) {
                     Text("First Last")
-                        .font(.title)
+                        .font(.system(.title, design: .rounded))
                         .foregroundStyle(.primary)
                     Text("Personal details")
-                        .font(.subheadline)
+                        .font(.system(.subheadline, design: .rounded))
                         .foregroundStyle(.secondary)
                 }
                 

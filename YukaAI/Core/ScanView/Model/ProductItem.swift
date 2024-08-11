@@ -9,18 +9,15 @@ import Foundation
 import SwiftUI
 
 
-//class ProductList: ObservableObject {
-//    @Published var list: [ProductItem] = [ProductItem]()
-//}
-
 
 struct ProductItem: Hashable, Identifiable, Codable {
     
     var id = UUID()
     
-    var barcode: String
-    var imageUrl: String
-    var name: String
+    let barcode: String
+    let imageUrl: String
+    let name: String
+    let nutriscore: Int
     
 //    var calories: String
 //    var macros: Macros

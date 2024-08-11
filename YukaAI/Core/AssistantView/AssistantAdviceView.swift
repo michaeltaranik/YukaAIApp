@@ -16,7 +16,7 @@ struct AssistantAdviceView: View {
         ZStack {
             RoundedRectangle(cornerSize: CGSize(width: 15, height: 15))
                 .frame(width: 250, height: 65)
-                .foregroundColor(.accentInverted)
+                .foregroundColor(.accentBack)
                 .padding(.vertical, 3)
                 .padding(.horizontal, 5)
                 .shadow(radius: 3)

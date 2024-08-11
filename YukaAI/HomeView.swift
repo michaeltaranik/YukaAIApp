@@ -133,6 +133,7 @@ struct AssistantTabView: View {
         AssistantView()
             .onAppear {
                 contentManager.changeTitle("Assistant")
+                UIApplication.shared.addTapGestureRecognizer()
                 HapticManager.shared.impact(style: .soft)
             }
             .tabItem {

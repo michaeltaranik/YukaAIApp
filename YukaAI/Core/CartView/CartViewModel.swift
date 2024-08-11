@@ -10,6 +10,7 @@ import SwiftUI
 class CartViewModel: ObservableObject {
     
     @Published private(set) var products: [ProductItem] = []
+    @Published var isEditing: Bool = false
     
     init() {
         loadCart()
@@ -28,8 +29,8 @@ class CartViewModel: ObservableObject {
     
     
     
-    func saveToCart(_ barcode: String, imageUrlString: String, productName: String) {
-        addNewProductItem(barcode, imageUrlString, productName)
+    func saveToCart(_ barcode: String, imageUrlString: String, productName: String, nutriscore: Int) {
+        addNewProductItem(barcode, imageUrlString, productName, nutriscore)
         do {
             let data = try JSONEncoder().encode(products)
             try data.write(to: K.saveToCartPath, options: [.atomic, .completeFileProtection])
@@ -40,10 +41,10 @@ class CartViewModel: ObservableObject {
     
     
     
-    private func addNewProductItem(_ barcode: String, _ imageUrlString: String, _ productName: String) {
+    private func addNewProductItem(_ barcode: String, _ imageUrlString: String, _ productName: String, _ score: Int) {
         guard !self.inCart(barcode) else { return }
         products = products.reversed()
-        products.append(ProductItem(barcode: barcode, imageUrl: imageUrlString, name: productName))
+        products.append(ProductItem(barcode: barcode, imageUrl: imageUrlString, name: productName, nutriscore: score))
         products = products.reversed()
     }
     

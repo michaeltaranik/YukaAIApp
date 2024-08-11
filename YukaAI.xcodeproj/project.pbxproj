@@ -39,7 +39,6 @@
 		E45956662C4E1548000B5058 /* HealthView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E45956652C4E1548000B5058 /* HealthView.swift */; };
 		E45956682C4E1908000B5058 /* StatsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E45956672C4E1908000B5058 /* StatsView.swift */; };
 		E459566A2C4E1949000B5058 /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E45956692C4E1949000B5058 /* ProfileView.swift */; };
-		E459566C2C4E1A02000B5058 /* AssistantView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E459566B2C4E1A02000B5058 /* AssistantView.swift */; };
 		E459566F2C4E76A8000B5058 /* CartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E459566E2C4E76A8000B5058 /* CartView.swift */; };
 		E45956712C4FB3C1000B5058 /* ConnectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E45956702C4FB3C1000B5058 /* ConnectionView.swift */; };
 		E4A955892C3C5980009D7F11 /* YukaAIApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4A955882C3C5980009D7F11 /* YukaAIApp.swift */; };
@@ -54,7 +53,7 @@
 		E4AA7C312C592B78000C83D0 /* LightRedGradient.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4AA7C302C592B78000C83D0 /* LightRedGradient.swift */; };
 		E4AA7C332C592B89000C83D0 /* LightYellowGradient.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4AA7C322C592B89000C83D0 /* LightYellowGradient.swift */; };
 		E4AA7C3D2C5A0F5B000C83D0 /* OpenAI in Frameworks */ = {isa = PBXBuildFile; productRef = E4AA7C3C2C5A0F5B000C83D0 /* OpenAI */; };
-		E4AA7C3F2C5A19A6000C83D0 /* AIAssistantView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4AA7C3E2C5A19A6000C83D0 /* AIAssistantView.swift */; };
+		E4AA7C3F2C5A19A6000C83D0 /* AssistantView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4AA7C3E2C5A19A6000C83D0 /* AssistantView.swift */; };
 		E4AA7C412C5A22E6000C83D0 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4AA7C402C5A22E6000C83D0 /* Constants.swift */; };
 		E4AA7C432C5A9924000C83D0 /* ChatController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4AA7C422C5A9924000C83D0 /* ChatController.swift */; };
 		E4AA7C452C5CCDDF000C83D0 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = E4AA7C442C5CCDDF000C83D0 /* GoogleService-Info.plist */; };
@@ -87,6 +86,10 @@
 		E4AFD9662C6767C100DB57D4 /* Path+QuadCurve.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4AFD94F2C6767C100DB57D4 /* Path+QuadCurve.swift */; };
 		E4AFD9672C6767C100DB57D4 /* LabelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4AFD9462C6767C100DB57D4 /* LabelView.swift */; };
 		E4AFD9682C6767C100DB57D4 /* IndicatorPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4AFD9482C6767C100DB57D4 /* IndicatorPoint.swift */; };
+		E4AFD96B2C68C43600DB57D4 /* LoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4AFD96A2C68C43600DB57D4 /* LoadingView.swift */; };
+		E4AFD96D2C68C4BC00DB57D4 /* ProdctQuality.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4AFD96C2C68C4BC00DB57D4 /* ProdctQuality.swift */; };
+		E4AFD96F2C68CAF300DB57D4 /* NutritionScore.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4AFD96E2C68CAF300DB57D4 /* NutritionScore.swift */; };
+		E4AFD9712C68CE0B00DB57D4 /* NutriLabelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4AFD9702C68CE0B00DB57D4 /* NutriLabelView.swift */; };
 		E4B560692C60CED300873D6A /* GeometryEffect.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4B560682C60CED300873D6A /* GeometryEffect.swift */; };
 /* End PBXBuildFile section */
 
@@ -142,7 +145,6 @@
 		E45956652C4E1548000B5058 /* HealthView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HealthView.swift; sourceTree = "<group>"; };
 		E45956672C4E1908000B5058 /* StatsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatsView.swift; sourceTree = "<group>"; };
 		E45956692C4E1949000B5058 /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
-		E459566B2C4E1A02000B5058 /* AssistantView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssistantView.swift; sourceTree = "<group>"; };
 		E459566E2C4E76A8000B5058 /* CartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartView.swift; sourceTree = "<group>"; };
 		E45956702C4FB3C1000B5058 /* ConnectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConnectionView.swift; sourceTree = "<group>"; };
 		E4A955852C3C5980009D7F11 /* YukaAI.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = YukaAI.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -159,7 +161,7 @@
 		E4AA7C2D2C5929F5000C83D0 /* LightGreenGradient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LightGreenGradient.swift; sourceTree = "<group>"; };
 		E4AA7C302C592B78000C83D0 /* LightRedGradient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LightRedGradient.swift; sourceTree = "<group>"; };
 		E4AA7C322C592B89000C83D0 /* LightYellowGradient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LightYellowGradient.swift; sourceTree = "<group>"; };
-		E4AA7C3E2C5A19A6000C83D0 /* AIAssistantView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AIAssistantView.swift; sourceTree = "<group>"; };
+		E4AA7C3E2C5A19A6000C83D0 /* AssistantView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssistantView.swift; sourceTree = "<group>"; };
 		E4AA7C402C5A22E6000C83D0 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		E4AA7C422C5A9924000C83D0 /* ChatController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatController.swift; sourceTree = "<group>"; };
 		E4AA7C442C5CCDDF000C83D0 /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
@@ -191,6 +193,10 @@
 		E4AFD9532C6767C100DB57D4 /* PieChartRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PieChartRow.swift; sourceTree = "<group>"; };
 		E4AFD9542C6767C100DB57D4 /* PieChartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PieChartView.swift; sourceTree = "<group>"; };
 		E4AFD9562C6767C100DB57D4 /* Helpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Helpers.swift; sourceTree = "<group>"; };
+		E4AFD96A2C68C43600DB57D4 /* LoadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingView.swift; sourceTree = "<group>"; };
+		E4AFD96C2C68C4BC00DB57D4 /* ProdctQuality.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProdctQuality.swift; sourceTree = "<group>"; };
+		E4AFD96E2C68CAF300DB57D4 /* NutritionScore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NutritionScore.swift; sourceTree = "<group>"; };
+		E4AFD9702C68CE0B00DB57D4 /* NutriLabelView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NutriLabelView.swift; sourceTree = "<group>"; };
 		E4B560682C60CED300873D6A /* GeometryEffect.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeometryEffect.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -267,6 +273,8 @@
 				E4AFD90B2C65F9AB00DB57D4 /* MyDefaultPressableButton.swift */,
 				E4AFD9102C66169A00DB57D4 /* SemiCircle.swift */,
 				E4AFD9122C661E8400DB57D4 /* ShowIndicatorView.swift */,
+				E4AFD96A2C68C43600DB57D4 /* LoadingView.swift */,
+				E4AFD9702C68CE0B00DB57D4 /* NutriLabelView.swift */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -293,8 +301,7 @@
 		E441FBF12C6363720081317B /* AssistantView */ = {
 			isa = PBXGroup;
 			children = (
-				E459566B2C4E1A02000B5058 /* AssistantView.swift */,
-				E4AA7C3E2C5A19A6000C83D0 /* AIAssistantView.swift */,
+				E4AA7C3E2C5A19A6000C83D0 /* AssistantView.swift */,
 				E4AFD9092C64FB4F00DB57D4 /* AssistantAdviceView.swift */,
 				E4AFD90F2C66107A00DB57D4 /* Model */,
 			);
@@ -493,12 +500,14 @@
 		E4AFD9692C68ACA800DB57D4 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				E4AA7C2B2C58CE9A000C83D0 /* ScanViewModel.swift */,
 				E459564A2C4D29A0000B5058 /* Results.swift */,
 				E40A4EFC2C5236FC00167FBD /* ScanResultsModel.swift */,
 				E45956472C4C313C000B5058 /* DataManager.swift */,
 				E40A4F0F2C5424BC00167FBD /* ProductInfo.swift */,
 				E40A4F042C53C22E00167FBD /* ProductItem.swift */,
+				E4AFD96C2C68C4BC00DB57D4 /* ProdctQuality.swift */,
+				E4AFD96E2C68CAF300DB57D4 /* NutritionScore.swift */,
+				E4AA7C2B2C58CE9A000C83D0 /* ScanViewModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -647,7 +656,7 @@
 				E40A4EED2C4FFDA700167FBD /* BarcodeScannerView.swift in Sources */,
 				E45956482C4C313C000B5058 /* DataManager.swift in Sources */,
 				E45956462C4BD289000B5058 /* FirstView.swift in Sources */,
-				E4AA7C3F2C5A19A6000C83D0 /* AIAssistantView.swift in Sources */,
+				E4AA7C3F2C5A19A6000C83D0 /* AssistantView.swift in Sources */,
 				E441FBF82C636B930081317B /* CartViewModel.swift in Sources */,
 				E459564B2C4D29A0000B5058 /* Results.swift in Sources */,
 				E40A4EF72C515CCC00167FBD /* WelcomeView.swift in Sources */,
@@ -662,9 +671,9 @@
 				E4AA7C412C5A22E6000C83D0 /* Constants.swift in Sources */,
 				E40A4EEB2C4FFCAF00167FBD /* DataScannerView.swift in Sources */,
 				E441FBFA2C639FAD0081317B /* BindingExt.swift in Sources */,
+				E4AFD9712C68CE0B00DB57D4 /* NutriLabelView.swift in Sources */,
 				E4B560692C60CED300873D6A /* GeometryEffect.swift in Sources */,
 				E40A4EF92C52359C00167FBD /* ErrorCases.swift in Sources */,
-				E459566C2C4E1A02000B5058 /* AssistantView.swift in Sources */,
 				E45956442C4A65D9000B5058 /* ImageLoader.swift in Sources */,
 				E4A9558B2C3C5980009D7F11 /* HomeView.swift in Sources */,
 				E40A4F102C5424BC00167FBD /* ProductInfo.swift in Sources */,
@@ -679,6 +688,7 @@
 				E45956712C4FB3C1000B5058 /* ConnectionView.swift in Sources */,
 				E45956612C4E1355000B5058 /* HealthManager.swift in Sources */,
 				E40A4F0C2C541BFC00167FBD /* AccountView.swift in Sources */,
+				E4AFD96F2C68CAF300DB57D4 /* NutritionScore.swift in Sources */,
 				E4AA7C2E2C5929F5000C83D0 /* LightGreenGradient.swift in Sources */,
 				E40A4EE42C4FD69100167FBD /* CameraManager.swift in Sources */,
 				E40A4EF52C51500400167FBD /* CreateUserView.swift in Sources */,
@@ -690,6 +700,7 @@
 				E40A4EF32C51462900167FBD /* LogInView.swift in Sources */,
 				E4A955892C3C5980009D7F11 /* YukaAIApp.swift in Sources */,
 				E40A4F052C53C22E00167FBD /* ProductItem.swift in Sources */,
+				E4AFD96D2C68C4BC00DB57D4 /* ProdctQuality.swift in Sources */,
 				E441FBF62C6366CE0081317B /* FileManagerExt.swift in Sources */,
 				E4AFD9062C64DCF900DB57D4 /* HelperBottomSectionView.swift in Sources */,
 				E4AA7C332C592B89000C83D0 /* LightYellowGradient.swift in Sources */,
@@ -707,6 +718,7 @@
 				E4AFD9632C6767C100DB57D4 /* BarChartCell.swift in Sources */,
 				E4AFD9642C6767C100DB57D4 /* PieChartHelpers.swift in Sources */,
 				E4AFD9652C6767C100DB57D4 /* PieChartRow.swift in Sources */,
+				E4AFD96B2C68C43600DB57D4 /* LoadingView.swift in Sources */,
 				E4AFD9662C6767C100DB57D4 /* Path+QuadCurve.swift in Sources */,
 				E4AFD9672C6767C100DB57D4 /* LabelView.swift in Sources */,
 				E4AFD9682C6767C100DB57D4 /* IndicatorPoint.swift in Sources */,
@@ -875,6 +887,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = NO;
 				CODE_SIGN_ENTITLEMENTS = YukaAI/YukaAI.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
@@ -888,7 +901,7 @@
 				INFOPLIST_KEY_NSHealthShareUsageDescription = "To read the health data and show it in the application.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
-				INFOPLIST_KEY_UILaunchStoryboardName = "";
+				INFOPLIST_KEY_UILaunchStoryboardName = launching;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -909,6 +922,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = NO;
 				CODE_SIGN_ENTITLEMENTS = YukaAI/YukaAI.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
@@ -922,7 +936,7 @@
 				INFOPLIST_KEY_NSHealthShareUsageDescription = "To read the health data and show it in the application.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
-				INFOPLIST_KEY_UILaunchStoryboardName = "";
+				INFOPLIST_KEY_UILaunchStoryboardName = launching;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = (
