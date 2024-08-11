@@ -87,8 +87,7 @@
 		E4AFD9672C6767C100DB57D4 /* LabelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4AFD9462C6767C100DB57D4 /* LabelView.swift */; };
 		E4AFD9682C6767C100DB57D4 /* IndicatorPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4AFD9482C6767C100DB57D4 /* IndicatorPoint.swift */; };
 		E4AFD96B2C68C43600DB57D4 /* LoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4AFD96A2C68C43600DB57D4 /* LoadingView.swift */; };
-		E4AFD96D2C68C4BC00DB57D4 /* ProdctQuality.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4AFD96C2C68C4BC00DB57D4 /* ProdctQuality.swift */; };
-		E4AFD96F2C68CAF300DB57D4 /* NutritionScore.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4AFD96E2C68CAF300DB57D4 /* NutritionScore.swift */; };
+		E4AFD96D2C68C4BC00DB57D4 /* ProductQuality.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4AFD96C2C68C4BC00DB57D4 /* ProductQuality.swift */; };
 		E4AFD9712C68CE0B00DB57D4 /* NutriLabelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4AFD9702C68CE0B00DB57D4 /* NutriLabelView.swift */; };
 		E4B560692C60CED300873D6A /* GeometryEffect.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4B560682C60CED300873D6A /* GeometryEffect.swift */; };
 /* End PBXBuildFile section */
@@ -194,8 +193,7 @@
 		E4AFD9542C6767C100DB57D4 /* PieChartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PieChartView.swift; sourceTree = "<group>"; };
 		E4AFD9562C6767C100DB57D4 /* Helpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Helpers.swift; sourceTree = "<group>"; };
 		E4AFD96A2C68C43600DB57D4 /* LoadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingView.swift; sourceTree = "<group>"; };
-		E4AFD96C2C68C4BC00DB57D4 /* ProdctQuality.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProdctQuality.swift; sourceTree = "<group>"; };
-		E4AFD96E2C68CAF300DB57D4 /* NutritionScore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NutritionScore.swift; sourceTree = "<group>"; };
+		E4AFD96C2C68C4BC00DB57D4 /* ProductQuality.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductQuality.swift; sourceTree = "<group>"; };
 		E4AFD9702C68CE0B00DB57D4 /* NutriLabelView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NutriLabelView.swift; sourceTree = "<group>"; };
 		E4B560682C60CED300873D6A /* GeometryEffect.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeometryEffect.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -500,16 +498,23 @@
 		E4AFD9692C68ACA800DB57D4 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				E459564A2C4D29A0000B5058 /* Results.swift */,
+				E4AFD9722C6909D900DB57D4 /* Helpers */,
 				E40A4EFC2C5236FC00167FBD /* ScanResultsModel.swift */,
 				E45956472C4C313C000B5058 /* DataManager.swift */,
 				E40A4F0F2C5424BC00167FBD /* ProductInfo.swift */,
 				E40A4F042C53C22E00167FBD /* ProductItem.swift */,
-				E4AFD96C2C68C4BC00DB57D4 /* ProdctQuality.swift */,
-				E4AFD96E2C68CAF300DB57D4 /* NutritionScore.swift */,
 				E4AA7C2B2C58CE9A000C83D0 /* ScanViewModel.swift */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		E4AFD9722C6909D900DB57D4 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				E4AFD96C2C68C4BC00DB57D4 /* ProductQuality.swift */,
+				E459564A2C4D29A0000B5058 /* Results.swift */,
+			);
+			path = Helpers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -688,7 +693,6 @@
 				E45956712C4FB3C1000B5058 /* ConnectionView.swift in Sources */,
 				E45956612C4E1355000B5058 /* HealthManager.swift in Sources */,
 				E40A4F0C2C541BFC00167FBD /* AccountView.swift in Sources */,
-				E4AFD96F2C68CAF300DB57D4 /* NutritionScore.swift in Sources */,
 				E4AA7C2E2C5929F5000C83D0 /* LightGreenGradient.swift in Sources */,
 				E40A4EE42C4FD69100167FBD /* CameraManager.swift in Sources */,
 				E40A4EF52C51500400167FBD /* CreateUserView.swift in Sources */,
@@ -700,7 +704,7 @@
 				E40A4EF32C51462900167FBD /* LogInView.swift in Sources */,
 				E4A955892C3C5980009D7F11 /* YukaAIApp.swift in Sources */,
 				E40A4F052C53C22E00167FBD /* ProductItem.swift in Sources */,
-				E4AFD96D2C68C4BC00DB57D4 /* ProdctQuality.swift in Sources */,
+				E4AFD96D2C68C4BC00DB57D4 /* ProductQuality.swift in Sources */,
 				E441FBF62C6366CE0081317B /* FileManagerExt.swift in Sources */,
 				E4AFD9062C64DCF900DB57D4 /* HelperBottomSectionView.swift in Sources */,
 				E4AA7C332C592B89000C83D0 /* LightYellowGradient.swift in Sources */,

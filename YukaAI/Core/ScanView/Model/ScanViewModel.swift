@@ -16,6 +16,8 @@ extension ScanView {
         private var results: Results?
         private var userError: UserError?
         
+        
+        @Published var productItem: ProductItem?
         @Published var isLoading = false
         @Published var shouldShowAlert = false
         
@@ -26,8 +28,9 @@ extension ScanView {
             do {
                 self.results = try await DataManager.getDataResults(barcode: barcode)
                 self.isLoading = false
-                print(results)
-                // func
+                if let results = results {
+                    createProductItem(results: results)
+                }
                 HapticManager.shared.notification(type: .success)
             } catch(let error) {
                 print(error)
@@ -38,34 +41,18 @@ extension ScanView {
             }
         }
         
-//        private func createProductItem() -> ProductItem {
-//        }
-        
-//        func changeMacros() {
-//            self.productName = results?.product?.productName ?? "Unknown"
-//            let roundedCal = ((results?.product?.nutriments.energy_value ?? 0.0) / 4.184).rounded()
-//            self.calories = String(roundedCal)
-//            self.carbs = String(results?.product?.nutriments.carbohydrates_100g ?? 0.0)
-//            self.proteins = String(results?.product?.nutriments.proteins_100g ?? 0.0)
-//            self.fats = String(results?.product?.nutriments.fat_100g ?? 0.0)
-//            self.sugars = String(results?.product?.nutriments.sugars_100g ?? 0.0)
-//            self.imageUrlString = results?.product?.imageUrl ?? ""
-//            self.nutriScore = results?.product?.ecoscoreData?.score
-//            ?? -1
-//            
-//            guard nutriScore != -1 else { return }
-//            switch nutriScore {
-//            case 65...100:
-//                self.quality = .good(color: .lightGreen)
-//            case 0...35:
-//                self.quality = .bad(color: .lightRed)
-//            default:
-//                self.quality = .average(color: .lightYellow)
-//            }
-//        }
-        
-        
-        
+        private func createProductItem(results: Results) {
+            let nutriscore = DataManager.computeNutritionScore(for: results)
+            self.productItem = ProductItem(results: results, score: nutriscore)
+        }
+
         
     }
+    
+    
+    
+    
+    
+    
+    
 }

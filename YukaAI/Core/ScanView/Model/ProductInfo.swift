@@ -24,9 +24,9 @@ struct ProductInfo: Codable {
     let allergens, brandOwner, brandOwnerImported, brands: String?
     let genericName, genericNameEn, productID: String?
     let imageURL: String?
-    let ingredientsHierarchy: [String]
+    let ingredientsHierarchy: [String]?
     let nutriments: Nutriments
-    //    let nutriscoreData: NutriscoreData
+    let nutriscoreData: NutriscoreData
     let nutriscoreGrade: String?
     let nutriscoreScore: Double?
     
@@ -44,7 +44,7 @@ struct ProductInfo: Codable {
         case imageURL = "image_url"
         case ingredientsHierarchy = "ingredients_hierarchy"
         case nutriments
-        //        case nutriscoreData = "nutriscore_data"
+        case nutriscoreData = "nutriscore_data"
         case nutriscoreGrade = "nutriscore_grade"
         case nutriscoreScore = "nutriscore_score"
     }
