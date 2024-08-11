@@ -275,13 +275,8 @@
 			isa = PBXGroup;
 			children = (
 				E40A4EE72C4FFB4F00167FBD /* BarcodeScanner */,
+				E4AFD9692C68ACA800DB57D4 /* Model */,
 				E459565A2C4D5A8C000B5058 /* ScanView.swift */,
-				E4AA7C2B2C58CE9A000C83D0 /* ScanViewModel.swift */,
-				E459564A2C4D29A0000B5058 /* Results.swift */,
-				E40A4EFC2C5236FC00167FBD /* ScanResultsModel.swift */,
-				E45956472C4C313C000B5058 /* DataManager.swift */,
-				E40A4F0F2C5424BC00167FBD /* ProductInfo.swift */,
-				E40A4F042C53C22E00167FBD /* ProductItem.swift */,
 			);
 			path = ScanView;
 			sourceTree = "<group>";
@@ -493,6 +488,19 @@
 				E4AFD9562C6767C100DB57D4 /* Helpers.swift */,
 			);
 			path = Charts;
+			sourceTree = "<group>";
+		};
+		E4AFD9692C68ACA800DB57D4 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				E4AA7C2B2C58CE9A000C83D0 /* ScanViewModel.swift */,
+				E459564A2C4D29A0000B5058 /* Results.swift */,
+				E40A4EFC2C5236FC00167FBD /* ScanResultsModel.swift */,
+				E45956472C4C313C000B5058 /* DataManager.swift */,
+				E40A4F0F2C5424BC00167FBD /* ProductInfo.swift */,
+				E40A4F042C53C22E00167FBD /* ProductItem.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

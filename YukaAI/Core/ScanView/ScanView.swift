@@ -18,15 +18,15 @@ enum ProductQuality {
 struct ScanView: View {
     
     
-    @StateObject private var viewModel = ViewModel()
-    @StateObject private var cartModel = CartViewModel()
+    @StateObject private var vm = ViewModel()
+    @StateObject private var cartVM = CartViewModel()
     
     var barcode: String
     
 
     @ViewBuilder
     var backgroundGradient: some View {
-        switch viewModel.quality {
+        switch vm.quality {
             
         case .good(color: _):
             LightGreenGradient()
@@ -49,23 +49,23 @@ struct ScanView: View {
                 VStack {
                     HStack {
                         productImage
-                        viewModel.productName == "Unknown" ? nil : headerInfo
+                        vm.productName == "Unknown" ? nil : headerInfo
                     }
                     .task {
-                        await viewModel.getInfo(barcode: barcode)
-                        viewModel.changeMacros()
+                        await vm.getInfo(barcode: barcode)
+                        vm.changeMacros()
                     }
                     .padding()
-                    viewModel.productName == "Unknown" ? nil : descriptionLabel
+                    vm.productName == "Unknown" ? nil : descriptionLabel
                     Spacer()
                 }
             }
-            .alert(isPresented: $viewModel.shouldShowAlert) {
+            .alert(isPresented: $vm.shouldShowAlert) {
                 Alert(title: Text("Our App does not support this product"),
                       message: Text("Please try another product"),
                       dismissButton: .default(Text("OK")))
             }
-            if viewModel.isLoading {
+            if vm.isLoading {
                 LoadingView()
             }
             
@@ -76,7 +76,7 @@ struct ScanView: View {
     
     var headerInfo: some View {
         VStack(alignment: .center, content: {
-            Text(viewModel.productName)
+            Text(vm.productName)
                 .font(.system(size: 28, weight: .bold))
             nutriLabel
                 .padding(.horizontal)
@@ -88,11 +88,11 @@ struct ScanView: View {
     
     var descriptionLabel: some View {
         VStack {
-            Text("\(viewModel.calories) kcal")
-            Text("Carbs: \(viewModel.carbs) g")
-            Text("Fats: \(viewModel.fats) g")
-            Text("Proteins: \(viewModel.proteins) g")
-            Text("Sugars: \(viewModel.sugars) g")
+            Text("\(vm.calories) kcal")
+            Text("Carbs: \(vm.carbs) g")
+            Text("Fats: \(vm.fats) g")
+            Text("Proteins: \(vm.proteins) g")
+            Text("Sugars: \(vm.sugars) g")
         }
         .font(.system(size: 18, weight: .semibold))
         .foregroundStyle(.darkGreen)
@@ -100,9 +100,9 @@ struct ScanView: View {
     
     
     var nutriLabel: some View {
-        let score = viewModel.nutriScore
+        let score = vm.nutriScore
         var color: Color {
-            switch viewModel.quality {
+            switch vm.quality {
             case .good(let color):
                 color
             case .average(let color):
@@ -123,7 +123,7 @@ struct ScanView: View {
     
     
     var productImage: some View {
-        let imageURL = viewModel.imageUrlString
+        let imageURL = vm.imageUrlString
         
         return VStack(alignment: .leading) {
             AsyncImage(url: URL(string: imageURL)) { image in
@@ -133,7 +133,7 @@ struct ScanView: View {
                     .clipShape(RoundedRectangle(cornerSize: CGSize(width: 10, height: 10)))
                     .frame(width: 150, height: 150)
                     .task {
-                        cartModel.saveToCart(barcode, imageUrlString: imageURL, productName: viewModel.productName)
+                        cartVM.saveToCart(barcode, imageUrlString: imageURL, productName: vm.productName)
                     }
             } placeholder: {
                 Image(.default)

@@ -17,10 +17,8 @@ struct CartView: View {
     var body: some View {
         NavigationStack {
             CartListView(vm: vm)
-
         }
-        .foregroundColor(.accent)
-        .background(.accentInverted)
+        .foregroundColor(.accentColor)
         .onAppear {
             vm.loadCart()
         }
@@ -44,31 +42,52 @@ struct CartListView: View {
     
     
     var body: some View {
-        List {
-            ForEach(vm.products, id: \.self) { product in
-                NavigationLink(value: product) {
-                    HStack {
-                        productImage(product)
-                        Text("\(product.name)")
+        ZStack {
+            
+            background
+            
+            List {
+                ForEach(vm.products, id: \.self) { product in
+                    NavigationLink(value: product) {
+                        HStack {
+                            productImage(product)
+                            Text("\(product.name)")
+                        }
                     }
                 }
+                .onDelete { indexSet in
+                    vm.deleteFromCart(at: indexSet)
+                }
             }
-            .onDelete { indexSet in
-                vm.deleteFromCart(at: indexSet)
+            .scrollContentBackground(.hidden)
+            .listStyle(.insetGrouped)
+            .navigationTitle("Cart")
+            .navigationDestination(for: ProductItem.self) { product in
+                ScanView(barcode: product.barcode)
+                    .toolbar(.hidden, for: .tabBar)
+            }
+            .refreshable {
+                vm.loadCart()
+            }
+            .toolbar {
+                EditButton()
             }
         }
-        .listStyle(.insetGrouped)
-        .navigationTitle("Cart")
-        .navigationDestination(for: ProductItem.self) { product in
-            ScanView(barcode: product.barcode)
-                .toolbar(.hidden, for: .tabBar)
-        }
-        .refreshable {
-            vm.loadCart()
-        }
-        .toolbar {
-            EditButton()
-        }
+    }
+    
+    
+    
+    
+}
+
+extension CartListView {
+    
+    
+    
+    
+    var background: some View {
+        Color(.accentBack)
+            .ignoresSafeArea(.all)
     }
     
     
@@ -91,7 +110,8 @@ struct CartListView: View {
                 .frame(width: 100, height: 80)
         }
     }
-    
 }
+
+
 
 

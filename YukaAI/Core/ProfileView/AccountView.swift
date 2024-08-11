@@ -16,44 +16,20 @@ struct AccountView: View {
     var body: some View {
         NavigationStack {
             ZStack {
+                
                 background
+                
                 List {
                     header
-                        Section {
-                            darkModeButton
-                            NavButtonView(
-                                image: Image(systemName: "heart.fill"),
-                                color: Color(.red),
-                                label: "Connect Apple Health")
-                            NavButtonView(
-                                image: Image(systemName: "translate"),
-                                color: Color(.orange),
-                                label: "Language")
-                        }
-
-                        Section {
-                            NavButtonView(
-                                image: Image(systemName: "questionmark.circle.fill"),
-                                color: Color(.darkGreen),
-                                label: "Help")
-                            NavButtonView(
-                                image: Image(systemName: "person.crop.circle.badge.questionmark"),
-                                color: Color(.cyan),
-                                label: "Support")
-                            NavButtonView(
-                                image: Image(systemName: "eraser.line.dashed.fill"),
-                                color: Color(.darkRed),
-                                label: "Delete all data")
-                        }
+                    
+                    upperBody
+                    
+                    lowerBody
                     
                     signOutButton
                 }
                 .scrollContentBackground(.hidden)
                 .navigationTitle(Text("Profile"))
-                //            .navigationBarTitleDisplayMode(.inline)
-//                signOutButton
-                
-                
             }
         }
         .font(.system(.body, design: .rounded))
@@ -88,6 +64,20 @@ extension AccountView {
         }
     }
     
+    var upperBody: some View {
+        Section {
+            darkModeButton
+            NavButtonView(
+                image: Image(systemName: "heart.fill"),
+                color: Color(.red),
+                label: "Connect Apple Health")
+            NavButtonView(
+                image: Image(systemName: "translate"),
+                color: Color(.orange),
+                label: "Language")
+        }
+    }
+    
     var darkModeButton: some View {
         Toggle(isOn: $darkMode) {
             Section {
@@ -103,6 +93,23 @@ extension AccountView {
                     Text("Dark mode")
                 }
             }
+        }
+    }
+    
+    var lowerBody: some View {
+        Section {
+            NavButtonView(
+                image: Image(systemName: "questionmark.circle.fill"),
+                color: Color(.darkGreen),
+                label: "Help")
+            NavButtonView(
+                image: Image(systemName: "person.crop.circle.badge.questionmark"),
+                color: Color(.cyan),
+                label: "Support")
+            NavButtonView(
+                image: Image(systemName: "eraser.line.dashed.fill"),
+                color: Color(.darkRed),
+                label: "Delete all data")
         }
     }
     
