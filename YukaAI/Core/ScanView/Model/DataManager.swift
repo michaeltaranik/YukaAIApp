@@ -20,7 +20,7 @@ class DataManager: ObservableObject {
     
     
     
-    static func getDataResults(barcode: String) async throws -> Results {
+    static func getDataResults(from barcode: String) async throws -> Results {
                 
         let URLstring = baseUrlString + barcode + ".json"
         print(URLstring)

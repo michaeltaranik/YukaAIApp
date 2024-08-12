@@ -26,7 +26,7 @@ extension ScanView {
         func getInfo(barcode: String) async {
             isLoading = true
             do {
-                self.results = try await DataManager.getDataResults(barcode: barcode)
+                self.results = try await DataManager.getDataResults(from: barcode)
                 self.isLoading = false
                 if let results = results {
                     createProductItem(results: results)

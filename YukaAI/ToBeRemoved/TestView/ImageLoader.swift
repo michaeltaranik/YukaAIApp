@@ -12,6 +12,8 @@ class ImageLoader {
     
     static let urlString = "https://picsum.photos/200"
     
+    let hui: String? = nil
+    
     static func fetchImage() -> some View {
         return AsyncImage(url: URL(string: urlString)) { phase in
             switch phase {

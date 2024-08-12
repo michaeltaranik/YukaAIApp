@@ -24,6 +24,7 @@
 		E40A4F102C5424BC00167FBD /* ProductResults.swift in Sources */ = {isa = PBXBuildFile; fileRef = E40A4F0F2C5424BC00167FBD /* ProductResults.swift */; };
 		E40A4F132C550A9D00167FBD /* TestCodable.swift in Sources */ = {isa = PBXBuildFile; fileRef = E40A4F122C550A9D00167FBD /* TestCodable.swift */; };
 		E42FB57A2C6936350092C09F /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = E4AA7C442C5CCDDF000C83D0 /* GoogleService-Info.plist */; };
+		E42FB57C2C6A14400092C09F /* StringExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = E42FB57B2C6A14400092C09F /* StringExt.swift */; };
 		E441FBF62C6366CE0081317B /* FileManagerExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = E441FBF52C6366CE0081317B /* FileManagerExt.swift */; };
 		E441FBF82C636B930081317B /* CartViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E441FBF72C636B930081317B /* CartViewModel.swift */; };
 		E441FBFA2C639FAD0081317B /* BindingExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = E441FBF92C639FAD0081317B /* BindingExt.swift */; };
@@ -126,6 +127,7 @@
 		E40A4F0B2C541BFC00167FBD /* AccountView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountView.swift; sourceTree = "<group>"; };
 		E40A4F0F2C5424BC00167FBD /* ProductResults.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductResults.swift; sourceTree = "<group>"; };
 		E40A4F122C550A9D00167FBD /* TestCodable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestCodable.swift; sourceTree = "<group>"; };
+		E42FB57B2C6A14400092C09F /* StringExt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringExt.swift; sourceTree = "<group>"; };
 		E441FBF52C6366CE0081317B /* FileManagerExt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileManagerExt.swift; sourceTree = "<group>"; };
 		E441FBF72C636B930081317B /* CartViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartViewModel.swift; sourceTree = "<group>"; };
 		E441FBF92C639FAD0081317B /* BindingExt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BindingExt.swift; sourceTree = "<group>"; };
@@ -264,6 +266,7 @@
 				E441FBF52C6366CE0081317B /* FileManagerExt.swift */,
 				E4AFD8FD2C63DB1300DB57D4 /* UserDefaultsExt.swift */,
 				E441FBF92C639FAD0081317B /* BindingExt.swift */,
+				E42FB57B2C6A14400092C09F /* StringExt.swift */,
 				E40A4EF82C52359C00167FBD /* ErrorCases.swift */,
 				E4AFD9032C64B3A600DB57D4 /* HapticManager.swift */,
 				E4AFD90B2C65F9AB00DB57D4 /* MyDefaultPressableButton.swift */,
@@ -672,6 +675,7 @@
 				E459566F2C4E76A8000B5058 /* CartView.swift in Sources */,
 				E4AA7C412C5A22E6000C83D0 /* Constants.swift in Sources */,
 				E40A4EEB2C4FFCAF00167FBD /* DataScannerView.swift in Sources */,
+				E42FB57C2C6A14400092C09F /* StringExt.swift in Sources */,
 				E441FBFA2C639FAD0081317B /* BindingExt.swift in Sources */,
 				E4AFD9712C68CE0B00DB57D4 /* NutriLabelView.swift in Sources */,
 				E4B560692C60CED300873D6A /* GeometryEffect.swift in Sources */,
