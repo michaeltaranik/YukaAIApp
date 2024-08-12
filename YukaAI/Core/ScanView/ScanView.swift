@@ -16,6 +16,8 @@ struct ScanView: View {
     var barcode: String
     
     
+    
+    
     var body: some View {
         ZStack {
             backgroundGradient
@@ -24,13 +26,16 @@ struct ScanView: View {
                     HStack {
                         productImage
                         headerInfo
-                        
                     }
                     .task {
                         await vm.getInfo(barcode: barcode)
                     }
                     .padding()
-                    descriptionLabel
+                    HStack {
+                        descriptionLabel
+                            .padding()
+                        Spacer()
+                    }
                     Spacer()
                 }
             }
@@ -66,18 +71,103 @@ struct ScanView: View {
     @ViewBuilder
     var descriptionLabel: some View {
         if let item = vm.productItem {
-            VStack {
-                Text("\(item.energy)")
-                Text("Carbs: \(item.carbohydrates)")
-                Text("Fats: \(item.fat)")
-                Text("Proteins: \(item.protein)")
-                Text("Sugars: \(item.sugar)")
+            
+            let cal = item.energy.first
+            if cal != "0" {
+                VStack(alignment: .leading) {
+                    HStack {
+                        Image(systemName: "info.circle")
+                        Text("Nutrients:")
+                    }
+                    .font(.system(size: 24, weight: .semibold, design: .rounded))
+                    VStack(alignment: .leading) {
+                        HStack {
+                            Text("Calories:")
+                            Text(String(item.energy))
+                                .bold()
+                        }
+                        .font(.subheadline)
+                        HStack {
+                            Text("Carbs:")
+                            Text(String(item.carbohydrates))
+                                .bold()
+                        }
+                        .font(.subheadline)
+                        HStack {
+                            Text("Fats:")
+                            Text(String(item.fat))
+                                .bold()
+                        }
+                        .font(.subheadline)
+                        HStack {
+                            Text("Proteins:")
+                            Text(String(item.protein))
+                                .bold()
+                        }
+                        .font(.subheadline)
+                        HStack {
+                            Text("Fiber:")
+                            Text(String(item.fiber))
+                                .bold()
+                        }
+                        .font(.subheadline)
+                    }
+                    .padding(.horizontal)
+                    additives
+                }
+                .font(.system(size: 18, weight: .semibold, design: .rounded))
+                .foregroundStyle(.darkGreen)
+            } else {
+                VStack(alignment: .leading) {
+                    HStack {
+                        Image(systemName: "checkmark.seal.fill")
+                        Text("No calories")
+                    }
+                    additives
+                }
+                .font(.system(size: 24, weight: .semibold, design: .rounded))
+                .foregroundStyle(.darkGreen)
             }
-            .font(.system(size: 18, weight: .semibold, design: .rounded))
-            .foregroundStyle(.darkGreen)
         }
     }
     
+    @ViewBuilder
+    var additives: some View {
+        if let item = vm.productItem {
+            
+            if item.additivesTags.count > 0 {
+                let tags = item.additivesTags.map { string in
+                    let trimmed = String(string.dropFirst(3))
+                    print(trimmed)
+                    return trimmed.capitalized
+                }
+                
+                VStack(alignment: .leading) {
+                    HStack {
+                        Image(systemName: "exclamationmark.magnifyingglass")
+                        Text("Additives:")
+                    }
+                    .font(.system(size: 24, weight: .semibold, design: .rounded))
+                    ForEach(tags, id: \.self) { additiveTag in
+                        VStack(alignment: .leading) {
+                            Text(additiveTag)
+                            Text(K.additives[additiveTag]?.name ?? "")
+                            Text("Description: \(K.additives[additiveTag]?.description ?? "")")
+                                .font(.subheadline)
+                            
+                        }
+                        .padding()
+                    }
+                }
+            } else {
+                HStack {
+                    Image(systemName: "checkmark.seal.fill")
+                    Text("No additives")
+                }
+                .font(.system(size: 24, weight: .semibold, design: .rounded))
+            }
+        }
+    }
     
     
     var productImage: some View {
@@ -134,6 +224,6 @@ struct ScanView: View {
 
 
 #Preview {
-    ScanView(barcode: "3045140105502")
+    ScanView(barcode: "7613404550571")
 }
 

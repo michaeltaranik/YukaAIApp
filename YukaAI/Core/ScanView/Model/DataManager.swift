@@ -49,6 +49,8 @@ class DataManager: ObservableObject {
 
         if let energy = food.product.nutriments.energy100G {
             switch energy {
+            case 0..<10:
+                score += 40
             case ..<100:
                 score += 10
             case 100..<200:
