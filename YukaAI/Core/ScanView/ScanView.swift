@@ -32,8 +32,13 @@ struct ScanView: View {
                     }
                     .padding()
                     HStack {
-                        descriptionLabel
+                        nutrients
                             .padding()
+                        Spacer()
+                    }
+                    HStack {
+                        additives
+//                            .padding()
                         Spacer()
                     }
                     Spacer()
@@ -69,7 +74,7 @@ struct ScanView: View {
     
     
     @ViewBuilder
-    var descriptionLabel: some View {
+    var nutrients: some View {
         if let item = vm.productItem {
             
             let cal = item.energy.first
@@ -113,7 +118,6 @@ struct ScanView: View {
                         .font(.subheadline)
                     }
                     .padding(.horizontal)
-                    additives
                 }
                 .font(.system(size: 18, weight: .semibold, design: .rounded))
                 .foregroundStyle(.darkGreen)
@@ -123,7 +127,6 @@ struct ScanView: View {
                         Image(systemName: "checkmark.seal.fill")
                         Text("No calories")
                     }
-                    additives
                 }
                 .font(.system(size: 24, weight: .semibold, design: .rounded))
                 .foregroundStyle(.darkGreen)
@@ -148,15 +151,19 @@ struct ScanView: View {
                         Text("Additives:")
                     }
                     .font(.system(size: 24, weight: .semibold, design: .rounded))
-                    ForEach(tags, id: \.self) { additiveTag in
-                        VStack(alignment: .leading) {
-                            Text(additiveTag)
-                            Text(K.additives[additiveTag]?.name ?? "")
-                            Text("Description: \(K.additives[additiveTag]?.description ?? "")")
-                                .font(.subheadline)
-                            
+                    .padding(.leading)
+                    VStack(alignment: .leading) {
+                        ForEach(tags, id: \.self) { additiveTag in
+                            DisclosureGroup(additiveTag) {
+                                VStack(alignment: .leading) {
+                                    Text(K.additives[additiveTag]?.name ?? "")
+                                    Text("Description: \(K.additives[additiveTag]?.description ?? "")")
+                                        .font(.subheadline)
+                                }
+                                .padding(.horizontal)
+                            }
+                            .padding(.horizontal, 40)
                         }
-                        .padding()
                     }
                 }
             } else {

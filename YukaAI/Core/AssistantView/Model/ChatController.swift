@@ -43,7 +43,7 @@ class ChatController: ObservableObject {
             messages: self.messages.map({
                 .init(role: .user, content: personality + $0.content)!
             }),
-            model: .gpt3_5Turbo
+            model: .gpt4_o_mini
         )
         openAI.chats(query: query) { result in
             switch result {
