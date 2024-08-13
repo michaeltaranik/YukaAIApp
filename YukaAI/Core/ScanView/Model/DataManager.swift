@@ -26,12 +26,15 @@ class DataManager: ObservableObject {
         print(URLstring)
         guard let url = URL(string: URLstring) else { throw UserError.invalidURL }
         
+        
         let (data, response) = try await URLSession.shared.data(from: url)
+        
         
         guard let response = response as? HTTPURLResponse,
               response.statusCode == 200 else {
             throw UserError.invalidResponse
         }
+        
         
         do {
             let decoder = JSONDecoder()
@@ -40,7 +43,8 @@ class DataManager: ObservableObject {
             print(error)
             print(error.localizedDescription)
             throw UserError.invalidData
-        } 
+        }
+        
     }
     
     

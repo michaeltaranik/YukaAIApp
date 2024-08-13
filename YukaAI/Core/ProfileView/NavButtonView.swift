@@ -27,7 +27,7 @@ struct NavButtonView: View {
                     image
                         .foregroundColor(.white)
                 }
-                .padding(.horizontal)
+                .padding(.trailing)
                 Text(label)
             }
         }

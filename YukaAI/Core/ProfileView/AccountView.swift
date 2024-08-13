@@ -90,7 +90,7 @@ extension AccountView {
                         Image(systemName: "sun.max.fill")
                             .foregroundColor(.white)
                     }
-                    .padding(.horizontal)
+                    .padding(.trailing)
                     Text("Dark mode")
                 }
             }
