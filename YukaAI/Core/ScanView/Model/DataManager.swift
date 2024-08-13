@@ -10,21 +10,21 @@ import SwiftUI
 
 
 
-class DataManager: ObservableObject {
+class DataManager {
     
+    static let shared = DataManager(); private init() { }
+    
+    private let tunnel = "https://"
+  
+    
+    func getDataResults(from barcode: String) async throws -> Results {
         
-    static let baseUrlString = "https://world.openfoodfacts.org/api/v3/product/"
-    static let searchString = "https://world.openfoodfacts.org/cgi/search.pl"
-    
-    private static let localUrlString = "https://9fa8-178-197-214-16.ngrok-free.app/product/"
-    
-    
-    
-    static func getDataResults(from barcode: String) async throws -> Results {
-                
-        let URLstring = baseUrlString + barcode + ".json"
-        print(URLstring)
-        guard let url = URL(string: URLstring) else { throw UserError.invalidURL }
+        let endPoint = "/product/\(barcode)"
+        let localUrlString = tunnel + K.localServer + endPoint
+        
+        let gloabalUrlstring = K.globalServer + barcode + ".json"
+        print(gloabalUrlstring)
+        guard let url = URL(string: gloabalUrlstring) else { throw UserError.invalidURL }
         
         
         let (data, response) = try await URLSession.shared.data(from: url)
@@ -48,7 +48,43 @@ class DataManager: ObservableObject {
     }
     
     
-    static func computeNutritionScore(for food: Results) -> Int {
+    
+    func postFeedback(image: ImageModel) {
+        
+        let endPoint = "/image/analyze"
+        let urlString = tunnel + K.localServer + endPoint
+        guard let url = URL(string: urlString) else { return }
+        
+        var request = URLRequest(url: url)
+        request.httpMethod = "POST"
+        request.addValue("application/json", forHTTPHeaderField: "Content-Type")
+        
+        do {
+            let jsonData = try JSONEncoder().encode(image)
+            request.httpBody = jsonData
+            
+            URLSession.shared.dataTask(with: request) { data, response, error in
+                if let error = error {
+                    print(error)
+                    return
+                }
+                
+                guard let httpResponse = response as? HTTPURLResponse, httpResponse.statusCode == 201 else {
+                    print(response ?? "No response")
+                    return
+                }
+                
+                
+                print(response ?? "success")
+            }
+            .resume()
+        } catch (let error){
+            print(error)
+        }
+    }
+    
+    
+    func computeNutritionScore(for food: Results) -> Int {
         var score = 0
 
         if let energy = food.product.nutriments.energy100G {

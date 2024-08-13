@@ -25,6 +25,8 @@
 		E40A4F132C550A9D00167FBD /* TestCodable.swift in Sources */ = {isa = PBXBuildFile; fileRef = E40A4F122C550A9D00167FBD /* TestCodable.swift */; };
 		E42FB57A2C6936350092C09F /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = E4AA7C442C5CCDDF000C83D0 /* GoogleService-Info.plist */; };
 		E42FB57C2C6A14400092C09F /* StringExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = E42FB57B2C6A14400092C09F /* StringExt.swift */; };
+		E42FB57E2C6B98170092C09F /* SubmitImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E42FB57D2C6B98170092C09F /* SubmitImageView.swift */; };
+		E42FB5812C6B986E0092C09F /* ImageModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E42FB5802C6B986E0092C09F /* ImageModel.swift */; };
 		E441FBF62C6366CE0081317B /* FileManagerExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = E441FBF52C6366CE0081317B /* FileManagerExt.swift */; };
 		E441FBF82C636B930081317B /* CartViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E441FBF72C636B930081317B /* CartViewModel.swift */; };
 		E441FBFA2C639FAD0081317B /* BindingExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = E441FBF92C639FAD0081317B /* BindingExt.swift */; };
@@ -128,6 +130,8 @@
 		E40A4F0F2C5424BC00167FBD /* ProductResults.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductResults.swift; sourceTree = "<group>"; };
 		E40A4F122C550A9D00167FBD /* TestCodable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestCodable.swift; sourceTree = "<group>"; };
 		E42FB57B2C6A14400092C09F /* StringExt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringExt.swift; sourceTree = "<group>"; };
+		E42FB57D2C6B98170092C09F /* SubmitImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubmitImageView.swift; sourceTree = "<group>"; };
+		E42FB5802C6B986E0092C09F /* ImageModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageModel.swift; sourceTree = "<group>"; };
 		E441FBF52C6366CE0081317B /* FileManagerExt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileManagerExt.swift; sourceTree = "<group>"; };
 		E441FBF72C636B930081317B /* CartViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartViewModel.swift; sourceTree = "<group>"; };
 		E441FBF92C639FAD0081317B /* BindingExt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BindingExt.swift; sourceTree = "<group>"; };
@@ -256,6 +260,15 @@
 			path = Codable;
 			sourceTree = "<group>";
 		};
+		E42FB57F2C6B981D0092C09F /* ProductRecognizer */ = {
+			isa = PBXGroup;
+			children = (
+				E42FB57D2C6B98170092C09F /* SubmitImageView.swift */,
+				E42FB5802C6B986E0092C09F /* ImageModel.swift */,
+			);
+			path = ProductRecognizer;
+			sourceTree = "<group>";
+		};
 		E441FBEE2C6361A10081317B /* Common */ = {
 			isa = PBXGroup;
 			children = (
@@ -284,6 +297,7 @@
 				E40A4EE72C4FFB4F00167FBD /* BarcodeScanner */,
 				E4AFD9692C68ACA800DB57D4 /* Model */,
 				E459565A2C4D5A8C000B5058 /* ScanView.swift */,
+				E42FB57F2C6B981D0092C09F /* ProductRecognizer */,
 			);
 			path = ScanView;
 			sourceTree = "<group>";
@@ -658,12 +672,14 @@
 			files = (
 				E40A4F012C52A3F700167FBD /* TestView.swift in Sources */,
 				E4AA7C432C5A9924000C83D0 /* ChatController.swift in Sources */,
+				E42FB57E2C6B98170092C09F /* SubmitImageView.swift in Sources */,
 				E40A4EED2C4FFDA700167FBD /* BarcodeScannerView.swift in Sources */,
 				E45956482C4C313C000B5058 /* DataManager.swift in Sources */,
 				E45956462C4BD289000B5058 /* FirstView.swift in Sources */,
 				E4AA7C3F2C5A19A6000C83D0 /* AssistantView.swift in Sources */,
 				E441FBF82C636B930081317B /* CartViewModel.swift in Sources */,
 				E459564B2C4D29A0000B5058 /* Results.swift in Sources */,
+				E42FB5812C6B986E0092C09F /* ImageModel.swift in Sources */,
 				E40A4EF72C515CCC00167FBD /* WelcomeView.swift in Sources */,
 				E4AFD9042C64B3A600DB57D4 /* HapticManager.swift in Sources */,
 				E4AFD9172C66495600DB57D4 /* NavButtonView.swift in Sources */,

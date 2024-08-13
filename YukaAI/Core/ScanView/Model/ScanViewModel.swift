@@ -26,7 +26,7 @@ extension ScanView {
         func getInfo(barcode: String) async {
             isLoading = true
             do {
-                self.results = try await DataManager.getDataResults(from: barcode)
+                self.results = try await DataManager.shared.getDataResults(from: barcode)
                 self.isLoading = false
                 if let results = results {
                     createProductItem(results: results)
@@ -42,7 +42,7 @@ extension ScanView {
         }
         
         private func createProductItem(results: Results) {
-            let nutriscore = DataManager.computeNutritionScore(for: results)
+            let nutriscore = DataManager.shared.computeNutritionScore(for: results)
             self.productItem = ProductItem(results: results, score: nutriscore)
         }
 

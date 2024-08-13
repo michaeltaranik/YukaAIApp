@@ -33,7 +33,6 @@ class ProductViewModel: ObservableObject {
 struct ProductUIView: View {
     
     @StateObject private var vm = ProductViewModel()
-    @StateObject private var dataManager = DataManager()
     
     
     var body: some View {

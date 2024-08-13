@@ -38,7 +38,8 @@ struct ScanView: View {
                     }
                     HStack {
                         additives
-//                            .padding()
+                            .foregroundColor(.darkGreen)
+
                         Spacer()
                     }
                     Spacer()
