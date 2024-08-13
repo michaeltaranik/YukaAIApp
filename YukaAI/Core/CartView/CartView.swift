@@ -10,7 +10,7 @@ import SwiftUI
 struct CartView: View {
     
     @StateObject private var vm = CartViewModel()
-        
+    
     
     var body: some View {
         NavigationStack {
@@ -34,58 +34,80 @@ struct CartView: View {
 struct CartListView: View {
     
     @StateObject var vm: CartViewModel
-    
+    @State private var searchText: String = ""
     
     var body: some View {
         ZStack {
             
             background
             
-            List {
-                ForEach(vm.products, id: \.self) { product in
-                    NavigationLink(value: product) {
-                        HStack {
-                            productImage(product)
-                            VStack(alignment: .leading) {
-                                Text("\(product.genericName)")
-                                    .bold()
-                                NutriLabelView(score: product.nutriscore)
+            
+            if searchResults.isEmpty {
+                VStack {
+                    Spacer()
+                    Text("No products found")
+                        .font(.title)
+                        .foregroundColor(.secondary)
+                    Spacer()
+                }
+                .frame(maxWidth: .infinity, maxHeight: .infinity)
+            }
+            else {
+                List {
+                    ForEach(searchResults, id: \.self) { product in
+                        NavigationLink(value: product) {
+                            HStack {
+                                productImage(product)
+                                VStack(alignment: .leading) {
+                                    Text("\(product.genericName)")
+                                        .bold()
+                                    NutriLabelView(score: product.nutriscore)
+                                }
                             }
                         }
                     }
+                    .onDelete { indexSet in
+                        vm.deleteFromCart(at: indexSet)
+                    }
                 }
-                .onDelete { indexSet in
-                    vm.deleteFromCart(at: indexSet)
+                
+                .scrollContentBackground(.hidden)
+                .listStyle(.insetGrouped)
+                .navigationDestination(for: ProductItem.self) { product in
+                    ScanView(barcode: product.barcode)
+                        .toolbar(.hidden, for: .tabBar)
+                }
+                .refreshable {
+                    vm.loadCart()
                 }
             }
-            .scrollContentBackground(.hidden)
-            .listStyle(.insetGrouped)
-            .navigationTitle("Cart")
-            .navigationDestination(for: ProductItem.self) { product in
-                ScanView(barcode: product.barcode)
-                    .toolbar(.hidden, for: .tabBar)
-            }
-            .refreshable {
-                vm.loadCart()
-            }
-//            .toolbar(vm.isEditing ? .hidden : .visible, for: .tabBar)
-            .toolbar {
-                EditButton()
-//                    .onTapGesture {
-//                        withAnimation {
-//                            vm.isEditing.toggle()
-//                        }
-//                    }
+        }
+        .searchable(text: $searchText)
+        .navigationTitle("Cart")
+        .toolbar {
+            EditButton()
+        }
+    }
+}
+
+
+
+
+
+extension CartListView {
+    
+    var searchResults: [ProductItem] {
+        if searchText.isEmpty {
+            return vm.products
+        } else {
+            let searchText = searchText.lowercased(with: .current)
+            return vm.products.filter { item in
+                let name = item.genericName.lowercased()
+                return name.contains(searchText)
             }
         }
     }
     
-    
-    
-    
-}
-
-extension CartListView {
     
     var background: some View {
         Color(.accentBack)
