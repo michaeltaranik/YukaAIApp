@@ -7,13 +7,14 @@
 
 import SwiftUI
 import FirebaseCore
-
+import FirebaseAnalytics
 
 class AppDelegate: NSObject, UIApplicationDelegate {
     func application(_ application: UIApplication,
                      didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey : Any]? = nil) -> Bool {
         FirebaseApp.configure()
-        
+        let deviceID = UIDevice.current.identifierForVendor?.uuidString
+        Analytics.setUserID(deviceID)        
         return true
     }
 }

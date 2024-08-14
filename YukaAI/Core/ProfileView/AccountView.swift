@@ -115,21 +115,20 @@ extension AccountView {
     }
     
     var signOutButton: some View {
-//        Section {
-            Button {
-                print("signout")
-                HapticManager.shared.impact(style: .light)
-                //                signOut()
-            } label: {
-                Spacer()
-                Text("Sign out")
-                    .foregroundStyle(.red)
-                    .bold()
-                Spacer()
-            }
-            .buttonStyle(BorderlessButtonStyle())
+        Button {
+            print("signout")
+            HapticManager.shared.impact(style: .light)
+            fatalError("Crash was triggered")
+        } label: {
+            Spacer()
+            Text("Sign out")
+                .foregroundStyle(.red)
+                .bold()
+            Spacer()
+            
+        }
+        .buttonStyle(BorderlessButtonStyle())
         
-//        }
     }
     
     

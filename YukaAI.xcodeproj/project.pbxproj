@@ -23,6 +23,7 @@
 		E40A4F0C2C541BFC00167FBD /* AccountView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E40A4F0B2C541BFC00167FBD /* AccountView.swift */; };
 		E40A4F102C5424BC00167FBD /* GlobalResults.swift in Sources */ = {isa = PBXBuildFile; fileRef = E40A4F0F2C5424BC00167FBD /* GlobalResults.swift */; };
 		E40A4F132C550A9D00167FBD /* TestCodable.swift in Sources */ = {isa = PBXBuildFile; fileRef = E40A4F122C550A9D00167FBD /* TestCodable.swift */; };
+		E425DDBC2C6CF36400A8AC94 /* FirebaseCrashlytics in Frameworks */ = {isa = PBXBuildFile; productRef = E425DDBB2C6CF36400A8AC94 /* FirebaseCrashlytics */; };
 		E42FB57A2C6936350092C09F /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = E4AA7C442C5CCDDF000C83D0 /* GoogleService-Info.plist */; };
 		E42FB57C2C6A14400092C09F /* StringExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = E42FB57B2C6A14400092C09F /* StringExt.swift */; };
 		E42FB57E2C6B98170092C09F /* SubmitImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E42FB57D2C6B98170092C09F /* SubmitImageView.swift */; };
@@ -219,6 +220,7 @@
 			files = (
 				E4AA7C482C5CCF29000C83D0 /* FirebaseAnalytics in Frameworks */,
 				E4B24F032C6CB88B009CF592 /* FirebaseStorage in Frameworks */,
+				E425DDBC2C6CF36400A8AC94 /* FirebaseCrashlytics in Frameworks */,
 				E4B24F012C6CB88B009CF592 /* FirebaseAuth in Frameworks */,
 				E4AA7C3D2C5A0F5B000C83D0 /* OpenAI in Frameworks */,
 			);
@@ -270,6 +272,13 @@
 				E40A4F122C550A9D00167FBD /* TestCodable.swift */,
 			);
 			path = Codable;
+			sourceTree = "<group>";
+		};
+		E425DDBA2C6CF34F00A8AC94 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 		E42FB57F2C6B981D0092C09F /* ProductRecognizer */ = {
@@ -383,6 +392,7 @@
 				E4A955982C3C5982009D7F11 /* YukaAITests */,
 				E4A955A22C3C5982009D7F11 /* YukaAIUITests */,
 				E4A955862C3C5980009D7F11 /* Products */,
+				E425DDBA2C6CF34F00A8AC94 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -573,6 +583,7 @@
 				E4A955812C3C5980009D7F11 /* Sources */,
 				E4A955822C3C5980009D7F11 /* Frameworks */,
 				E4A955832C3C5980009D7F11 /* Resources */,
+				E425DDB92C6CEDAD00A8AC94 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -584,6 +595,7 @@
 				E4AA7C472C5CCF29000C83D0 /* FirebaseAnalytics */,
 				E4B24F002C6CB88B009CF592 /* FirebaseAuth */,
 				E4B24F022C6CB88B009CF592 /* FirebaseStorage */,
+				E425DDBB2C6CF36400A8AC94 /* FirebaseCrashlytics */,
 			);
 			productName = YukaAI;
 			productReference = E4A955852C3C5980009D7F11 /* YukaAI.app */;
@@ -698,6 +710,31 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		E425DDB92C6CEDAD00A8AC94 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${DWARF_DSYM_FOLDER_PATH}/${DWARF_DSYM_FILE_NAME}",
+				"${DWARF_DSYM_FOLDER_PATH}/${DWARF_DSYM_FILE_NAME}/Contents/Resources/DWARF/${PRODUCT_NAME}",
+				"${DWARF_DSYM_FOLDER_PATH}/${DWARF_DSYM_FILE_NAME}/Contents/Info.plist",
+				"$(TARGET_BUILD_DIR)/$(UNLOCALIZED_RESOURCES_FOLDER_PATH)/GoogleService-Info.plist",
+				"$(TARGET_BUILD_DIR)/$(EXECUTABLE_PATH)",
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\n\"${BUILD_DIR%/Build/*}/SourcePackages/checkouts/firebase-ios-sdk/Crashlytics/run\"\n";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		E4A955812C3C5980009D7F11 /* Sources */ = {
@@ -949,6 +986,7 @@
 				CODE_SIGN_ENTITLEMENTS = YukaAI/YukaAI.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEVELOPMENT_ASSET_PATHS = "\"YukaAI/Preview Content\"";
 				DEVELOPMENT_TEAM = R9985Q9W5Q;
 				ENABLE_PREVIEWS = YES;
@@ -1143,6 +1181,11 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		E425DDBB2C6CF36400A8AC94 /* FirebaseCrashlytics */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = E4AA7C462C5CCF29000C83D0 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseCrashlytics;
+		};
 		E4AA7C3C2C5A0F5B000C83D0 /* OpenAI */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = E4AA7C3B2C5A0F5B000C83D0 /* XCRemoteSwiftPackageReference "OpenAI" */;

@@ -7,6 +7,7 @@
 
 import Foundation
 import FirebaseAuth
+import FirebaseAnalytics
 
 @MainActor
 final class AuthenticationManager {
