@@ -13,7 +13,7 @@ extension ScanView {
     @MainActor
     class ViewModel: ObservableObject {
         
-        private var results: Results?
+        private var results: GlobalResults?
         private var userError: UserError?
         
         
@@ -26,7 +26,7 @@ extension ScanView {
         func getInfo(barcode: String) async {
             isLoading = true
             do {
-                self.results = try await DataManager.shared.getDataResults(from: barcode)
+                self.results = try await DataManager.shared.fetchProductInfo(from: barcode)
                 self.isLoading = false
                 if let results = results {
                     createProductItem(results: results)
@@ -41,9 +41,8 @@ extension ScanView {
             }
         }
         
-        private func createProductItem(results: Results) {
-            let nutriscore = DataManager.shared.computeNutritionScore(for: results)
-            self.productItem = ProductItem(results: results, score: nutriscore)
+        private func createProductItem(results: GlobalResults) {
+            self.productItem = ProductItem(results: results)
         }
 
         

@@ -21,7 +21,10 @@ struct ProductItem: Hashable, Identifiable, Codable {
     let genericName: String
     let imageUrl: String
     let ingredientsHierarchy: [String]
-    let nutriscore: Int
+    var nutriscore: Int {
+        let range = 0...100
+        return range.randomElement()!
+    }
     
     // Nutriments
     
@@ -49,7 +52,7 @@ struct ProductItem: Hashable, Identifiable, Codable {
     let cholesterol: String
     
     
-    init(results: Results, score: Int) {
+    init(results: GlobalResults) {
         self.barcode = results.product.id ?? ""
         self.keywords = results.product.keywords ?? []
         self.additivesTags = results.product.additivesTags ?? []
@@ -71,7 +74,6 @@ struct ProductItem: Hashable, Identifiable, Codable {
         self.calcium = "\(results.product.nutriments.calcium100G ?? 0.0) \(results.product.nutriments.calciumUnit ?? "mg")"
         self.iron = "\(results.product.nutriments.iron100G ?? 0.0) \(results.product.nutriments.ironUnit ?? "mg")"
         self.cholesterol = "\(results.product.nutriments.cholesterol100G ?? 0.0) \(results.product.nutriments.cholesterolUnit ?? "mg")"
-        self.nutriscore = score
     }
 
     
