@@ -8,6 +8,9 @@
 import SwiftUI
 
 struct IntroView: View {
+    
+    @Binding var isSignedIn: Bool
+    
     var body: some View {
         NavigationStack {
             ZStack {
@@ -25,24 +28,28 @@ struct IntroView: View {
                         .scaledToFit()
                     Spacer()
                     loginButton
-                    signinButton
+//                    signinButton
                 }
             }
         }
     }
     
     var loginButton: some View {
-        NavigationLink {
-            LogInView()
-        } label: {
-            Text("Log In")
-            .frame(width: 300, height: 70)
-            .font(.system(size: 24, weight: .semibold))
-            .foregroundColor(.darkGreen)
-            .background(Color.lightGreen)
-            .cornerRadius(20)
-            .shadow(radius: 10)
-            .padding()
+        Text("Start my journey!")
+        .frame(width: 300, height: 70)
+        .font(.system(size: 24, weight: .semibold))
+        .foregroundColor(.darkGreen)
+        .background(Color.lightGreen)
+        .cornerRadius(20)
+        .shadow(radius: 10)
+        .padding()
+        .onTapGesture {
+            Task {
+                try await AuthenticationManager.shared.signIn()
+                withAnimation {
+                    isSignedIn = true
+                }
+            }
         }
         
     }
@@ -66,5 +73,5 @@ struct IntroView: View {
 }
 
 #Preview {
-    IntroView()
+    IntroView(isSignedIn: .constant(false))
 }

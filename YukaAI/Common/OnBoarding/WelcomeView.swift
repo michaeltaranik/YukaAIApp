@@ -10,17 +10,15 @@ import SwiftUI
 
 
 struct WelcomeView: View {
-    @AppStorage("sign_in") var currentUserLoggedIn: Bool = false
+    
+    @AppStorage("isSignedIn") var isSignedIn: Bool = false
     
     var body: some View {
-        if currentUserLoggedIn {
+        if isSignedIn {
             HomeView()
         } else {
-            IntroView()
+            IntroView(isSignedIn: $isSignedIn)
         }
     }
 }
-//
-//#Preview {
-//    WelcomeView()
-//}
+
