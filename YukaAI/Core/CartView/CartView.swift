@@ -83,7 +83,7 @@ struct CartListView: View {
             }
         }
         .searchable(text: $searchText)
-        .navigationTitle("Cart")
+        .navigationTitle("Home")
         .toolbar {
             EditButton()
         }

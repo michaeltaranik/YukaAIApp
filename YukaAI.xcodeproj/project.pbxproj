@@ -24,6 +24,7 @@
 		E40A4F102C5424BC00167FBD /* GlobalResults.swift in Sources */ = {isa = PBXBuildFile; fileRef = E40A4F0F2C5424BC00167FBD /* GlobalResults.swift */; };
 		E40A4F132C550A9D00167FBD /* TestCodable.swift in Sources */ = {isa = PBXBuildFile; fileRef = E40A4F122C550A9D00167FBD /* TestCodable.swift */; };
 		E425DDBC2C6CF36400A8AC94 /* FirebaseCrashlytics in Frameworks */ = {isa = PBXBuildFile; productRef = E425DDBB2C6CF36400A8AC94 /* FirebaseCrashlytics */; };
+		E425DDBE2C6D0CE400A8AC94 /* AssistantToolbar.swift in Sources */ = {isa = PBXBuildFile; fileRef = E425DDBD2C6D0CE400A8AC94 /* AssistantToolbar.swift */; };
 		E42FB57A2C6936350092C09F /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = E4AA7C442C5CCDDF000C83D0 /* GoogleService-Info.plist */; };
 		E42FB57C2C6A14400092C09F /* StringExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = E42FB57B2C6A14400092C09F /* StringExt.swift */; };
 		E42FB57E2C6B98170092C09F /* SubmitImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E42FB57D2C6B98170092C09F /* SubmitImageView.swift */; };
@@ -136,6 +137,7 @@
 		E40A4F0B2C541BFC00167FBD /* AccountView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountView.swift; sourceTree = "<group>"; };
 		E40A4F0F2C5424BC00167FBD /* GlobalResults.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlobalResults.swift; sourceTree = "<group>"; };
 		E40A4F122C550A9D00167FBD /* TestCodable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestCodable.swift; sourceTree = "<group>"; };
+		E425DDBD2C6D0CE400A8AC94 /* AssistantToolbar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssistantToolbar.swift; sourceTree = "<group>"; };
 		E42FB57B2C6A14400092C09F /* StringExt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringExt.swift; sourceTree = "<group>"; };
 		E42FB57D2C6B98170092C09F /* SubmitImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubmitImageView.swift; sourceTree = "<group>"; };
 		E42FB5802C6B986E0092C09F /* ImageModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageModel.swift; sourceTree = "<group>"; };
@@ -329,9 +331,11 @@
 		E441FBF12C6363720081317B /* AssistantView */ = {
 			isa = PBXGroup;
 			children = (
-				E4AA7C3E2C5A19A6000C83D0 /* AssistantView.swift */,
-				E4AFD9092C64FB4F00DB57D4 /* AssistantAdviceView.swift */,
+				E441FBF42C6363E90081317B /* ProfileView */,
 				E4AFD90F2C66107A00DB57D4 /* Model */,
+				E4AA7C3E2C5A19A6000C83D0 /* AssistantView.swift */,
+				E425DDBD2C6D0CE400A8AC94 /* AssistantToolbar.swift */,
+				E4AFD9092C64FB4F00DB57D4 /* AssistantAdviceView.swift */,
 			);
 			path = AssistantView;
 			sourceTree = "<group>";
@@ -339,6 +343,7 @@
 		E441FBF32C6363C30081317B /* CartView */ = {
 			isa = PBXGroup;
 			children = (
+				E441FBF02C6362860081317B /* ProgressView */,
 				E459566E2C4E76A8000B5058 /* CartView.swift */,
 				E4AFD9052C64DCF900DB57D4 /* HelperBottomSectionView.swift */,
 				E441FBF72C636B930081317B /* CartViewModel.swift */,
@@ -362,10 +367,8 @@
 			isa = PBXGroup;
 			children = (
 				E441FBF32C6363C30081317B /* CartView */,
-				E441FBF02C6362860081317B /* ProgressView */,
 				E441FBEF2C6361D90081317B /* ScanView */,
 				E441FBF12C6363720081317B /* AssistantView */,
-				E441FBF42C6363E90081317B /* ProfileView */,
 			);
 			path = Core;
 			sourceTree = "<group>";
@@ -583,7 +586,7 @@
 				E4A955812C3C5980009D7F11 /* Sources */,
 				E4A955822C3C5980009D7F11 /* Frameworks */,
 				E4A955832C3C5980009D7F11 /* Resources */,
-				E425DDB92C6CEDAD00A8AC94 /* ShellScript */,
+				E425DDB92C6CEDAD00A8AC94 /* Crashlytics */,
 			);
 			buildRules = (
 			);
@@ -712,7 +715,7 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		E425DDB92C6CEDAD00A8AC94 /* ShellScript */ = {
+		E425DDB92C6CEDAD00A8AC94 /* Crashlytics */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -726,13 +729,14 @@
 				"$(TARGET_BUILD_DIR)/$(UNLOCALIZED_RESOURCES_FOLDER_PATH)/GoogleService-Info.plist",
 				"$(TARGET_BUILD_DIR)/$(EXECUTABLE_PATH)",
 			);
+			name = Crashlytics;
 			outputFileListPaths = (
 			);
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\n\"${BUILD_DIR%/Build/*}/SourcePackages/checkouts/firebase-ios-sdk/Crashlytics/run\"\n";
+			shellScript = "\"${BUILD_DIR%Build/*}SourcePackages/checkouts/firebase-ios-sdk/Crashlytics/run\"\n";
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -783,6 +787,7 @@
 				E45956712C4FB3C1000B5058 /* ConnectionView.swift in Sources */,
 				E45956612C4E1355000B5058 /* HealthManager.swift in Sources */,
 				E40A4F0C2C541BFC00167FBD /* AccountView.swift in Sources */,
+				E425DDBE2C6D0CE400A8AC94 /* AssistantToolbar.swift in Sources */,
 				E4AA7C2E2C5929F5000C83D0 /* LightGreenGradient.swift in Sources */,
 				E40A4EE42C4FD69100167FBD /* CameraManager.swift in Sources */,
 				E4B24EF72C6C9A63009CF592 /* URLManager.swift in Sources */,
@@ -984,6 +989,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = NO;
 				CODE_SIGN_ENTITLEMENTS = YukaAI/YukaAI.entitlements;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
@@ -1007,6 +1013,7 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.taranik.YukaAI;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -1020,8 +1027,10 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = NO;
 				CODE_SIGN_ENTITLEMENTS = YukaAI/YukaAI.entitlements;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEVELOPMENT_ASSET_PATHS = "\"YukaAI/Preview Content\"";
 				DEVELOPMENT_TEAM = R9985Q9W5Q;
 				ENABLE_PREVIEWS = YES;
@@ -1042,6 +1051,7 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.taranik.YukaAI;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";

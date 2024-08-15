@@ -118,7 +118,6 @@ extension AccountView {
         Button {
             print("signout")
             HapticManager.shared.impact(style: .light)
-            fatalError("Crash was triggered")
         } label: {
             Spacer()
             Text("Sign out")

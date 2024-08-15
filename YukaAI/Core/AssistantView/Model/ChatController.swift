@@ -23,6 +23,10 @@ class ChatController: ObservableObject {
     private let fileManager = AssistantMessageFileManager()
     
     @Published var messages: [Message] = [Message(content: K.defaultMessage, isUser: false)]
+    @Published var showKeyboard: Bool = false
+    @Published var shouldShowRecs: Bool = false
+    @Published var shouldShowProfile: Bool = false
+    
     
     let openAI = OpenAI(apiToken: K.apiKey)
 

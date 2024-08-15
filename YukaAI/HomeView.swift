@@ -28,32 +28,17 @@ struct HomeView: View {
             Color(.accentInverted)
                 .ignoresSafeArea()
             VStack(alignment: .leading, content: {
-//                Text(contentManager.mainTitle)
-//                    .font(.system(size: 40, weight: .bold))
-//                    .foregroundColor(.darkGreen)
-//                    .padding()
-//                    .shadow(color: .gray, radius: 10, x: 0.0, y: 10.0)
                 ZStack {
                     TabView {
                         CartTabView()
                             .tag(0)
-                        
-                        StatsTabView()
-                            .tag(1)
                         
                         ScanTabView()
                             .tag(2)
                         
                         AssistantTabView()
                             .tag(3)
-                        
-                        ProfileTabView()
-                            .tag(4)
                     }
-                    
-//                    .onAppear() {
-//                        UITabBar.appearance().backgroundColor = .red.gradient
-//                    }
                 }
             })
         }
@@ -71,12 +56,12 @@ struct CartTabView: View {
     var body: some View {
         CartView()
             .onAppear {
-                contentManager.changeTitle("Cart")
+                contentManager.changeTitle("Home")
                 HapticManager.shared.impact(style: .soft)
             }
             .tabItem {
-                Image(systemName: "cart")
-                Text("Cart")
+                Image(systemName: "house")
+                Text("Home")
                     .font(.system(size: 20))
             }
     }
@@ -104,26 +89,6 @@ struct ScanTabView: View {
     
 }
 
-//MARK: - ProgressTab
-struct StatsTabView: View {
-    @EnvironmentObject var contentManager: HomeViewManager
-    
-    
-    var body: some View {
-        StatsView()
-            .onAppear {
-                contentManager.changeTitle("Progress")
-                HapticManager.shared.impact(style: .soft)
-            }
-            .tabItem {
-                Image(systemName: "star.fill")
-                Text("Progress")
-                    .font(.system(size: 20))
-            }
-    }
-}
-
-
 //MARK: - AssistantTab
 struct AssistantTabView: View {
     @EnvironmentObject var contentManager: HomeViewManager
@@ -137,31 +102,33 @@ struct AssistantTabView: View {
                 HapticManager.shared.impact(style: .soft)
             }
             .tabItem {
-                Image(systemName: "questionmark.bubble.fill")
+                Image(systemName: "wand.and.stars")
                 Text("Ask AI")
                     .font(.system(size: 20))
             }
     }
 }
 
-//MARK: - ProfileTab
-struct ProfileTabView: View {
-    @EnvironmentObject var contentManager: HomeViewManager
-    
-    
-    var body: some View {
-        AccountView()
-            .onAppear {
-                contentManager.changeTitle("Profile")
-                HapticManager.shared.impact(style: .soft)
-            }
-            .tabItem {
-                Image(systemName: "person.crop.circle")
-                Text("Profile")
-                    .font(.system(size: 20))
-            }
-    }
-}
+//
+////MARK: - ProgressTab
+//struct StatsTabView: View {
+//    @EnvironmentObject var contentManager: HomeViewManager
+//    
+//    
+//    var body: some View {
+//        StatsView()
+//            .onAppear {
+//                contentManager.changeTitle("Progress")
+//                HapticManager.shared.impact(style: .soft)
+//            }
+//            .tabItem {
+//                Image(systemName: "star.fill")
+//                Text("Progress")
+//                    .font(.system(size: 20))
+//            }
+//    }
+//}
+
 
 //MARK: - ContentPreview
 
