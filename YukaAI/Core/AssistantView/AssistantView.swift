@@ -42,18 +42,8 @@ struct AssistantView: View {
         .sheet(isPresented: $vm.shouldShowProfile, content: {
             AccountView()
         })
-        .presentationDetents([.fraction(0.95), .fraction(0.25)])
-        .presentationDragIndicator(.visible)
-        .onAppear {
-            guard let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene,
-                  let controller = windowScene.windows.first?.rootViewController?.presentedViewController else {
-                return
-            }
-            controller.view.backgroundColor = .clear
-        }
-        
-        
     }
+        
 }
 
 struct MessageView: View {
@@ -89,6 +79,7 @@ struct MessageView: View {
                 }
             }
         }
+        
     }
 }
 
@@ -131,6 +122,7 @@ extension AssistantView {
                 }
             }
         }
+        
     }
     
     var textFieldView: some View {

@@ -11,6 +11,7 @@ class CartViewModel: ObservableObject {
     
     @Published private(set) var products: [ProductItem] = []
     @Published var isEditing: Bool = false
+
     
     init() {
         loadCart()

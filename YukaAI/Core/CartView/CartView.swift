@@ -35,57 +35,77 @@ struct CartListView: View {
     
     @StateObject var vm: CartViewModel
     @State private var searchText: String = ""
+    @State private var showOptions: Bool = false
     
     var body: some View {
         ZStack {
-            
             background
-            
-            
-            if searchResults.isEmpty {
-                VStack {
-                    Spacer()
-                    Text("No products found")
-                        .font(.title)
-                        .foregroundColor(.secondary)
-                    Spacer()
+            VStack {
+                if searchResults.isEmpty {
+                    VStack {
+                        Spacer()
+                        Text("No products found")
+                            .font(.title)
+                            .foregroundColor(.secondary)
+                        Spacer()
+                    }
+                    .frame(maxWidth: .infinity, maxHeight: .infinity)
                 }
-                .frame(maxWidth: .infinity, maxHeight: .infinity)
+                else {
+                    cartList
+                        .scrollContentBackground(.hidden)
+                        .listStyle(.insetGrouped)
+                        .navigationDestination(for: ProductItem.self) { product in
+                            ScanView(barcode: product.barcode)
+                                .toolbar(.hidden, for: .tabBar)
+                        }
+                        .refreshable {
+                            vm.loadCart()
+                        }
+                }
             }
-            else {
-                List {
-                    ForEach(searchResults, id: \.self) { product in
-                        NavigationLink(value: product) {
-                            HStack {
-                                productImage(product)
-                                VStack(alignment: .leading) {
-                                    Text("\(product.genericName)")
-                                        .bold()
-                                    NutriLabelView(score: product.nutriscore)
-                                }
-                            }
+            .searchable(text: $searchText)
+            .navigationTitle("Home")
+            .toolbar {
+                EditButton()
+            }
+            addButton
+                
+        }
+
+
+
+    }
+    
+    var cartList: some View {
+        List {
+            ForEach(searchResults, id: \.self) { product in
+                NavigationLink(value: product) {
+                    HStack {
+                        productImage(product)
+                        VStack(alignment: .leading) {
+                            Text("\(product.genericName)")
+                                .bold()
+                            NutriLabelView(score: product.nutriscore)
                         }
                     }
-                    .onDelete { indexSet in
-                        vm.deleteFromCart(at: indexSet)
-                    }
-                }
-                
-                .scrollContentBackground(.hidden)
-                .listStyle(.insetGrouped)
-                .navigationDestination(for: ProductItem.self) { product in
-                    ScanView(barcode: product.barcode)
-                        .toolbar(.hidden, for: .tabBar)
-                }
-                .refreshable {
-                    vm.loadCart()
                 }
             }
+            .onDelete { indexSet in
+                vm.deleteFromCart(at: indexSet)
+            }
         }
-        .searchable(text: $searchText)
-        .navigationTitle("Home")
-        .toolbar {
-            EditButton()
+    }
+    
+    var addButton: some View {
+        HStack {
+            Spacer()
+            VStack {
+                Spacer()
+                AddButtonView(showOptions: $showOptions, size: 60)
+                    .padding(.trailing, 30)
+                    .padding(.bottom, 30)
+            }
         }
     }
 }

@@ -9,13 +9,14 @@
 import SwiftUI
 
 public struct PieChartView : View {
-    public var data: [Double]
-    public var title: String
-    public var legend: String?
-    public var style: ChartStyle
-    public var formSize:CGSize
-    public var dropShadow: Bool
-    public var valueSpecifier:String
+    var data: [Double]
+    var title: String
+    var legend: String?
+    var style: [Color]
+    var gradients: [RadialGradient]
+    var formSize:CGSize
+    var dropShadow: Bool
+    var valueSpecifier:String
     
     @State private var showValue = false
     @State private var currentValue: Double = 0 {
@@ -26,11 +27,12 @@ public struct PieChartView : View {
         }
     }
     
-    public init(data: [Double], title: String, legend: String? = nil, style: ChartStyle = Styles.pieChartStyleOne, form: CGSize? = ChartForm.medium, dropShadow: Bool? = true, valueSpecifier: String? = "%.1f"){
+    public init(data: [Double], title: String, legend: String? = nil, style: [Color], gradients: [RadialGradient], form: CGSize? = ChartForm.medium, dropShadow: Bool? = true, valueSpecifier: String? = "%.1f"){
         self.data = data
         self.title = title
         self.legend = legend
         self.style = style
+        self.gradients = gradients
         self.formSize = form!
         if self.formSize == ChartForm.large {
             self.formSize = ChartForm.extraLarge
@@ -42,43 +44,98 @@ public struct PieChartView : View {
     public var body: some View {
         ZStack{
             Rectangle()
-                .fill(self.style.backgroundColor)
+                .fill(.white)
                 .cornerRadius(20)
-                .shadow(color: self.style.dropShadowColor, radius: self.dropShadow ? 12 : 0)
-            VStack(alignment: .leading){
-                HStack{
+                .shadow(color: .black, radius: self.dropShadow ? 12 : 0)
+            VStack(alignment: .leading) {
+                HStack {
                     if(!showValue){
-                        Text(self.title)
-                            .font(.headline)
-                            .foregroundColor(self.style.textColor)
-                    }else{
+                        VStack(alignment: .leading) {
+                            Text(self.title)
+                                .font(.headline)
+                                .foregroundColor(.black)
+                                .bold()
+                            Text("This Week")
+                                .foregroundStyle(.secondary)
+                        }
+                    } else{
                         Text("\(self.currentValue, specifier: self.valueSpecifier)")
                             .font(.headline)
-                            .foregroundColor(self.style.textColor)
+                            .foregroundColor(.black)
                     }
                     Spacer()
                     Image(systemName: "chart.pie.fill")
                         .imageScale(.large)
-                        .foregroundColor(self.style.legendTextColor)
-                }.padding()
-                PieChartRow(data: data, backgroundColor: self.style.backgroundColor, accentColor: self.style.accentColor, showValue: $showValue, currentValue: $currentValue)
-                    .foregroundColor(self.style.accentColor).padding(self.legend != nil ? 0 : 12).offset(y:self.legend != nil ? 0 : -10)
+                        .foregroundColor(.gray)
+                }
+                .padding()
+                
+                HStack {
+                    PieChartRow(data: data, backgroundColor: self.style, accentColor: gradients, showValue: $showValue, currentValue: $currentValue)
+                        .foregroundColor(.cyan)
+                        .padding(self.legend != nil ? 0 : 12)
+                        .offset(y:self.legend != nil ? 0 : -10)
+                    VStack(alignment: .leading) {
+                        HStack {
+                            Circle()
+                                .fill(.lightRed)
+                                .frame(width: 10, height: 10)
+                            Text("Bad")
+                                .foregroundColor(.gray)
+                        }
+                        .padding(.trailing, 30)
+                        Text("42")
+                        HStack {
+                            Circle()
+                                .fill(K.yellowOrangeGradient)
+                                .frame(width: 10, height: 10)
+                            Text("Poor")
+                                .foregroundColor(.gray)
+                        }
+                        .padding(.trailing, 30)
+
+                        Text("52")
+                        HStack {
+                            Circle()
+                                .fill(K.greenCyanGradient)
+                                .frame(width: 10, height: 10)
+                            Text("Excellent")
+                                .foregroundColor(.gray)
+                        }
+                        .padding(.trailing, 30)
+                        Text("69")
+                    }
+                    Spacer()
+                }
                 if(self.legend != nil) {
                     Text(self.legend!)
                         .font(.headline)
-                        .foregroundColor(self.style.legendTextColor)
+                        .foregroundColor(.gray)
                         .padding()
                 }
                 
             }
-        }.frame(width: self.formSize.width, height: self.formSize.height)
+        }
+        .frame(width: 350, height: 350)
     }
 }
 
 #if DEBUG
 struct PieChartView_Previews : PreviewProvider {
+    
+    static let gradients: [RadialGradient] = [
+        K.peachPinkGradient,
+        K.greenCyanGradient,
+        K.yellowOrangeGradient,
+    ]
+    
     static var previews: some View {
-        PieChartView(data:[56,78,53,65,54], title: "Title", legend: "Legend")
+        PieChartView(
+            data:[56,78,53],
+            title: "Title",
+            legend: "Legend",
+            style: [.white, .white, .white],
+            gradients: gradients)
     }
 }
 #endif

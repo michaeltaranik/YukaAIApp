@@ -79,8 +79,8 @@ struct Nutriments: Codable {
     let fatUnit: String?
     let fatValue, fiber, fiber100G, fiberServing: Double?
     let fiberUnit: String?
-    let fiberValue, fruitsVegetablesLegumesEstimateFromIngredients100G, fruitsVegetablesLegumesEstimateFromIngredientsServing, fruitsVegetablesNutsEstimateFromIngredients100G: Double?
-    let fruitsVegetablesNutsEstimateFromIngredientsServing, iron, iron100G, ironServing: Double?
+    let fiberValue: Double?
+    let iron, iron100G, ironServing: Double?
     let ironUnit: String?
     let ironValue: Double?
     let novaGroup, novaGroup100G, novaGroupServing, nutritionScoreFr: Double?
@@ -146,10 +146,6 @@ struct Nutriments: Codable {
         case fiberServing = "fiber_serving"
         case fiberUnit = "fiber_unit"
         case fiberValue = "fiber_value"
-        case fruitsVegetablesLegumesEstimateFromIngredients100G = "fruits-vegetables-legumes-estimate-from-ingredients_100g"
-        case fruitsVegetablesLegumesEstimateFromIngredientsServing = "fruits-vegetables-legumes-estimate-from-ingredients_serving"
-        case fruitsVegetablesNutsEstimateFromIngredients100G = "fruits-vegetables-nuts-estimate-from-ingredients_100g"
-        case fruitsVegetablesNutsEstimateFromIngredientsServing = "fruits-vegetables-nuts-estimate-from-ingredients_serving"
         case iron
         case iron100G = "iron_100g"
         case ironServing = "iron_serving"
