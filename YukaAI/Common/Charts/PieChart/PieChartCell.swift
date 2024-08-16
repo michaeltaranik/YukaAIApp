@@ -33,10 +33,12 @@ public struct PieChartCell : View {
     }
     var index: Int
     var backgroundColor: Color
-    var accentColor: RadialGradient
+    var accentColorRad: RadialGradient
+    var accentColorLin: LinearGradient
+
     public var body: some View {
         path
-            .fill(accentColor)
+            .fill(accentColorLin)
 //            .foregroundColor(self.accentColor.gradient)
             .overlay(path.stroke(self.backgroundColor, lineWidth: 2))
             .scaleEffect(self.show ? 1 : 0)

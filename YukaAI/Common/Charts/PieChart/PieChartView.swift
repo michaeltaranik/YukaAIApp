@@ -8,12 +8,13 @@
 
 import SwiftUI
 
-public struct PieChartView : View {
+struct PieChartView : View {
     var data: [Double]
     var title: String
     var legend: String?
-    var style: [Color]
-    var gradients: [RadialGradient]
+    var backgroundColor: Color
+    var linGradients: [LinearGradient]
+    var radGradients: [RadialGradient]
     var formSize:CGSize
     var dropShadow: Bool
     var valueSpecifier:String
@@ -27,12 +28,23 @@ public struct PieChartView : View {
         }
     }
     
-    public init(data: [Double], title: String, legend: String? = nil, style: [Color], gradients: [RadialGradient], form: CGSize? = ChartForm.medium, dropShadow: Bool? = true, valueSpecifier: String? = "%.1f"){
+    init(
+        data: [Double],
+        title: String,
+        legend: String? = nil,
+        backgroundColor: Color,
+        linGradients: [LinearGradient],
+        radGradients: [RadialGradient],
+        form: CGSize? = ChartForm.medium,
+        dropShadow: Bool? = true,
+        valueSpecifier: String? = "%.1f")
+    {
         self.data = data
         self.title = title
         self.legend = legend
-        self.style = style
-        self.gradients = gradients
+        self.backgroundColor = backgroundColor
+        self.radGradients = radGradients
+        self.linGradients = linGradients
         self.formSize = form!
         if self.formSize == ChartForm.large {
             self.formSize = ChartForm.extraLarge
@@ -41,7 +53,7 @@ public struct PieChartView : View {
         self.valueSpecifier = valueSpecifier!
     }
     
-    public var body: some View {
+    var body: some View {
         ZStack{
             Rectangle()
                 .fill(.white)
@@ -71,7 +83,7 @@ public struct PieChartView : View {
                 .padding()
                 
                 HStack {
-                    PieChartRow(data: data, backgroundColor: self.style, accentColor: gradients, showValue: $showValue, currentValue: $currentValue)
+                    PieChartRow(data: data, backgroundColor: .white, accentColorRad: radGradients, accentColorLin: linGradients, showValue: $showValue, currentValue: $currentValue)
                         .foregroundColor(.cyan)
                         .padding(self.legend != nil ? 0 : 12)
                         .offset(y:self.legend != nil ? 0 : -10)
@@ -129,13 +141,16 @@ struct PieChartView_Previews : PreviewProvider {
         K.yellowOrangeGradient,
     ]
     
+    static let linGradients = [K.peachPinkLinearGradient, K.yellowOrangeLinearGradient, K.greenCyanLinearGradient]
+    
     static var previews: some View {
         PieChartView(
             data:[56,78,53],
             title: "Title",
             legend: "Legend",
-            style: [.white, .white, .white],
-            gradients: gradients)
+            backgroundColor: Color.white,
+            linGradients: linGradients,
+            radGradients: gradients)
     }
 }
 #endif

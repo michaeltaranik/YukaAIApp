@@ -33,11 +33,17 @@ struct HomeView: View {
                         CartTabView()
                             .tag(0)
                         
+                        StatsTabView()
+                            .tag(1)
+                        
                         ScanTabView()
                             .tag(2)
                         
                         AssistantTabView()
                             .tag(3)
+                        
+                        ProfileTabView()
+                            .tag(4)
                     }
                 }
             })
@@ -109,25 +115,45 @@ struct AssistantTabView: View {
     }
 }
 
-//
-////MARK: - ProgressTab
-//struct StatsTabView: View {
-//    @EnvironmentObject var contentManager: HomeViewManager
-//    
-//    
-//    var body: some View {
-//        StatsView()
-//            .onAppear {
-//                contentManager.changeTitle("Progress")
-//                HapticManager.shared.impact(style: .soft)
-//            }
-//            .tabItem {
-//                Image(systemName: "star.fill")
-//                Text("Progress")
-//                    .font(.system(size: 20))
-//            }
-//    }
-//}
+
+//MARK: - ProgressTab
+struct StatsTabView: View {
+    @EnvironmentObject var contentManager: HomeViewManager
+    
+    
+    var body: some View {
+        StatsView()
+            .onAppear {
+                contentManager.changeTitle("Progress")
+                HapticManager.shared.impact(style: .soft)
+            }
+            .tabItem {
+                Image(systemName: "chart.pie.fill")
+                Text("Progress")
+                    .font(.system(size: 20))
+            }
+    }
+}
+
+
+
+//MARK: - AccountTab
+struct ProfileTabView: View {
+    @EnvironmentObject var contentManager: HomeViewManager
+    
+    var body: some View {
+        AccountView()
+            .onAppear {
+                contentManager.changeTitle("Profile")
+                HapticManager.shared.impact(style: .soft)
+            }
+            .tabItem {
+                Image(systemName: "person.circle.fill")
+                Text("Profile")
+                    .font(.system(size: 20))
+            }
+    }
+}
 
 
 //MARK: - ContentPreview

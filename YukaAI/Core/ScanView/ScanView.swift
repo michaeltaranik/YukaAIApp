@@ -193,6 +193,8 @@ struct ScanView: View {
                             cartVM.saveToCart(product: item)
                         }
                     }
+                
+                    
             } placeholder: {
                 Image(.default)
                     .resizable()

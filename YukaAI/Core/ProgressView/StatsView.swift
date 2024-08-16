@@ -22,6 +22,7 @@ struct StatsView: View {
     let title: String = "Your Progress"
 
     let gradients = [K.peachPinkGradient, K.yellowOrangeGradient, K.greenCyanGradient]
+    let linGradients = [K.peachPinkLinearGradient, K.yellowOrangeLinearGradient, K.greenCyanLinearGradient]
     
     var body: some View {
 //        ScrollView {
@@ -32,8 +33,9 @@ struct StatsView: View {
                     data: quality,
                     title: "Quality Progress",
                     legend: "You are doing great!",
-                    style: colors,
-                    gradients: gradients)
+                    backgroundColor: .white,
+                    linGradients: linGradients,
+                    radGradients: gradients)
             }
 //        }
     }
