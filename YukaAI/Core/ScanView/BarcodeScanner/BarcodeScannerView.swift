@@ -13,24 +13,12 @@ struct BarcodeScannerView: View {
     
     @StateObject private var vm = BarcodeScannerViewModel()
     private let gradientBlackColors = [
-        Color.black.opacity(0.9),
-        .black.opacity(0.82),
-        .black.opacity(0.72),
-        .black.opacity(0.62),
-        .black.opacity(0.57),
-        .black.opacity(0.46),
-        .black.opacity(0.36),
-        .black.opacity(0.29),
-        .black.opacity(0.23),
-        .black.opacity(0.18),
-        .black.opacity(0.15),
-        .black.opacity(0.1),
-        .black.opacity(0.08),
-        .black.opacity(0.06),
-        .black.opacity(0.05),
-        .black.opacity(0.03),
-        .black.opacity(0.015),
-        .black.opacity(0.00),
+        Color.black,
+        .black.opacity(0.92),
+        .black.opacity(0.78),
+        .black.opacity(0.54),
+        .black.opacity(0.32),
+        .black.opacity(0.22),
         Color.clear
     ]
     
@@ -62,11 +50,12 @@ struct BarcodeScannerView: View {
         VStack {
             Rectangle()
                 .fill(upperGradient)
-                .frame(height: 300)
+//                .blur(radius: 2)
+                .frame(height: 250)
             Spacer()
-            Rectangle()
-                .fill(lowerGradient)
-                .frame(height: 300)
+//            Rectangle()
+//                .fill(lowerGradient)
+//                .frame(height: 140)
 
         }
     }
@@ -93,7 +82,7 @@ struct BarcodeScannerView: View {
                     .foregroundColor(.white)
                     .font(.system(size: 30, weight: .bold, design: .rounded))
                     .padding(.bottom, 35)
-                    .offset(x: 0, y: -20)
+                    .offset(x: 0, y: -10)
             }
             Spacer()
         }
