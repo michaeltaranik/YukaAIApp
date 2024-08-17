@@ -15,7 +15,8 @@ struct WelcomeView: View {
     
     var body: some View {
         if isSignedIn {
-            HomeView()
+//            HomeView()
+            BarcodeScannerView()
         } else {
             IntroView(isSignedIn: $isSignedIn)
         }
