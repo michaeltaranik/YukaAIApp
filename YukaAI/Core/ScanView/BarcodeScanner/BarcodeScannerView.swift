@@ -31,7 +31,21 @@ struct BarcodeScannerView: View {
             frame.ignoresSafeArea(.all)
             upperFrame
             lowerFrame
-
+            barcodeFrame
+        }
+        .sheet(isPresented: $vm.shouldShowSheet) {
+            switch vm.sheetType {
+            case .profile:
+                AccountView()
+            case .cart:
+                CartView()
+            case .history:
+                CartView()
+            case .paywall:
+                ProfileView()
+            case .main:
+                BarcodeScannerView()
+            }
         }
     }
     
@@ -43,19 +57,11 @@ struct BarcodeScannerView: View {
             colors: gradientBlackColors,
             startPoint: .top, endPoint: .bottom)
         
-        let lowerGradient = LinearGradient(
-            colors: gradientBlackColors,
-            startPoint: .bottom, endPoint: .top)
-        
         VStack {
             Rectangle()
                 .fill(upperGradient)
-//                .blur(radius: 2)
                 .frame(height: 250)
             Spacer()
-//            Rectangle()
-//                .fill(lowerGradient)
-//                .frame(height: 140)
 
         }
     }
@@ -71,7 +77,13 @@ struct BarcodeScannerView: View {
                         .padding(.leading, 20)
                         .padding(.top, 20)
                     Spacer()
-                    cornerIcon(imageName: "list.bullet.clipboard")
+                    Button {
+                        vm.sheetType = .history
+                        vm.shouldShowSheet.toggle()
+                        HapticManager.shared.impact(style: .medium)
+                    } label: {
+                        cornerIcon(imageName: "list.bullet.clipboard")
+                    }
                     .frame(width: 50, height: 50)
                     .foregroundColor(.black.opacity(0.5))
                     .padding(.top, 20)
@@ -98,16 +110,26 @@ struct BarcodeScannerView: View {
             VStack {
                 captureIcon
                 HStack {
-                    cartIcon
+                    Button {
+                        vm.sheetType = .cart
+                        vm.shouldShowSheet.toggle()
+                        HapticManager.shared.impact(style: .medium)
+                    } label: {
+                        cartIcon
+                    }
                     Spacer()
                     cameraIcon
                     Spacer()
-                    profileIcon
+                    Button {
+                        vm.sheetType = .profile
+                        vm.shouldShowSheet.toggle()
+                        HapticManager.shared.impact(style: .medium)
+                    } label: {
+                        profileIcon
+                    }
                 }
             }
         }
-        
-        
     }
     
     
@@ -150,8 +172,8 @@ struct BarcodeScannerView: View {
     }
     
     
-//    var barcodeFrame: some View {
-//        ZStack {
+    var barcodeFrame: some View {
+        ZStack {
 //            Color.black.opacity(0.55)
 //                .mask {
 //                    Rectangle()
@@ -163,12 +185,12 @@ struct BarcodeScannerView: View {
 //                                .blendMode(.destinationOut)
 //                        )
 //                }
-//            RoundedRectangle(cornerSize: CGSize(width: 20, height: 20))
-//                .stroke(vm.recognized ? .greenish : .white,
-//                        lineWidth: vm.recognized ? 10 : 2)
-//                .frame(width: 300, height: 300)
-//        }
-//    }
+            RoundedRectangle(cornerSize: CGSize(width: 20, height: 20))
+                .stroke(vm.recognized ? .greenish : .white,
+                        lineWidth: vm.recognized ? 10 : 2)
+                .frame(width: 300, height: 300)
+        }
+    }
     
     
     var scanner: some View {

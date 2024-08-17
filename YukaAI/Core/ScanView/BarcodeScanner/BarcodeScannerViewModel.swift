@@ -14,6 +14,14 @@ enum ScanType: String {
     case barcode, text
 }
 
+enum SheetType: String {
+    case profile
+    case cart
+    case history
+    case paywall
+    case main
+}
+
 enum DataScannerAccessStatusType {
     case notDetermined
     case cameraAccessNotGranted
@@ -35,6 +43,17 @@ final class BarcodeScannerViewModel: ObservableObject {
     @Published var isFlashOn: Bool = false
     @Published var recognized: Bool = false
     
+    
+    @Published var shouldShowSheet: Bool = false
+    @Published var sheetType: SheetType = .main
+    
+//    @Published var showProfile: Bool = false
+//    @Published var showCart: Bool = false
+//    @Published var showHistory: Bool = false
+//    @Published var showPaywall: Bool = false
+
+
+
     let recognizedDataType: DataScannerViewController.RecognizedDataType = .barcode()
 
     
