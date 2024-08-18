@@ -60,7 +60,7 @@ struct CartTabView: View {
     @EnvironmentObject var contentManager: HomeViewManager
 
     var body: some View {
-        CartView()
+        HistoryView()
             .onAppear {
                 contentManager.changeTitle("Home")
                 HapticManager.shared.impact(style: .soft)

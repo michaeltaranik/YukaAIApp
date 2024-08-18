@@ -13,12 +13,11 @@ struct BarcodeScannerView: View {
     
     @StateObject private var vm = BarcodeScannerViewModel()
     private let gradientBlackColors = [
-        Color.black,
-        .black.opacity(0.92),
         .black.opacity(0.78),
-        .black.opacity(0.54),
-        .black.opacity(0.32),
+        .black.opacity(0.62),
+        .black.opacity(0.4),
         .black.opacity(0.22),
+        .black.opacity(0.08),
         Color.clear
     ]
     
@@ -38,9 +37,9 @@ struct BarcodeScannerView: View {
             case .profile:
                 AccountView()
             case .cart:
-                CartView()
+                HistoryView()
             case .history:
-                CartView()
+                HistoryView()
             case .paywall:
                 ProfileView()
             case .main:
@@ -57,12 +56,20 @@ struct BarcodeScannerView: View {
             colors: gradientBlackColors,
             startPoint: .top, endPoint: .bottom)
         
+        
+        let lowerGradient = LinearGradient(
+            colors: gradientBlackColors,
+            startPoint: .bottom, endPoint: .top)
+        
         VStack {
             Rectangle()
                 .fill(upperGradient)
-                .frame(height: 250)
+                .frame(height: 300)
             Spacer()
-
+            Rectangle()
+                .fill(lowerGradient.opacity(0.9))
+                .frame(height: 200)
+                
         }
     }
     
@@ -71,11 +78,22 @@ struct BarcodeScannerView: View {
     
     var upperFrame: some View {
         VStack {
-            ZStack {
                 HStack {
-                    proIcon
-                        .padding(.leading, 20)
-                        .padding(.top, 20)
+                    Button {
+                        HapticManager.shared.impact(style: .medium)
+                    } label: {
+                        proIcon
+                            .padding(.leading, 20)
+                            .padding(.top, 10)
+                            .offset(x: -5, y: 0)
+                    }
+
+                    Spacer()
+                    Text("Scan")
+                        .foregroundColor(.white)
+                        .font(.system(size: 24, weight: .bold, design: .rounded))
+                        .padding()
+                        .offset(x: -18, y: 5)
                     Spacer()
                     Button {
                         vm.sheetType = .history
@@ -85,21 +103,13 @@ struct BarcodeScannerView: View {
                         cornerIcon(imageName: "list.bullet.clipboard")
                     }
                     .frame(width: 50, height: 50)
-                    .foregroundColor(.black.opacity(0.5))
-                    .padding(.top, 20)
+                    .foregroundColor(K.iconBackColor)
+                    .padding(.top, 10)
                     .padding(.trailing, 20)
 
                 }
-                Text("Scan")
-                    .foregroundColor(.white)
-                    .font(.system(size: 30, weight: .bold, design: .rounded))
-                    .padding(.bottom, 35)
-                    .offset(x: 0, y: -10)
-            }
             Spacer()
         }
-        
-        
     }
     
     
@@ -109,6 +119,7 @@ struct BarcodeScannerView: View {
             Spacer()
             VStack {
                 captureIcon
+                    .offset(x: 0, y: 7)
                 HStack {
                     Button {
                         vm.sheetType = .cart
@@ -118,7 +129,13 @@ struct BarcodeScannerView: View {
                         cartIcon
                     }
                     Spacer()
-                    cameraIcon
+                    Button {
+                        HapticManager.shared.impact(style: .medium)
+                    } label: {
+                        cameraIcon
+                    }
+
+                    
                     Spacer()
                     Button {
                         vm.sheetType = .profile
@@ -127,6 +144,7 @@ struct BarcodeScannerView: View {
                     } label: {
                         profileIcon
                     }
+                    .padding(.top, 10)
                 }
             }
         }
@@ -137,12 +155,13 @@ struct BarcodeScannerView: View {
     var cartIcon: some View {
         ZStack {
             ZStack {
-                RoundedRectangle(cornerSize: CGSize(width: 10, height: 10))
+                RoundedRectangle(cornerSize: CGSize(width: 13, height: 13))
+                    .frame(width: 45, height: 45)
                 Image(systemName: "cart")
-                    .font(.system(size: 25, weight: .regular, design: .rounded))
+                    .font(.system(size: 20, weight: .regular, design: .default))
                     .foregroundColor(.white)
                     .padding(.bottom, 5)
-                    .offset(x: -2, y: 2)
+                    .offset(x: -1, y: 2)
             }
                 
             ZStack {
@@ -152,22 +171,21 @@ struct BarcodeScannerView: View {
                     
                 Text("\(newItems)")
                     .foregroundColor(.white)
-                    .font(.system(size: 18, weight: .heavy, design: .rounded))
+                    .font(.system(size: 14, weight: .heavy, design: .rounded))
             }
             .offset(x: 22, y: -23)
         }
         .bold()
         .frame(width: 50, height: 50)
-        .foregroundColor(.black.opacity(0.5))
+        .foregroundColor(K.iconBackColor)
         .padding(.leading, 20)
     }
     
     
     var profileIcon: some View {
-        cornerIcon(imageName: "person")
-            .bold()
+        cornerIcon(imageName: "person.fill")
             .frame(width: 50, height: 50)
-            .foregroundColor(.black.opacity(0.5))
+            .foregroundColor(K.iconBackColor)
             .padding(.trailing, 20)
     }
     
@@ -266,9 +284,14 @@ extension BarcodeScannerView {
         
         HStack {
             Circle()
-                .stroke(lineWidth: 8)
-                .fill(color)
-                .frame(width: 80, height: 80)
+                .stroke(lineWidth: 4)
+                .fill(.white)
+                .frame(width: 72, height: 72)
+                .overlay {
+                    Circle()
+                        .frame(width: 61, height: 61)
+                        .foregroundColor(.white)
+                }
         }
     }
     
@@ -280,17 +303,30 @@ extension BarcodeScannerView {
             startPoint: .leading, endPoint: .trailing)
         
         ZStack {
-            RoundedRectangle(cornerSize: CGSize(width: 10, height: 10))
-                .fill(color.opacity(0.8))
-                .frame(width: 200, height: 40)
-                .overlay {
-                    HStack {
-                        Image(systemName: "wand.and.stars.inverse")
-                        Text("Capture everything!")
-                    }
-                    .foregroundColor(.white)
-                    .bold()
+            VStack {
+                RoundedRectangle(cornerSize: CGSize(width: 10, height: 10))
+                    .fill(K.iconBackColor)
+                    .frame(width: 160, height: 35)
+                Rectangle()
+                    .trim(from: 0.5, to: 1)
+                    .fill(K.iconBackColor)
+                    .rotationEffect(.degrees(-45))
+                    .frame(width: 12, height: 12)
+                    .scaleEffect(x: 2, y: 1, anchor: .center)
+                    .offset(x: 0, y: -14)
+            }
+            .overlay {
+                HStack {
+                    Image(systemName: "camera.shutter.button")
+                        .offset(x: 3, y: -2)
+                        .font(.system(size: 15, weight: .regular, design: .default))
+                    Text("Take photo of a cart")
+                        .font(.system(size: 12, weight: .regular, design: .default))
                 }
+                .foregroundColor(.white)
+                .bold()
+                .offset(x: 0, y: -13)
+            }
         }
     }
     
@@ -303,26 +339,29 @@ extension BarcodeScannerView {
             startPoint: .leading, endPoint: .trailing)
         
         ZStack {
-            RoundedRectangle(cornerSize: CGSize(width: 10, height: 10))
+            RoundedRectangle(cornerSize: CGSize(width: 11, height: 11))
                 .fill(color.opacity(0.8))
-                .frame(width: 100, height: 40)
+                .frame(width: 95, height: 35)
             HStack {
                 Image(systemName: "crown")
+                    .offset(x: 0, y: -2)
                 Text("PRO")
             }
-            .font(.system(size: 18, weight: .bold, design: .serif))
+            .font(.system(size: 18, weight: .bold, design: .default))
             .foregroundColor(.white)
             .bold()
+            .offset(x: -2, y: 1)
         }
     }
     
     
     @ViewBuilder
-    fileprivate func cornerIcon(imageName: String) -> ZStack<TupleView<(RoundedRectangle, some View)>> {
+    fileprivate func cornerIcon(imageName: String) -> some View {
         ZStack {
-            RoundedRectangle(cornerSize: CGSize(width: 10, height: 10))
+            RoundedRectangle(cornerSize: CGSize(width: 13, height: 13))
+                .frame(width: 45, height: 45)
             Image(systemName: imageName)
-                .font(.system(size: 25, weight: .regular, design: .rounded))
+                .font(.system(size: 20, weight: .regular, design: .rounded))
                 .foregroundColor(.white)
                 .padding(.bottom, 5)
         }

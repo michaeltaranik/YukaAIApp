@@ -7,14 +7,14 @@
 
 import SwiftUI
 
-struct CartView: View {
+struct HistoryView: View {
     
     @StateObject private var vm = CartViewModel()
     
     
     var body: some View {
         NavigationStack {
-            CartListView(vm: vm)
+            HistoryListView(vm: vm)
         }
         .foregroundColor(.accentColor)
         .onAppear {
@@ -28,10 +28,10 @@ struct CartView: View {
 
 
 #Preview {
-    CartView()
+    HistoryView()
 }
 
-struct CartListView: View {
+struct HistoryListView: View {
     
     @StateObject var vm: CartViewModel
     @State private var searchText: String = ""
@@ -65,11 +65,11 @@ struct CartListView: View {
                 }
             }
             .searchable(text: $searchText)
-            .navigationTitle("Home")
+            .navigationTitle("History")
             .toolbar {
-                EditButton()
+                
             }
-            addButton
+//            addButton
                 
         }
 
@@ -91,9 +91,6 @@ struct CartListView: View {
                     }
                 }
             }
-            .onDelete { indexSet in
-                vm.deleteFromCart(at: indexSet)
-            }
         }
     }
     
@@ -114,7 +111,7 @@ struct CartListView: View {
 
 
 
-extension CartListView {
+extension HistoryListView {
     
     var searchResults: [ProductItem] {
         if searchText.isEmpty {

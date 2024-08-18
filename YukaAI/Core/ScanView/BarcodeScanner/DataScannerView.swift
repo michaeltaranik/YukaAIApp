@@ -20,7 +20,7 @@ struct DataScannerView: UIViewControllerRepresentable {
             recognizedDataTypes: [recognizedDataType],
             qualityLevel: .accurate,
             recognizesMultipleItems: false,
-            isGuidanceEnabled: true,
+            isGuidanceEnabled: false,
             isHighlightingEnabled: true
         )
         return vc
