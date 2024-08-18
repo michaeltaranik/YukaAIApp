@@ -46,6 +46,13 @@ struct BarcodeScannerView: View {
                 BarcodeScannerView()
             }
         }
+        .onAppear {
+            DispatchQueue.main.asyncAfter(deadline: .now() + 0.5, execute: {
+                withAnimation{
+                    self.vm.shouldShowHint.toggle()
+                }
+            })
+        }
     }
     
     
@@ -118,8 +125,17 @@ struct BarcodeScannerView: View {
         VStack {
             Spacer()
             VStack {
-                captureIcon
-                    .offset(x: 0, y: 7)
+                if vm.shouldShowHint {
+                    captureIcon
+                        .offset(x: 0, y: 7)
+                        .onAppear {
+                            DispatchQueue.main.asyncAfter(deadline: .now() + 3, execute: {
+                                withAnimation{
+                                    self.vm.shouldShowHint.toggle()
+                                }
+                            })
+                        }
+                }
                 HStack {
                     Button {
                         vm.sheetType = .cart
@@ -278,10 +294,9 @@ extension BarcodeScannerView {
     @ViewBuilder
     var cameraIcon: some View {
         
-        let color = LinearGradient(
-            colors: [.greenGradient1, .greenGradient2],
-            startPoint: .leading, endPoint: .trailing)
-        
+//        let color = LinearGradient(
+//            colors: [.greenGradient1, .greenGradient2],
+//            startPoint: .leading, endPoint: .trailing)
         HStack {
             Circle()
                 .stroke(lineWidth: 4)
@@ -298,9 +313,9 @@ extension BarcodeScannerView {
     @ViewBuilder
     var captureIcon: some View {
         
-        let color = LinearGradient(
-            colors: [.greenGradient1, .greenGradient2],
-            startPoint: .leading, endPoint: .trailing)
+//        let color = LinearGradient(
+//            colors: [.greenGradient1, .greenGradient2],
+//            startPoint: .leading, endPoint: .trailing)
         
         ZStack {
             VStack {
@@ -344,8 +359,10 @@ extension BarcodeScannerView {
                 .frame(width: 95, height: 35)
             HStack {
                 Image(systemName: "crown")
+                    .shadow(color: .black.opacity(0.3), radius: 4)
                     .offset(x: 0, y: -2)
                 Text("PRO")
+                    .shadow(color: .black.opacity(0.3), radius: 4)
             }
             .font(.system(size: 18, weight: .bold, design: .default))
             .foregroundColor(.white)

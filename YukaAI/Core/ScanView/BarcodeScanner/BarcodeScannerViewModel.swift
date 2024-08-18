@@ -46,6 +46,8 @@ final class BarcodeScannerViewModel: ObservableObject {
     
     @Published var shouldShowSheet: Bool = false
     @Published var sheetType: SheetType = .main
+    @Published var shouldShowHint: Bool = false
+
     
 //    @Published var showProfile: Bool = false
 //    @Published var showCart: Bool = false
