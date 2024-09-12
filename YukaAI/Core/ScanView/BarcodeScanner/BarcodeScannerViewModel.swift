@@ -49,10 +49,6 @@ final class BarcodeScannerViewModel: ObservableObject {
     @Published var shouldShowHint: Bool = false
 
     
-//    @Published var showProfile: Bool = false
-//    @Published var showCart: Bool = false
-//    @Published var showHistory: Bool = false
-//    @Published var showPaywall: Bool = false
 
 
 

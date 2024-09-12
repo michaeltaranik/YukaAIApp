@@ -7,18 +7,9 @@
 
 import Foundation
 
-
-
-
-
-
-
 struct GlobalResults: Codable {
     let product: ProductInfo
 }
-
-
-
 
 struct ProductInfo: Codable {
     let id: String?
@@ -241,11 +232,4 @@ struct NutriscoreData: Codable {
         case sugarsValue = "sugars_value"
     }
 }
-
-
-
-
-
-
-
 

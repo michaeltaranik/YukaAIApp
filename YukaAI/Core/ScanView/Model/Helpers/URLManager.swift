@@ -7,10 +7,8 @@
 
 import Foundation
 
-
-
 struct URLManager {
-    static let shared = URLManager(); private init() { }
+    static let shared = URLManager(); private init() {}
     
     private let tunnel = "https://"
     
@@ -20,11 +18,6 @@ struct URLManager {
         return url
     }
 }
-
-
-
-
-
 
 enum APIEndpoint {
     case imageAnalyzer

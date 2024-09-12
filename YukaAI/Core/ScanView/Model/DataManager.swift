@@ -8,28 +8,19 @@
 import Foundation
 import SwiftUI
 
-
-
 class DataManager {
-    
     static let shared = DataManager(); private init() { }
     
-    
-    
     func fetchProductInfo<T: Codable> (from barcode: String) async throws -> T {
-        
         //creating URL
         let url = URLManager.shared.createURL(for: .global, with: .productInfo(barcode: barcode))
         guard let url = url else { throw UserError.invalidURL }
-        
-        
         // getting data, response
         let (data, response) = try await URLSession.shared.data(from: url)
         guard let response = response as? HTTPURLResponse,
               response.statusCode == 200 else {
             throw UserError.invalidResponse
         }
-        
         // trying to decode
         do {
             let decoder = JSONDecoder()
@@ -39,18 +30,11 @@ class DataManager {
             print(error.localizedDescription)
             throw UserError.invalidData
         }
-        
     }
     
-    
-    
     func postFeedback(image: ImageModel) {
-        
-        
         let url = URLManager.shared.createURL(for: .local, with: .imageAnalyzer)
         guard let url = url else { return }
-        
-        
         var request = URLRequest(url: url)
         request.httpMethod = "POST"
 #warning("rectify")

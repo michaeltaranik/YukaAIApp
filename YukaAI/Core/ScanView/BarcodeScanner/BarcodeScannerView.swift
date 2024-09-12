@@ -12,6 +12,8 @@ import Combine
 struct BarcodeScannerView: View {
     
     @StateObject private var vm = BarcodeScannerViewModel()
+    @StateObject private var cartVM = CartViewModel()
+    
     private let gradientBlackColors = [
         .black.opacity(0.78),
         .black.opacity(0.62),
@@ -21,7 +23,6 @@ struct BarcodeScannerView: View {
         Color.clear
     ]
     
-    let newItems = 3
     
     
     var body: some View {
@@ -185,7 +186,7 @@ struct BarcodeScannerView: View {
                     .frame(width: 25, height: 25)
                     .foregroundColor(.greenGradient2)
                     
-                Text("\(newItems)")
+                Text("\(cartVM.products.count)")
                     .foregroundColor(.white)
                     .font(.system(size: 14, weight: .heavy, design: .rounded))
             }
@@ -269,14 +270,12 @@ struct BarcodeScannerView: View {
         @Binding var showBottomContainer: Bool
         let lastItem = vm.recognizedItems.count - 1
         let item = vm.recognizedItems[lastItem]
-        
         return VStack {
             switch item {
             case .barcode(let barcode):
                 ScanView(barcode: barcode.payloadStringValue ?? "")
             case .text(let text):
                 Text(text.transcript)
-                
             @unknown default:
                 Text("Unknown")
             }

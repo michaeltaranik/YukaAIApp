@@ -8,20 +8,19 @@
 import Foundation
 import SwiftUI
 
-
 extension ScanView {
     @MainActor
     class ViewModel: ObservableObject {
-        
         private var results: GlobalResults?
         private var userError: UserError?
-        
         
         @Published var productItem: ProductItem?
         @Published var isLoading = false
         @Published var shouldShowAlert = false
         
-                
+        private func createProductItem(results: GlobalResults) {
+            self.productItem = ProductItem(results: results)
+        }
         
         func getInfo(barcode: String) async {
             isLoading = true
@@ -40,18 +39,5 @@ extension ScanView {
                 HapticManager.shared.notification(type: .error)
             }
         }
-        
-        private func createProductItem(results: GlobalResults) {
-            self.productItem = ProductItem(results: results)
-        }
-
-        
     }
-    
-    
-    
-    
-    
-    
-    
 }

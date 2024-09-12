@@ -9,14 +9,9 @@ import SwiftUI
 
 
 struct ScanView: View {
-    
     @StateObject private var vm = ViewModel()
     @StateObject private var cartVM = CartViewModel()
-    
     var barcode: String
-    
-    
-    
     
     var body: some View {
         ZStack {
@@ -138,7 +133,6 @@ struct ScanView: View {
     @ViewBuilder
     var additives: some View {
         if let item = vm.productItem {
-            
             if item.additivesTags.count > 0 {
                 let tags = item.additivesTags.map { string in
                     let trimmed = String(string.dropFirst(3))
