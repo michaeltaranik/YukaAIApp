@@ -29,6 +29,8 @@
 		E42FB57C2C6A14400092C09F /* StringExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = E42FB57B2C6A14400092C09F /* StringExt.swift */; };
 		E42FB57E2C6B98170092C09F /* SubmitImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E42FB57D2C6B98170092C09F /* SubmitImageView.swift */; };
 		E42FB5812C6B986E0092C09F /* ImageModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E42FB5802C6B986E0092C09F /* ImageModel.swift */; };
+		E44101432C969D7B00326C3A /* SubsciptionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E44101422C969D7B00326C3A /* SubsciptionView.swift */; };
+		E44101472C96A0C000326C3A /* TitleLabelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E44101462C96A0C000326C3A /* TitleLabelView.swift */; };
 		E441FBF62C6366CE0081317B /* FileManagerExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = E441FBF52C6366CE0081317B /* FileManagerExt.swift */; };
 		E441FBF82C636B930081317B /* CartViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E441FBF72C636B930081317B /* CartViewModel.swift */; };
 		E441FBFA2C639FAD0081317B /* BindingExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = E441FBF92C639FAD0081317B /* BindingExt.swift */; };
@@ -142,6 +144,8 @@
 		E42FB57B2C6A14400092C09F /* StringExt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringExt.swift; sourceTree = "<group>"; };
 		E42FB57D2C6B98170092C09F /* SubmitImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubmitImageView.swift; sourceTree = "<group>"; };
 		E42FB5802C6B986E0092C09F /* ImageModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageModel.swift; sourceTree = "<group>"; };
+		E44101422C969D7B00326C3A /* SubsciptionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubsciptionView.swift; sourceTree = "<group>"; };
+		E44101462C96A0C000326C3A /* TitleLabelView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitleLabelView.swift; sourceTree = "<group>"; };
 		E441FBF52C6366CE0081317B /* FileManagerExt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileManagerExt.swift; sourceTree = "<group>"; };
 		E441FBF72C636B930081317B /* CartViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartViewModel.swift; sourceTree = "<group>"; };
 		E441FBF92C639FAD0081317B /* BindingExt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BindingExt.swift; sourceTree = "<group>"; };
@@ -258,12 +262,9 @@
 		E40A4EEF2C513D5500167FBD /* OnBoarding */ = {
 			isa = PBXGroup;
 			children = (
-				E40A4EF62C515CCC00167FBD /* WelcomeView.swift */,
-				E40A4EF02C513D6D00167FBD /* IntroView.swift */,
-				E40A4EF22C51462900167FBD /* LogInView.swift */,
-				E40A4EFE2C5293EC00167FBD /* SignInView.swift */,
-				E40A4EF42C51500400167FBD /* CreateUserView.swift */,
-				E40A4F002C52A3F700167FBD /* TestView.swift */,
+				E44101422C969D7B00326C3A /* SubsciptionView.swift */,
+				E44101462C96A0C000326C3A /* TitleLabelView.swift */,
+				E44101412C969D5600326C3A /* FirstVoyage */,
 			);
 			path = OnBoarding;
 			sourceTree = "<group>";
@@ -292,10 +293,22 @@
 			path = ProductRecognizer;
 			sourceTree = "<group>";
 		};
+		E44101412C969D5600326C3A /* FirstVoyage */ = {
+			isa = PBXGroup;
+			children = (
+				E40A4EF62C515CCC00167FBD /* WelcomeView.swift */,
+				E40A4EF02C513D6D00167FBD /* IntroView.swift */,
+				E40A4EF22C51462900167FBD /* LogInView.swift */,
+				E40A4EFE2C5293EC00167FBD /* SignInView.swift */,
+				E40A4EF42C51500400167FBD /* CreateUserView.swift */,
+				E40A4F002C52A3F700167FBD /* TestView.swift */,
+			);
+			path = FirstVoyage;
+			sourceTree = "<group>";
+		};
 		E441FBEE2C6361A10081317B /* Common */ = {
 			isa = PBXGroup;
 			children = (
-				E40A4EEF2C513D5500167FBD /* OnBoarding */,
 				E4AA7C2F2C592B19000C83D0 /* Backgrounds */,
 				E4AFD9572C6767C100DB57D4 /* Charts */,
 				E4B24EFA2C6CB3A9009CF592 /* Extensions */,
@@ -415,6 +428,7 @@
 				E45956622C4E139F000B5058 /* YukaAI.entitlements */,
 				E4A955882C3C5980009D7F11 /* YukaAIApp.swift */,
 				E4A9558A2C3C5980009D7F11 /* HomeView.swift */,
+				E40A4EEF2C513D5500167FBD /* OnBoarding */,
 				E441FBEE2C6361A10081317B /* Common */,
 				E441FBFB2C63A4AE0081317B /* Core */,
 				E4AA7C2A2C58CCD7000C83D0 /* ToBeRemoved */,
@@ -763,6 +777,7 @@
 				E425DDBE2C6D0CE400A8AC94 /* AssistantToolbar.swift in Sources */,
 				E4AA7C2E2C5929F5000C83D0 /* LightGreenGradient.swift in Sources */,
 				E40A4EE42C4FD69100167FBD /* CameraManager.swift in Sources */,
+				E44101472C96A0C000326C3A /* TitleLabelView.swift in Sources */,
 				E4B24EF72C6C9A63009CF592 /* URLManager.swift in Sources */,
 				E40A4EF52C51500400167FBD /* CreateUserView.swift in Sources */,
 				E40A4EF12C513D6D00167FBD /* IntroView.swift in Sources */,
@@ -780,6 +795,7 @@
 				E4AFD9582C6767C100DB57D4 /* PieChartCell.swift in Sources */,
 				E4AFD9592C6767C100DB57D4 /* BarChartView.swift in Sources */,
 				E4AFD95A2C6767C100DB57D4 /* LineChartView.swift in Sources */,
+				E44101432C969D7B00326C3A /* SubsciptionView.swift in Sources */,
 				E4AFD95B2C6767C100DB57D4 /* MagnifierRect.swift in Sources */,
 				E4AFD95C2C6767C100DB57D4 /* MultiLineChartView.swift in Sources */,
 				E4AFD95D2C6767C100DB57D4 /* BarChartRow.swift in Sources */,

@@ -10,8 +10,6 @@ import SwiftUI
 struct StatsView: View {
     static let colorback = Color.lightGreen
     
-    
-    
     let totalScans = 69
     let weeklyScans: [Double] = [1,3,4,3,2,4,5]
     let colors: [Color] = [colorback, colorback,  colorback]
