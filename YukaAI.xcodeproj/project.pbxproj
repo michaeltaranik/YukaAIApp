@@ -31,6 +31,10 @@
 		E42FB5812C6B986E0092C09F /* ImageModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E42FB5802C6B986E0092C09F /* ImageModel.swift */; };
 		E44101432C969D7B00326C3A /* SubsciptionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E44101422C969D7B00326C3A /* SubsciptionView.swift */; };
 		E44101472C96A0C000326C3A /* TitleLabelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E44101462C96A0C000326C3A /* TitleLabelView.swift */; };
+		E44101492C96A68B00326C3A /* SubscriptionHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E44101482C96A68B00326C3A /* SubscriptionHeaderView.swift */; };
+		E441014B2C96A6CC00326C3A /* SubscriptionFeatureListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E441014A2C96A6CC00326C3A /* SubscriptionFeatureListView.swift */; };
+		E441014D2C96A72700326C3A /* SubscriptionButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E441014C2C96A72700326C3A /* SubscriptionButtonView.swift */; };
+		E441014F2C96A76C00326C3A /* SubscriptionFooterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E441014E2C96A76C00326C3A /* SubscriptionFooterView.swift */; };
 		E441FBF62C6366CE0081317B /* FileManagerExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = E441FBF52C6366CE0081317B /* FileManagerExt.swift */; };
 		E441FBF82C636B930081317B /* CartViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E441FBF72C636B930081317B /* CartViewModel.swift */; };
 		E441FBFA2C639FAD0081317B /* BindingExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = E441FBF92C639FAD0081317B /* BindingExt.swift */; };
@@ -146,6 +150,10 @@
 		E42FB5802C6B986E0092C09F /* ImageModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageModel.swift; sourceTree = "<group>"; };
 		E44101422C969D7B00326C3A /* SubsciptionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubsciptionView.swift; sourceTree = "<group>"; };
 		E44101462C96A0C000326C3A /* TitleLabelView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitleLabelView.swift; sourceTree = "<group>"; };
+		E44101482C96A68B00326C3A /* SubscriptionHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubscriptionHeaderView.swift; sourceTree = "<group>"; };
+		E441014A2C96A6CC00326C3A /* SubscriptionFeatureListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubscriptionFeatureListView.swift; sourceTree = "<group>"; };
+		E441014C2C96A72700326C3A /* SubscriptionButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubscriptionButtonView.swift; sourceTree = "<group>"; };
+		E441014E2C96A76C00326C3A /* SubscriptionFooterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubscriptionFooterView.swift; sourceTree = "<group>"; };
 		E441FBF52C6366CE0081317B /* FileManagerExt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileManagerExt.swift; sourceTree = "<group>"; };
 		E441FBF72C636B930081317B /* CartViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartViewModel.swift; sourceTree = "<group>"; };
 		E441FBF92C639FAD0081317B /* BindingExt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BindingExt.swift; sourceTree = "<group>"; };
@@ -262,9 +270,8 @@
 		E40A4EEF2C513D5500167FBD /* OnBoarding */ = {
 			isa = PBXGroup;
 			children = (
-				E44101422C969D7B00326C3A /* SubsciptionView.swift */,
-				E44101462C96A0C000326C3A /* TitleLabelView.swift */,
-				E44101412C969D5600326C3A /* FirstVoyage */,
+				E44101512C96AF1B00326C3A /* SubscriptionView */,
+				E44101412C969D5600326C3A /* FirstVoyageOnboarding */,
 			);
 			path = OnBoarding;
 			sourceTree = "<group>";
@@ -293,7 +300,7 @@
 			path = ProductRecognizer;
 			sourceTree = "<group>";
 		};
-		E44101412C969D5600326C3A /* FirstVoyage */ = {
+		E44101412C969D5600326C3A /* FirstVoyageOnboarding */ = {
 			isa = PBXGroup;
 			children = (
 				E40A4EF62C515CCC00167FBD /* WelcomeView.swift */,
@@ -303,7 +310,33 @@
 				E40A4EF42C51500400167FBD /* CreateUserView.swift */,
 				E40A4F002C52A3F700167FBD /* TestView.swift */,
 			);
-			path = FirstVoyage;
+			path = FirstVoyageOnboarding;
+			sourceTree = "<group>";
+		};
+		E44101502C96AE8200326C3A /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				E45956622C4E139F000B5058 /* YukaAI.entitlements */,
+				E4A955882C3C5980009D7F11 /* YukaAIApp.swift */,
+				E4A9558A2C3C5980009D7F11 /* HomeView.swift */,
+				E4A9558C2C3C5982009D7F11 /* Assets.xcassets */,
+				E40A4EEE2C5023DC00167FBD /* Info.plist */,
+				E4AA7C442C5CCDDF000C83D0 /* GoogleService-Info.plist */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		E44101512C96AF1B00326C3A /* SubscriptionView */ = {
+			isa = PBXGroup;
+			children = (
+				E44101422C969D7B00326C3A /* SubsciptionView.swift */,
+				E44101482C96A68B00326C3A /* SubscriptionHeaderView.swift */,
+				E441014A2C96A6CC00326C3A /* SubscriptionFeatureListView.swift */,
+				E441014C2C96A72700326C3A /* SubscriptionButtonView.swift */,
+				E441014E2C96A76C00326C3A /* SubscriptionFooterView.swift */,
+				E44101462C96A0C000326C3A /* TitleLabelView.swift */,
+			);
+			path = SubscriptionView;
 			sourceTree = "<group>";
 		};
 		E441FBEE2C6361A10081317B /* Common */ = {
@@ -425,16 +458,11 @@
 		E4A955872C3C5980009D7F11 /* YukaAI */ = {
 			isa = PBXGroup;
 			children = (
-				E45956622C4E139F000B5058 /* YukaAI.entitlements */,
-				E4A955882C3C5980009D7F11 /* YukaAIApp.swift */,
-				E4A9558A2C3C5980009D7F11 /* HomeView.swift */,
+				E44101502C96AE8200326C3A /* Resources */,
 				E40A4EEF2C513D5500167FBD /* OnBoarding */,
 				E441FBEE2C6361A10081317B /* Common */,
 				E441FBFB2C63A4AE0081317B /* Core */,
 				E4AA7C2A2C58CCD7000C83D0 /* ToBeRemoved */,
-				E4A9558C2C3C5982009D7F11 /* Assets.xcassets */,
-				E40A4EEE2C5023DC00167FBD /* Info.plist */,
-				E4AA7C442C5CCDDF000C83D0 /* GoogleService-Info.plist */,
 				E4A9558E2C3C5982009D7F11 /* Preview Content */,
 			);
 			path = YukaAI;
@@ -751,6 +779,7 @@
 				E4AFD90C2C65F9AB00DB57D4 /* MyDefaultPressableButton.swift in Sources */,
 				E4B24EFF2C6CB852009CF592 /* AuthViewModel.swift in Sources */,
 				E4AFD9152C663EB200DB57D4 /* TestProfile.swift in Sources */,
+				E441014D2C96A72700326C3A /* SubscriptionButtonView.swift in Sources */,
 				E459566F2C4E76A8000B5058 /* HistoryView.swift in Sources */,
 				E4AA7C412C5A22E6000C83D0 /* Constants.swift in Sources */,
 				E4B24EF32C6C92E5009CF592 /* LocalResults.swift in Sources */,
@@ -772,6 +801,7 @@
 				E459565D2C4D6191000B5058 /* SecondView.swift in Sources */,
 				E459566A2C4E1949000B5058 /* ProfileView.swift in Sources */,
 				E45956712C4FB3C1000B5058 /* ConnectionView.swift in Sources */,
+				E44101492C96A68B00326C3A /* SubscriptionHeaderView.swift in Sources */,
 				E45956612C4E1355000B5058 /* HealthManager.swift in Sources */,
 				E40A4F0C2C541BFC00167FBD /* AccountView.swift in Sources */,
 				E425DDBE2C6D0CE400A8AC94 /* AssistantToolbar.swift in Sources */,
@@ -793,6 +823,7 @@
 				E4AFD9062C64DCF900DB57D4 /* HelperBottomSectionView.swift in Sources */,
 				E4AA7C332C592B89000C83D0 /* LightYellowGradient.swift in Sources */,
 				E4AFD9582C6767C100DB57D4 /* PieChartCell.swift in Sources */,
+				E441014F2C96A76C00326C3A /* SubscriptionFooterView.swift in Sources */,
 				E4AFD9592C6767C100DB57D4 /* BarChartView.swift in Sources */,
 				E4AFD95A2C6767C100DB57D4 /* LineChartView.swift in Sources */,
 				E44101432C969D7B00326C3A /* SubsciptionView.swift in Sources */,
@@ -801,6 +832,7 @@
 				E4AFD95D2C6767C100DB57D4 /* BarChartRow.swift in Sources */,
 				E4AFD95E2C6767C100DB57D4 /* LineView.swift in Sources */,
 				E4AFD95F2C6767C100DB57D4 /* Helpers.swift in Sources */,
+				E441014B2C96A6CC00326C3A /* SubscriptionFeatureListView.swift in Sources */,
 				E4AFD9602C6767C100DB57D4 /* Legend.swift in Sources */,
 				E4AFD9612C6767C100DB57D4 /* Line.swift in Sources */,
 				E40135302C6DDF8800280207 /* AddButtonView.swift in Sources */,
@@ -978,7 +1010,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = NO;
-				CODE_SIGN_ENTITLEMENTS = YukaAI/YukaAI.entitlements;
+				CODE_SIGN_ENTITLEMENTS = YukaAI/Resources/YukaAI.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
@@ -987,7 +1019,7 @@
 				DEVELOPMENT_TEAM = R9985Q9W5Q;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = YukaAI/Info.plist;
+				INFOPLIST_FILE = YukaAI/Resources/Info.plist;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.food-and-drink";
 				INFOPLIST_KEY_NSCameraUsageDescription = "We need to scan QR codes";
 				INFOPLIST_KEY_NSHealthShareUsageDescription = "To read the health data and show it in the application.";
@@ -1016,7 +1048,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = NO;
-				CODE_SIGN_ENTITLEMENTS = YukaAI/YukaAI.entitlements;
+				CODE_SIGN_ENTITLEMENTS = YukaAI/Resources/YukaAI.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
@@ -1025,7 +1057,7 @@
 				DEVELOPMENT_TEAM = R9985Q9W5Q;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = YukaAI/Info.plist;
+				INFOPLIST_FILE = YukaAI/Resources/Info.plist;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.food-and-drink";
 				INFOPLIST_KEY_NSCameraUsageDescription = "We need to scan QR codes";
 				INFOPLIST_KEY_NSHealthShareUsageDescription = "To read the health data and show it in the application.";

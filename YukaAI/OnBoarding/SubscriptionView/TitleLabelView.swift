@@ -35,5 +35,9 @@ struct TitleLabelView: View {
 }
 
 #Preview {
-    TitleLabelView()
+    ZStack {
+        Color.greenGradient2.ignoresSafeArea()
+        TitleLabelView()
+    }
+        
 }
