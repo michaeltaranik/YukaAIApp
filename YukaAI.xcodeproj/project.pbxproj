@@ -35,6 +35,7 @@
 		E441014B2C96A6CC00326C3A /* SubscriptionFeatureListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E441014A2C96A6CC00326C3A /* SubscriptionFeatureListView.swift */; };
 		E441014D2C96A72700326C3A /* SubscriptionButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E441014C2C96A72700326C3A /* SubscriptionButtonView.swift */; };
 		E441014F2C96A76C00326C3A /* SubscriptionFooterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E441014E2C96A76C00326C3A /* SubscriptionFooterView.swift */; };
+		E44101552C99A6BC00326C3A /* AnimatedBackgroundView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E44101542C99A6BC00326C3A /* AnimatedBackgroundView.swift */; };
 		E441FBF62C6366CE0081317B /* FileManagerExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = E441FBF52C6366CE0081317B /* FileManagerExt.swift */; };
 		E441FBF82C636B930081317B /* CartViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E441FBF72C636B930081317B /* CartViewModel.swift */; };
 		E441FBFA2C639FAD0081317B /* BindingExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = E441FBF92C639FAD0081317B /* BindingExt.swift */; };
@@ -154,6 +155,7 @@
 		E441014A2C96A6CC00326C3A /* SubscriptionFeatureListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubscriptionFeatureListView.swift; sourceTree = "<group>"; };
 		E441014C2C96A72700326C3A /* SubscriptionButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubscriptionButtonView.swift; sourceTree = "<group>"; };
 		E441014E2C96A76C00326C3A /* SubscriptionFooterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubscriptionFooterView.swift; sourceTree = "<group>"; };
+		E44101542C99A6BC00326C3A /* AnimatedBackgroundView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimatedBackgroundView.swift; sourceTree = "<group>"; };
 		E441FBF52C6366CE0081317B /* FileManagerExt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileManagerExt.swift; sourceTree = "<group>"; };
 		E441FBF72C636B930081317B /* CartViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartViewModel.swift; sourceTree = "<group>"; };
 		E441FBF92C639FAD0081317B /* BindingExt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BindingExt.swift; sourceTree = "<group>"; };
@@ -330,6 +332,7 @@
 			isa = PBXGroup;
 			children = (
 				E44101422C969D7B00326C3A /* SubsciptionView.swift */,
+				E44101542C99A6BC00326C3A /* AnimatedBackgroundView.swift */,
 				E44101482C96A68B00326C3A /* SubscriptionHeaderView.swift */,
 				E441014A2C96A6CC00326C3A /* SubscriptionFeatureListView.swift */,
 				E441014C2C96A72700326C3A /* SubscriptionButtonView.swift */,
@@ -769,6 +772,7 @@
 				E45956462C4BD289000B5058 /* FirstView.swift in Sources */,
 				E4AA7C3F2C5A19A6000C83D0 /* AssistantView.swift in Sources */,
 				E441FBF82C636B930081317B /* CartViewModel.swift in Sources */,
+				E44101552C99A6BC00326C3A /* AnimatedBackgroundView.swift in Sources */,
 				E42FB5812C6B986E0092C09F /* ImageModel.swift in Sources */,
 				E40A4EF72C515CCC00167FBD /* WelcomeView.swift in Sources */,
 				E4AFD9042C64B3A600DB57D4 /* HapticManager.swift in Sources */,

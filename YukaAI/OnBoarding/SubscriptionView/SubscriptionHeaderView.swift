@@ -11,6 +11,7 @@ struct SubscriptionHeaderView: View {
     let title: String
     let description: String
     
+
     var firstColor: Color = Color.init(hexString: "82A078").opacity(0.75)
     var secondColor: Color = Color.init(hexString: "70C5F5")
 
@@ -23,10 +24,15 @@ struct SubscriptionHeaderView: View {
 //                .background(.ultraThinMaterial)
                 .background(
                     ZStack {
-                        LinearGradient(colors: [.greenish, .green],
+                        Image("headerSub")
+                            .resizable()
+                            .scaledToFill()
+                            .blendMode(.overlay)
+                            .offset(.init(width: 0, height: 40))
+                        LinearGradient(colors: [firstColor, secondColor] /*[.greenish, .green]*/,
                                        startPoint: .topLeading,
                                        endPoint: .bottomTrailing)
-                        Color.black.opacity(0.4)
+                        .opacity(0.12)
                     }
                 )
                 .cornerRadius(20)

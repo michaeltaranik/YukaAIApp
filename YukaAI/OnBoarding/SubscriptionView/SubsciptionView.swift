@@ -20,6 +20,7 @@ struct SubscriptionView: View {
     
     private let gradientDarkColors: [Color] = [.mossGreen, .cloverGreen]
     private let gradientLightColors: [Color] = [.mossGreen, .seaFoamGreen]
+    private let mossGreenColors: [Color] = [.mossGreenLighter, .mossGreenLight]
 
     var body: some View {
         ZStack {
@@ -39,26 +40,29 @@ struct SubscriptionView: View {
             }
             .padding(10)
             .background(
-                Color.init(hexString: "02B46C")
-                //            LinearGradient(
-                //                gradient: Gradient(colors: gradientLightColors),
-                //                startPoint: .topLeading,
-                //                endPoint: .bottomTrailing
-                //            )
+                ZStack {
+                    Color.init(hexString: "02B46C")
+                    RadialGradient(
+                        colors: [.white.opacity(0.07), .white.opacity(0.0)],
+                        center: .top,
+                        startRadius: 0,
+                        endRadius: 200)
+                }
             )
             .cornerRadius(20)
             .padding(1)
         }
         .background(.seaFoamGreen)
         .cornerRadius(20)
-        .padding(.horizontal, 40)
+        .padding(.horizontal)
     }
 }
 
 // Preview
 #Preview {
     ZStack {
-        Color.greenGradient2.ignoresSafeArea()
+//        Color.greenGradient2.ignoresSafeArea()
+        Color.black.ignoresSafeArea()
         SubscriptionView(
             title: "Unlock the Assistant",
             description: "Get the full functionality",
