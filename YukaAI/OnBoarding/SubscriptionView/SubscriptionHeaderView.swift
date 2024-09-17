@@ -16,7 +16,7 @@ struct SubscriptionHeaderView: View {
     var secondColor: Color = Color.init(hexString: "70C5F5")
 
     var body: some View {
-        VStack {
+        VStack(alignment: .center) {
             Text(title)
                 .font(.system(size: 24, weight: .bold))
                 .foregroundColor(.white)
@@ -40,6 +40,7 @@ struct SubscriptionHeaderView: View {
             Text(description)
                 .font(.system(size: 16, weight: .regular))
                 .foregroundColor(Color.white.opacity(0.7))
+                .multilineTextAlignment(.center)
         }
     }
 }

@@ -111,7 +111,7 @@ struct BarcodeScannerView: View {
                         cornerIcon(imageName: "list.bullet.clipboard")
                     }
                     .frame(width: 50, height: 50)
-                    .foregroundColor(K.iconBackColor)
+                    .foregroundStyle(K.iconBackColor)
                     .padding(.top, 10)
                     .padding(.trailing, 20)
 
@@ -194,7 +194,7 @@ struct BarcodeScannerView: View {
         }
         .bold()
         .frame(width: 50, height: 50)
-        .foregroundColor(K.iconBackColor)
+        .foregroundStyle(K.iconBackColor)
         .padding(.leading, 20)
     }
     
@@ -202,7 +202,7 @@ struct BarcodeScannerView: View {
     var profileIcon: some View {
         cornerIcon(imageName: "person.fill")
             .frame(width: 50, height: 50)
-            .foregroundColor(K.iconBackColor)
+            .foregroundStyle(K.iconBackColor)
             .padding(.trailing, 20)
     }
     
@@ -287,9 +287,6 @@ struct BarcodeScannerView: View {
 
 
 extension BarcodeScannerView {
-    
-    
-    
     @ViewBuilder
     var cameraIcon: some View {
         
@@ -311,11 +308,9 @@ extension BarcodeScannerView {
     
     @ViewBuilder
     var captureIcon: some View {
-        
 //        let color = LinearGradient(
 //            colors: [.greenGradient1, .greenGradient2],
 //            startPoint: .leading, endPoint: .trailing)
-        
         ZStack {
             VStack {
                 RoundedRectangle(cornerSize: CGSize(width: 10, height: 10))
@@ -376,6 +371,7 @@ extension BarcodeScannerView {
         ZStack {
             RoundedRectangle(cornerSize: CGSize(width: 13, height: 13))
                 .frame(width: 45, height: 45)
+            
             Image(systemName: imageName)
                 .font(.system(size: 20, weight: .regular, design: .rounded))
                 .foregroundColor(.white)
