@@ -8,17 +8,22 @@
 import SwiftUI
 
 struct OnboardingView: View {
+    @State private var selectedTab: Int = 0
     
     var body: some View {
         ZStack {
-            OnboardingTabView()
+            Color.mossGreen.ignoresSafeArea()
+            OnboardingTabView(selectedTab: $selectedTab)
             VStack {
                 Spacer()
                 OnboardingScreenView(
                     label: "Become Healthy with",
                     title: "Yuca: Ai Scanner",
                     onContinue: {
-
+                        HapticManager.shared.impact(style: .medium)
+                        withAnimation(.smooth) {
+                            selectedTab = (selectedTab + 1) % 3
+                        }
                     },
                     desciprion: "Get started with Yuka Ai")
                 .padding(.bottom, 40)

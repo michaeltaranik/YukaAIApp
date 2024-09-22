@@ -39,6 +39,7 @@
 		E44101572C99D36E00326C3A /* OnboardingScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E44101562C99D36E00326C3A /* OnboardingScreenView.swift */; };
 		E44101592C99E06F00326C3A /* OnboardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E44101582C99E06F00326C3A /* OnboardingView.swift */; };
 		E441015B2C99E88A00326C3A /* OnboardingTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E441015A2C99E88A00326C3A /* OnboardingTabView.swift */; };
+		E44101612C9AF73D00326C3A /* SwiftUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E44101602C9AF73D00326C3A /* SwiftUIView.swift */; };
 		E441FBF62C6366CE0081317B /* FileManagerExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = E441FBF52C6366CE0081317B /* FileManagerExt.swift */; };
 		E441FBF82C636B930081317B /* CartViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E441FBF72C636B930081317B /* CartViewModel.swift */; };
 		E441FBFA2C639FAD0081317B /* BindingExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = E441FBF92C639FAD0081317B /* BindingExt.swift */; };
@@ -70,7 +71,6 @@
 		E4AA7C3F2C5A19A6000C83D0 /* AssistantView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4AA7C3E2C5A19A6000C83D0 /* AssistantView.swift */; };
 		E4AA7C412C5A22E6000C83D0 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4AA7C402C5A22E6000C83D0 /* Constants.swift */; };
 		E4AA7C432C5A9924000C83D0 /* ChatController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4AA7C422C5A9924000C83D0 /* ChatController.swift */; };
-		E4AA7C482C5CCF29000C83D0 /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = E4AA7C472C5CCF29000C83D0 /* FirebaseAnalytics */; };
 		E4AFD8FE2C63DB1300DB57D4 /* UserDefaultsExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4AFD8FD2C63DB1300DB57D4 /* UserDefaultsExt.swift */; };
 		E4AFD9022C63EC1B00DB57D4 /* TimerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4AFD9012C63EC1B00DB57D4 /* TimerView.swift */; };
 		E4AFD9042C64B3A600DB57D4 /* HapticManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4AFD9032C64B3A600DB57D4 /* HapticManager.swift */; };
@@ -107,8 +107,6 @@
 		E4B24EF92C6CA4F6009CF592 /* ResultsProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4B24EF82C6CA4F6009CF592 /* ResultsProtocol.swift */; };
 		E4B24EFD2C6CB403009CF592 /* AuthenticationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4B24EFC2C6CB403009CF592 /* AuthenticationManager.swift */; };
 		E4B24EFF2C6CB852009CF592 /* AuthViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4B24EFE2C6CB852009CF592 /* AuthViewModel.swift */; };
-		E4B24F012C6CB88B009CF592 /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = E4B24F002C6CB88B009CF592 /* FirebaseAuth */; };
-		E4B24F032C6CB88B009CF592 /* FirebaseStorage in Frameworks */ = {isa = PBXBuildFile; productRef = E4B24F022C6CB88B009CF592 /* FirebaseStorage */; };
 		E4B560692C60CED300873D6A /* GeometryEffect.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4B560682C60CED300873D6A /* GeometryEffect.swift */; };
 /* End PBXBuildFile section */
 
@@ -162,6 +160,7 @@
 		E44101562C99D36E00326C3A /* OnboardingScreenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingScreenView.swift; sourceTree = "<group>"; };
 		E44101582C99E06F00326C3A /* OnboardingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingView.swift; sourceTree = "<group>"; };
 		E441015A2C99E88A00326C3A /* OnboardingTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingTabView.swift; sourceTree = "<group>"; };
+		E44101602C9AF73D00326C3A /* SwiftUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftUIView.swift; sourceTree = "<group>"; };
 		E441FBF52C6366CE0081317B /* FileManagerExt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileManagerExt.swift; sourceTree = "<group>"; };
 		E441FBF72C636B930081317B /* CartViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartViewModel.swift; sourceTree = "<group>"; };
 		E441FBF92C639FAD0081317B /* BindingExt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BindingExt.swift; sourceTree = "<group>"; };
@@ -241,9 +240,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E4AA7C482C5CCF29000C83D0 /* FirebaseAnalytics in Frameworks */,
-				E4B24F032C6CB88B009CF592 /* FirebaseStorage in Frameworks */,
-				E4B24F012C6CB88B009CF592 /* FirebaseAuth in Frameworks */,
 				E4AA7C3D2C5A0F5B000C83D0 /* OpenAI in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -281,6 +277,7 @@
 				E44101562C99D36E00326C3A /* OnboardingScreenView.swift */,
 				E44101582C99E06F00326C3A /* OnboardingView.swift */,
 				E441015A2C99E88A00326C3A /* OnboardingTabView.swift */,
+				E44101602C9AF73D00326C3A /* SwiftUIView.swift */,
 				E44101512C96AF1B00326C3A /* SubscriptionView */,
 				E44101412C969D5600326C3A /* FirstVoyageOnboarding */,
 			);
@@ -649,9 +646,6 @@
 			name = YukaAI;
 			packageProductDependencies = (
 				E4AA7C3C2C5A0F5B000C83D0 /* OpenAI */,
-				E4AA7C472C5CCF29000C83D0 /* FirebaseAnalytics */,
-				E4B24F002C6CB88B009CF592 /* FirebaseAuth */,
-				E4B24F022C6CB88B009CF592 /* FirebaseStorage */,
 			);
 			productName = YukaAI;
 			productReference = E4A955852C3C5980009D7F11 /* YukaAI.app */;
@@ -727,7 +721,6 @@
 			mainGroup = E4A9557C2C3C5980009D7F11;
 			packageReferences = (
 				E4AA7C3B2C5A0F5B000C83D0 /* XCRemoteSwiftPackageReference "OpenAI" */,
-				E4AA7C462C5CCF29000C83D0 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
 			);
 			productRefGroup = E4A955862C3C5980009D7F11 /* Products */;
 			projectDirPath = "";
@@ -832,6 +825,7 @@
 				E40A4EFF2C5293EC00167FBD /* SignInView.swift in Sources */,
 				E4AFD9022C63EC1B00DB57D4 /* TimerView.swift in Sources */,
 				E40A4EF32C51462900167FBD /* LogInView.swift in Sources */,
+				E44101612C9AF73D00326C3A /* SwiftUIView.swift in Sources */,
 				E4A955892C3C5980009D7F11 /* YukaAIApp.swift in Sources */,
 				E40A4F052C53C22E00167FBD /* ProductItem.swift in Sources */,
 				E4AFD96D2C68C4BC00DB57D4 /* ProductQuality.swift in Sources */,
@@ -1218,14 +1212,6 @@
 				minimumVersion = 0.3.0;
 			};
 		};
-		E4AA7C462C5CCF29000C83D0 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/firebase/firebase-ios-sdk";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 11.0.0;
-			};
-		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -1233,21 +1219,6 @@
 			isa = XCSwiftPackageProductDependency;
 			package = E4AA7C3B2C5A0F5B000C83D0 /* XCRemoteSwiftPackageReference "OpenAI" */;
 			productName = OpenAI;
-		};
-		E4AA7C472C5CCF29000C83D0 /* FirebaseAnalytics */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = E4AA7C462C5CCF29000C83D0 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
-			productName = FirebaseAnalytics;
-		};
-		E4B24F002C6CB88B009CF592 /* FirebaseAuth */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = E4AA7C462C5CCF29000C83D0 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
-			productName = FirebaseAuth;
-		};
-		E4B24F022C6CB88B009CF592 /* FirebaseStorage */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = E4AA7C462C5CCF29000C83D0 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
-			productName = FirebaseStorage;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

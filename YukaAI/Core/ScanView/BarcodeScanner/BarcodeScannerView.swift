@@ -10,7 +10,6 @@ import VisionKit
 import Combine
 
 struct BarcodeScannerView: View {
-    
     @StateObject private var vm = BarcodeScannerViewModel()
     @StateObject private var cartVM = CartViewModel()
     
@@ -22,8 +21,6 @@ struct BarcodeScannerView: View {
         .black.opacity(0.08),
         Color.clear
     ]
-    
-    
     
     var body: some View {
         ZStack {
@@ -56,7 +53,6 @@ struct BarcodeScannerView: View {
         }
     }
     
-    
     @ViewBuilder
     var frame: some View {
         
@@ -80,9 +76,6 @@ struct BarcodeScannerView: View {
                 
         }
     }
-    
-    
-    
     
     var upperFrame: some View {
         VStack {
@@ -119,7 +112,6 @@ struct BarcodeScannerView: View {
             Spacer()
         }
     }
-    
     
     @ViewBuilder
     var lowerFrame: some View {
@@ -167,8 +159,6 @@ struct BarcodeScannerView: View {
         }
     }
     
-    
-    
     var cartIcon: some View {
         ZStack {
             ZStack {
@@ -198,14 +188,12 @@ struct BarcodeScannerView: View {
         .padding(.leading, 20)
     }
     
-    
     var profileIcon: some View {
         cornerIcon(imageName: "person.fill")
             .frame(width: 50, height: 50)
             .foregroundStyle(K.iconBackColor)
             .padding(.trailing, 20)
     }
-    
     
     var barcodeFrame: some View {
         ZStack {
@@ -226,7 +214,6 @@ struct BarcodeScannerView: View {
                 .frame(width: 300, height: 300)
         }
     }
-    
     
     var scanner: some View {
         DataScannerView(
@@ -261,11 +248,6 @@ struct BarcodeScannerView: View {
         }
     }
     
-    
-    
-    
-    
-    
     private var bottomContainerView: some View {
         @Binding var showBottomContainer: Bool
         let lastItem = vm.recognizedItems.count - 1
@@ -284,15 +266,16 @@ struct BarcodeScannerView: View {
     }
 }
 
-
+#Preview {
+    BarcodeScannerView()
+}
 
 extension BarcodeScannerView {
     @ViewBuilder
     var cameraIcon: some View {
-        
-//        let color = LinearGradient(
-//            colors: [.greenGradient1, .greenGradient2],
-//            startPoint: .leading, endPoint: .trailing)
+        //        let color = LinearGradient(
+        //            colors: [.greenGradient1, .greenGradient2],
+        //            startPoint: .leading, endPoint: .trailing)
         HStack {
             Circle()
                 .stroke(lineWidth: 4)
@@ -308,9 +291,9 @@ extension BarcodeScannerView {
     
     @ViewBuilder
     var captureIcon: some View {
-//        let color = LinearGradient(
-//            colors: [.greenGradient1, .greenGradient2],
-//            startPoint: .leading, endPoint: .trailing)
+        //        let color = LinearGradient(
+        //            colors: [.greenGradient1, .greenGradient2],
+        //            startPoint: .leading, endPoint: .trailing)
         ZStack {
             VStack {
                 RoundedRectangle(cornerSize: CGSize(width: 10, height: 10))
@@ -339,7 +322,6 @@ extension BarcodeScannerView {
         }
     }
     
-    
     @ViewBuilder
     var proIcon: some View {
         
@@ -365,7 +347,6 @@ extension BarcodeScannerView {
         }
     }
     
-    
     @ViewBuilder
     fileprivate func cornerIcon(imageName: String) -> some View {
         ZStack {
@@ -389,8 +370,6 @@ extension BarcodeScannerView {
         }
     }
     
-    
-    
     @ViewBuilder
     private func flashButton() -> some View {
         Button {
@@ -402,14 +381,5 @@ extension BarcodeScannerView {
                 .font(.system(size: 45, weight: .bold))
                 .foregroundColor((!vm.isFlashOn ? Color.black : .white).opacity(0.7))
         }
-
     }
-    
-    
-}
-
-
-
-#Preview {
-    BarcodeScannerView()
 }

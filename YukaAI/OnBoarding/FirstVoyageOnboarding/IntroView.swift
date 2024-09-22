@@ -45,7 +45,7 @@ struct IntroView: View {
         .padding()
         .onTapGesture {
             Task {
-                try await AuthenticationManager.shared.signIn()
+//                try await AuthenticationManager.shared.signIn()
                 withAnimation {
                     isSignedIn = true
                 }
