@@ -23,7 +23,7 @@ struct SubscriptionButtonView: View {
                             .fontWeight(.semibold)
                             .padding(.vertical, 15)
                             .padding(.horizontal, 25)
-                            .foregroundColor(.secondary)
+                            .foregroundColor(.black)
                         Spacer()
                         Text(price!)
                             .padding(.trailing, 18)
@@ -31,6 +31,7 @@ struct SubscriptionButtonView: View {
                             .foregroundColor(.primary)
                     } else {
                         Text(label)
+                            .foregroundStyle(.primary)
                             .font(.headline)
                             .padding()
                             .frame(maxWidth: .infinity)

@@ -35,12 +35,12 @@ struct OnboardingTransitionView: View {
             .onEnded({ value in
                 if value.translation.width > 0 {
                     withAnimation(.easeInOut){
-                        selectedTab = selectedTab == 0 ? totalPages - 1 : selectedTab - 1
+                        selectedTab = selectedTab == 0 ? 0 : selectedTab - 1
                     }
                 }
                 if value.translation.width < 0 {
                     withAnimation(.easeInOut){
-                        selectedTab = (selectedTab + 1) % totalPages
+                        selectedTab = selectedTab == 2 ? 2 : selectedTab + 1
                     }
                 }
                 if value.translation.height < 0 {
@@ -70,6 +70,6 @@ extension OnboardingTransitionView {
         }
         .frame(width: 45)
         .foregroundStyle(.white)
-        .padding()
+        .padding(.bottom, 30)
     }
 }

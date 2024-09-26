@@ -36,13 +36,14 @@ struct OnboardingScreenView: View {
                             .font(.headline)
                             .padding()
                             .frame(maxWidth: .infinity)
+                            .foregroundStyle(.black)
                             .background {
                                 RoundedRectangle(cornerRadius: 20)
                                     .fill(.white)
                             }
                     } else {
                         SubscriptionButtonView(label: "Start Scanning") {
-                            
+                            onContinue()
                         }
                     }
                 }

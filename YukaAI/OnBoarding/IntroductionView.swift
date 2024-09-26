@@ -8,12 +8,12 @@
 import SwiftUI
 
 struct IntroductionView: View {
-    @State private var showPaywall = false
+    @State var shouldShowPaywall = false
     var body: some View {
-        if showPaywall {
+        if shouldShowPaywall {
             PaywallView()
         } else {
-            OnboardingView(shouldShowPaywall: $showPaywall)
+            OnboardingView(shouldShowPaywall: $shouldShowPaywall)
         }
     }
 }

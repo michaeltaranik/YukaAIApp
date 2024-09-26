@@ -21,14 +21,14 @@ struct OnboardingView: View {
                     label: Onboarding.label(selectedTab).getText,
                     title: Onboarding.title(selectedTab).getText,
                     onContinue: {
-                        if selectedTab == 2 {
-                            withAnimation(.easeInOut){
-                                shouldShowPaywall = true
-                            }
-                        } else {
-                            HapticManager.shared.impact(style: .medium)
-                            withAnimation(.smooth) {
-                                selectedTab = (selectedTab + 1) % 3
+                        HapticManager.shared.impact(style: .medium)
+                        withAnimation(.smooth) {
+                            if self.selectedTab == 2 {
+                                self.shouldShowPaywall.toggle()
+                                print(self.shouldShowPaywall.description)
+                            } else {
+                                self.selectedTab = (self.selectedTab + 1) % 3
+                                print(self.shouldShowPaywall.description)
                             }
                         }
                     },
