@@ -20,7 +20,7 @@ struct ProductInfo: Codable {
     let imageURL: String?
     let productName: String?
     let ingredientsHierarchy: [String]?
-    let nutriments: Nutriments
+    let nutriments: NutrimentsGlobal
     let nutriscoreData: NutriscoreData?
     let nutriscoreGrade: String?
     let nutriscoreScore: Double?
@@ -47,7 +47,7 @@ struct ProductInfo: Codable {
 }
 
 // MARK: - Nutriments
-struct Nutriments: Codable {
+struct NutrimentsGlobal: Codable {
     let calcium, calcium100G, calciumServing: Double?
     let calciumUnit: String?
     let calciumValue: Double?

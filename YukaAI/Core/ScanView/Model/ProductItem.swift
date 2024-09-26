@@ -15,41 +15,38 @@ struct ProductItem: Hashable, Identifiable, Codable {
     var id = UUID()
     
     // generic
-    let barcode: String
-    let keywords: [String]
-    let additivesTags: [String]
-    let genericName: String
-    let imageUrl: String
-    let ingredientsHierarchy: [String]
-    var nutriscore: Int {
-        let range = 0...100
-        return range.randomElement()!
-    }
+    var barcode: String
+    var keywords: [String]
+    var additivesTags: [String]
+    var genericName: String
+    var imageUrl: String
+    var ingredientsHierarchy: [String]?
+    var nutriscore: Int?
     
     // Nutriments
     
-    let energy: String
+    var energy: String?
     
     // macros
-    let fat: String
-    let carbohydrates: String
-    let protein: String
-    let fiber: String
+    var fat: String?
+    var carbohydrates: String?
+    var protein: String?
+    var fiber: String?
     
     // additional
-    let salt: String
-    let sugar: String
-    let saturatedFat: String
-    let transFat: String
+    var salt: String?
+    var sugar: String?
+    var saturatedFat: String?
+    var transFat: String?
     
     // vitamins
-    let vitaminA: String
-    let vitaminC: String
+    var vitaminA: String?
+    var vitaminC: String?
 
     // minerals
-    let calcium: String
-    let iron: String
-    let cholesterol: String
+    var calcium: String?
+    var iron: String?
+    var cholesterol: String?
     
     
     init(results: GlobalResults) {
@@ -74,6 +71,23 @@ struct ProductItem: Hashable, Identifiable, Codable {
         self.calcium = "\(results.product.nutriments.calcium100G ?? 0.0) \(results.product.nutriments.calciumUnit ?? "mg")"
         self.iron = "\(results.product.nutriments.iron100G ?? 0.0) \(results.product.nutriments.ironUnit ?? "mg")"
         self.cholesterol = "\(results.product.nutriments.cholesterol100G ?? 0.0) \(results.product.nutriments.cholesterolUnit ?? "mg")"
+    }
+    
+    init(results: LocalResults) {
+        self.barcode = results.id ?? ""
+        self.keywords = results.keywords ?? []
+        self.additivesTags = results.additivesTags ?? []
+        self.genericName = results.productName ?? ""
+        self.imageUrl = results.imageURL ?? ""
+        self.energy = "\(results.nutriments?.energyKcal100G ?? 0) \(results.nutriments?.energyKcalUnit ?? "kcal")"
+        self.fat = "\(results.nutriments?.fat100G?.roundToOnePlace() ?? "0.0") \(results.nutriments?.fatUnit ?? "g")"
+        self.carbohydrates = "\(results.nutriments?.carbohydrates100G?.roundToOnePlace() ?? "0.0") \(results.nutriments?.carbohydratesUnit ?? "g")"
+        self.protein = "\(results.nutriments?.proteins100G ?? 0) \(results.nutriments?.proteinsUnit ?? "g")"
+        self.fiber = "\(results.nutriments?.fiber100G ?? 0) \(results.nutriments?.fiberUnit ?? "g")"
+        self.salt = "\(results.nutriments?.salt100G?.roundToOnePlace() ?? "0.0") \(results.nutriments?.saltUnit ?? "g")"
+        self.sugar = "\(results.nutriments?.sugars100G?.roundToOnePlace() ?? "0.0") \(results.nutriments?.sugarsUnit ?? "g")"
+        self.saturatedFat = "\(results.nutriments?.saturatedFat100G ?? 0) \(results.nutriments?.saturatedFatUnit ?? "g")"
+        self.nutriscore = results.nutriscore?.twentyThree?.data?.positivePoints
     }
 
     

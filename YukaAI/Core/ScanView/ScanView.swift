@@ -7,7 +7,6 @@
 
 import SwiftUI
 
-
 struct ScanView: View {
     @StateObject private var vm = ViewModel()
     @StateObject private var cartVM = CartViewModel()
@@ -52,7 +51,6 @@ struct ScanView: View {
         }
     }
     
-    
     @ViewBuilder
     var headerInfo: some View {
         if let item = vm.productItem {
@@ -68,12 +66,11 @@ struct ScanView: View {
         }
     }
     
-    
     @ViewBuilder
     var nutrients: some View {
         if let item = vm.productItem {
             
-            let cal = item.energy.first
+            let cal = item.energy?.first
             if cal != "0" {
                 VStack(alignment: .leading) {
                     HStack {
@@ -84,31 +81,31 @@ struct ScanView: View {
                     VStack(alignment: .leading) {
                         HStack {
                             Text("Calories:")
-                            Text(String(item.energy))
+                            Text(String(item.energy ?? "0"))
                                 .bold()
                         }
                         .font(.subheadline)
                         HStack {
                             Text("Carbs:")
-                            Text(String(item.carbohydrates))
+                            Text(String(item.carbohydrates ?? ""))
                                 .bold()
                         }
                         .font(.subheadline)
                         HStack {
                             Text("Fats:")
-                            Text(String(item.fat))
+                            Text(String(item.fat ?? ""))
                                 .bold()
                         }
                         .font(.subheadline)
                         HStack {
                             Text("Proteins:")
-                            Text(String(item.protein))
+                            Text(String(item.protein ?? ""))
                                 .bold()
                         }
                         .font(.subheadline)
                         HStack {
                             Text("Fiber:")
-                            Text(String(item.fiber))
+                            Text(String(item.fiber ?? ""))
                                 .bold()
                         }
                         .font(.subheadline)
@@ -171,7 +168,6 @@ struct ScanView: View {
         }
     }
     
-    
     var productImage: some View {
         let imageURL = vm.productItem?.imageUrl ?? ""
         
@@ -199,33 +195,22 @@ struct ScanView: View {
         }
     }
     
-    
-    
     @ViewBuilder
     var backgroundGradient: some View {
-        
         if let score = vm.productItem?.nutriscore {
             switch score {
-                
             case 70...100:
                 LightGreenGradient()
-                
             case 0...30:
                 LightRedGradient()
-                
             default:
                 LightYellowGradient()
             }
         } else {
             LightRedGradient()
         }
-        
     }
-    
-    
 }
-
-
 
 #Preview {
     ScanView(barcode: "7613404550571")

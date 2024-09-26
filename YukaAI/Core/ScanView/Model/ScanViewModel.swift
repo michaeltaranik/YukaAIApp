@@ -11,7 +11,8 @@ import SwiftUI
 extension ScanView {
     @MainActor
     class ViewModel: ObservableObject {
-        private var results: GlobalResults?
+//        private var results: GlobalResults?
+        private var localResults: LocalResults?
         private var userError: UserError?
         
         @Published var productItem: ProductItem?
@@ -22,13 +23,17 @@ extension ScanView {
             self.productItem = ProductItem(results: results)
         }
         
+        private func createProductItem(with results: LocalResults) {
+            self.productItem = ProductItem(results: results)
+        }
+        
         func getInfo(barcode: String) async {
             isLoading = true
             do {
-                self.results = try await DataManager.shared.fetchProductInfo(from: barcode)
+                self.localResults = try await DataManager.shared.fetchProductInfoLocal(from: barcode)
                 self.isLoading = false
-                if let results = results {
-                    createProductItem(results: results)
+                if let results = localResults {
+                    createProductItem(with: results)
                 }
                 HapticManager.shared.notification(type: .success)
             } catch(let error) {

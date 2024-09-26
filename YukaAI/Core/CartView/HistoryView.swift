@@ -86,7 +86,7 @@ struct HistoryListView: View {
                         VStack(alignment: .leading) {
                             Text("\(product.genericName)")
                                 .bold()
-                            NutriLabelView(score: product.nutriscore)
+                            NutriLabelView(score: product.nutriscore ?? 0)
                         }
                     }
                 }
