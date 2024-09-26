@@ -14,25 +14,7 @@ struct OnboardingTransitionView: View {
     var body: some View {
         ZStack {
             VStack(spacing: 0) {
-                Image(images[selectedTab])
-                    .resizable()
-                    .scaledToFill()
-                    .overlay {
-                        LinearGradient(stops: [
-                            .init(color: .clear, location: 0),
-                            .init(color: .white.opacity(0), location: 0.1),
-                            .init(color: .white.opacity(0), location: 0.9),
-                            .init(color: .clear, location: 1)],
-                                       startPoint: .leading,
-                                       endPoint: .trailing)
-                    }
-                    .overlay {
-                        LinearGradient(stops: [
-                            .init(color: .greenGradient2, location: 0),
-                            .init(color: .white.opacity(0), location: 0.3)],
-                                       startPoint: .bottom,
-                                       endPoint: .top)
-                    }
+                OnboardingImageView(image: images[selectedTab])
                 Rectangle()
                     .fill(
                         LinearGradient(colors: [.mossGreen, .greenGradient2],

@@ -26,11 +26,8 @@ struct SubscriptionView: View {
         ZStack {
             VStack(spacing: 35) {
                 SubscriptionHeaderView(title: title, description: description)
-
                 SubscriptionFeatureListView(features: features)
-
-                SubscriptionButtonView(price: price, onSubscribe: onSubscribe)
-
+                SubscriptionButtonView(price: price, label: "Get Subscription", onTapGesture: onSubscribe)
                 SubscriptionFooterView(
                     onTermsTap: onTermsTap,
                     onPrivacyTap: onPrivacyTap,

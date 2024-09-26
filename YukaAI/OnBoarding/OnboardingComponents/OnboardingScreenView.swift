@@ -11,7 +11,8 @@ struct OnboardingScreenView: View {
     let label: String
     let title: String
     let onContinue: () -> Void
-    let desciprion: String
+    let description: String
+    var isAnimated: Bool = false
     
     private let gradientDarkColors: [Color] = [.mossGreen, .cloverGreen]
     private let gradientLightColors: [Color] = [.mossGreen, .seaFoamGreen]
@@ -25,21 +26,27 @@ struct OnboardingScreenView: View {
                     .font(.title)
                     .foregroundStyle(.white)
                     .padding(.top, 20)
-                SubscriptionHeaderView(title: title, description: desciprion)
+                SubscriptionHeaderView(title: title, description: description)
                     .padding(.bottom, 30)
                 Button {
                     onContinue()
                 } label: {
-                    Text("Continue")
-                        .font(.headline)
-                        .padding()
-                        .frame(maxWidth: .infinity)
-                        .background {
-                            RoundedRectangle(cornerRadius: 20)
-                                .fill(.white)
+                    if !isAnimated {
+                        Text("Continue")
+                            .font(.headline)
+                            .padding()
+                            .frame(maxWidth: .infinity)
+                            .background {
+                                RoundedRectangle(cornerRadius: 20)
+                                    .fill(.white)
+                            }
+                    } else {
+                        SubscriptionButtonView(label: "Start Scanning") {
+                            
                         }
+                    }
                 }
-                .padding(.top)
+                .padding(isAnimated ? .top : .vertical)
 
             }
             .padding(10)
@@ -72,7 +79,7 @@ struct OnboardingScreenView: View {
             onContinue: {
                 
             },
-            desciprion: "Choose only high quality foods and know everything you eat"
+            description: "Choose only high quality foods and know everything you eat"
         )
     }
 }

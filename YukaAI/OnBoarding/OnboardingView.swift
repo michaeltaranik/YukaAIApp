@@ -8,22 +8,8 @@
 import SwiftUI
 
 struct OnboardingView: View {
+    @Binding var shouldShowPaywall: Bool
     @State private var selectedTab: Int = 0
-    private let labels: [String] = [
-        "Become Healthy with",
-        "Scan your foods and get the",
-        "Analyze your history and get"
-    ]
-    private let titles: [String] = [
-        "Yuca: AI Scanner",
-        "Nutriscore",
-        "Better"
-    ]
-    private let descriptions: [String] = [
-        "International science-based quality assessment standard",
-        "Our AI scans your foods and provides a unique nutritional score",
-        "See your entire experience through time and improve your quality of life"
-    ]
     
     var body: some View {
         ZStack {
@@ -32,15 +18,22 @@ struct OnboardingView: View {
             VStack {
                 Spacer()
                 OnboardingScreenView(
-                    label: labels[selectedTab],
-                    title: titles[selectedTab],
+                    label: Onboarding.label(selectedTab).getText,
+                    title: Onboarding.title(selectedTab).getText,
                     onContinue: {
-                        HapticManager.shared.impact(style: .medium)
-                        withAnimation(.smooth) {
-                            selectedTab = (selectedTab + 1) % 3
+                        if selectedTab == 2 {
+                            withAnimation(.easeInOut){
+                                shouldShowPaywall = true
+                            }
+                        } else {
+                            HapticManager.shared.impact(style: .medium)
+                            withAnimation(.smooth) {
+                                selectedTab = (selectedTab + 1) % 3
+                            }
                         }
                     },
-                    desciprion: descriptions[selectedTab])
+                    description: Onboarding.description(selectedTab).getText,
+                    isAnimated: selectedTab == 2)
                 .padding(.bottom, 40)
             }
         }
@@ -48,6 +41,6 @@ struct OnboardingView: View {
 }
 
 #Preview {
-    OnboardingView()
+    OnboardingView(shouldShowPaywall: .constant(false))
 }
 
