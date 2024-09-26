@@ -11,7 +11,6 @@ struct SubscriptionHeaderView: View {
     let title: String
     let description: String
     
-
     var firstColor: Color = Color.init(hexString: "82A078").opacity(0.75)
     var secondColor: Color = Color.init(hexString: "70C5F5")
 
@@ -21,15 +20,15 @@ struct SubscriptionHeaderView: View {
                 .font(.system(size: 24, weight: .bold))
                 .foregroundColor(.white)
                 .padding(10)
-//                .background(.ultraThinMaterial)
                 .background(
                     ZStack {
                         Image("headerSub")
                             .resizable()
+                            .scaleEffect(3)
                             .scaledToFill()
                             .blendMode(.overlay)
-                            .offset(.init(width: 0, height: 40))
-                        LinearGradient(colors: [firstColor, secondColor] /*[.greenish, .green]*/,
+                            .offset(.init(width: 0, height: 0))
+                        LinearGradient(colors: [firstColor, secondColor],
                                        startPoint: .topLeading,
                                        endPoint: .bottomTrailing)
                         .opacity(0.12)
@@ -47,23 +46,23 @@ struct SubscriptionHeaderView: View {
 
 
 #Preview {
-//    ZStack {
-//        Color.greenGradient2.edgesIgnoringSafeArea(.all)
-//        SubscriptionHeaderView(title: "Assistive AI", description: "Unlock the full potential of YukaAI")
-//    }
-    SubscriptionView(
-        title: "Unlock the Assistant",
-        description: "Get the full functionality",
-        features: [
-            "Get personalised AI Assistant",
-            "Access your Progress and History",
-            "Scan without using the Barcode"
-        ],
-        price: "$4.99/mo",
-        onSubscribe: { print("Subscribed") },
-        onTermsTap: { print("Terms tapped") },
-        onPrivacyTap: { print("Privacy tapped") },
-        onRestoreTap: { print("Restore tapped") },
-        onMaybeLater: { print("Maybe later tapped") }
-    )
+    ZStack {
+        Color.greenGradient2.edgesIgnoringSafeArea(.all)
+        SubscriptionHeaderView(title: "ai", description: "Unlock the full potential of YukaAI")
+    }
+//    SubscriptionView(
+//        title: "Unlock the Assistant",
+//        description: "Get the full functionality",
+//        features: [
+//            "Get personalised AI Assistant",
+//            "Access your Progress and History",
+//            "Scan without using the Barcode"
+//        ],
+//        price: "$4.99/mo",
+//        onSubscribe: { print("Subscribed") },
+//        onTermsTap: { print("Terms tapped") },
+//        onPrivacyTap: { print("Privacy tapped") },
+//        onRestoreTap: { print("Restore tapped") },
+//        onMaybeLater: { print("Maybe later tapped") }
+//    )
 }
