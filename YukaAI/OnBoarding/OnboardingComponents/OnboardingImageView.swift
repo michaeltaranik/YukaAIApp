@@ -34,5 +34,5 @@ struct OnboardingImageView: View {
 }
 
 #Preview {
-    OnboardingImageView(image: "paywallScreen")
+    OnboardingImageView(image: "screen2")
 }

@@ -34,11 +34,26 @@ struct PaywallView: View {
                         "Scan without using the Barcode"
                     ],
                     price: "$4.99/mo",
-                    onSubscribe: { print("Subscribed") },
-                    onTermsTap: { print("Terms tapped") },
-                    onPrivacyTap: { print("Privacy tapped") },
-                    onRestoreTap: { print("Restore tapped") },
-                    onMaybeLater: { print("Maybe later tapped") }
+                    onSubscribe: {
+                        HapticManager.shared.impact(style: .heavy)
+                        print("Subscribed")
+                    },
+                    onTermsTap: {
+                        HapticManager.shared.impact(style: .rigid)
+                        print("Terms tapped")
+                    },
+                    onPrivacyTap: {
+                        HapticManager.shared.impact(style: .rigid)
+                        print("Privacy tapped")
+                    },
+                    onRestoreTap: {
+                        HapticManager.shared.impact(style: .rigid)
+                        print("Restore tapped")
+                    },
+                    onMaybeLater: {
+                        HapticManager.shared.impact(style: .light)
+                        print("Maybe later tapped")
+                    }
                 )
             }
         }

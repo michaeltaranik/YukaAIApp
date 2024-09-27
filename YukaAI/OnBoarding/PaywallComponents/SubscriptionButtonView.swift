@@ -28,10 +28,10 @@ struct SubscriptionButtonView: View {
                         Text(price!)
                             .padding(.trailing, 18)
                             .font(.system(size: 17, weight: .bold, design: .rounded))
-                            .foregroundColor(.primary)
+                            .foregroundColor(.black)
                     } else {
                         Text(label)
-                            .foregroundStyle(.primary)
+                            .foregroundStyle(.black)
                             .font(.headline)
                             .padding()
                             .frame(maxWidth: .infinity)
@@ -41,7 +41,7 @@ struct SubscriptionButtonView: View {
                             }
                     }
                 }
-                .background(.ultraThickMaterial)
+                .background(.white)
                 .cornerRadius(40)
                 .shadow(radius: 10)
                 .padding(10)

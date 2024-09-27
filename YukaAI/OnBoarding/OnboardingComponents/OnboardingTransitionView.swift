@@ -13,7 +13,7 @@ struct OnboardingTransitionView: View {
     private var totalPages: Int { images.count }
     var body: some View {
         ZStack {
-            VStack(spacing: 0) {
+            VStack(alignment: .leading, spacing: 0) {
                 OnboardingImageView(image: images[selectedTab])
                 Rectangle()
                     .fill(

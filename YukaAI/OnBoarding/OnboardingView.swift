@@ -10,6 +10,7 @@ import SwiftUI
 struct OnboardingView: View {
     @Binding var shouldShowPaywall: Bool
     @State private var selectedTab: Int = 0
+    private var isLastTab: Bool { selectedTab == 2 }
     
     var body: some View {
         ZStack {
@@ -21,9 +22,9 @@ struct OnboardingView: View {
                     label: Onboarding.label(selectedTab).getText,
                     title: Onboarding.title(selectedTab).getText,
                     onContinue: {
-                        HapticManager.shared.impact(style: .medium)
+                        HapticManager.shared.impact(style: isLastTab ? .heavy : .medium)
                         withAnimation(.smooth) {
-                            if self.selectedTab == 2 {
+                            if isLastTab {
                                 self.shouldShowPaywall.toggle()
                                 print(self.shouldShowPaywall.description)
                             } else {
@@ -33,7 +34,7 @@ struct OnboardingView: View {
                         }
                     },
                     description: Onboarding.description(selectedTab).getText,
-                    isAnimated: selectedTab == 2)
+                    isAnimated: isLastTab)
                 .padding(.bottom, 40)
             }
         }
