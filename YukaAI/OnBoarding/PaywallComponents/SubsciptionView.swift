@@ -47,7 +47,6 @@ struct SubscriptionView: View {
                 }
             )
             .cornerRadius(20)
-            .padding(1)
         }
         .background(.seaFoamGreen)
         .cornerRadius(20)

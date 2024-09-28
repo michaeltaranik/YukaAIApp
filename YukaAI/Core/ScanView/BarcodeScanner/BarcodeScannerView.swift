@@ -104,7 +104,7 @@ struct BarcodeScannerView: View {
                         cornerIcon(imageName: "list.bullet.clipboard")
                     }
                     .frame(width: 50, height: 50)
-                    .foregroundStyle(K.iconBackColor)
+                    .foregroundStyle(Color.theme.iconBackColor)
                     .padding(.top, 10)
                     .padding(.trailing, 20)
 
@@ -184,14 +184,14 @@ struct BarcodeScannerView: View {
         }
         .bold()
         .frame(width: 50, height: 50)
-        .foregroundStyle(K.iconBackColor)
+        .foregroundStyle(Color.theme.iconBackColor)
         .padding(.leading, 20)
     }
     
     var profileIcon: some View {
         cornerIcon(imageName: "person.fill")
             .frame(width: 50, height: 50)
-            .foregroundStyle(K.iconBackColor)
+            .foregroundStyle(Color.theme.iconBackColor)
             .padding(.trailing, 20)
     }
     
@@ -297,11 +297,11 @@ extension BarcodeScannerView {
         ZStack {
             VStack {
                 RoundedRectangle(cornerSize: CGSize(width: 10, height: 10))
-                    .fill(K.iconBackColor)
+                    .fill(Color.theme.iconBackColor)
                     .frame(width: 160, height: 35)
                 Rectangle()
                     .trim(from: 0.5, to: 1)
-                    .fill(K.iconBackColor)
+                    .fill(Color.theme.iconBackColor)
                     .rotationEffect(.degrees(-45))
                     .frame(width: 12, height: 12)
                     .scaleEffect(x: 2, y: 1, anchor: .center)

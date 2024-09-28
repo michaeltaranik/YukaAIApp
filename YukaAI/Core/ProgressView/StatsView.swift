@@ -9,6 +9,7 @@ import SwiftUI
 
 struct StatsView: View {
     static let colorback = Color.lightGreen
+    private let k = K.charts
     
     let totalScans = 69
     let weeklyScans: [Double] = [1,3,4,3,2,4,5]
@@ -19,8 +20,6 @@ struct StatsView: View {
     let demo: [Double] = [1.5,2,3,3,2,1,2,3]
     let title: String = "Your Progress"
 
-    let gradients = [K.peachPinkGradient, K.yellowOrangeGradient, K.greenCyanGradient]
-    let linGradients = [K.peachPinkLinearGradient, K.yellowOrangeLinearGradient, K.greenCyanLinearGradient]
     
     var body: some View {
 //        ScrollView {
@@ -32,8 +31,8 @@ struct StatsView: View {
                     title: "Quality Progress",
                     legend: "You are doing great!",
                     backgroundColor: .white,
-                    linGradients: linGradients,
-                    radGradients: gradients)
+                    linGradients: K.charts.qualityLinGradients,
+                    radGradients: K.charts.qualityRadGradients)
             }
 //        }
     }

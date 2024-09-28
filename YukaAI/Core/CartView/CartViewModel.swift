@@ -21,7 +21,7 @@ class CartViewModel: ObservableObject {
     
     func loadCart() {
         do {
-            let data = try Data(contentsOf: K.saveToCartPath)
+            let data = try Data(contentsOf: K.file.saveToCartPath)
             products = try JSONDecoder().decode([ProductItem].self, from: data)
         } catch {
             products = []
@@ -34,7 +34,7 @@ class CartViewModel: ObservableObject {
         addNewProductItem(product)
         do {
             let data = try JSONEncoder().encode(products)
-            try data.write(to: K.saveToCartPath, options: [.atomic, .completeFileProtection])
+            try data.write(to: K.file.saveToCartPath, options: [.atomic, .completeFileProtection])
         } catch {
             print("Error: \(error.localizedDescription)")
         }
@@ -66,7 +66,7 @@ class CartViewModel: ObservableObject {
         HapticManager.shared.notification(type: .warning)
         do {
             let data = try JSONEncoder().encode(products)
-            try data.write(to: K.saveToCartPath, options: [.atomic, .completeFileProtection])
+            try data.write(to: K.file.saveToCartPath, options: [.atomic, .completeFileProtection])
         } catch {
             print("Error: \(error.localizedDescription)")
         }

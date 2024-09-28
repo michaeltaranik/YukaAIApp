@@ -99,7 +99,7 @@ struct PieChartView : View {
                         Text("42")
                         HStack {
                             Circle()
-                                .fill(K.yellowOrangeGradient)
+                                .fill(K.charts.yellowOrangeGradient)
                                 .frame(width: 10, height: 10)
                             Text("Poor")
                                 .foregroundColor(.gray)
@@ -109,7 +109,7 @@ struct PieChartView : View {
                         Text("52")
                         HStack {
                             Circle()
-                                .fill(K.greenCyanGradient)
+                                .fill(K.charts.greenCyanGradient)
                                 .frame(width: 10, height: 10)
                             Text("Excellent")
                                 .foregroundColor(.gray)
@@ -135,22 +135,14 @@ struct PieChartView : View {
 #if DEBUG
 struct PieChartView_Previews : PreviewProvider {
     
-    static let gradients: [RadialGradient] = [
-        K.peachPinkGradient,
-        K.greenCyanGradient,
-        K.yellowOrangeGradient,
-    ]
-    
-    static let linGradients = [K.peachPinkLinearGradient, K.yellowOrangeLinearGradient, K.greenCyanLinearGradient]
-    
     static var previews: some View {
         PieChartView(
             data:[56,78,53],
             title: "Title",
             legend: "Legend",
             backgroundColor: Color.white,
-            linGradients: linGradients,
-            radGradients: gradients)
+            linGradients: K.charts.qualityLinGradients,
+            radGradients: K.charts.qualityRadGradients)
     }
 }
 #endif

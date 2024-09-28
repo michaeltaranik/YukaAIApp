@@ -22,14 +22,12 @@ class ChatController: ObservableObject {
     
     private let fileManager = AssistantMessageFileManager()
     
-    @Published var messages: [Message] = [Message(content: K.defaultMessage, isUser: false)]
+    @Published var messages: [Message] = [Message(content: K.ai.introductionMessage, isUser: false)]
     @Published var showKeyboard: Bool = false
     @Published var shouldShowRecs: Bool = false
     @Published var shouldShowProfile: Bool = false
     
-    
-    let openAI = OpenAI(apiToken: K.apiKey)
-
+    let openAI = OpenAI(apiToken: K.api.aiAPIKey)
     
     init() {
         self.messages = fileManager.loadMessages()
@@ -42,7 +40,7 @@ class ChatController: ObservableObject {
     }
     
     private func getBotReply() {
-        let personality = K.AIpersonality
+        let personality = K.ai.AIpersonality
         let query = ChatQuery(
             messages: self.messages.map({
                 .init(role: .user, content: personality + $0.content)!

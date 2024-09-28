@@ -16,7 +16,10 @@ struct SubscriptionButtonView: View {
     var body: some View {
         VStack {
             HStack {
-                Button(action: onTapGesture) {
+                Button{
+                    HapticManager.shared.impact(style: .heavy)
+                    onTapGesture()}
+                label: {
                     if (price != nil) {
                         Text(label)
                             .font(.callout)

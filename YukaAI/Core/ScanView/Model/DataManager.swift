@@ -41,7 +41,7 @@ class DataManager {
 //        request.allHTTPHeaderFields = [
 //            
 //        ]
-        request.setValue("\(K.bearerToken)", forHTTPHeaderField: "Authorization")
+        request.setValue("\(K.api.bearerToken)", forHTTPHeaderField: "Authorization")
         // getting data, response
         let (data, response) = try await URLSession.shared.data(for: request)
         guard let response = response as? HTTPURLResponse,

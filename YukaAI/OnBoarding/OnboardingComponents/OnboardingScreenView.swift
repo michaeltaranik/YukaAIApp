@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct OnboardingScreenView: View {
+    
     let label: String
     let title: String
     let onContinue: () -> Void
@@ -26,8 +27,10 @@ struct OnboardingScreenView: View {
                     .font(.title)
                     .foregroundStyle(.white)
                     .padding(.top, 20)
+                
                 SubscriptionHeaderView(title: title, description: description)
                     .padding(.bottom, 30)
+                
                 Button {
                     onContinue()
                 } label: {
@@ -54,11 +57,13 @@ struct OnboardingScreenView: View {
             .background(
                 ZStack {
                     Color.init(hexString: "02B46C")
+                    
                     RadialGradient(
                         colors: [.white.opacity(0.07), .white.opacity(0.0)],
                         center: .top,
                         startRadius: 0,
-                        endRadius: 200)
+                        endRadius: 200
+                    )
                 }
             )
             .cornerRadius(20)

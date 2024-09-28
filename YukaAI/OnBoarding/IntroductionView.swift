@@ -8,7 +8,9 @@
 import SwiftUI
 
 struct IntroductionView: View {
+    
     @State var shouldShowPaywall = false
+    
     var body: some View {
         if shouldShowPaywall {
             PaywallView()

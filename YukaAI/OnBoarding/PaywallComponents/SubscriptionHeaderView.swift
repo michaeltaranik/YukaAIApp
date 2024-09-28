@@ -11,8 +11,8 @@ struct SubscriptionHeaderView: View {
     let title: String
     let description: String
     
-    var firstColor: Color = Color.init(hexString: "82A078").opacity(0.75)
-    var secondColor: Color = Color.init(hexString: "70C5F5")
+    var firstColor = Color.init(hexString: "82A078").opacity(0.75)
+    var secondColor = Color.init(hexString: "70C5F5")
 
     var body: some View {
         VStack(alignment: .center) {
@@ -28,17 +28,21 @@ struct SubscriptionHeaderView: View {
                             .scaledToFill()
                             .blendMode(.overlay)
                             .offset(.init(width: 0, height: 0))
-                        LinearGradient(colors: [firstColor, secondColor],
-                                       startPoint: .topLeading,
-                                       endPoint: .bottomTrailing)
+                        
+                        LinearGradient(
+                            colors: [firstColor, secondColor],
+                            startPoint: .topLeading,
+                            endPoint: .bottomTrailing
+                        )
                         .opacity(0.12)
                     }
                 )
                 .cornerRadius(20)
                 .padding(.vertical, 10)
+            
             Text(description)
                 .font(.system(size: 16, weight: .regular))
-                .foregroundColor(Color.white.opacity(0.7))
+                .foregroundColor(.white.opacity(0.7))
                 .multilineTextAlignment(.center)
         }
     }

@@ -13,18 +13,32 @@ struct PaywallView: View {
             ZStack {
                 VStack(spacing: 0) {
                     OnboardingImageView(image: "paywallScreen")
+                    
                     Rectangle()
                         .fill(
-                            LinearGradient(colors: [.mossGreen, .greenGradient2],
-                                           startPoint: .bottom,
-                                           endPoint: .top)
+                            LinearGradient(
+                                colors: [.mossGreen, .greenGradient2],
+                                startPoint: .bottom,
+                                endPoint: .top
+                            )
                         )
                         .frame(maxWidth: .infinity, maxHeight: .infinity)
                 }
                 .ignoresSafeArea()
+                VStack {
+                    LinearGradient(
+                        stops: [.init(color: .black.opacity(0.6), location: 0),
+                                .init(color: .clear, location: 0.2)],
+                        startPoint: .top,
+                        endPoint: .bottom)
+                    
+                }
+                .ignoresSafeArea()
             }
+            
             VStack {
                 Spacer()
+                
                 SubscriptionView(
                     title: "Unlock the Assistant",
                     description: "Get the full functionality",
@@ -35,23 +49,18 @@ struct PaywallView: View {
                     ],
                     price: "$4.99/mo",
                     onSubscribe: {
-                        HapticManager.shared.impact(style: .heavy)
                         print("Subscribed")
                     },
                     onTermsTap: {
-                        HapticManager.shared.impact(style: .rigid)
                         print("Terms tapped")
                     },
                     onPrivacyTap: {
-                        HapticManager.shared.impact(style: .rigid)
                         print("Privacy tapped")
                     },
                     onRestoreTap: {
-                        HapticManager.shared.impact(style: .rigid)
                         print("Restore tapped")
                     },
                     onMaybeLater: {
-                        HapticManager.shared.impact(style: .light)
                         print("Maybe later tapped")
                     }
                 )

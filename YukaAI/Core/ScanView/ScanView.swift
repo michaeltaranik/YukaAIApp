@@ -148,8 +148,8 @@ struct ScanView: View {
                         ForEach(tags, id: \.self) { additiveTag in
                             DisclosureGroup(additiveTag) {
                                 VStack(alignment: .leading) {
-                                    Text(K.additives[additiveTag]?.name ?? "")
-                                    Text("Description: \(K.additives[additiveTag]?.description ?? "")")
+                                    Text(K.nutrition.additives[additiveTag]?.name ?? "")
+                                    Text("Description: \(K.nutrition.additives[additiveTag]?.description ?? "")")
                                         .font(.subheadline)
                                 }
                                 .padding(.horizontal)

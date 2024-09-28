@@ -32,7 +32,7 @@ class AssistantMessageFileManager {
             return messages
         } catch {
             print("Error loading messages: \(error.localizedDescription)")
-            return [Message(content: K.defaultMessage, isUser: false)]
+            return [Message(content: K.ai.introductionMessage, isUser: false)]
         }
     }
     
