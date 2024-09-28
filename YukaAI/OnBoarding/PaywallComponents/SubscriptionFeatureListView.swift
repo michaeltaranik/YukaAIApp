@@ -40,7 +40,7 @@ struct SubscriptionFeatureView: View {
 
 #Preview {
 //    SubscriptionFeatureListView(features: [])
-    SubscriptionView(
+    GetSubscriptionView(
         title: "Unlock the Assistant",
         description: "Get the full functionality",
         features: [

@@ -9,7 +9,7 @@ import SwiftUI
 
 struct OnboardingView: View {
     
-    @Binding var shouldShowPaywall: Bool
+    @Binding var isOnboardingComplete: Bool
     @State private var selectedTab = 0
     
     private var isLastTab: Bool { selectedTab == 2 }
@@ -31,7 +31,7 @@ struct OnboardingView: View {
                         
                         withAnimation(.smooth) {
                             if isLastTab {
-                                shouldShowPaywall.toggle()
+                                isOnboardingComplete = true
                             } else {
                                 selectedTab = (selectedTab + 1) % 3
                             }
@@ -47,6 +47,6 @@ struct OnboardingView: View {
 }
 
 #Preview {
-    OnboardingView(shouldShowPaywall: .constant(false))
+    OnboardingView(isOnboardingComplete: .constant(false))
 }
 

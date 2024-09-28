@@ -30,7 +30,7 @@ struct BarcodeScannerView: View {
             lowerFrame
             barcodeFrame
         }
-        .sheet(isPresented: $vm.shouldShowSheet) {
+        .fullScreenCover(isPresented: .init(value: $vm.sheetType)) {
             switch vm.sheetType {
             case .profile:
                 AccountView()
@@ -39,9 +39,9 @@ struct BarcodeScannerView: View {
             case .history:
                 HistoryView()
             case .paywall:
-                ProfileView()
-            case .main:
-                BarcodeScannerView()
+                PaywallView()
+            default:
+                PaywallView()
             }
         }
         .onAppear {
@@ -82,6 +82,7 @@ struct BarcodeScannerView: View {
                 HStack {
                     Button {
                         HapticManager.shared.impact(style: .medium)
+                        vm.sheetType = .paywall
                     } label: {
                         proIcon
                             .padding(.leading, 20)
@@ -97,9 +98,8 @@ struct BarcodeScannerView: View {
                         .offset(x: -18, y: 5)
                     Spacer()
                     Button {
-                        vm.sheetType = .history
-                        vm.shouldShowSheet.toggle()
                         HapticManager.shared.impact(style: .medium)
+                        vm.sheetType = .history
                     } label: {
                         cornerIcon(imageName: "list.bullet.clipboard")
                     }
@@ -131,14 +131,14 @@ struct BarcodeScannerView: View {
                 }
                 HStack {
                     Button {
-                        vm.sheetType = .cart
-                        vm.shouldShowSheet.toggle()
                         HapticManager.shared.impact(style: .medium)
+                        vm.sheetType = .cart
                     } label: {
                         cartIcon
                     }
                     Spacer()
                     Button {
+                        vm.sheetType = .paywall
                         HapticManager.shared.impact(style: .medium)
                     } label: {
                         cameraIcon
@@ -147,9 +147,8 @@ struct BarcodeScannerView: View {
                     
                     Spacer()
                     Button {
-                        vm.sheetType = .profile
-                        vm.shouldShowSheet.toggle()
                         HapticManager.shared.impact(style: .medium)
+                        vm.sheetType = .profile
                     } label: {
                         profileIcon
                     }

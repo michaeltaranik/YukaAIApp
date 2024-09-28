@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct SubscriptionView: View {
+struct GetSubscriptionView: View {
     let title: String
     let description: String
     let features: [String]
@@ -46,8 +46,9 @@ struct SubscriptionView: View {
                         endRadius: 200)
                 }
             )
-            .cornerRadius(20)
         }
+        .cornerRadius(20)
+        .padding(2)
         .background(.seaFoamGreen)
         .cornerRadius(20)
         .padding(.horizontal)
@@ -59,7 +60,7 @@ struct SubscriptionView: View {
     ZStack {
 //        Color.greenGradient2.ignoresSafeArea()
         Color.black.ignoresSafeArea()
-        SubscriptionView(
+        GetSubscriptionView(
             title: "Unlock the Assistant",
             description: "Get the full functionality",
             features: [

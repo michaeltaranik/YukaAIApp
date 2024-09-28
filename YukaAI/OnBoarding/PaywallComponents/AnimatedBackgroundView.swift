@@ -34,7 +34,7 @@ struct AnimatedBackgroundView: View {
 #Preview {
     ZStack {
 //        AnimatedBackgroundView()
-        SubscriptionView(
+        GetSubscriptionView(
             title: "Unlock the Assistant",
             description: "Get the full functionality",
             features: [

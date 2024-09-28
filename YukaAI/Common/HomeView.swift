@@ -1,14 +1,13 @@
 //
-//  WelcomeView.swift
+//  ContentView.swift
 //  YukaAI
 //
-//  Created by Michael Taranik on 24.07.2024.
+//  Created by Michael Taranik on 08.07.2024.
 //
 
 import SwiftUI
 
-struct WelcomeView: View {
-    
+struct HomeView: View {
     /*@AppStorage("isSignedIn")*/
     @State
     private var isSignedIn: Bool = false
@@ -17,8 +16,11 @@ struct WelcomeView: View {
         if isSignedIn {
             BarcodeScannerView()
         } else {
-            IntroView(isSignedIn: $isSignedIn)
+            OnboardingView(isOnboardingComplete: $isSignedIn)
         }
     }
 }
 
+#Preview {
+    HomeView()
+}

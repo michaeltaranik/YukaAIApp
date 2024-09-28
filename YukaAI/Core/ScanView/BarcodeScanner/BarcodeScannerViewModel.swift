@@ -19,7 +19,6 @@ enum SheetType: String {
     case cart
     case history
     case paywall
-    case main
 }
 
 enum DataScannerAccessStatusType {
@@ -42,19 +41,11 @@ final class BarcodeScannerViewModel: ObservableObject {
     @Published var previousCount: Int = 0
     @Published var isFlashOn: Bool = false
     @Published var recognized: Bool = false
-    
-    
-    @Published var shouldShowSheet: Bool = false
-    @Published var sheetType: SheetType = .main
+    @Published var sheetType: SheetType?
     @Published var shouldShowHint: Bool = false
-
-    
-
-
 
     let recognizedDataType: DataScannerViewController.RecognizedDataType = .barcode()
 
-    
       var dataScannerViewId: Int {
         var hasher = Hasher()
         hasher.combine(scanType)
@@ -90,7 +81,6 @@ final class BarcodeScannerViewModel: ObservableObject {
         }
     }
     
-    
     private var isScannerAvailable: Bool {
         DataScannerViewController.isAvailable && DataScannerViewController.isSupported
     }
@@ -121,7 +111,5 @@ final class BarcodeScannerViewModel: ObservableObject {
             
         }
     }
-    
-    
 }
 

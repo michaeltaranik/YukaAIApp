@@ -74,7 +74,7 @@ struct SubscriptionButtonView: View {
             SubscriptionButtonView(price: "$4,99/mo", label: "Get Subscription") {
                 print("Subscribed")
             }
-            SubscriptionView(
+            GetSubscriptionView(
                 title: "Unlock the Assistant",
                 description: "Get the full functionality",
                 features: [

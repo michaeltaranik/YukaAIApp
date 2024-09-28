@@ -24,10 +24,8 @@ struct YukaAIApp: App {
     @UIApplicationDelegateAdaptor(AppDelegate.self) var delegate
     var body: some Scene {
         WindowGroup {
-//            WelcomeView()
-//                .font(.system(.body, design: .rounded))
-            IntroductionView()
-                
+            HomeView()
+                .font(.system(.body, design: .rounded))
         }
     }
 }

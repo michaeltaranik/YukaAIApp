@@ -8,67 +8,83 @@
 import SwiftUI
 
 struct PaywallView: View {
+    
+    @Environment(\.dismiss) var dismiss
+    
     var body: some View {
-        ZStack {
+        NavigationStack {
             ZStack {
                 VStack(spacing: 0) {
                     OnboardingImageView(image: "paywallScreen")
                     
-                    Rectangle()
-                        .fill(
-                            LinearGradient(
-                                colors: [.mossGreen, .greenGradient2],
-                                startPoint: .bottom,
-                                endPoint: .top
-                            )
-                        )
-                        .frame(maxWidth: .infinity, maxHeight: .infinity)
+                    greenRectangle
                 }
-                .ignoresSafeArea()
-                VStack {
-                    LinearGradient(
-                        stops: [.init(color: .black.opacity(0.6), location: 0),
-                                .init(color: .clear, location: 0.2)],
-                        startPoint: .top,
-                        endPoint: .bottom)
-                    
-                }
-                .ignoresSafeArea()
-            }
-            
-            VStack {
-                Spacer()
                 
-                SubscriptionView(
-                    title: "Unlock the Assistant",
-                    description: "Get the full functionality",
-                    features: [
-                        "Get personalised AI Assistant",
-                        "Access your Progress and History",
-                        "Scan without using the Barcode"
-                    ],
-                    price: "$4.99/mo",
-                    onSubscribe: {
-                        print("Subscribed")
-                    },
-                    onTermsTap: {
-                        print("Terms tapped")
-                    },
-                    onPrivacyTap: {
-                        print("Privacy tapped")
-                    },
-                    onRestoreTap: {
-                        print("Restore tapped")
-                    },
-                    onMaybeLater: {
-                        print("Maybe later tapped")
-                    }
-                )
+                VStack {
+                    Color.gradients.blackFade
+                    
+                    Spacer()
+                    
+                    subscriptionWindow
+                }
             }
+            .ignoresSafeArea()
+            .toolbar { dismissButton }
         }
     }
 }
 
 #Preview {
     PaywallView()
+}
+
+
+extension PaywallView {
+    var subscriptionWindow: some View {
+        GetSubscriptionView(
+            title: "Unlock the Assistant",
+            description: "Get the full functionality",
+            features: [
+                "Get personalised AI Assistant",
+                "Access your Progress and History",
+                "Scan without using the Barcode"
+            ],
+            price: "$4.99/mo",
+            onSubscribe: {
+                print("Subscribed")
+            },
+            onTermsTap: {
+                print("Terms tapped")
+            },
+            onPrivacyTap: {
+                print("Privacy tapped")
+            },
+            onRestoreTap: {
+                print("Restore tapped")
+            },
+            onMaybeLater: {
+                print("Maybe later tapped")
+            }
+        )
+        .padding(.bottom, 35)
+    }
+    
+    var greenRectangle: some View {
+        Rectangle()
+            .fill(K.onboarding.greenGradientBackground)
+            .frame(maxWidth: .infinity, maxHeight: .infinity)
+    }
+    
+    var dismissButton: some ToolbarContent {
+        ToolbarItem(placement: .topBarTrailing) {
+            Button {
+                dismiss()
+            } label: {
+                Image(systemName: "xmark")
+                    .bold()
+                    .foregroundStyle(.white)
+                    .font(.headline)
+            }
+        }
+    }
 }

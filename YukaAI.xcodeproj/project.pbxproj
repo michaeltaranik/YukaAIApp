@@ -57,7 +57,6 @@
 		E48090792CA5A09A0027AF12 /* OnboardingTransitionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E48090782CA5A09A0027AF12 /* OnboardingTransitionView.swift */; };
 		E480907B2CA5B6220027AF12 /* PaywallView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E480907A2CA5B6220027AF12 /* PaywallView.swift */; };
 		E480907D2CA5B6F70027AF12 /* OnboardingImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E480907C2CA5B6F70027AF12 /* OnboardingImageView.swift */; };
-		E480907F2CA5B9270027AF12 /* IntroductionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E480907E2CA5B9270027AF12 /* IntroductionView.swift */; };
 		E48090852CA7F68B0027AF12 /* ColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E48090842CA7F68B0027AF12 /* ColorExtension.swift */; };
 		E4A955892C3C5980009D7F11 /* YukaAIApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4A955882C3C5980009D7F11 /* YukaAIApp.swift */; };
 		E4A9558B2C3C5980009D7F11 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4A9558A2C3C5980009D7F11 /* HomeView.swift */; };
@@ -182,7 +181,6 @@
 		E48090782CA5A09A0027AF12 /* OnboardingTransitionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingTransitionView.swift; sourceTree = "<group>"; };
 		E480907A2CA5B6220027AF12 /* PaywallView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaywallView.swift; sourceTree = "<group>"; };
 		E480907C2CA5B6F70027AF12 /* OnboardingImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingImageView.swift; sourceTree = "<group>"; };
-		E480907E2CA5B9270027AF12 /* IntroductionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntroductionView.swift; sourceTree = "<group>"; };
 		E48090842CA7F68B0027AF12 /* ColorExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorExtension.swift; sourceTree = "<group>"; };
 		E4A955852C3C5980009D7F11 /* YukaAI.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = YukaAI.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E4A955882C3C5980009D7F11 /* YukaAIApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YukaAIApp.swift; sourceTree = "<group>"; };
@@ -280,7 +278,6 @@
 		E40A4EEF2C513D5500167FBD /* OnBoarding */ = {
 			isa = PBXGroup;
 			children = (
-				E480907E2CA5B9270027AF12 /* IntroductionView.swift */,
 				E44101582C99E06F00326C3A /* OnboardingView.swift */,
 				E480907A2CA5B6220027AF12 /* PaywallView.swift */,
 				E48090802CA5B97A0027AF12 /* OnboardingComponents */,
@@ -332,7 +329,6 @@
 			children = (
 				E45956622C4E139F000B5058 /* YukaAI.entitlements */,
 				E4A955882C3C5980009D7F11 /* YukaAIApp.swift */,
-				E4A9558A2C3C5980009D7F11 /* HomeView.swift */,
 				E4A9558C2C3C5982009D7F11 /* Assets.xcassets */,
 				E40A4EEE2C5023DC00167FBD /* Info.plist */,
 				E4AA7C442C5CCDDF000C83D0 /* GoogleService-Info.plist */,
@@ -357,6 +353,7 @@
 		E441FBEE2C6361A10081317B /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				E4A9558A2C3C5980009D7F11 /* HomeView.swift */,
 				E4AA7C402C5A22E6000C83D0 /* Constants.swift */,
 				E4AA7C2F2C592B19000C83D0 /* Backgrounds */,
 				E4AFD9572C6767C100DB57D4 /* Charts */,
@@ -836,7 +833,6 @@
 				E45956712C4FB3C1000B5058 /* ConnectionView.swift in Sources */,
 				E44101492C96A68B00326C3A /* SubscriptionHeaderView.swift in Sources */,
 				E45956612C4E1355000B5058 /* HealthManager.swift in Sources */,
-				E480907F2CA5B9270027AF12 /* IntroductionView.swift in Sources */,
 				E40A4F0C2C541BFC00167FBD /* AccountView.swift in Sources */,
 				E425DDBE2C6D0CE400A8AC94 /* AssistantToolbar.swift in Sources */,
 				E4AA7C2E2C5929F5000C83D0 /* LightGreenGradient.swift in Sources */,
