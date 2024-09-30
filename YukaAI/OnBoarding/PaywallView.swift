@@ -63,7 +63,7 @@ extension PaywallView {
                 print("Restore tapped")
             },
             onMaybeLater: {
-                print("Maybe later tapped")
+                dismiss()
             }
         )
         .padding(.bottom, 35)
@@ -78,6 +78,7 @@ extension PaywallView {
     var dismissButton: some ToolbarContent {
         ToolbarItem(placement: .topBarTrailing) {
             Button {
+                HapticManager.shared.impact(style: .medium)
                 dismiss()
             } label: {
                 Image(systemName: "xmark")

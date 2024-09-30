@@ -66,6 +66,7 @@ extension OnboardingView {
         ToolbarItem(placement: .topBarLeading) {
             Button {
                 if selectedTab > 0 {
+                    HapticManager.shared.impact(style: .medium)
                     withAnimation {
                         selectedTab -= 1
                     }
