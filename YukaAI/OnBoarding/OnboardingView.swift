@@ -39,7 +39,6 @@ struct OnboardingView: View {
     OnboardingView(isOnboardingComplete: .constant(false))
 }
 
-
 extension OnboardingView {
     var panel: some View {
         OnboardingScreenView(

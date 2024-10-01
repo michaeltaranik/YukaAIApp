@@ -42,7 +42,6 @@ final class BarcodeScannerViewModel: ObservableObject {
     @Published var isFlashOn: Bool = false
     @Published var recognized: Bool = false
     @Published var sheetType: SheetType?
-    @Published var shouldShowHint: Bool = false
 
     let recognizedDataType: DataScannerViewController.RecognizedDataType = .barcode()
 

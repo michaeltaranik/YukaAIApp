@@ -9,6 +9,7 @@ import SwiftUI
 
 struct AnimatedBackgroundView: View {
     @Binding var animateGradient: Bool
+    var duration = 10
 
     var body: some View {
         AngularGradient(
@@ -22,7 +23,7 @@ struct AnimatedBackgroundView: View {
         )
         .ignoresSafeArea()
         .onAppear {
-            withAnimation(Animation.linear(duration: 10).repeatForever(autoreverses: true)) {
+            withAnimation(Animation.linear(duration: TimeInterval(duration)).repeatForever(autoreverses: false)) {
                 animateGradient.toggle()
             }
         }
@@ -32,8 +33,8 @@ struct AnimatedBackgroundView: View {
 
 
 #Preview {
-    ZStack {
-//        AnimatedBackgroundView()
+    VStack {
+        AnimatedBackgroundView(animateGradient: .constant(true))
         GetSubscriptionView(
             title: "Unlock the Assistant",
             description: "Get the full functionality",
