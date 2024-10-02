@@ -8,26 +8,26 @@
 import SwiftUI
 
 struct AnimatedBackgroundView: View {
+    
     @Binding var animateGradient: Bool
-    var duration = 10
-
+    
+    var duration = 5
+    var gradientColors: [Color] = [.mossGreen, .lightGreenGradient, .mossGreen]
+    var autoReverse: Bool = true
+    
     var body: some View {
         AngularGradient(
-            gradient: Gradient(colors: [
-                .mossGreen,
-                .lightGreenGradient,
-                .mossGreen
-            ]),
+            gradient: Gradient(colors: gradientColors),
             center: .center,
-            angle: animateGradient ? .degrees(360) : .degrees(0)
-        )
+            angle: animateGradient ? .degrees(360) : .degrees(0))
         .ignoresSafeArea()
         .onAppear {
-            withAnimation(Animation.linear(duration: TimeInterval(duration)).repeatForever(autoreverses: false)) {
-                animateGradient.toggle()
-            }
+            withAnimation(Animation
+                .linear(duration: TimeInterval(duration))
+                .repeatForever(autoreverses: autoReverse)) {
+                    animateGradient.toggle()
+                }
         }
-        .shadow(color: .white.opacity(0.3), radius: 10, x: 15, y: 0)
     }
 }
 

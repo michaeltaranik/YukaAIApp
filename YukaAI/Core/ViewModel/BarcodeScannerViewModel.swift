@@ -39,7 +39,7 @@ final class BarcodeScannerViewModel: ObservableObject {
     @Published var recognizesMultipleItems = false
     @Published var showBottomContainer = false
     @Published var previousCount: Int = 0
-    @Published var isFlashOn: Bool = false
+    @Published var isTorchOn: Bool = false
     @Published var recognized: Bool = false
     @Published var sheetType: SheetType?
 
@@ -63,7 +63,7 @@ final class BarcodeScannerViewModel: ObservableObject {
         }
     }
     
-    func toggleTorch(on: Bool) {
+    func toggleTorch() {
         let deviceDiscoverySession = AVCaptureDevice.DiscoverySession(deviceTypes: [.builtInTripleCamera, .builtInDualWideCamera, .builtInUltraWideCamera, .builtInWideAngleCamera, .builtInTrueDepthCamera], mediaType: AVMediaType.video, position: .back)
         
         guard
@@ -73,7 +73,8 @@ final class BarcodeScannerViewModel: ObservableObject {
 
         do {
             try device.lockForConfiguration()
-            device.torchMode = on ? .on : .off
+            isTorchOn.toggle()
+            device.torchMode = isTorchOn ? .on : .off
             device.unlockForConfiguration()
         } catch {
             print("Torch could not be used")

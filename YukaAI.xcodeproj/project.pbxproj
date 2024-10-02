@@ -25,6 +25,10 @@
 		E425DDBE2C6D0CE400A8AC94 /* AssistantToolbar.swift in Sources */ = {isa = PBXBuildFile; fileRef = E425DDBD2C6D0CE400A8AC94 /* AssistantToolbar.swift */; };
 		E426B5EF2CAC2C1B00F6BA26 /* TempHintView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E426B5EE2CAC2C1B00F6BA26 /* TempHintView.swift */; };
 		E426B5F12CAC383100F6BA26 /* HintView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E426B5F02CAC383100F6BA26 /* HintView.swift */; };
+		E426B5F32CAC4C7E00F6BA26 /* TakePhotoButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E426B5F22CAC4C7E00F6BA26 /* TakePhotoButtonView.swift */; };
+		E426B5F52CAC50BF00F6BA26 /* CameraZoneFrameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E426B5F42CAC50BF00F6BA26 /* CameraZoneFrameView.swift */; };
+		E426B5F72CAD0E3D00F6BA26 /* BarcodeFrameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E426B5F62CAD0E3D00F6BA26 /* BarcodeFrameView.swift */; };
+		E426B5F92CAD287300F6BA26 /* PremiumButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E426B5F82CAD287300F6BA26 /* PremiumButtonView.swift */; };
 		E42FB57A2C6936350092C09F /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = E4AA7C442C5CCDDF000C83D0 /* GoogleService-Info.plist */; };
 		E42FB57C2C6A14400092C09F /* StringExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E42FB57B2C6A14400092C09F /* StringExtension.swift */; };
 		E42FB57E2C6B98170092C09F /* SubmitImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E42FB57D2C6B98170092C09F /* SubmitImageView.swift */; };
@@ -126,6 +130,10 @@
 		E425DDBD2C6D0CE400A8AC94 /* AssistantToolbar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssistantToolbar.swift; sourceTree = "<group>"; };
 		E426B5EE2CAC2C1B00F6BA26 /* TempHintView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TempHintView.swift; sourceTree = "<group>"; };
 		E426B5F02CAC383100F6BA26 /* HintView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HintView.swift; sourceTree = "<group>"; };
+		E426B5F22CAC4C7E00F6BA26 /* TakePhotoButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TakePhotoButtonView.swift; sourceTree = "<group>"; };
+		E426B5F42CAC50BF00F6BA26 /* CameraZoneFrameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraZoneFrameView.swift; sourceTree = "<group>"; };
+		E426B5F62CAD0E3D00F6BA26 /* BarcodeFrameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BarcodeFrameView.swift; sourceTree = "<group>"; };
+		E426B5F82CAD287300F6BA26 /* PremiumButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PremiumButtonView.swift; sourceTree = "<group>"; };
 		E42FB57B2C6A14400092C09F /* StringExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringExtension.swift; sourceTree = "<group>"; };
 		E42FB57D2C6B98170092C09F /* SubmitImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubmitImageView.swift; sourceTree = "<group>"; };
 		E42FB5802C6B986E0092C09F /* ImageModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageModel.swift; sourceTree = "<group>"; };
@@ -223,7 +231,6 @@
 		E40A4EE72C4FFB4F00167FBD /* BarcodeScanner */ = {
 			isa = PBXGroup;
 			children = (
-				E40A4EEA2C4FFCAF00167FBD /* DataScannerView.swift */,
 				E40A4EEC2C4FFDA700167FBD /* BarcodeScannerView.swift */,
 				E480908E2CAAA3AD0027AF12 /* BottomContainer.swift */,
 				E48090942CAAB4FF0027AF12 /* Components */,
@@ -430,12 +437,17 @@
 		E48090942CAAB4FF0027AF12 /* Components */ = {
 			isa = PBXGroup;
 			children = (
+				E40A4EEA2C4FFCAF00167FBD /* DataScannerView.swift */,
+				E426B5F62CAD0E3D00F6BA26 /* BarcodeFrameView.swift */,
+				E426B5F82CAD287300F6BA26 /* PremiumButtonView.swift */,
 				E48090902CAAA5650027AF12 /* CornerIconView.swift */,
 				E48090922CAAAE960027AF12 /* CornerIconWInfoView.swift */,
 				E48090952CAAE6FC0027AF12 /* PremiumIconView.swift */,
 				E430142B2CAC293E0070383C /* PremiumOldIconView.swift */,
 				E426B5EE2CAC2C1B00F6BA26 /* TempHintView.swift */,
 				E426B5F02CAC383100F6BA26 /* HintView.swift */,
+				E426B5F22CAC4C7E00F6BA26 /* TakePhotoButtonView.swift */,
+				E426B5F42CAC50BF00F6BA26 /* CameraZoneFrameView.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -657,7 +669,9 @@
 				E4B24EF92C6CA4F6009CF592 /* ResultsProtocol.swift in Sources */,
 				E48090962CAAE6FC0027AF12 /* PremiumIconView.swift in Sources */,
 				E45956482C4C313C000B5058 /* DataManager.swift in Sources */,
+				E426B5F72CAD0E3D00F6BA26 /* BarcodeFrameView.swift in Sources */,
 				E4AA7C3F2C5A19A6000C83D0 /* AssistantView.swift in Sources */,
+				E426B5F52CAC50BF00F6BA26 /* CameraZoneFrameView.swift in Sources */,
 				E441FBF82C636B930081317B /* CartViewModel.swift in Sources */,
 				E426B5EF2CAC2C1B00F6BA26 /* TempHintView.swift in Sources */,
 				E44101552C99A6BC00326C3A /* AnimatedBackgroundView.swift in Sources */,
@@ -700,6 +714,7 @@
 				E44101472C96A0C000326C3A /* TitleLabelView.swift in Sources */,
 				E48090912CAAA5650027AF12 /* CornerIconView.swift in Sources */,
 				E4B24EF72C6C9A63009CF592 /* URLManager.swift in Sources */,
+				E426B5F32CAC4C7E00F6BA26 /* TakePhotoButtonView.swift in Sources */,
 				E480908F2CAAA3AD0027AF12 /* BottomContainer.swift in Sources */,
 				E40A4EF52C51500400167FBD /* CreateUserView.swift in Sources */,
 				E40A4EF12C513D6D00167FBD /* IntroView.swift in Sources */,
@@ -715,6 +730,7 @@
 				E4AFD9062C64DCF900DB57D4 /* HelperBottomSectionView.swift in Sources */,
 				E4AA7C332C592B89000C83D0 /* LightYellowGradient.swift in Sources */,
 				E4AFD9582C6767C100DB57D4 /* PieChartCell.swift in Sources */,
+				E426B5F92CAD287300F6BA26 /* PremiumButtonView.swift in Sources */,
 				E441014F2C96A76C00326C3A /* SubscriptionFooterView.swift in Sources */,
 				E4AFD9592C6767C100DB57D4 /* BarChartView.swift in Sources */,
 				E4AFD95A2C6767C100DB57D4 /* LineChartView.swift in Sources */,

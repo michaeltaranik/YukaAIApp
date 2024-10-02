@@ -48,6 +48,15 @@ struct GradientColors {
         endPoint: .bottom
     )
     
+    let gradientBlackColors = [
+        .black.opacity(0.78),
+        .black.opacity(0.62),
+        .black.opacity(0.4),
+        .black.opacity(0.22),
+        .black.opacity(0.08),
+        Color.clear
+    ]
+    
     let orange = GradientColor(start: Colors.OrangeStart, end: Colors.OrangeEnd)
     let blue = GradientColor(start: Colors.GradientPurple, end: Colors.GradientNeonBlue)
     let green = GradientColor(start: Color(hexString: "0BCDF7"), end: Color(hexString: "A2FEAE"))
