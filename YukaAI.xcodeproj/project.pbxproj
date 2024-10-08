@@ -29,8 +29,7 @@
 		E426B5F52CAC50BF00F6BA26 /* CameraZoneFrameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E426B5F42CAC50BF00F6BA26 /* CameraZoneFrameView.swift */; };
 		E426B5F72CAD0E3D00F6BA26 /* BarcodeFrameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E426B5F62CAD0E3D00F6BA26 /* BarcodeFrameView.swift */; };
 		E426B5F92CAD287300F6BA26 /* PremiumButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E426B5F82CAD287300F6BA26 /* PremiumButtonView.swift */; };
-		E426B5FC2CB4EA2A00F6BA26 /* RBarChartGround.swift in Sources */ = {isa = PBXBuildFile; fileRef = E426B5FB2CB4EA2A00F6BA26 /* RBarChartGround.swift */; };
-		E426B5FE2CB4EB1E00F6BA26 /* RBarChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E426B5FD2CB4EB1E00F6BA26 /* RBarChartView.swift */; };
+		E426B5FE2CB4EB1E00F6BA26 /* BarChartCoreView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E426B5FD2CB4EB1E00F6BA26 /* BarChartCoreView.swift */; };
 		E42FB57A2C6936350092C09F /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = E4AA7C442C5CCDDF000C83D0 /* GoogleService-Info.plist */; };
 		E42FB57C2C6A14400092C09F /* StringExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E42FB57B2C6A14400092C09F /* StringExtension.swift */; };
 		E42FB57E2C6B98170092C09F /* SubmitImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E42FB57D2C6B98170092C09F /* SubmitImageView.swift */; };
@@ -63,6 +62,11 @@
 		E48090912CAAA5650027AF12 /* CornerIconView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E48090902CAAA5650027AF12 /* CornerIconView.swift */; };
 		E48090932CAAAE960027AF12 /* CornerIconWInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E48090922CAAAE960027AF12 /* CornerIconWInfoView.swift */; };
 		E48090962CAAE6FC0027AF12 /* PremiumIconView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E48090952CAAE6FC0027AF12 /* PremiumIconView.swift */; };
+		E491DE972CB50A3C0028F8F6 /* UIScreenExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E491DE962CB50A3C0028F8F6 /* UIScreenExtension.swift */; };
+		E491DE992CB51D810028F8F6 /* BarChartGround.swift in Sources */ = {isa = PBXBuildFile; fileRef = E491DE982CB51D810028F8F6 /* BarChartGround.swift */; };
+		E491DE9B2CB51E200028F8F6 /* SingleBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E491DE9A2CB51E1F0028F8F6 /* SingleBarView.swift */; };
+		E491DE9D2CB51F630028F8F6 /* BarsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E491DE9C2CB51F630028F8F6 /* BarsView.swift */; };
+		E491DE9F2CB555440028F8F6 /* BarChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E491DE9E2CB555440028F8F6 /* BarChartView.swift */; };
 		E4A955892C3C5980009D7F11 /* YukaAIApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4A955882C3C5980009D7F11 /* YukaAIApp.swift */; };
 		E4A9558B2C3C5980009D7F11 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4A9558A2C3C5980009D7F11 /* HomeView.swift */; };
 		E4A9558D2C3C5982009D7F11 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E4A9558C2C3C5982009D7F11 /* Assets.xcassets */; };
@@ -85,21 +89,17 @@
 		E4AFD9132C661E8400DB57D4 /* ShowIndicatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4AFD9122C661E8400DB57D4 /* ShowIndicatorView.swift */; };
 		E4AFD9172C66495600DB57D4 /* NavButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4AFD9162C66495600DB57D4 /* NavButtonView.swift */; };
 		E4AFD9582C6767C100DB57D4 /* PieChartCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4AFD9512C6767C100DB57D4 /* PieChartCell.swift */; };
-		E4AFD9592C6767C100DB57D4 /* BarChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4AFD9452C6767C100DB57D4 /* BarChartView.swift */; };
 		E4AFD95A2C6767C100DB57D4 /* LineChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4AFD94B2C6767C100DB57D4 /* LineChartView.swift */; };
 		E4AFD95B2C6767C100DB57D4 /* MagnifierRect.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4AFD94D2C6767C100DB57D4 /* MagnifierRect.swift */; };
 		E4AFD95C2C6767C100DB57D4 /* MultiLineChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4AFD94E2C6767C100DB57D4 /* MultiLineChartView.swift */; };
-		E4AFD95D2C6767C100DB57D4 /* BarChartRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4AFD9442C6767C100DB57D4 /* BarChartRow.swift */; };
 		E4AFD95E2C6767C100DB57D4 /* LineView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4AFD94C2C6767C100DB57D4 /* LineView.swift */; };
 		E4AFD95F2C6767C100DB57D4 /* Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4AFD9562C6767C100DB57D4 /* Helpers.swift */; };
 		E4AFD9602C6767C100DB57D4 /* Legend.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4AFD9492C6767C100DB57D4 /* Legend.swift */; };
 		E4AFD9612C6767C100DB57D4 /* ChartLine.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4AFD94A2C6767C100DB57D4 /* ChartLine.swift */; };
 		E4AFD9622C6767C100DB57D4 /* PieChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4AFD9542C6767C100DB57D4 /* PieChartView.swift */; };
-		E4AFD9632C6767C100DB57D4 /* BarChartCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4AFD9432C6767C100DB57D4 /* BarChartCell.swift */; };
 		E4AFD9642C6767C100DB57D4 /* PieChartHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4AFD9522C6767C100DB57D4 /* PieChartHelpers.swift */; };
 		E4AFD9652C6767C100DB57D4 /* PieChartRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4AFD9532C6767C100DB57D4 /* PieChartRow.swift */; };
 		E4AFD9662C6767C100DB57D4 /* Path+QuadCurve.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4AFD94F2C6767C100DB57D4 /* Path+QuadCurve.swift */; };
-		E4AFD9672C6767C100DB57D4 /* LabelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4AFD9462C6767C100DB57D4 /* LabelView.swift */; };
 		E4AFD9682C6767C100DB57D4 /* IndicatorPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4AFD9482C6767C100DB57D4 /* IndicatorPoint.swift */; };
 		E4AFD96B2C68C43600DB57D4 /* LoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4AFD96A2C68C43600DB57D4 /* LoadingView.swift */; };
 		E4AFD96D2C68C4BC00DB57D4 /* ProductQuality.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4AFD96C2C68C4BC00DB57D4 /* ProductQuality.swift */; };
@@ -135,8 +135,7 @@
 		E426B5F42CAC50BF00F6BA26 /* CameraZoneFrameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraZoneFrameView.swift; sourceTree = "<group>"; };
 		E426B5F62CAD0E3D00F6BA26 /* BarcodeFrameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BarcodeFrameView.swift; sourceTree = "<group>"; };
 		E426B5F82CAD287300F6BA26 /* PremiumButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PremiumButtonView.swift; sourceTree = "<group>"; };
-		E426B5FB2CB4EA2A00F6BA26 /* RBarChartGround.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RBarChartGround.swift; sourceTree = "<group>"; };
-		E426B5FD2CB4EB1E00F6BA26 /* RBarChartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RBarChartView.swift; sourceTree = "<group>"; };
+		E426B5FD2CB4EB1E00F6BA26 /* BarChartCoreView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BarChartCoreView.swift; sourceTree = "<group>"; };
 		E42FB57B2C6A14400092C09F /* StringExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringExtension.swift; sourceTree = "<group>"; };
 		E42FB57D2C6B98170092C09F /* SubmitImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubmitImageView.swift; sourceTree = "<group>"; };
 		E42FB5802C6B986E0092C09F /* ImageModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageModel.swift; sourceTree = "<group>"; };
@@ -170,6 +169,11 @@
 		E48090902CAAA5650027AF12 /* CornerIconView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CornerIconView.swift; sourceTree = "<group>"; };
 		E48090922CAAAE960027AF12 /* CornerIconWInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CornerIconWInfoView.swift; sourceTree = "<group>"; };
 		E48090952CAAE6FC0027AF12 /* PremiumIconView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PremiumIconView.swift; sourceTree = "<group>"; };
+		E491DE962CB50A3C0028F8F6 /* UIScreenExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIScreenExtension.swift; sourceTree = "<group>"; };
+		E491DE982CB51D810028F8F6 /* BarChartGround.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BarChartGround.swift; sourceTree = "<group>"; };
+		E491DE9A2CB51E1F0028F8F6 /* SingleBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingleBarView.swift; sourceTree = "<group>"; };
+		E491DE9C2CB51F630028F8F6 /* BarsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BarsView.swift; sourceTree = "<group>"; };
+		E491DE9E2CB555440028F8F6 /* BarChartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BarChartView.swift; sourceTree = "<group>"; };
 		E4A955882C3C5980009D7F11 /* YukaAIApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YukaAIApp.swift; sourceTree = "<group>"; };
 		E4A9558A2C3C5980009D7F11 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		E4A9558C2C3C5982009D7F11 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -191,10 +195,6 @@
 		E4AFD9102C66169A00DB57D4 /* SemiCircle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SemiCircle.swift; sourceTree = "<group>"; };
 		E4AFD9122C661E8400DB57D4 /* ShowIndicatorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowIndicatorView.swift; sourceTree = "<group>"; };
 		E4AFD9162C66495600DB57D4 /* NavButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavButtonView.swift; sourceTree = "<group>"; };
-		E4AFD9432C6767C100DB57D4 /* BarChartCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BarChartCell.swift; sourceTree = "<group>"; };
-		E4AFD9442C6767C100DB57D4 /* BarChartRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BarChartRow.swift; sourceTree = "<group>"; };
-		E4AFD9452C6767C100DB57D4 /* BarChartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BarChartView.swift; sourceTree = "<group>"; };
-		E4AFD9462C6767C100DB57D4 /* LabelView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LabelView.swift; sourceTree = "<group>"; };
 		E4AFD9482C6767C100DB57D4 /* IndicatorPoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IndicatorPoint.swift; sourceTree = "<group>"; };
 		E4AFD9492C6767C100DB57D4 /* Legend.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Legend.swift; sourceTree = "<group>"; };
 		E4AFD94A2C6767C100DB57D4 /* ChartLine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartLine.swift; sourceTree = "<group>"; };
@@ -255,8 +255,11 @@
 		E426B5FA2CB4E99A00F6BA26 /* RBarChart */ = {
 			isa = PBXGroup;
 			children = (
-				E426B5FB2CB4EA2A00F6BA26 /* RBarChartGround.swift */,
-				E426B5FD2CB4EB1E00F6BA26 /* RBarChartView.swift */,
+				E491DE9E2CB555440028F8F6 /* BarChartView.swift */,
+				E426B5FD2CB4EB1E00F6BA26 /* BarChartCoreView.swift */,
+				E491DE982CB51D810028F8F6 /* BarChartGround.swift */,
+				E491DE9C2CB51F630028F8F6 /* BarsView.swift */,
+				E491DE9A2CB51E1F0028F8F6 /* SingleBarView.swift */,
 			);
 			path = RBarChart;
 			sourceTree = "<group>";
@@ -501,17 +504,6 @@
 			path = Backgrounds;
 			sourceTree = "<group>";
 		};
-		E4AFD9472C6767C100DB57D4 /* BarChart */ = {
-			isa = PBXGroup;
-			children = (
-				E4AFD9432C6767C100DB57D4 /* BarChartCell.swift */,
-				E4AFD9442C6767C100DB57D4 /* BarChartRow.swift */,
-				E4AFD9452C6767C100DB57D4 /* BarChartView.swift */,
-				E4AFD9462C6767C100DB57D4 /* LabelView.swift */,
-			);
-			path = BarChart;
-			sourceTree = "<group>";
-		};
 		E4AFD9502C6767C100DB57D4 /* LineChart */ = {
 			isa = PBXGroup;
 			children = (
@@ -542,7 +534,6 @@
 			isa = PBXGroup;
 			children = (
 				E426B5FA2CB4E99A00F6BA26 /* RBarChart */,
-				E4AFD9472C6767C100DB57D4 /* BarChart */,
 				E4AFD9502C6767C100DB57D4 /* LineChart */,
 				E4AFD9552C6767C100DB57D4 /* PieChart */,
 				E4AFD9562C6767C100DB57D4 /* Helpers.swift */,
@@ -578,6 +569,7 @@
 				E441FBF92C639FAD0081317B /* BindingExtension.swift */,
 				E42FB57B2C6A14400092C09F /* StringExtension.swift */,
 				E48090842CA7F68B0027AF12 /* ColorExtension.swift */,
+				E491DE962CB50A3C0028F8F6 /* UIScreenExtension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -686,6 +678,7 @@
 				E441FBF82C636B930081317B /* CartViewModel.swift in Sources */,
 				E426B5EF2CAC2C1B00F6BA26 /* TempHintView.swift in Sources */,
 				E44101552C99A6BC00326C3A /* AnimatedBackgroundView.swift in Sources */,
+				E491DE972CB50A3C0028F8F6 /* UIScreenExtension.swift in Sources */,
 				E42FB5812C6B986E0092C09F /* ImageModel.swift in Sources */,
 				E40A4EF72C515CCC00167FBD /* WelcomeView.swift in Sources */,
 				E4AFD9042C64B3A600DB57D4 /* HapticManager.swift in Sources */,
@@ -698,6 +691,7 @@
 				E441014D2C96A72700326C3A /* SubscriptionButtonView.swift in Sources */,
 				E44101592C99E06F00326C3A /* OnboardingView.swift in Sources */,
 				E459566F2C4E76A8000B5058 /* HistoryView.swift in Sources */,
+				E491DE9D2CB51F630028F8F6 /* BarsView.swift in Sources */,
 				E4AA7C412C5A22E6000C83D0 /* Constants.swift in Sources */,
 				E4B24EF32C6C92E5009CF592 /* LocalResults.swift in Sources */,
 				E40A4EEB2C4FFCAF00167FBD /* DataScannerView.swift in Sources */,
@@ -712,6 +706,7 @@
 				E4AA7C2C2C58CE9A000C83D0 /* ProductItemVM.swift in Sources */,
 				E4AFD9112C66169A00DB57D4 /* SemiCircle.swift in Sources */,
 				E4B24EFD2C6CB403009CF592 /* AuthenticationManager.swift in Sources */,
+				E491DE9B2CB51E200028F8F6 /* SingleBarView.swift in Sources */,
 				E40A4F0A2C541AC300167FBD /* GreenGradient.swift in Sources */,
 				E48090932CAAAE960027AF12 /* CornerIconWInfoView.swift in Sources */,
 				E4AFD8FE2C63DB1300DB57D4 /* UserDefaultsExtension.swift in Sources */,
@@ -725,14 +720,13 @@
 				E48090912CAAA5650027AF12 /* CornerIconView.swift in Sources */,
 				E4B24EF72C6C9A63009CF592 /* URLManager.swift in Sources */,
 				E426B5F32CAC4C7E00F6BA26 /* TakePhotoButtonView.swift in Sources */,
-				E426B5FE2CB4EB1E00F6BA26 /* RBarChartView.swift in Sources */,
+				E426B5FE2CB4EB1E00F6BA26 /* BarChartCoreView.swift in Sources */,
 				E480908F2CAAA3AD0027AF12 /* BottomContainer.swift in Sources */,
 				E40A4EF52C51500400167FBD /* CreateUserView.swift in Sources */,
 				E40A4EF12C513D6D00167FBD /* IntroView.swift in Sources */,
 				E44101572C99D36E00326C3A /* OnboardingPanelView.swift in Sources */,
 				E48090852CA7F68B0027AF12 /* ColorExtension.swift in Sources */,
 				E4AFD90E2C660F8100DB57D4 /* AssistantFileManager.swift in Sources */,
-				E426B5FC2CB4EA2A00F6BA26 /* RBarChartGround.swift in Sources */,
 				E40A4EFF2C5293EC00167FBD /* SignInView.swift in Sources */,
 				E40A4EF32C51462900167FBD /* LogInView.swift in Sources */,
 				E4A955892C3C5980009D7F11 /* YukaAIApp.swift in Sources */,
@@ -744,31 +738,29 @@
 				E4AFD9582C6767C100DB57D4 /* PieChartCell.swift in Sources */,
 				E426B5F92CAD287300F6BA26 /* PremiumButtonView.swift in Sources */,
 				E441014F2C96A76C00326C3A /* SubscriptionFooterView.swift in Sources */,
-				E4AFD9592C6767C100DB57D4 /* BarChartView.swift in Sources */,
 				E4AFD95A2C6767C100DB57D4 /* LineChartView.swift in Sources */,
 				E44101432C969D7B00326C3A /* SubsciptionView.swift in Sources */,
 				E4AFD95B2C6767C100DB57D4 /* MagnifierRect.swift in Sources */,
 				E480907B2CA5B6220027AF12 /* PaywallView.swift in Sources */,
 				E4AFD95C2C6767C100DB57D4 /* MultiLineChartView.swift in Sources */,
-				E4AFD95D2C6767C100DB57D4 /* BarChartRow.swift in Sources */,
 				E426B5F12CAC383100F6BA26 /* HintView.swift in Sources */,
 				E4AFD95E2C6767C100DB57D4 /* LineView.swift in Sources */,
 				E4AFD95F2C6767C100DB57D4 /* Helpers.swift in Sources */,
 				E441014B2C96A6CC00326C3A /* SubscriptionFeatureListView.swift in Sources */,
+				E491DE992CB51D810028F8F6 /* BarChartGround.swift in Sources */,
 				E4AFD9602C6767C100DB57D4 /* Legend.swift in Sources */,
 				E4AFD9612C6767C100DB57D4 /* ChartLine.swift in Sources */,
 				E48090792CA5A09A0027AF12 /* OnboardingTransitionView.swift in Sources */,
 				E40135302C6DDF8800280207 /* AddButtonView.swift in Sources */,
 				E4AFD9622C6767C100DB57D4 /* PieChartView.swift in Sources */,
-				E4AFD9632C6767C100DB57D4 /* BarChartCell.swift in Sources */,
 				E4AFD9642C6767C100DB57D4 /* PieChartHelpers.swift in Sources */,
 				E4AFD9652C6767C100DB57D4 /* PieChartRow.swift in Sources */,
 				E4AFD96B2C68C43600DB57D4 /* LoadingView.swift in Sources */,
 				E4AFD9662C6767C100DB57D4 /* Path+QuadCurve.swift in Sources */,
-				E4AFD9672C6767C100DB57D4 /* LabelView.swift in Sources */,
 				E4AFD9682C6767C100DB57D4 /* IndicatorPoint.swift in Sources */,
 				E45956682C4E1908000B5058 /* StatsView.swift in Sources */,
 				E4AFD90A2C64FB4F00DB57D4 /* AssistantAdviceView.swift in Sources */,
+				E491DE9F2CB555440028F8F6 /* BarChartView.swift in Sources */,
 				E4AFD9132C661E8400DB57D4 /* ShowIndicatorView.swift in Sources */,
 				E45956662C4E1548000B5058 /* HealthView.swift in Sources */,
 			);

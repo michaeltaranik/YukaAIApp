@@ -15,12 +15,16 @@ struct CornerIconView: View {
     let onTap: () -> Void
     
     var body: some View {
-        Image(systemName: imageName)
-            .frame(width: size, height: size)
-            .background(Color.theme.iconBackColor)
-            .foregroundStyle(.white)
-            .cornerRadius(cornerRadius)
-            .onTapGesture { HapticManager.shared.impact(style: .medium); onTap() }
+        Button {
+            HapticManager.shared.impact(style: .medium)
+            onTap()
+        } label: {
+            Image(systemName: imageName)
+                .frame(width: size, height: size)
+                .background(Color.theme.iconBackColor)
+                .foregroundStyle(.white)
+                .cornerRadius(cornerRadius)
+        }
     }
 }
 
