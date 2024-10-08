@@ -19,6 +19,7 @@ enum SheetType: String {
     case cart
     case history
     case paywall
+    case charts
 }
 
 enum DataScannerAccessStatusType {

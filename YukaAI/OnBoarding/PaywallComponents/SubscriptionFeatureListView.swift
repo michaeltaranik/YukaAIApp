@@ -32,7 +32,7 @@ struct SubscriptionFeatureView: View {
                 .font(.title2)
             Text(text)
                 .foregroundColor(.white)
-                .font(.system(size: 16, weight: .regular))
+                .font(.system(size: 16, weight: .regular, design: .rounded))
         }
     }
 }

@@ -111,7 +111,7 @@ public struct MultiLineChartView: View {
                 GeometryReader{ geometry in
                     ZStack{
                         ForEach(0..<self.data.count, id: \.self) { i in
-                            Line(data: self.data[i],
+                            ChartLine(data: self.data[i],
                                  frame: .constant(geometry.frame(in: .local)),
                                  touchLocation: self.$touchLocation,
                                  showIndicator: self.$showIndicatorDot,

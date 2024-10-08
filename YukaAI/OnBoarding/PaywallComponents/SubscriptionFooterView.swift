@@ -58,6 +58,7 @@ extension SubscriptionFooterView {
             Text(name)
                 .underline()
                 .foregroundColor(Color.white.opacity(0.7))
+                .font(.system(size: 16, weight: .regular, design: .rounded))
         }
     }
     
@@ -72,7 +73,7 @@ extension SubscriptionFooterView {
             onMaybeLater()
         } label:  {
             Text("Maybe later")
-                .font(.system(size: 16))
+                .font(.system(size: 16, design: .rounded))
                 .foregroundColor(.white)
                 .padding(.bottom, 20)
         }

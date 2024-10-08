@@ -136,8 +136,8 @@ struct PieChartView_Previews : PreviewProvider {
     static var previews: some View {
         PieChartView(
             data:[100,100,100],
-            title: "Title",
-            legend: "Legend",
+            title: "Your Scans",
+            legend: "Decent",
             backgroundColor: Color.white,
             linGradients: K.charts.qualityLinGradients,
             radGradients: K.charts.qualityRadGradients)

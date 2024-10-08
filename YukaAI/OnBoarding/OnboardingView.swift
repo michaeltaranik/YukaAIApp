@@ -30,7 +30,7 @@ struct OnboardingView: View {
                 }
             }
             .edgesIgnoringSafeArea(.top)
-            .toolbar { dismissButton }
+            .toolbar { turnbackButton }
         }
     }
 }
@@ -41,7 +41,7 @@ struct OnboardingView: View {
 
 extension OnboardingView {
     var panel: some View {
-        OnboardingScreenView(
+        OnboardingPanelView(
             label: Onboarding.label(selectedTab).getText,
             title: Onboarding.title(selectedTab).getText,
             onContinue: {
@@ -56,12 +56,12 @@ extension OnboardingView {
                 }
             },
             description: Onboarding.description(selectedTab).getText,
-            isAnimated: isLastTab
+            withGradient: isLastTab
         )
         .padding(.bottom, 30)
     }
     
-    var dismissButton: some ToolbarContent {
+    var turnbackButton: some ToolbarContent {
         ToolbarItem(placement: .topBarLeading) {
             Button {
                 if selectedTab > 0 {

@@ -27,7 +27,7 @@ struct BarcodeScannerView: View {
         .fullScreenCover(isPresented: .init(value: $vm.sheetType)) {
             switch vm.sheetType {
             case .profile:
-                AccountView()
+                ProfileView()
             case .cart:
                 HistoryView()
             case .history:
@@ -79,8 +79,8 @@ extension BarcodeScannerView {
                 Spacer()
                 
                 CornerIconView(
-                    imageName: "person.fill",
-                    onTap: { vm.sheetType = .profile })
+                    imageName: "chart.bar.xaxis.ascending.badge.clock.rtl",
+                    onTap: { vm.sheetType = .charts })
             }
         }
     }

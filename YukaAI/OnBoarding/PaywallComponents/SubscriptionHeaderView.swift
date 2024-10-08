@@ -17,7 +17,7 @@ struct SubscriptionHeaderView: View {
     var body: some View {
         VStack(alignment: .center) {
             Text(title)
-                .font(.system(size: 24, weight: .bold))
+                .font(.system(size: 28, weight: .bold, design: .rounded))
                 .foregroundColor(.white)
                 .padding(10)
                 .background(
@@ -27,7 +27,6 @@ struct SubscriptionHeaderView: View {
                             .scaleEffect(3)
                             .scaledToFill()
                             .blendMode(.overlay)
-                            .offset(.init(width: 0, height: 0))
                         
                         LinearGradient(
                             colors: [firstColor, secondColor],
@@ -41,7 +40,7 @@ struct SubscriptionHeaderView: View {
                 .padding(.vertical, 10)
             
             Text(description)
-                .font(.system(size: 16, weight: .regular))
+                .font(.system(size: 16, weight: .regular, design: .rounded))
                 .foregroundColor(.white.opacity(0.7))
                 .multilineTextAlignment(.center)
         }

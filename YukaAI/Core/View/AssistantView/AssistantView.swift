@@ -40,7 +40,7 @@ struct AssistantView: View {
             }
         }
         .sheet(isPresented: $vm.shouldShowProfile, content: {
-            AccountView()
+            ProfileView()
         })
     }
         

@@ -1,46 +1,159 @@
 //
-//  ProfileView.swift
+//  AccountView.swift
 //  YukaAI
 //
-//  Created by Michael Taranik on 22.07.2024.
+//  Created by Michael Taranik on 26.07.2024.
 //
 
 import SwiftUI
 
 
 struct ProfileView: View {
+    @Environment(\.dismiss) var dismmiss
     @State var darkMode = false
     @State var showHealth = false
     
-    
     var body: some View {
-        ZStack {
-            //            GreenGradient()
-            NavigationStack {
+        NavigationStack {
+            ZStack {
+                
+                background
+                
                 List {
-                    ProfileHeaderView(darkMode: $darkMode)
-                    NavigationLink(
-                        destination: ConnectionView()) {
-                            AppleHealthSectionView(darkMode: $darkMode)
-                        }
-                    DarkModeSectionView(darkMode: $darkMode)
-                    AppleHealthSectionView(darkMode: $darkMode)
-                        .fullScreenCover(isPresented: $showHealth , content: {
-                            HealthView(showHealthView: $showHealth)
-                        })
-                        .alert(
-                            "Change your Privacy Rules in Settings",
-                            isPresented: $showHealth) {}
-                        .onTapGesture {
-                            showHealth.toggle()
-                        }
-                        .listRowBackground(Color(.lightRed))
+                    header
+                    
+                    upperBody
+                    
+                    lowerBody
+                    
+                    signOutButton
+                        
                 }
+                .scrollContentBackground(.hidden)
                 .navigationTitle(Text("Profile"))
+            }
+            .toolbar {
+                Button {
+                    HapticManager.shared.impact(style: .medium)
+                    dismmiss()
+                } label: {
+                    Image(systemName: "xmark")
+                        .bold()
+                }
+
+            }
+        }
+        .font(.system(.body, design: .rounded))
+    }
+}
+
+
+
+extension ProfileView {
+    
+    
+    var header: some View {
+        Section {
+            HStack {
+                Image(.avatarIcon)
+                    .resizable()
+                    .scaledToFit()
+                    .frame(width: 100, height: 100)
+                    .mask {
+                        Circle()
+                    }
+                VStack(alignment: .leading) {
+                    Text("First Last")
+                        .font(.system(.title, design: .rounded))
+                        .foregroundStyle(.primary)
+                    Text("Personal details")
+                        .font(.system(.subheadline, design: .rounded))
+                        .foregroundStyle(.secondary)
+                }
+                
             }
         }
     }
     
+    var upperBody: some View {
+        Section {
+            darkModeButton
+            NavButtonView(
+                image: Image(systemName: "heart.fill"),
+                color: Color(.red),
+                label: "Connect Apple Health")
+            NavButtonView(
+                image: Image(systemName: "translate"),
+                color: Color(.orange),
+                label: "Language")
+        }
+    }
+    
+    var darkModeButton: some View {
+        Toggle(isOn: $darkMode) {
+            Section {
+                HStack {
+                    ZStack {
+                        RoundedRectangle(cornerSize: CGSize(width: 10, height: 10))
+                            .frame(width: 30, height: 30)
+                            .foregroundColor(.indigo)
+                        Image(systemName: "sun.max.fill")
+                            .foregroundColor(.white)
+                    }
+                    .padding(.trailing)
+                    Text("Dark mode")
+                }
+            }
+        }
+    }
+    
+    var lowerBody: some View {
+        Section {
+            NavButtonView(
+                image: Image(systemName: "questionmark.circle.fill"),
+                color: Color(.darkGreen),
+                label: "Help")
+            NavButtonView(
+                image: Image(systemName: "person.crop.circle.badge.questionmark"),
+                color: Color(.cyan),
+                label: "Support")
+            NavButtonView(
+                image: Image(systemName: "eraser.line.dashed.fill"),
+                color: Color(.darkRed),
+                label: "Delete all data")
+        }
+    }
+    
+    var signOutButton: some View {
+        Button {
+            print("signout")
+            HapticManager.shared.impact(style: .light)
+        } label: {
+            Spacer()
+            Text("Sign out")
+                .foregroundStyle(.red)
+                .bold()
+            Spacer()
+            
+        }
+        .buttonStyle(BorderlessButtonStyle())
+        
+    }
+    
+    
+    var background: some View {
+//        LinearGradient(
+//            gradient:
+//                Gradient(
+//                    colors: [
+//                        Color(red: 0.7, green: 1.0, blue: 0.9),
+//                        Color(red: 1.0, green: 1.0, blue: 0.8),
+//                        Color(red: 0.7, green: 1.0, blue: 0.9)]),
+//            startPoint: .topLeading,
+//            endPoint: .bottomTrailing)
+        Color(.accentBack)
+            .ignoresSafeArea()
+    }
     
 }
 
@@ -48,81 +161,3 @@ struct ProfileView: View {
     ProfileView()
 }
 
-struct ProfileHeaderView: View {
-    
-    @Binding var darkMode: Bool
-    
-    var body: some View {
-        HStack {
-            Image(.avatarIcon)
-                .resizable()
-                .clipShape(Circle())
-                .shadow(radius: 10)
-                .frame(width: 150, height: 150)
-                .foregroundColor(!darkMode ? .darkGreen : .lightGreen)
-                .padding(.vertical)
-            
-            Text("Your Profile!")
-                .foregroundColor(!darkMode ? .darkGreen : .lightGreen)
-                .bold()
-                .padding()
-        }
-    }
-}
-
-struct DarkModeSectionView: View {
-    @Binding var darkMode: Bool
-    
-    var body: some View {
-        ZStack {
-            Rectangle()
-                .foregroundStyle(darkMode ? .black : .white)
-                .cornerRadius(10)
-                .frame(height: 40)
-            Toggle(isOn: $darkMode, label: {
-                HStack {
-                    ZStack {
-                        Rectangle()
-                            .frame(width: 30, height: 30)
-                            .cornerRadius(6.0)
-                            .foregroundStyle(!darkMode ? .darkBlue : .lightRed)
-                        Image(systemName: darkMode ? "sun.max.fill" : "moon.stars.fill")
-                            .foregroundStyle(!darkMode ? .white : .black)
-                    }
-                    Text("Dark Mode")
-                        .foregroundColor(!darkMode ? .darkGreen : .lightGreen)
-                }
-            })
-            .padding(.horizontal)
-        }
-        .padding(.horizontal)
-    }
-}
-
-
-struct AppleHealthSectionView: View {
-    @Binding var darkMode: Bool
-    
-    var body: some View {
-        ZStack (alignment: .leading, content: {
-            Rectangle()
-                .foregroundStyle(darkMode ? .black : .white)
-                .cornerRadius(10)
-                .frame(height: 40)
-            HStack {
-                ZStack {
-                    Rectangle()
-                        .frame(width: 30, height: 30)
-                        .cornerRadius(6.0)
-                        .foregroundStyle(!darkMode ? .red : .lightRed)
-                    Image(systemName: "heart.fill")
-                        .foregroundStyle(!darkMode ? .white : .black)
-                }
-                Text("Connect Apple Health")
-                    .foregroundColor(!darkMode ? .black : .white)
-            }
-            .padding(.horizontal)
-        })
-        .padding(.horizontal)
-    }
-}
