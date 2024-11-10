@@ -14,6 +14,7 @@ struct BarcodeScannerView: View {
     @EnvironmentObject private var cartVM: CartViewModel
     @StateObject var vm = BarcodeScannerViewModel()
     
+    
     var body: some View {
         ZStack {
             scanner
@@ -22,6 +23,9 @@ struct BarcodeScannerView: View {
                 lowerFrameContent: lowerFrame,
                 paddingTop: 50)
             CameraZoneFrameView(recognized: $vm.recognized)
+//            if (vm.shouldShowApproval) {
+//                ConfirmCheckView(isAnimated: $vm.shouldShowApproval)
+//            }
         }
         .ignoresSafeArea()
         .fullScreenCover(isPresented: .init(value: $vm.sheetType)) {

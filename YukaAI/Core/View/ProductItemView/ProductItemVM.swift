@@ -11,15 +11,15 @@ import SwiftUI
 extension ProductItemView {
     @MainActor
     class ViewModel: ObservableObject {
-//        private var results: GlobalResults?
-        private var localResults: LocalResults?
+        private var publicResults: GlobalResults?
+        private var privateHostResults: LocalResults?
         private var userError: UserError?
         
         @Published var productItem: ProductItem?
         @Published var isLoading = false
         @Published var shouldShowAlert = false
         
-        private func createProductItem(results: GlobalResults) {
+        private func createProductItem(with results: GlobalResults) {
             self.productItem = ProductItem(results: results)
         }
         
@@ -27,14 +27,23 @@ extension ProductItemView {
             self.productItem = ProductItem(results: results)
         }
         
-        func getInfo(barcode: String) async {
+        func getInfo(barcode: String, isLocal: Bool) async {
             isLoading = true
             do {
-                self.localResults = try await DataManager.shared.fetchProductInfoLocal(from: barcode)
+                if (isLocal) {
+                    self.privateHostResults = try await DataManager.shared.fetchProductInfoLocal(from: barcode)
+                } else {
+                    self.publicResults = try await DataManager.shared.fetchProductInfo(from: barcode)
+                }
+                
                 self.isLoading = false
-                if let results = localResults {
+                if let results = privateHostResults {
                     createProductItem(with: results)
                 }
+                if let results = publicResults {
+                    createProductItem(with: results)
+                }
+                
                 HapticManager.shared.notification(type: .success)
             } catch(let error) {
                 print(error)

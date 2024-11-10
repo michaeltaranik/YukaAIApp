@@ -31,7 +31,7 @@ struct ProductItemView: View {
                         headerInfo
                     }
                     .task {
-                        await vm.getInfo(barcode: barcode)
+                        await vm.getInfo(barcode: barcode, isLocal: K.api.shouldUseLocalhost)
                     }
                     .padding()
                     HStack {

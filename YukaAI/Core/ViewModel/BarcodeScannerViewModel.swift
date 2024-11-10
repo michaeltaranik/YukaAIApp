@@ -43,6 +43,7 @@ final class BarcodeScannerViewModel: ObservableObject {
     @Published var isTorchOn: Bool = false
     @Published var recognized: Bool = false
     @Published var sheetType: SheetType?
+    @Published var shouldShowApproval = false
 
     let recognizedDataType: DataScannerViewController.RecognizedDataType = .barcode()
 
@@ -59,6 +60,7 @@ final class BarcodeScannerViewModel: ObservableObject {
     
     func handleOnChange(_ newCount: Int) {
         guard !recognizedItems.isEmpty else { return }
+        shouldShowApproval = true
         if !showBottomContainer {
             showBottomContainer.toggle()
         }
