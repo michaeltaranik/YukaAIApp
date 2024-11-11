@@ -60,7 +60,7 @@ struct SalesPerBookCategoryStackedBarChartView: View {
         .chartLegend(.hidden)
         
         .fixedSize(horizontal: false, vertical: true)
-        /*
+        
          ForEach(salesData) { datum in
          HStack {
          Text(datum.category.displayName)
@@ -70,7 +70,6 @@ struct SalesPerBookCategoryStackedBarChartView: View {
          Text("\(datum.endSales)")
          }
          }
-         */
         
     }
     

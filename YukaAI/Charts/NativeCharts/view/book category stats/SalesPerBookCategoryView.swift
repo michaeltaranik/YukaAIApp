@@ -62,7 +62,7 @@ struct SalesPerBookCategoryView: View {
             
             
            Spacer()
-          //  SalesPerBookCategoryListView(salesViewModel: salesViewModel)
+//            SalesPerBookCategoryListView(salesViewModel: salesViewModel)
         } .padding()
     }
 }
